@@ -101,6 +101,7 @@ The NYUAD Issue Resolution Portal sitemap has two main views: the Student Login 
 ### Mobile Wireframe
 
 - Student View
+
     ![Student_Dashboard](ux-design/wireframes/mobile-version/Student_Dashboard-Mobile_Version.png)
 
     ![Student_Dashboard-Mobile_Version-Filter_overlay](ux-design/wireframes/mobile-version/Student_Dashboard-Mobile_Version-Filter_overlay.png)
