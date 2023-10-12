@@ -1,19 +1,29 @@
-# Project Repository
+# NYUAD Issue Resolution Platform
 
-This repository will be used for team projects...
+## Assigned Roles
+We decided to rotate the assignment of the following roles for each sprint.
+### Sprint 1
+* **Product Owner:**
+* **Scrum Master:**
 
-Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
 
-1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
 
-2. Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
+## About
+### Product Vision Statement
+The NYUAD Issue Resolution Platform is envisioned as a transformative solution that streamlines and revolutionizes the way NYU Abu Dhabi students and administrative departments interact and resolve issues. Our vision is to create a transparent, efficient, and user-friendly web application that serves as a central hub for issue tracking and resolution. The platform will bridge the communication gap between students and departments, offering real-time insights, accountability, and enhanced collaboration.
 
-3. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
+### Product Description
+The NYUAD Issue Resolution Platform is a web-based application designed to facilitate streamlined communication and issue resolution between students and administrative departments at NYU Abu Dhabi. It offers secure login, a student dashboard for issue submission and tracking, department-specific dashboards for administrators, and features such as multi-department tagging, resolution verification, and reopening of issues. Built on the MERN stack, this platform is designed to enhance efficiency and transparency in issue resolution while providing a user-friendly experience for all stakeholders. The site map, wireframe design and the prototype is available in the [UX-DESIGN.md](./UX-DESIGN.md) file.
 
-4. See the [Front-End Development instructions](./instructions-1-front-end.md) for the requirements of the initial Front-End Development.
+### Collaborators
+* [Basil Ahmed](https://github.com/basil-ahmed)
+* [Nada Elsharkawy](https://github.com/nadamels)
+* [Avinash Gyawali](https://github.com/Tauke190)
+* [Swostik Pati](https://github.com/swostikpati) 
+* [Hasibur Rahman](https://github.com/hasiburratul)
 
-5. See the [Back-End Development instructions](./instructions-2-back-end.md) for the requirements of the initial Back-End Development.
+The [CONTRIBUTING.md](./CONTRIBUTING.md) file contains information on how to contribute to this project
 
-6. See the [Database Integration instructions](./instructions-3-database.md) for the requirements of integrating a database into the back-end.
 
-7. See the [Deployment instructions](./instructions-4-deployment.md) for the requirements of deploying an app.
+## How to launch the app
+The project team will provide instructions for building and testing the project once it reaches that stage
