@@ -3,10 +3,8 @@
 ## Assigned Roles
 We decided to rotate the assignment of the following roles for each sprint.
 ### Sprint 1
-* **Product Owner:**
-* **Scrum Master:**
-
-
+* **Product Owner:** Swostik Pati
+* **Scrum Master:** Basil Ahmed
 
 ## About
 ### Product Vision Statement
