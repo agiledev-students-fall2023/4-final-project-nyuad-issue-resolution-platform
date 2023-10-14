@@ -57,6 +57,7 @@ module.exports = {
     'array-bracket-spacing': ['warn'],
 
     'no-console': ['off'],
-    "space-before-function-paren": ["warn"]
+    "space-before-function-paren": ["warn"],
+    "quotes": ["warn", "double"]
   }
 }
