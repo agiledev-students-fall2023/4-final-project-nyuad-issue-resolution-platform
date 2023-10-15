@@ -58,6 +58,7 @@ module.exports = {
 
     'no-console': ['off'],
     "space-before-function-paren": ["warn"],
-    "quotes": ["warn", "double"]
+    "quotes": ["off"],
+    "indent": "off"
   }
 }
