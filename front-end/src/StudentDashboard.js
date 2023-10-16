@@ -62,8 +62,8 @@ const StudentDashboard = () => {
 
   const getStatusClass = (status) => {
     switch (status) {
-      case 'Awaiting Response':
-        return 'status-awaiting-response';
+      case 'Action Required':
+        return 'status-action-required';
       case 'Resolved':
         return 'status-closed';
       case 'In Progress':
