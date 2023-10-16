@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
-import logoutImage from "./logout.png";
+import logoutImage from "./assets/images/logout.png";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -111,7 +111,7 @@ const StudentDashboard = () => {
     { value: "Finance", label: "Student Finance" },
     { value: "GlobalEd", label: "Global Education" },
     { value: "ResEd", label: "Residential Education" },
-    { value: "CDC", label: "Career Development Center" },
+    { value: "CDC", label: "Career Development Center" }
   ];
 
   // Other state initializations for UI functionalities
@@ -190,18 +190,65 @@ const StudentDashboard = () => {
   const renderPagination = () => {
     const totalPages = Math.ceil(displayedRequests.length / itemsPerPage);
     const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={i === currentPage ? "active" : ""}
-        >
-          {i}
-        </button>
-      );
+
+    pages.push(
+      <button
+        key="backward"
+        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        {'«'}
+      </button>
+    );
+
+    if (totalPages <= 4) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(renderPageButton(i));
+      }
+    } else {
+      // Always display 1st page
+      pages.push(renderPageButton(1));
+      if (currentPage > 3) {
+        pages.push(<span key="ellipsis-start">...</span>);
+      }
+      if (currentPage > 2) {
+        pages.push(renderPageButton(currentPage - 1));
+      }
+      if (currentPage !== 1 && currentPage !== totalPages) {
+        pages.push(renderPageButton(currentPage));
+      }
+      if (currentPage < totalPages - 1) {
+        pages.push(renderPageButton(currentPage + 1));
+      }
+      if (currentPage < totalPages - 2) {
+        pages.push(<span key="ellipsis-end">...</span>);
+      }
+      pages.push(renderPageButton(totalPages));
     }
+
+    pages.push(
+      <button
+        key="forward"
+        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        {'»'}
+      </button>
+    );
+
     return pages;
+  };
+
+  const renderPageButton = (pageNumber) => {
+    return (
+      <button
+        key={pageNumber}
+        onClick={() => handlePageChange(pageNumber)}
+        className={pageNumber === currentPage ? "active" : ""}
+      >
+        {pageNumber}
+      </button>
+    );
   };
 
   // Handles notification click to display a notification overlay
@@ -310,7 +357,9 @@ const StudentDashboard = () => {
           <tbody>{renderRequests()}</tbody>
         </table>
       </div>
-      <div className="pagination">{renderPagination()}</div>
+      <div className="pagination">
+        <div className="pagination-box">{renderPagination()}</div>
+      </div>
       <div className="footer">
         <p>New York University Abu Dhabi</p>
       </div>

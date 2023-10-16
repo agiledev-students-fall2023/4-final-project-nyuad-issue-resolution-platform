@@ -37,6 +37,6 @@ const IssueDetails = () => {
       )}
     </div>
   );
-}
+};
 
 export default IssueDetails;
