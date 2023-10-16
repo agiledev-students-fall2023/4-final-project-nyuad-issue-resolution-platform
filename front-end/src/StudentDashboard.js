@@ -52,7 +52,7 @@ const StudentDashboard = () => {
             <th>Title</th>
             <th>Description</th>
             <th>Departments</th>
-            <th>Date Created/ Reopened</th>
+            <th>Date Created</th>
             <th>Current Status</th>
           </tr>
         </thead>
@@ -60,39 +60,75 @@ const StudentDashboard = () => {
     }
   };
 
+  const getStatusClass = (status) => {
+    switch (status) {
+      case 'Awaiting Response':
+        return 'status-awaiting-response';
+      case 'Resolved':
+        return 'status-closed';
+      case 'In Progress':
+        return 'status-in-progress';
+      case 'Open':
+        return 'status-open';
+      default:
+        return '';
+    }
+  };
+
   // Renders list of requests for display
   const renderRequests = () => {
     return paginatedRequests().map((request, index) => {
-      const truncatedTitle = request.title.split(" ").slice(0, 5).join(" ");
-
-      const truncatedDescription = request.description.split("\n")[0];
+      const truncatedDescription = request.description.split("\n")[0] + "...";
 
       if (windowWidth <= 768) {
         return (
           <tr key={index}>
-            <td>
+            <td className="title-cell-mobile">
               <Link to={`/issue/${request.index}`} className="issue-link">
-                {truncatedTitle}
+                {request.title}
               </Link>
             </td>
-
-            <td>{request.currentStatus}</td>
+            <td>
+              <span className={`status-box ${getStatusClass(request.currentStatus)}`}>
+                {request.currentStatus}
+              </span>
+            </td>
           </tr>
         );
       } else {
         return (
           <tr key={index}>
-            <td>
+            <td className="title-cell">
               <Link to={`/issue/${request.index}`} className="issue-link">
-                {truncatedTitle}
+                {request.title}
               </Link>
             </td>
-            <td>{truncatedDescription}</td>
-            <td>
-              {request.departments.map(mapDepartmentToDisplayName).join(", ")}
+            <td className="description-cell">
+              <Link to={`/issue/${request.index}`} className="issue-link">
+                {truncatedDescription}
+              </Link>
             </td>
-            <td>{request.dateCreated}</td>
-            <td>{request.currentStatus}</td>
+            <td className="departments-cell">
+              <Link to={`/issue/${request.index}`} className="issue-link">
+                {request.departments.map((department, index) => (
+                  <span key={index} className="department-pill">
+                    {mapDepartmentToDisplayName(department)}
+                  </span>
+                ))}
+              </Link>
+            </td>
+            <td className="date-created-cell">
+              <Link to={`/issue/${request.index}`} className="issue-link">
+                {request.dateCreated}
+              </Link>
+            </td>
+            <td>
+              <Link to={`/issue/${request.index}`} className="issue-link">
+                <span className={`status-box ${getStatusClass(request.currentStatus)}`}>
+                  {request.currentStatus}
+                </span>
+              </Link>
+            </td>
           </tr>
         );
       }
@@ -116,7 +152,7 @@ const StudentDashboard = () => {
 
   // Other state initializations for UI functionalities
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = windowWidth <= 768 ? 15 : 6;
+  const itemsPerPage = windowWidth <= 768 ? 15 : 9;
   const [studentName, setStudentName] = useState("John Doe");
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
