@@ -133,6 +133,70 @@ th {
   background-color: var(--secondary);
 }
 
+.title-cell,
+.description-cell {
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-cell:hover,
+.description-cell:hover {
+  overflow: auto;
+  white-space: normal;
+}
+
+.departments-cell {
+  max-width: 150px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.department-pill {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  background-color: rgba(131, 84, 219, 0.212);
+  font-weight: bold;
+  color: rgb(131, 84, 219);
+  margin: 2px;
+}
+
+.date-created-cell {
+  max-width: 100px;
+}
+
+.status-box {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px
+}
+
+.status-awaiting-response {
+  background-color: rgba(184, 44, 28, 0.214);
+  font-weight: bold;
+  color: rgb(184, 44, 28);
+}
+
+.status-closed {
+  background-color: rgba(35, 134, 55, 0.226);
+  font-weight: bold;
+  color: rgb(35, 134, 54);
+}
+
+.status-in-progress {
+  background-color: rgba(157, 105, 2, 0.209);
+  font-weight: bold;
+  color: rgb(157, 106, 2);
+}
+
+.status-open {
+  background-color: rgba(31, 109, 235, 0.217);
+  font-weight: bold;
+  color: rgb(31, 110, 235);
+}
+
 .pagination {
   padding-left: 20px;
   padding-right: 20px;
@@ -188,6 +252,7 @@ th {
 }
 
 @media only screen and (max-width: 768px) {
+
   .header,
   h2,
   .actions {
@@ -241,6 +306,12 @@ th {
   th {
     background-color: var(--primary);
     color: white;
+  }
+
+  .title-cell-mobile {
+    max-width: 160px;
+    white-space: nowrap;
+    overflow-x: auto;
   }
 
   .header h1,
