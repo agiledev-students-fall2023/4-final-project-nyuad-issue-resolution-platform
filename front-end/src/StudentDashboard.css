@@ -173,7 +173,7 @@ th {
   font-size: 12px
 }
 
-.status-awaiting-response {
+.status-action-required {
   background-color: rgba(184, 44, 28, 0.214);
   font-weight: bold;
   color: rgb(184, 44, 28);
