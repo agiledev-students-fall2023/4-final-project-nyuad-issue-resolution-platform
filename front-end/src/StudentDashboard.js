@@ -345,7 +345,7 @@ const StudentDashboard = () => {
   return (
     <div className="requests">
       <div className="header">
-        <h1>NYUAD Issue Resolution Portal</h1>
+        <h1 className="h1-student-dashboard">NYUAD Issue Resolution Portal</h1>
         <div className="student-info">
           <span className="student-name">Hello, {studentName}</span>
           <span className="notification-icon" onClick={handleNotificationClick}>
@@ -360,16 +360,16 @@ const StudentDashboard = () => {
         </div>
       </div>
       {renderNotificationOverlay()}
-      <h2>Your Requests</h2>
+      <h2 className="h2-student-dashboard">Your Requests</h2>
       <div className="actions">
         <div className="search-bar">
-          <input
+          <input className="input-student-dashboard"
             type="text"
             placeholder="Search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
         </div>
         <div className="filter-bar">
           <select
@@ -384,11 +384,11 @@ const StudentDashboard = () => {
           </select>
         </div>
         <div className="create-request-button">
-          <button onClick={handleCreateRequest}>Create Request +</button>
+          <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
         </div>
       </div>
       <div className="table">
-        <table>
+        <table className="table-student-dashboard">
           {renderTableHeader()}
           <tbody>{renderRequests()}</tbody>
         </table>
