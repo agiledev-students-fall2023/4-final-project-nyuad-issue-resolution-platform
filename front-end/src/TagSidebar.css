@@ -1,0 +1,24 @@
+/* TagSidebar.css */
+.tag-sidebar {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 5px 0;
+  }
+  
+  li:hover {
+    background-color: #e0e0e0;
+  }
+  
