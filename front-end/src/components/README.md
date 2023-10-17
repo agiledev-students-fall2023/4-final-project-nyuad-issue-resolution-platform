@@ -1,0 +1,1 @@
+# Components is where you store individual parts of a page (like navbar, footer, overlays any other reusable components)
