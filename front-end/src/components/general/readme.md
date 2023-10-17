@@ -1,0 +1,1 @@
+# Make sure to create separate directories for each component to store its respective .js and .css files
