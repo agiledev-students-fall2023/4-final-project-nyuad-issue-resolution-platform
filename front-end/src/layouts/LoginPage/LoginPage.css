@@ -44,13 +44,13 @@
     cursor: pointer;
     transition: background-color 0.3s;
     flex: 1;
-    background-color: #fff;
-    color: var(--primary);
+    background-color: var(--primary);
+    color: #fff;
 }
 
 .toggle-container button.active {
-    background-color: var(--accent);
-    color: var(--secondary);
+    background-color: #fff;
+    color: var(--primary);
     font-size: 18px;
 }
 
