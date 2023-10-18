@@ -342,6 +342,12 @@ const StudentDashboard = () => {
     );
   };
 
+  const handleKeyDown = (e) => {
+    if (e.code === "Enter") {
+      handleSearch();
+    }
+  };
+
   // Handles notification click to display a notification overlay
   const handleNotificationClick = () => {
     setShowNotificationOverlay(true);
@@ -424,11 +430,7 @@ const StudentDashboard = () => {
             placeholder="Search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                handleSearch();
-              }
-            }}
+            onKeyDown={handleKeyDown}
           />
           <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
         </div>
