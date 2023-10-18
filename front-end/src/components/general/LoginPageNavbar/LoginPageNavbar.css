@@ -8,7 +8,7 @@
     height: 50px;
 }
 
-.header {
+.header-login {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,12 +19,12 @@
     margin-bottom: 50px;
 }
 
-.header a {
+.header-login a {
     color: white;
     text-decoration: none;
 }
 
-.header .seperator {
+.header-login .seperator {
     font-size: 30px;
     font-weight: 300;
     color: white;
@@ -66,7 +66,7 @@
         display: none;
     }
 
-    .header {
+    .header-login {
         justify-content: center;
     }
 }
