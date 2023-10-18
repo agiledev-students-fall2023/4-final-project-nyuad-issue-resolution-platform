@@ -405,7 +405,7 @@ const StudentDashboard = () => {
 
   return (
     <div className="requests">
-      <div className="header">
+      <div className="header-student-dashboard">
         <h1 className="h1-student-dashboard">NYUAD Issue Resolution Portal</h1>
         <div className="student-info">
           <span className="student-name">Hello, {studentName}</span>
@@ -471,7 +471,7 @@ const StudentDashboard = () => {
       <div className="pagination">
         <div className="pagination-box">{renderPagination()}</div>
       </div>
-      <div className="footer">
+      <div className="footer-student-dashboard">
         <p>New York University Abu Dhabi</p>
       </div>
     </div>

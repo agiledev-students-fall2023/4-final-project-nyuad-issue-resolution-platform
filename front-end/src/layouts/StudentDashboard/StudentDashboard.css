@@ -8,7 +8,7 @@
   min-height: 100vh;
 }
 
-.header {
+.header-student-dashboard {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -258,7 +258,7 @@
   color: var(--background);
 }
 
-.footer {
+.footer-student-dashboard {
   margin-top: 20px;
   text-align: center;
   background-color: var(--secondary);
@@ -285,7 +285,7 @@
 
 @media only screen and (max-width: 768px) {
 
-  .header,
+  .header-student-dashboard,
   .h2-student-dashboard,
   .actions {
     padding-left: 1.5%;
@@ -348,13 +348,21 @@
     font-size: 12px;
   }
 
-  .header .h1-student-dashboard,
-  .header .student-name,
-  .header .notification-icon {
+  .header-student-dashboard .h1-student-dashboard,
+  .header-student-dashboard .student-name,
+  .header-student-dashboard .notification-icon {
     font-size: 12px;
   }
 
-  .footer {
+  .header-student-dashboard .logout-button {
+    width: 15px;
+    height: 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+
+  .footer-student-dashboard {
     font-size: 10px;
   }
 }
