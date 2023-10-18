@@ -6,6 +6,7 @@
     background-color: var(--primary);
     padding: 10px;
     color: var(--text);
+    height: 120vh;
 
 
 }
@@ -23,7 +24,7 @@
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 300px;
+    margin-bottom: 20px;
     padding: 0;
     padding-bottom: 25px;
 }

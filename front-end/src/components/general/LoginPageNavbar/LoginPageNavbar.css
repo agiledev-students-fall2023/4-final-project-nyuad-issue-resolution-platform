@@ -1,0 +1,60 @@
+/* Styling the Navbar */
+#logo {
+    cursor: pointer;
+    padding: 0;
+}
+
+#logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5%;
+    height: auto;
+    color: white;
+    font-family: var(--primary-font), Arial;
+    margin-bottom: 50px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.header .seperator {
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
+    margin: 0 8px;
+}
+
+.nav_links li {
+    display: inline-block;
+    transition: scale 0.3s;
+}
+
+.nav_links li a {
+
+    /* font-family: sans-serif; */
+    font-weight: 500;
+    /* font-size: 30px; */
+    color: azure;
+    text-decoration: none;
+
+    padding-left: 30px;
+    transition: color 0.5s;
+}
+
+
+.nav_links li:hover {
+    scale: 1.08;
+    cursor: default;
+}
+
+.nav_links li a:hover {
+    color: cyan;
+}

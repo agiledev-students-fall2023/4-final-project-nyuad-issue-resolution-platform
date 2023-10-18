@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import logo from "../../assets/images/nyu-logo.png";
+import LoginPageNavbar from '../../components/general/LoginPageNavbar/LoginPageNavbar';
 
 const LoginPage = () => {
     // state variable to keep track of the user type
@@ -36,7 +37,8 @@ const LoginPage = () => {
 
     return (
         <div className="login-page">
-            <p className="login-header">NYU Abu Dhabi Issue Resolution Portal</p>
+            <LoginPageNavbar />
+            {/* <p className="login-header">NYU Abu Dhabi Issue Resolution Portal</p> */}
 
             <section className="login-box">
                 <div className="toggle-container">
