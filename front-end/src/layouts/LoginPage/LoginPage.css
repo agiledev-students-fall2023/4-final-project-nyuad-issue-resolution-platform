@@ -1,4 +1,4 @@
-@import url("../../styles.css");
+@import url("../../assets/styles.css");
 
 
 .login-page {
@@ -44,12 +44,13 @@
     cursor: pointer;
     transition: background-color 0.3s;
     flex: 1;
-
+    background-color: #fff;
+    color: var(--primary);
 }
 
 .toggle-container button.active {
-    background-color: #fff;
-    color: var(--primary);
+    background-color: var(--accent);
+    color: var(--secondary);
     font-size: 18px;
 }
 

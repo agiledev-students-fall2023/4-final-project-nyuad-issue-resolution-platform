@@ -1,4 +1,4 @@
-@import url("./styles.css");
+@import url("../../assets/styles.css");
 
 .requests {
   font-family: var(--primary-font);
@@ -19,6 +19,7 @@
 
 .h1-student-dashboard {
   text-align: left;
+  margin: 5px;
 }
 
 .h1-student-dashboard,
@@ -92,7 +93,7 @@
   height: 20px;
   margin-left: 8px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .input-student-dashboard[type="text"] {
@@ -166,6 +167,23 @@
   padding: 4px 10px;
   border-radius: 15px;
   font-size: 12px;
+}
+
+.date-created-header {
+  position: relative;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  right: 0;
+  margin-left: 4px;
 }
 
 .table-student-dashboard th:nth-child(1),
@@ -243,9 +261,7 @@
 .footer {
   margin-top: 20px;
   text-align: center;
-  padding: 10px 0;
   background-color: var(--secondary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   color: var(--text);
 }
 
