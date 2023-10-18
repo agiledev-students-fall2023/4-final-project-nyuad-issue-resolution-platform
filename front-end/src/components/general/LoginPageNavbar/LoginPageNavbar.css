@@ -1,10 +1,9 @@
-/* Styling the Navbar */
-#logo {
+#nyuad-logo {
     cursor: pointer;
     padding: 0;
 }
 
-#logo img {
+#nyuad-logo img {
     width: 50px;
     height: 50px;
 }
@@ -32,16 +31,14 @@
     margin: 0 8px;
 }
 
-.nav_links li {
+.nav-links li {
     display: inline-block;
     transition: scale 0.3s;
 }
 
-.nav_links li a {
+.nav-links li a {
 
-    /* font-family: sans-serif; */
     font-weight: 500;
-    /* font-size: 30px; */
     color: azure;
     text-decoration: none;
 
@@ -50,11 +47,26 @@
 }
 
 
-.nav_links li:hover {
+.nav-links li:hover {
     scale: 1.08;
     cursor: default;
 }
 
-.nav_links li a:hover {
+.nav-links li a:hover {
     color: cyan;
+}
+
+
+/* Hide the element when the screen width is 768px or below */
+/* Default for tablet size */
+@media (max-width: 768px) {
+
+    .nav-links,
+    .navbar-nyuad-text {
+        display: none;
+    }
+
+    .header {
+        justify-content: center;
+    }
 }
