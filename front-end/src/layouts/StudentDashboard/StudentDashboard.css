@@ -1,10 +1,4 @@
-@import url("./styles.css");
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
+@import url("../../assets/styles.css");
 
 .requests {
   font-family: var(--primary-font);
@@ -14,7 +8,7 @@ body {
   min-height: 100vh;
 }
 
-.header {
+.header-student-dashboard {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,18 +17,19 @@ body {
   margin: 0;
 }
 
-h1 {
+.h1-student-dashboard {
   text-align: left;
+  margin: 5px;
 }
 
-h1,
+.h1-student-dashboard,
 .student-name,
 .notification-icon {
   font-size: 20px;
   color: var(--background);
 }
 
-h2 {
+.h2-student-dashboard {
   font-size: 24px;
   padding-left: 20px;
   padding-right: 20px;
@@ -49,6 +44,19 @@ h2 {
   align-items: center;
   gap: 10px;
   margin-top: 20px;
+}
+
+.button-student-dashboard {
+  padding: 10px 15px;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-student-dashboard:hover {
+  background-color: var(--accent);
 }
 
 .search-bar,
@@ -85,27 +93,15 @@ h2 {
   height: 20px;
   margin-left: 8px;
   cursor: pointer;
+  margin-right: 5px;
 }
 
-input[type="text"] {
+.input-student-dashboard[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
   color: var(--text);
-}
-
-button {
-  padding: 10px 15px;
-  background-color: var(--primary);
-  color: var(--background);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--accent);
 }
 
 .table {
@@ -115,21 +111,21 @@ button:hover {
   flex: 1;
 }
 
-table {
+.table-student-dashboard {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #ddd;
 }
 
-th,
-td {
+.table-student-dashboard th,
+.table-student-dashboard td {
   padding: 8px 12px;
   border: 1px solid #ddd;
   text-align: left;
   color: var(--text);
 }
 
-th {
+.table-student-dashboard th {
   background-color: var(--secondary);
 }
 
@@ -168,9 +164,37 @@ th {
 }
 
 .status-box {
-  padding: 5px 10px;
+  padding: 4px 10px;
   border-radius: 15px;
-  font-size: 12px
+  font-size: 12px;
+}
+
+.date-created-header {
+  position: relative;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  right: 0;
+  margin-left: 4px;
+}
+
+.table-student-dashboard th:nth-child(1),
+.table-student-dashboard th:nth-child(2),
+.table-student-dashboard th:nth-child(3),
+.table-student-dashboard td:nth-child(3),
+.table-student-dashboard th:nth-child(4),
+.table-student-dashboard td:nth-child(4),
+.table-student-dashboard th:nth-child(5),
+.table-student-dashboard td:nth-child(5) {
+  text-align: center;
 }
 
 .status-action-required {
@@ -214,9 +238,19 @@ th {
 }
 
 .pagination button {
+  padding: 10px 15px;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin: 0 2px;
   padding: 5px 10px;
   border-radius: 20px;
+}
+
+.pagination button:hover {
+  background-color: var(--accent);
 }
 
 .pagination button.active {
@@ -224,12 +258,10 @@ th {
   color: var(--background);
 }
 
-.footer {
+.footer-student-dashboard {
   margin-top: 20px;
   text-align: center;
-  padding: 10px 0;
   background-color: var(--secondary);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   color: var(--text);
 }
 
@@ -253,14 +285,14 @@ th {
 
 @media only screen and (max-width: 768px) {
 
-  .header,
-  h2,
+  .header-student-dashboard,
+  .h2-student-dashboard,
   .actions {
     padding-left: 1.5%;
     padding-right: 1.5%;
   }
 
-  h2 {
+  .h2-student-dashboard {
     font-size: 16px;
   }
 
@@ -280,47 +312,57 @@ th {
     margin: auto;
   }
 
-  .table.mobile-view th:nth-child(2),
-  .table.mobile-view td:nth-child(2),
-  .table.mobile-view th:nth-child(3),
-  .table.mobile-view td:nth-child(3),
-  .table.mobile-view th:nth-child(4),
-  .table.mobile-view td:nth-child(4) {
-    display: none;
-  }
-
-  table {
+  .table-student-dashboard {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
   }
 
-  th,
-  td {
+  .table-student-dashboard th,
+  .table-student-dashboard td {
     padding: 1.5%;
     text-align: left;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
   }
 
-  th {
+  .table-student-dashboard th:nth-child(2),
+  .table-student-dashboard td:nth-child(2) {
+    text-align: center;
+  }
+
+  .table-student-dashboard th {
     background-color: var(--primary);
     color: white;
   }
 
   .title-cell-mobile {
-    max-width: 160px;
+    max-width: 190px;
     white-space: nowrap;
     overflow-x: auto;
   }
 
-  .header h1,
-  .header .student-name,
-  .header .notification-icon {
+  .status-box {
+    padding: 1px 10px;
+    border-radius: 15px;
     font-size: 12px;
   }
 
-  .footer {
+  .header-student-dashboard .h1-student-dashboard,
+  .header-student-dashboard .student-name,
+  .header-student-dashboard .notification-icon {
+    font-size: 12px;
+  }
+
+  .header-student-dashboard .logout-button {
+    width: 15px;
+    height: 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+
+  .footer-student-dashboard {
     font-size: 10px;
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
-import logoutImage from "./assets/images/logout.png";
+import logoutImage from "../../assets/images/logout.png";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -16,8 +16,9 @@ const StudentDashboard = () => {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setAllRequests(data);
-        setDisplayedRequests(data);
+        const sortedData = data.sort((a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated));
+        setAllRequests(sortedData);
+        setDisplayedRequests(sortedData);
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);
@@ -26,6 +27,17 @@ const StudentDashboard = () => {
 
   // State initialization for tracking window width and adjusting display
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // Other state initializations for UI functionalities
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = windowWidth <= 768 ? 15 : 10;
+  const [studentName, setStudentName] = useState("John Doe");
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationTimer, setNotificationTimer] = useState(null);
+  const [showNotificationOverlay, setShowNotificationOverlay] = useState(false);
+  const [sortOrder, setSortOrder] = useState("latestFirst");
 
   // Event listener to track window resizing
   useEffect(() => {
@@ -52,7 +64,11 @@ const StudentDashboard = () => {
             <th>Title</th>
             <th>Description</th>
             <th>Departments</th>
-            <th>Date Created</th>
+            <th className="date-created-header">Date Created
+              <button onClick={() => toggleSortOrder()} className="sort-button">
+                {sortOrder === "latestFirst" ? "↑" : "↓"}
+              </button>
+            </th>
             <th>Current Status</th>
           </tr>
         </thead>
@@ -73,6 +89,30 @@ const StudentDashboard = () => {
       default:
         return '';
     }
+  };
+
+  // Custom date parsing function for "dd/mm/yyyy" format
+  const parseDate = (dateString) => {
+    const [day, month, year] = dateString.split('/').map(Number);
+    return new Date(year, month - 1, day); // Month is 0-based in JavaScript
+  };
+
+  const sortRequests = (order) => {
+    const sortedRequests = [...displayedRequests];
+
+    if (order === "latestFirst") {
+      sortedRequests.sort((a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated));
+    } else if (order === "oldestFirst") {
+      sortedRequests.sort((a, b) => parseDate(a.dateCreated) - parseDate(b.dateCreated));
+    }
+
+    setDisplayedRequests(sortedRequests);
+  };
+
+  const toggleSortOrder = () => {
+    const newSortOrder = sortOrder === "latestFirst" ? "oldestFirst" : "latestFirst";
+    setSortOrder(newSortOrder);
+    sortRequests(newSortOrder);
   };
 
   // Renders list of requests for display
@@ -109,25 +149,19 @@ const StudentDashboard = () => {
               </Link>
             </td>
             <td className="departments-cell">
-              <Link to={`/issue/${request.index}`} className="issue-link">
-                {request.departments.map((department, index) => (
-                  <span key={index} className="department-pill">
-                    {mapDepartmentToDisplayName(department)}
-                  </span>
-                ))}
-              </Link>
+              {request.departments.map((department, index) => (
+                <span key={index} className="department-pill">
+                  {mapDepartmentToDisplayName(department)}
+                </span>
+              ))}
             </td>
             <td className="date-created-cell">
-              <Link to={`/issue/${request.index}`} className="issue-link">
-                {request.dateCreated}
-              </Link>
+              {request.dateCreated}
             </td>
             <td>
-              <Link to={`/issue/${request.index}`} className="issue-link">
-                <span className={`status-box ${getStatusClass(request.currentStatus)}`}>
-                  {request.currentStatus}
-                </span>
-              </Link>
+              <span className={`status-box ${getStatusClass(request.currentStatus)}`}>
+                {request.currentStatus}
+              </span>
             </td>
           </tr>
         );
@@ -137,7 +171,7 @@ const StudentDashboard = () => {
 
   // Department options for filtering purposes
   const departmentOptions = [
-    { value: "", label: "Filter by Department(s)" },
+    { value: "", label: "Filter by Department" },
     { value: "IT", label: "IT" },
     { value: "Admin", label: "Admin" },
     { value: "Library", label: "Library" },
@@ -150,15 +184,13 @@ const StudentDashboard = () => {
     { value: "CDC", label: "Career Development Center" }
   ];
 
-  // Other state initializations for UI functionalities
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = windowWidth <= 768 ? 15 : 9;
-  const [studentName, setStudentName] = useState("John Doe");
-  const [selectedDepartment, setSelectedDepartment] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [showNotification, setShowNotification] = useState(false);
-  const [notificationTimer, setNotificationTimer] = useState(null);
-  const [showNotificationOverlay, setShowNotificationOverlay] = useState(false);
+  const statusOptions = [
+    { value: "", label: "Filter by Status" },
+    { value: "Action Required", label: "Action Required" },
+    { value: "Resolved", label: "Resolved" },
+    { value: "In Progress", label: "In Progress" },
+    { value: "Open", label: "Open" }
+  ];
 
   // Handles search functionality to filter displayed requests
   const handleSearch = () => {
@@ -167,6 +199,12 @@ const StudentDashboard = () => {
     if (selectedDepartment !== "") {
       filteredRequests = filteredRequests.filter((request) =>
         request.departments.includes(selectedDepartment)
+      );
+    }
+
+    if (selectedStatus !== "") {
+      filteredRequests = filteredRequests.filter((request) =>
+        request.currentStatus === selectedStatus
       );
     }
 
@@ -183,18 +221,35 @@ const StudentDashboard = () => {
     const selectedDept = event.target.value;
     setSelectedDepartment(selectedDept);
     setCurrentPage(1);
+    filterRequests(selectedDept, selectedStatus, searchQuery);
+  };
 
+  const handleFilterByStatus = (event) => {
+    const selectedStat = event.target.value;
+    setSelectedStatus(selectedStat);
+    setCurrentPage(1);
+    filterRequests(selectedDepartment, selectedStat, searchQuery);
+  };
+
+  // Function to filter requests based on department, status, and search query
+  const filterRequests = (department, status, query) => {
     let filteredRequests = allRequests;
 
-    if (selectedDept !== "") {
+    if (department !== "") {
       filteredRequests = filteredRequests.filter((request) =>
-        request.departments.includes(selectedDept)
+        request.departments.includes(department)
       );
     }
 
-    if (searchQuery !== "") {
+    if (status !== "") {
       filteredRequests = filteredRequests.filter((request) =>
-        request.title.toLowerCase().includes(searchQuery.toLowerCase())
+        request.currentStatus === status
+      );
+    }
+
+    if (query !== "") {
+      filteredRequests = filteredRequests.filter((request) =>
+        request.title.toLowerCase().includes(query.toLowerCase())
       );
     }
 
@@ -287,6 +342,12 @@ const StudentDashboard = () => {
     );
   };
 
+  const handleKeyDown = (e) => {
+    if (e.code === "Enter") {
+      handleSearch();
+    }
+  };
+
   // Handles notification click to display a notification overlay
   const handleNotificationClick = () => {
     setShowNotificationOverlay(true);
@@ -344,8 +405,8 @@ const StudentDashboard = () => {
 
   return (
     <div className="requests">
-      <div className="header">
-        <h1>NYUAD Issue Resolution Portal</h1>
+      <div className="header-student-dashboard">
+        <h1 className="h1-student-dashboard">NYUAD Issue Resolution Portal</h1>
         <div className="student-info">
           <span className="student-name">Hello, {studentName}</span>
           <span className="notification-icon" onClick={handleNotificationClick}>
@@ -360,16 +421,18 @@ const StudentDashboard = () => {
         </div>
       </div>
       {renderNotificationOverlay()}
-      <h2>Your Requests</h2>
+      <h2 className="h2-student-dashboard">Your Requests</h2>
       <div className="actions">
         <div className="search-bar">
           <input
+            className="input-student-dashboard"
             type="text"
             placeholder="Search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
         </div>
         <div className="filter-bar">
           <select
@@ -383,12 +446,24 @@ const StudentDashboard = () => {
             ))}
           </select>
         </div>
+        <div className="filter-bar">
+          <select
+            onChange={handleFilterByStatus}
+            value={selectedStatus}
+          >
+            {statusOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="create-request-button">
-          <button onClick={handleCreateRequest}>Create Request +</button>
+          <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
         </div>
       </div>
       <div className="table">
-        <table>
+        <table className="table-student-dashboard">
           {renderTableHeader()}
           <tbody>{renderRequests()}</tbody>
         </table>
@@ -396,7 +471,7 @@ const StudentDashboard = () => {
       <div className="pagination">
         <div className="pagination-box">{renderPagination()}</div>
       </div>
-      <div className="footer">
+      <div className="footer-student-dashboard">
         <p>New York University Abu Dhabi</p>
       </div>
     </div>
