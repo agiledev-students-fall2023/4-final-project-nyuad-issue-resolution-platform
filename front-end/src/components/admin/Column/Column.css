@@ -1,0 +1,13 @@
+.column {
+    border: 1px solid black;
+    margin: 10px;
+  }
+  .column-title{
+    text-align: center;
+  }
+  
+  .column-container{
+    display: flex;
+    flex-direction: column;
+  }
+  

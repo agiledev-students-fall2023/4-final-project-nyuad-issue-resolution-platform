@@ -1,0 +1,48 @@
+.admin-issue-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .close-button {
+    color: black;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* UpdateBox.css */
+
+  
+  .issue-overlay-container{
+    display: flex;
+  }
+  
+  .issue-overlaycontainer .left-bar{
+    width: 70%;
+  }
+  
+  .issue-overlay-container .right-bar{
+    margin: 50px;
+    width: 30%;
+  }

@@ -1,0 +1,12 @@
+/* Body container of the main App */
+.body-container {
+    display: flex;
+    justify-content: space-between; 
+    padding: 20px; 
+  }
+
+  
+  
+
+  
+  
