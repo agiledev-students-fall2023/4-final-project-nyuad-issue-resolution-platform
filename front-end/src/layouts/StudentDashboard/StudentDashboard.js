@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
-import logoutImage from "../../assets/images/logout.png";
+import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -30,14 +30,15 @@ const StudentDashboard = () => {
   // Other state initializations for UI functionalities
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = windowWidth <= 768 ? 15 : 10;
-  const [studentName, setStudentName] = useState("John Doe");
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [showNotification, setShowNotification] = useState(false);
-  const [notificationTimer, setNotificationTimer] = useState(null);
-  const [showNotificationOverlay, setShowNotificationOverlay] = useState(false);
   const [sortOrder, setSortOrder] = useState("latestFirst");
+
+  // all the useState hooks below where the function isn't called yet can be put below to escape linter
+  /* eslint-disable no-unused-vars */
+  const [studentName, setStudentName] = useState("John Doe");
+  /* eslint-enable no-unused-vars */
 
   // Event listener to track window resizing
   useEffect(() => {
@@ -261,11 +262,6 @@ const StudentDashboard = () => {
     // TODO: Implement create request functionality
   };
 
-  // Placeholder for the "Logout" functionality
-  const handleLogout = () => {
-    // TODO: Implement logout logic
-  };
-
   // Handles pagination and page switching
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -348,33 +344,6 @@ const StudentDashboard = () => {
     }
   };
 
-  // Handles notification click to display a notification overlay
-  const handleNotificationClick = () => {
-    setShowNotificationOverlay(true);
-
-    if (notificationTimer) {
-      clearTimeout(notificationTimer);
-    }
-
-    // Timer for overlay
-    const timerId = setTimeout(() => {
-      setShowNotificationOverlay(false);
-    }, 5000);
-
-    setNotificationTimer(timerId);
-  };
-
-  // TODO: Sync the notification overlay
-  const renderNotificationOverlay = () => {
-    if (showNotificationOverlay) {
-      return (
-        <div className="notification-overlay">
-          <p>No new notifications</p>
-        </div>
-      );
-    }
-  };
-
   // Converts a department value to its display name
   const mapDepartmentToDisplayName = (departmentValue) => {
     switch (departmentValue) {
@@ -405,22 +374,9 @@ const StudentDashboard = () => {
 
   return (
     <div className="requests">
-      <div className="header-student-dashboard">
-        <h1 className="h1-student-dashboard">NYUAD Issue Resolution Portal</h1>
-        <div className="student-info">
-          <span className="student-name">Hello, {studentName}</span>
-          <span className="notification-icon" onClick={handleNotificationClick}>
-            🔔
-          </span>
-          <img
-            src={logoutImage}
-            alt="Logout"
-            className="logout-button"
-            onClick={handleLogout}
-          />
-        </div>
-      </div>
-      {renderNotificationOverlay()}
+
+      <StudentNavbar studentName={studentName} />
+
       <h2 className="h2-student-dashboard">Your Requests</h2>
       <div className="actions">
         <div className="search-bar">

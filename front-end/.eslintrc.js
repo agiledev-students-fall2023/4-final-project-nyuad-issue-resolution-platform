@@ -28,6 +28,11 @@ module.exports = {
   plugins: [
     'react'
   ],
+  settings: {
+    react: {
+      version: "detect" // Automatically detect the react version
+    }
+  },
   rules: {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
@@ -57,8 +62,9 @@ module.exports = {
     'array-bracket-spacing': ['warn'],
 
     'no-console': ['off'],
-    "space-before-function-paren": ["warn"],
+    "space-before-function-paren": ["off"],
     "quotes": ["off"],
-    "indent": "off"
+    "indent": "off",
+    "react/prop-types": "off"
   }
 }
