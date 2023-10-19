@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 // TODO: Issue details display
@@ -25,16 +25,19 @@ const IssueDetails = () => {
 
   return (
     <div>
-      {issue ? (
-        <div>
-          <p>Issue Title: {issue.title}</p>
-          <p>Issue Description: {issue.description}</p>
-          <p>Issue Status: {issue.departments}</p>
-          <p>Issue Statues: {issue.currentStatus}</p>
-        </div>
-      ) : (
-        <p>Loading issue data...</p>
-      )}
+      {
+        issue
+          ? (
+            <div>
+              <p>Issue Title: {issue.title}</p>
+              <p>Issue Description: {issue.description}</p>
+              <p>Issue Status: {issue.departments}</p>
+              <p>Issue Statues: {issue.currentStatus}</p>
+            </div>
+          )
+          : (
+            <p>Loading issue data...</p>
+          )}
     </div>
   );
 };

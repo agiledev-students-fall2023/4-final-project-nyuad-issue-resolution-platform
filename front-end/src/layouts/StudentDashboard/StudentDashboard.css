@@ -1,34 +1,5 @@
 @import url("../../assets/styles.css");
 
-.requests {
-  font-family: var(--primary-font);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.header-student-dashboard {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--primary);
-  padding: 10px;
-  margin: 0;
-}
-
-.h1-student-dashboard {
-  text-align: left;
-  margin: 5px;
-}
-
-.h1-student-dashboard,
-.student-name,
-.notification-icon {
-  font-size: 20px;
-  color: var(--background);
-}
-
 .h2-student-dashboard {
   font-size: 24px;
   padding-left: 20px;
@@ -70,30 +41,6 @@
   background-color: var(--primary);
   color: var(--background);
   border-radius: 7px;
-}
-
-.student-info {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-}
-
-.student-name {
-  margin-right: 10px;
-  font-weight: bold;
-}
-
-.notification-icon {
-  position: relative;
-  cursor: pointer;
-}
-
-.logout-button {
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
-  cursor: pointer;
-  margin-right: 5px;
 }
 
 .input-student-dashboard[type="text"] {
@@ -265,19 +212,6 @@
   color: var(--text);
 }
 
-.notification-overlay {
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  width: 200px;
-  background-color: var(--secondary);
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  border-radius: 5px;
-  padding: 10px;
-}
-
 .issue-link {
   text-decoration: none;
   color: inherit;
@@ -285,7 +219,6 @@
 
 @media only screen and (max-width: 768px) {
 
-  .header-student-dashboard,
   .h2-student-dashboard,
   .actions {
     padding-left: 1.5%;
@@ -346,20 +279,6 @@
     padding: 1px 10px;
     border-radius: 15px;
     font-size: 12px;
-  }
-
-  .header-student-dashboard .h1-student-dashboard,
-  .header-student-dashboard .student-name,
-  .header-student-dashboard .notification-icon {
-    font-size: 12px;
-  }
-
-  .header-student-dashboard .logout-button {
-    width: 15px;
-    height: 15px;
-    margin-left: 8px;
-    cursor: pointer;
-    margin-right: 5px;
   }
 
   .footer-student-dashboard {
