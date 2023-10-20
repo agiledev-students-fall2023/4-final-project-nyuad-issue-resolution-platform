@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import logoutImage from "../../../assets/images/logout.png";
+import logoutImage from "../../../assets/images/logout-icon.png";
+import notificationIcon from "../../../assets/images/notification-icon.png";
 import "./StudentNavbar.css";
 
 export default function StudentNavbar({ studentName }) {
@@ -41,11 +42,12 @@ export default function StudentNavbar({ studentName }) {
 
     return (
         <div className="header-student-dashboard">
-            <h1 className="h1-student-dashboard">NYUAD Issue Resolution Portal</h1>
+            <p className="h1-student-dashboard">NYUAD ISSUE RESOLUTION</p>
             <div className="student-info">
                 <span className="student-name">Hello, {studentName}</span>
                 <span className="notification-icon" onClick={handleNotificationClick}>
-                    🔔
+                    {/* 🔔 */}
+                    <img src={notificationIcon} alt="Notification" />
                 </span>
                 <img
                     src={logoutImage}

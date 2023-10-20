@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
+import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -390,30 +391,10 @@ const StudentDashboard = () => {
           />
           <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
         </div>
-        <div className="filter-bar">
-          <select
-            onChange={handleFilterByDepartment}
-            value={selectedDepartment}
-          >
-            {departmentOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="filter-bar">
-          <select
-            onChange={handleFilterByStatus}
-            value={selectedStatus}
-          >
-            {statusOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+
+        <StudentViewFilter filterHandler={handleFilterByDepartment} selectedOption={selectedDepartment} options={departmentOptions} />
+        <StudentViewFilter filterHandler={handleFilterByStatus} selectedOption={selectedStatus} options={statusOptions} />
+
         <div className="create-request-button">
           <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
         </div>
