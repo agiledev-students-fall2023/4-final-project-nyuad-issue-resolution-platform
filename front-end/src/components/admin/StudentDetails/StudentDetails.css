@@ -1,0 +1,42 @@
+/* App.css or a separate CSS file */
+.student-details {
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  
+  .student-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .student-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .student-details li {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .student-details li strong {
+    font-weight: bold;
+  }
+
+  /* .update-box {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+  }
+   */
+  

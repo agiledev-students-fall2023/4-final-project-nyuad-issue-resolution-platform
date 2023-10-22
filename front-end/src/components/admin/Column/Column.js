@@ -14,7 +14,6 @@ const Column = ({ onOpen, name, cards }) => {
                     )
                 }
             </div>
-
         </div>
       );
 };

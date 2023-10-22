@@ -1,40 +1,35 @@
+/* eslint-disable */
 import './CommentBox.css';
 import { useState } from 'react';
 
-function CommentBox() {
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
+function CommentBox({ onAdd }) {
+ 
 
-  const handleCommentChange = (e) => {
-    setNewComment(e.target.value);
-  };
+  const [textAreaValue , setTextAreaValue] = useState('')
 
-  const handleSubmitComment = (e) => {
+  const sendNewUpdateBox = (e) =>
+  {
+    // handleSubmitComment(e)
     e.preventDefault();
-    if (newComment.trim() !== '') {
-      setComments([...comments, newComment]);
-      setNewComment('');
-    }
+    onAdd({"updateDescription":textAreaValue})
+  }
+
+  const handleTextChange = (event) => {
+    // Step 3: Update the state variable when the user types
+    setTextAreaValue(event.target.value);
   };
 
   return (
     <div className="comment-box">
-      <h2>Leave a Comment</h2>
-      <form onSubmit={handleSubmitComment}>
+      <h3>Add a Comment</h3>
+      <form>
         <textarea
           placeholder="Write your comment..."
-          value={newComment}
-          onChange={handleCommentChange}
+          onChange={handleTextChange}
+          value={textAreaValue}
         ></textarea>
-        <button type="submit">Submit</button>
       </form>
-      <div className="comments-list">
-        {comments.map((comment, index) => (
-          <div key={index} className="comment">
-            {comment}
-          </div>
-        ))}
-      </div>
+      <button onClick={sendNewUpdateBox} type="submit">Submit</button>
     </div>
   );
 }

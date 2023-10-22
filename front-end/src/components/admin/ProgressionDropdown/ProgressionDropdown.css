@@ -1,0 +1,6 @@
+.progress-dropdown {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2px;
+    height: 5%;
+}

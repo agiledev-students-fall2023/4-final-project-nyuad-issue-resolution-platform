@@ -1,0 +1,37 @@
+/* Style for the dropdown button */
+.dynamic-dropdown button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the dropdown content (hidden by default) */
+  .dynamic-dropdown .dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  /* Style for dropdown items */
+  .dynamic-dropdown .dropdown-content div {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Change item background color on hover */
+  .dynamic-dropdown .dropdown-content div:hover {
+    background-color: #ddd;
+  }
+
+
+  

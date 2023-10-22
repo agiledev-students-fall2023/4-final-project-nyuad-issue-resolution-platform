@@ -5,18 +5,18 @@
     padding: 20px;
     background-color: #f8f8f8;
     width: 65%;
-    height: 20%;
+    height: 18%;
   }
   
-  textarea {
-    width: 65%;
+  .comment-box textarea {
+    width: 95%;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 10px;
   }
   
-  button {
+  .comment-box button {
     background-color: #2196F3;
     color: #fff;
     border: none;
@@ -35,5 +35,10 @@
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 10px;
+  }
+
+
+  .comment-box > h3 {
+    margin: 0;
   }
   

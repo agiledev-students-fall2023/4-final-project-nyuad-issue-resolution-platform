@@ -5,20 +5,27 @@
     border-radius: 8px;
     padding: 20px;
     width: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    height: 100px;
   }
   
-  ul {
+  .tag-sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin: 2px;
+  }
+
+
+  .tag-sidebar h2 {
+    margin: 0;
   }
   
-  li {
+  .tag-sidebar li {
     cursor: pointer;
     padding: 5px 0;
   }
   
-  li:hover {
+  .tag-sidebar li:hover {
     background-color: #e0e0e0;
   }
   

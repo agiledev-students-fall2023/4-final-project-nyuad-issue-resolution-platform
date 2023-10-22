@@ -1,8 +1,7 @@
-import Column from '../Column/Column';
-import AdminIssueOverlay from '../AdminIssueOverlay/AdminIssueOverlay';
+import Column from '../../components/admin/Column/Column.js';
+import AdminIssueOverlay from '../../components/admin/AdminIssueOverlay/AdminIssueOverlay.js';
 import { useState } from 'react';
-import '../Column/Column.css';
-import '../AdminIssueOverlay/AdminIssueOverlay.css';
+import '../../components/admin/AdminIssueOverlay/AdminIssueOverlay.css';
 import './Admin.css';
 
 const notStartedCards = [
@@ -78,6 +77,12 @@ function Admin() {
   // The active card to show the overlay about
   const [activeCard, setActiveCard] = useState({});
   const [showOverlay, setShowOverlay] = useState(false);
+  // This is for updating the state of the AdminIssue ovelay when you add updates in the comment box
+  const [childKey, setChildKey] = useState(0);
+
+  const reRenderChild = () => {
+    setChildKey(childKey + 1);
+  };
 
   const openOverlay = (card) => {
     setShowOverlay(true);
@@ -93,7 +98,7 @@ if (showOverlay) {
   <div>
     <button onClick={openOverlay}>Open Overlay</button>
     {showOverlay && (
-      <AdminIssueOverlay onClose={closeOverlay} card = {activeCard}>
+      <AdminIssueOverlay onRerender={reRenderChild} onClose={closeOverlay} card = {activeCard}>
         <h2>This is the overlay content</h2>
         <p>You can add any content here.</p>
       </AdminIssueOverlay>
@@ -101,13 +106,11 @@ if (showOverlay) {
   </div>);
 } else {
     return (
-      <div className="App">
-      <div className="body-container">
-        <Column onOpen ={openOverlay} name ="Not Started" cards ={notStartedCards}/>
-        <Column onOpen ={openOverlay} name ="In Progress" cards ={inProgressCards}/>
-        <Column onOpen ={openOverlay} name ="Awaiting Response" cards ={awaitingResponseCards}/>
-        <Column onOpen ={openOverlay} name ="Resolved" cards ={resolvedCards}/>
-      </div>
+        <div className="body-container">
+          <Column onOpen ={openOverlay} name ="Not Started" cards ={notStartedCards}/>
+          <Column onOpen ={openOverlay} name ="In Progress" cards ={inProgressCards}/>
+          <Column onOpen ={openOverlay} name ="Awaiting Response" cards ={awaitingResponseCards}/>
+          <Column onOpen ={openOverlay} name ="Resolved" cards ={resolvedCards}/>
     </div>
     );
 }

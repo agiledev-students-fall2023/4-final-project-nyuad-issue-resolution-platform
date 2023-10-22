@@ -8,16 +8,18 @@ const Card = ({ onOpen, props }) => {
       cardTags: props.tags
     };
 
-    const SendcarddatatoApp = () => {
+    const sendCardDatatoApp = () => {
       onOpen(cardobj);
     };
 
     return (
-    <div className="card">
+    <div onClick ={sendCardDatatoApp} className="card">
       <div className="user-info">
         <span>{cardobj.cardUsername}</span>
       </div>
-      <h2>{cardobj.cardTitle}</h2>
+      <div className="card-title">
+          <h2>{cardobj.cardTitle}</h2>
+      </div>
       <p>{cardobj.cardIssueDesc}</p>
       <div className="tags">
       {cardobj.cardTags.map((tag, index) => (
@@ -26,8 +28,6 @@ const Card = ({ onOpen, props }) => {
       </span>
         ))}
       </div>
-
-    <button onClick={SendcarddatatoApp}> View More</button>
     </div>
 );
 };

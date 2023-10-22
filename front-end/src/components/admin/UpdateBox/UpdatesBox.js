@@ -1,9 +1,8 @@
 import './UpdatesBox.css';
-
-function UpdatesBox({ description }) {
+function UpdatesBox({ index, description }) {
   return (
       <div className="update-box">
-      <h3>Update</h3>
+      <h3>Update {index}</h3>
       <p>{description}</p>
       </div>
   );

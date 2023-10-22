@@ -5,7 +5,7 @@ import "./App.css";
 import StudentDashboard from "./layouts/StudentDashboard/StudentDashboard";
 import IssueDetails from "./components/student/IssueDetails";
 import LoginPage from "./layouts/LoginPage/LoginPage.js";
-import Admin from "./components/admin/Admin/Admin.js";
+import Admin from "./layouts/AdminDashboard/Admin.js";
 
 const App = (props) => {
   return (

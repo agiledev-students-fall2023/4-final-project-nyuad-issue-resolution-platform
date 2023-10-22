@@ -19,6 +19,11 @@
     position: relative;
     width: 90%;
     height: 90%;
+    text-align: start;
+  }
+
+  .overlaytitle p{
+    font-size: 10px
   }
   
   .close-button {
@@ -39,10 +44,42 @@
   }
   
   .issue-overlaycontainer .left-bar{
+    margin: 0;
     width: 70%;
   }
   
   .issue-overlay-container .right-bar{
     margin: 50px;
     width: 30%;
+  }
+
+  .left-bar h1{
+    margin: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
+
+  }
+
+  .markedasolvebtn button[type="submit"]{
+    background-color: #0074d9; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove the border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Text boldness */
+    width: 100%;
+    
+  }
+
+  .markedasolvebtn button[type="submit"]{
+    background-color: #0056b3;
+  }
+
+  .allupdates {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 300px;;
   }
