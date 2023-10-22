@@ -1,0 +1,154 @@
+@import url("../../../assets/styles.css");
+  
+  .issue-details-container {
+    font-family: var(--primary-font);
+    color: var(--text);
+    background: var(--background);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .issue-content {
+    display: flex;
+    flex-direction: column;
+    flex: 3 1;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-right: 50px;
+    margin-top: 55px;
+}
+  
+  .issue-heading-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .action-required-tag {
+    font-family: var(--secondary-font);
+    background-color: var(--primary);
+    color: var(--background);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .history-section {
+    margin-top: 20px;
+  }
+  
+  .comments-section {
+    margin-top: 20px;
+  }
+  
+  .add-comment {
+    margin-top: 20px;
+  }
+  
+  .comment-input {
+    width: 100%;
+    padding: 10px;
+    font-family: var(--primary-font);
+  }
+  
+  .issue-buttons {
+    background: var(--primary);
+    color: var(--background);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: var(--primary-font);
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+.sidebar {
+    margin-top: 20px;
+    flex: 1 1;
+    margin-top: 75px;
+}
+  
+  .departments-tagged,
+  .attachments {
+    background: var(--secondary);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .issue-ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .issue-li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .closeButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+
+  .issue-heading-section,
+.history-section,
+.comments-section,
+.add-comment {
+  margin-bottom: 20px;
+}
+
+.departments-tagged,
+.attachments {
+  margin-top: 70px;
+}
+
+.status-box {
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+
+.status-action-required {
+    background-color: rgba(184, 44, 28, 0.214);
+    font-weight: bold;
+    color: rgb(184, 44, 28);
+  }
+  
+  .status-closed {
+    background-color: rgba(35, 134, 55, 0.226);
+    font-weight: bold;
+    color: rgb(35, 134, 54);
+  }
+  
+  .status-in-progress {
+    background-color: rgba(157, 105, 2, 0.209);
+    font-weight: bold;
+    color: rgb(157, 106, 2);
+  }
+  
+  .status-open {
+    background-color: rgba(31, 109, 235, 0.217);
+    font-weight: bold;
+    color: rgb(31, 110, 235);
+  }
