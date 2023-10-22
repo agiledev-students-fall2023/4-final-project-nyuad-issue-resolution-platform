@@ -2,7 +2,7 @@
 
 
 .login-page {
-    font-family: var(--primary-fomt), Arial;
+    font-family: var(--primary-font), Arial;
     background-color: var(--primary);
     padding: 10px;
     color: var(--text);
