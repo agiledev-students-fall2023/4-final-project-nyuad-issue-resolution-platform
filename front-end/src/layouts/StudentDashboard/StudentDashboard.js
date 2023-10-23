@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
@@ -8,6 +8,10 @@ const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
   const [allRequests, setAllRequests] = useState([]);
   const [displayedRequests, setDisplayedRequests] = useState([]);
+
+  // State initialization for handling overlay options
+  const [activeOptionsOverlay, setActiveOptionsOverlay] = useState(null);
+  const [isOverlayOptionsOpen, setIsOverlayOptionsOpen] = useState(false);
 
   // API
   const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
@@ -78,6 +82,34 @@ const StudentDashboard = () => {
     }
   };
 
+  // Ref for the overlay div
+  const overlayRef = useRef(null);
+
+  // Function to close the overlay
+  const closeOverlayOptions = () => {
+      setActiveOptionsOverlay(null);
+      setIsOverlayOptionsOpen(false);
+  };
+
+  // Add event listener to handle clicks outside the overlay
+  useEffect(() => {
+      const handleOutsideClick = (e) => {
+          if (overlayRef.current && !overlayRef.current.contains(e.target)) {
+              closeOverlayOptions();
+          }
+      };
+
+      if (isOverlayOptionsOpen) {
+          document.addEventListener('mousedown', handleOutsideClick);
+      } else {
+          document.removeEventListener('mousedown', handleOutsideClick);
+      }
+
+      return () => {
+          document.removeEventListener('mousedown', handleOutsideClick);
+      };
+  }, [isOverlayOptionsOpen]);
+
   const getStatusClass = (status) => {
     switch (status) {
       case 'Action Required':
@@ -139,7 +171,10 @@ const StudentDashboard = () => {
         );
       } else {
         return (
-          <tr key={index}>
+          <tr key={index} onClick={() => {
+            setActiveOptionsOverlay(status);
+            setIsOverlayOptionsOpen(true);
+        }}>
             <td className="title-cell">
               <Link to={`/issue/${request.index}`} className="issue-link">
                 {request.title}

@@ -167,7 +167,7 @@ const IssueDetails = () => {
           </div>
 
           <aside className="sidebar">
-            <span className={`status-box ${getStatusClass(issue.currentStatus)}`}>{issue.currentStatus}</span>
+            <span className={`issue-status-box ${getStatusClass(issue.currentStatus)}`}>{issue.currentStatus}</span>
               <div className="departments-tagged">
                   <h3>Departments Tagged</h3>
                   <ul className='issue-ul'>
@@ -185,10 +185,10 @@ const IssueDetails = () => {
                 )}
                 <div className="footer-buttons">
                     {issue.currentStatus === 'Resolved' && (
-                        <>
                         <button className= "issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
+                        )}
+                    {issue.currentStatus === 'Action Required' && (
                         <button className= "issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
-                        </>
                         )}
                 </div>
           </aside>
