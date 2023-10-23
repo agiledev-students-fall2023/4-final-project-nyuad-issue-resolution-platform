@@ -207,8 +207,8 @@
 
 .issueOverlay {
   position: absolute;
-  top: 100%;
-  right: 30px;
+  right: 150px;
+  top: 50px;
   width: 70%;
   padding: 10px;
   background-color: var(--background);

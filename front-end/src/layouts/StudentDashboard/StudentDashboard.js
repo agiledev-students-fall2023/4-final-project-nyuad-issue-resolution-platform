@@ -12,6 +12,7 @@ const StudentDashboard = () => {
 
   // State initialization for handling overlay options
   const [isOverlayOptionsOpen, setIsOverlayOptionsOpen] = useState(false);
+  const [request, setRequest] = useState(null);
 
   // API
   const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
@@ -173,27 +174,18 @@ const StudentDashboard = () => {
           <tr key={index}>
             <td className="title-cell" onClick={() => {
             setIsOverlayOptionsOpen(true);
+            setRequest(request.index);
         }}>
                 {request.title}
-
-              {isOverlayOptionsOpen && (
-                <div className="issueOverlay" ref={overlayRef}>
-
-                  <IssueDetails index={request.index} />
-                </div>
-                )}
             </td>
+
             <td className="description-cell" onClick={() => {
             setIsOverlayOptionsOpen(true);
+            setRequest(request.index);
         }}>
                 {truncatedDescription}
-              {isOverlayOptionsOpen && (
-                <div className="issueOverlay" ref={overlayRef}>
-
-                  <IssueDetails index={request.index} />
-                </div>
-              )}
             </td>
+
             <td className="departments-cell">
               {request.departments.map((department, index) => (
                 <span key={index} className="department-pill">
@@ -418,6 +410,7 @@ const StudentDashboard = () => {
   };
 
   return (
+    <>
     <div className="requests">
 
       <StudentNavbar studentName={studentName} />
@@ -443,6 +436,14 @@ const StudentDashboard = () => {
           <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
         </div>
       </div>
+
+      {isOverlayOptionsOpen && (
+      <div className="issueOverlay" ref={overlayRef}>
+
+        <IssueDetails index={request} />
+      </div>
+    )}
+
       <div className="table">
         <table className="table-student-dashboard">
           {renderTableHeader()}
@@ -456,6 +457,7 @@ const StudentDashboard = () => {
         <p>New York University Abu Dhabi</p>
       </div>
     </div>
+    </>
   );
 };
 

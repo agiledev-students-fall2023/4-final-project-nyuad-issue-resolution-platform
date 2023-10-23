@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './IssueDetails.css';
 // const [showIssueOverlay, setShowIssueOverlay] = useState(false);
 
 const IssueDetails = (issueIndex) => {
-    const { index } = useParams();
+    const { index } = issueIndex;
     const [issue, setIssue] = useState(null);
     const navigate = useNavigate();
     const [comment, setComment] = useState('');
