@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './IssueDetails.css';
 // const [showIssueOverlay, setShowIssueOverlay] = useState(false);
@@ -7,7 +7,7 @@ import './IssueDetails.css';
 const DesktopIssueDetails = (issueIndex) => {
     const { index } = issueIndex;
     const [issue, setIssue] = useState(null);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]); // Assuming comments is an array
 
@@ -36,9 +36,9 @@ const DesktopIssueDetails = (issueIndex) => {
     }
     };
 
-    const closeIssueDetails = () => {
-        navigate(-1); // Go back to the previous page
-    };
+    // const closeIssueDetails = () => {
+    //     navigate(-1); // Go back to the previous page
+    // };
     useEffect(() => {
         const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
         fetch(apiUrl)
@@ -57,7 +57,7 @@ const DesktopIssueDetails = (issueIndex) => {
     };
 
     const acceptResolution = () => {
-        closeIssueDetails();
+        setIssue({ ...issue, currentStatus: 'Resolved' });
         // Since the issue status is already 'Resolved', no need to change it.
     };
 
