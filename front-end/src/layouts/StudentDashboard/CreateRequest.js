@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React, { Component } from 'react';
+import { useState } from 'react';  // Import useState here
 import './CreateRequest.css';
 
-export function CreateRequest() {
+export function CreateRequest({ isVisible, onClose }) {
     const [issueTitle, setIssueTitle] = useState('');
     const [description, setDescription] = useState('');
     const [department, setDepartment] = useState('department1');
@@ -80,8 +80,7 @@ export function CreateRequest() {
                 </div>
                 <input className='file-select' type="file" id="fileInput" onChange={handleFileChange} />
             </div>
-            
-            <button onClick={onClose}>Close</button>
+            <button className='close-button' onClick={onClose}>Close</button>
         </div>
     );
 }

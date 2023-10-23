@@ -27,7 +27,6 @@ const StudentDashboard = () => {
       });
   }, [apiUrl]);
 
-
   // State initialization for tracking window width and adjusting display
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // Other state initializations for UI functionalities
@@ -37,6 +36,7 @@ const StudentDashboard = () => {
   const [selectedStatus, setSelectedStatus] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("latestFirst");
+  const [isCreateRequestVisible, setIsCreateRequestVisible] = useState(false);
 
   // all the useState hooks below where the function isn't called yet can be put below to escape linter
   /* eslint-disable no-unused-vars */
@@ -262,14 +262,10 @@ const StudentDashboard = () => {
 
   // Placeholder for the "Create Request" functionality
   const handleCreateRequest = () => {
-    return (
-      <div className="create-request-button">
-          <button className="button-student-dashboard" onClick ={CreateRequest}>Create Request +</button>
-          </div>
-  );
-  };
+    setIsCreateRequestVisible(!isCreateRequestVisible);
+};
 
-  // Handles pagination and page switching
+// Handles pagination and page switching
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -402,8 +398,8 @@ const StudentDashboard = () => {
         <StudentViewFilter filterHandler={handleFilterByStatus} selectedOption={selectedStatus} options={statusOptions} />
 
         <div className="create-request-button">
-          <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
-        </div>
+                    <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
+                </div>
       </div>
       <div className="table">
         <table className="table-student-dashboard">
@@ -417,6 +413,8 @@ const StudentDashboard = () => {
       <div className="footer-student-dashboard">
         <p>New York University Abu Dhabi</p>
       </div>
+      {isCreateRequestVisible && <CreateRequest isVisible={isCreateRequestVisible} onClose={handleCreateRequest} />}
+
     </div>
   );
 };
