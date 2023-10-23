@@ -4,7 +4,7 @@ import axios from 'axios';
 import './IssueDetails.css';
 // const [showIssueOverlay, setShowIssueOverlay] = useState(false);
 
-const IssueDetails = () => {
+const IssueDetails = (issueIndex) => {
     const { index } = useParams();
     const [issue, setIssue] = useState(null);
     const navigate = useNavigate();

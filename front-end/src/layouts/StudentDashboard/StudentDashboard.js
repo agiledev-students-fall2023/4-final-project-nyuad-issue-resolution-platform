@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
+import IssueDetails from "../../components/student/StudentIssueOverlay/IssueDetails";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -10,7 +11,6 @@ const StudentDashboard = () => {
   const [displayedRequests, setDisplayedRequests] = useState([]);
 
   // State initialization for handling overlay options
-  const [activeOptionsOverlay, setActiveOptionsOverlay] = useState(null);
   const [isOverlayOptionsOpen, setIsOverlayOptionsOpen] = useState(false);
 
   // API
@@ -87,7 +87,6 @@ const StudentDashboard = () => {
 
   // Function to close the overlay
   const closeOverlayOptions = () => {
-      setActiveOptionsOverlay(null);
       setIsOverlayOptionsOpen(false);
   };
 
@@ -171,19 +170,29 @@ const StudentDashboard = () => {
         );
       } else {
         return (
-          <tr key={index} onClick={() => {
-            setActiveOptionsOverlay(status);
+          <tr key={index}>
+            <td className="title-cell" onClick={() => {
             setIsOverlayOptionsOpen(true);
         }}>
-            <td className="title-cell">
-              <Link to={`/issue/${request.index}`} className="issue-link">
                 {request.title}
-              </Link>
+
+              {isOverlayOptionsOpen && (
+                <div className="issueOverlay" ref={overlayRef}>
+
+                  {IssueDetails(request.index)}
+                </div>
+                )}
             </td>
-            <td className="description-cell">
-              <Link to={`/issue/${request.index}`} className="issue-link">
+            <td className="description-cell" onClick={() => {
+            setIsOverlayOptionsOpen(true);
+        }}>
                 {truncatedDescription}
-              </Link>
+              {isOverlayOptionsOpen && (
+                <div className="issueOverlay" ref={overlayRef}>
+
+                  {IssueDetails(request.index)}
+                </div>
+              )}
             </td>
             <td className="departments-cell">
               {request.departments.map((department, index) => (

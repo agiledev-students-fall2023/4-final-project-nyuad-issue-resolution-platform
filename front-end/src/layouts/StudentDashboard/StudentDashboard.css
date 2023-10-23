@@ -205,6 +205,21 @@
   border-radius: 20px;
 }
 
+.issueOverlay {
+  position: absolute;
+  top: 100%;
+  right: 30px;
+  width: 70%;
+  padding: 10px;
+  background-color: var(--background);
+  border-radius: 5px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .pagination button:hover {
   background-color: var(--accent);
 }
