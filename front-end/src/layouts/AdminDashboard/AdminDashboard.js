@@ -26,7 +26,7 @@ function AdminDashboard() {
             const nameQuery = searchText.replace('name:', '').trim().toLowerCase();
             return issue.studentName.toLowerCase().includes(nameQuery);
         } else if (searchText.startsWith('netid:')) {
-            const netIDQuery = searchText.replace('netid:', '').trim().toLowerCase();
+            const netIDQuery = searchText.replace('netid:', '').trim();
             return issue.studentNetID === netIDQuery;
         } else if (searchText.startsWith('date:')) {
             const dateQuery = searchText.replace('date:', '').trim();
