@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
-import { CreateRequest } from './CreateRequest';
+import { CreateRequest } from "../../components/student/CreateRequest";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant

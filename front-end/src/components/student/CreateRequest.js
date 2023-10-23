@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { useState } from 'react';  // Import useState here
-import './CreateRequest.css';
+import '../../components/student/CreateRequest.css';
+
 
 export function CreateRequest({ isVisible, onClose }) {
     const [issueTitle, setIssueTitle] = useState('');
