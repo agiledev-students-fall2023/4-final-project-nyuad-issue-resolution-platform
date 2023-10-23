@@ -57,7 +57,8 @@
 
 .issueColumn {
     flex: 1;
-    background-color: rgb(224, 229, 232);
+    background-color: rgb(245, 248, 250);
+    border: 2px solid rgb(216, 222, 227);
     padding: 15px;
     border-radius: 10px;
     overflow-y: auto;
@@ -76,7 +77,7 @@
 .columnHeader {
     display: flex;
     justify-content: flex-start;
-    background-color: rgb(224, 229, 232);
+    background-color: rgb(245, 248, 250);
     border-radius: 10px;
     margin-left: -15px;
     margin-right: -15px;
