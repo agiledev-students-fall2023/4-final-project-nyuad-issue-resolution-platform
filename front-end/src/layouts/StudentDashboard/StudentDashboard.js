@@ -179,7 +179,7 @@ const StudentDashboard = () => {
               {isOverlayOptionsOpen && (
                 <div className="issueOverlay" ref={overlayRef}>
 
-                  {IssueDetails(request.index)}
+                  <IssueDetails index={request.index} />
                 </div>
                 )}
             </td>
@@ -190,7 +190,7 @@ const StudentDashboard = () => {
               {isOverlayOptionsOpen && (
                 <div className="issueOverlay" ref={overlayRef}>
 
-                  {IssueDetails(request.index)}
+                  <IssueDetails index={request.index} />
                 </div>
               )}
             </td>
