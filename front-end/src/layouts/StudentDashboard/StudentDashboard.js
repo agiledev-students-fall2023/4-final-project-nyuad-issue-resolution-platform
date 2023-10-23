@@ -141,6 +141,7 @@ const StudentDashboard = () => {
         return (
           <tr key={index}>
             <td className="title-cell">
+              viewDetails(request.index)
               <Link to={`/issue/${request.index}`} className="issue-link">
                 {request.title}
               </Link>
