@@ -1,11 +1,18 @@
 @import url("../../assets/styles.css");
 
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .requests {
   font-family: var(--primary-font);
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: filter 0.3s ease; /* Smooth transition for the blur effect */
 }
 
 .h2-student-dashboard {
@@ -91,6 +98,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .title-cell:hover,
@@ -207,9 +215,9 @@
 
 .issueOverlay {
   position: absolute;
-  right: 150px;
-  top: 50px;
-  width: 70%;
+  right: 12.5%;
+  top: 6.5%;
+  width: 75%;
   padding: 10px;
   background-color: var(--background);
   border-radius: 5px;

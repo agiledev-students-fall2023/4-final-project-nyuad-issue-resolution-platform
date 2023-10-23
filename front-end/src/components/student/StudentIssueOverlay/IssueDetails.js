@@ -193,7 +193,6 @@ const IssueDetails = (issueIndex) => {
                 </div>
           </aside>
 
-          <button className="closeButton issue-buttons" onClick={closeIssueDetails}>X</button>
       </div>
   );
 };

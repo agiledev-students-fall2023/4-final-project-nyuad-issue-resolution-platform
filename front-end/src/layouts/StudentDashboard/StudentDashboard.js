@@ -411,7 +411,7 @@ const StudentDashboard = () => {
 
   return (
     <>
-    <div className="requests">
+    <div className={`requests ${isOverlayOptionsOpen ? 'blur-background' : ''}`}>
 
       <StudentNavbar studentName={studentName} />
 
@@ -437,13 +437,6 @@ const StudentDashboard = () => {
         </div>
       </div>
 
-      {isOverlayOptionsOpen && (
-      <div className="issueOverlay" ref={overlayRef}>
-
-        <IssueDetails index={request} />
-      </div>
-    )}
-
       <div className="table">
         <table className="table-student-dashboard">
           {renderTableHeader()}
@@ -457,6 +450,13 @@ const StudentDashboard = () => {
         <p>New York University Abu Dhabi</p>
       </div>
     </div>
+    {isOverlayOptionsOpen && (
+      <div className="issueOverlay" ref={overlayRef}>
+        <button className="closeButton issue-buttons" onClick={closeOverlayOptions}>X</button>
+
+        <IssueDetails index={request} />
+      </div>
+    )}
     </>
   );
 };
