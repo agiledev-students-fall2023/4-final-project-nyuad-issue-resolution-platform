@@ -58,7 +58,7 @@
 .issueColumn {
     flex: 1;
     background-color: rgb(245, 248, 250);
-    border: 2px solid rgb(216, 222, 227);
+    border: 1px solid rgb(216, 222, 227);
     padding: 15px;
     border-radius: 10px;
     overflow-y: auto;
