@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
+import { CreateRequest } from './CreateRequest';
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -25,6 +26,7 @@ const StudentDashboard = () => {
         console.error("Error fetching data from API:", error);
       });
   }, [apiUrl]);
+
 
   // State initialization for tracking window width and adjusting display
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -260,7 +262,11 @@ const StudentDashboard = () => {
 
   // Placeholder for the "Create Request" functionality
   const handleCreateRequest = () => {
-    // TODO: Implement create request functionality
+    return (
+      <div className="create-request-button">
+          <button className="button-student-dashboard" onClick ={CreateRequest}>Create Request +</button>
+          </div>
+  );
   };
 
   // Handles pagination and page switching
