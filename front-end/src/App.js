@@ -3,7 +3,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import StudentDashboard from "./layouts/StudentDashboard/StudentDashboard";
-import IssueDetails from "./components/student/IssueDetails";
+import IssueDetails from "./components/student/StudentIssueOverlay/IssueDetails";
 import LoginPage from "./layouts/LoginPage/LoginPage.js";
 import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
 
