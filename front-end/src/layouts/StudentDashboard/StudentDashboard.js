@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
-import IssueDetails from "../../components/student/StudentIssueOverlay/IssueDetails";
+import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/IssueDetails";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -11,7 +11,7 @@ const StudentDashboard = () => {
   const [displayedRequests, setDisplayedRequests] = useState([]);
 
   // State initialization for handling overlay options
-  const [isOverlayOptionsOpen, setIsOverlayOptionsOpen] = useState(false);
+  const [isIssueOverlayOpen, setIsIssueOverlayOpen] = useState(false);
   const [request, setRequest] = useState(null);
 
   // API
@@ -87,19 +87,19 @@ const StudentDashboard = () => {
   const overlayRef = useRef(null);
 
   // Function to close the overlay
-  const closeOverlayOptions = () => {
-      setIsOverlayOptionsOpen(false);
+  const closeIssueOverlay = () => {
+      setIsIssueOverlayOpen(false);
   };
 
   // Add event listener to handle clicks outside the overlay
   useEffect(() => {
       const handleOutsideClick = (e) => {
           if (overlayRef.current && !overlayRef.current.contains(e.target)) {
-              closeOverlayOptions();
+              closeIssueOverlay();
           }
       };
 
-      if (isOverlayOptionsOpen) {
+      if (isIssueOverlayOpen) {
           document.addEventListener('mousedown', handleOutsideClick);
       } else {
           document.removeEventListener('mousedown', handleOutsideClick);
@@ -108,7 +108,7 @@ const StudentDashboard = () => {
       return () => {
           document.removeEventListener('mousedown', handleOutsideClick);
       };
-  }, [isOverlayOptionsOpen]);
+  }, [isIssueOverlayOpen]);
 
   const getStatusClass = (status) => {
     switch (status) {
@@ -170,17 +170,19 @@ const StudentDashboard = () => {
           </tr>
         );
       } else {
+        // The Overlay popup is triggered by clicking on the title or description
+        // It is only for Desktop view for now
         return (
           <tr key={index}>
             <td className="title-cell" onClick={() => {
-            setIsOverlayOptionsOpen(true);
+            setIsIssueOverlayOpen(true);
             setRequest(request.index);
         }}>
                 {request.title}
             </td>
 
             <td className="description-cell" onClick={() => {
-            setIsOverlayOptionsOpen(true);
+            setIsIssueOverlayOpen(true);
             setRequest(request.index);
         }}>
                 {truncatedDescription}
@@ -411,7 +413,7 @@ const StudentDashboard = () => {
 
   return (
     <>
-    <div className={`requests ${isOverlayOptionsOpen ? 'blur-background' : ''}`}>
+    <div className={`requests ${isIssueOverlayOpen ? 'blur-background' : ''}`}>
 
       <StudentNavbar studentName={studentName} />
 
@@ -450,11 +452,13 @@ const StudentDashboard = () => {
         <p>New York University Abu Dhabi</p>
       </div>
     </div>
-    {isOverlayOptionsOpen && (
+    {/* The Overlay popup is triggered by clicking on the title or description */}
+    {/* It is only for Desktop view for now */}
+    {isIssueOverlayOpen && (
       <div className="issueOverlay" ref={overlayRef}>
-        <button className="closeButton issue-buttons" onClick={closeOverlayOptions}>X</button>
+        <button className="closeButton issue-buttons" onClick={closeIssueOverlay}>X</button>
 
-        <IssueDetails index={request} />
+        <DesktopIssueDetails index={request} />
       </div>
     )}
     </>

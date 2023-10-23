@@ -4,7 +4,7 @@ import axios from 'axios';
 import './IssueDetails.css';
 // const [showIssueOverlay, setShowIssueOverlay] = useState(false);
 
-const IssueDetails = (issueIndex) => {
+const DesktopIssueDetails = (issueIndex) => {
     const { index } = issueIndex;
     const [issue, setIssue] = useState(null);
     const navigate = useNavigate();
@@ -197,4 +197,4 @@ const IssueDetails = (issueIndex) => {
   );
 };
 
-export default IssueDetails;
+export default DesktopIssueDetails;
