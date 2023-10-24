@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './AdminDashboard.css';
+import IssueColumn from '../../components/admin/IssueColumn/IssueColumn';
 import SearchBarAdmin from '../../components/admin/SearchBarAdmin/SearchBarAdmin';
 import {
     sortByPriorityAndDate,
@@ -108,61 +109,18 @@ function AdminDashboard() {
             <SearchBarAdmin searchText={searchText} onSearchTextChange={setSearchText} />
             <div className="issue-columns">
                 {groupedAndOrderedIssues.map(({ status, issues }) => (
-                    <div key={status} className="issue-column">
-                        <div className="column-header">
-                            <span className={`status-circle ${status.replace(/\s+/g, '').toLowerCase()}`}></span>
-                            <h3>{status}</h3>
-                            <span className="issue-count">{issues.length}</span>
-                            <button
-                                className="column-specific-overlay-button"
-                                onClick={() => {
-                                    setActiveOptionsOverlay(status);
-                                    setIsOverlayOptionsOpen(true);
-                                }}
-                            >
-                                ...
-                            </button>
-                            {activeOptionsOverlay === status && isOverlayOptionsOpen && (
-                                <div className="column-specific-overlay" ref={overlayRef}>
-                                    <button onClick={() => {
-                                        const updatedSortOptions = { ...columnSortOptions, [status]: 'priority' };
-                                        setColumnSortOptions(updatedSortOptions);
-                                    }}>
-                                        Priority ↑
-                                    </button>
-                                    <button onClick={() => {
-                                        const updatedSortOptions = { ...columnSortOptions, [status]: 'priorityReverse' };
-                                        setColumnSortOptions(updatedSortOptions);
-                                    }}>
-                                        Priority ↓
-                                    </button>
-                                    <button onClick={() => {
-                                        const updatedSortOptions = { ...columnSortOptions, [status]: 'date' };
-                                        setColumnSortOptions(updatedSortOptions);
-                                    }}>
-                                        Date ↑
-                                    </button>
-                                    <button onClick={() => {
-                                        const updatedSortOptions = { ...columnSortOptions, [status]: 'dateAscending' };
-                                        setColumnSortOptions(updatedSortOptions);
-                                    }}>
-                                        Date ↓
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                        {issues.map(issue => (
-                            <div key={issue.index} className="issue-card">
-                                <h4 className='admin-dashboard-studentName'>{issue.studentName} ({issue.studentNetID})</h4>
-                                <h4>{issue.title}</h4>
-                                <p>{issue.description}</p>
-                                <div className={`priority-tag ${issue.currentPriority.toLowerCase().replace(/\s+/g, '')}`}>
-                                    {issue.currentPriority}
-                                </div>
-                                <div className="issue-date">{issue.dateCreated}</div>
-                            </div>
-                        ))}
-                    </div>
+                    <IssueColumn
+                        key={status}
+                        status={status}
+                        issues={issues}
+                        activeOptionsOverlay={activeOptionsOverlay}
+                        setActiveOptionsOverlay={setActiveOptionsOverlay}
+                        setIsOverlayOptionsOpen={setIsOverlayOptionsOpen}
+                        columnSortOptions={columnSortOptions}
+                        setColumnSortOptions={setColumnSortOptions}
+                        overlayRef={overlayRef}
+                        isOverlayOptionsOpen={isOverlayOptionsOpen}
+                    />
                 ))}
             </div>
             <div className="footer-admin-dashboard">
