@@ -2,7 +2,7 @@
 @import url("../../assets/styles.css");
 
 /* Apply generic styles for admin dashboard */
-.adminDashboard {
+.admin-dashboard {
     font-family: var(--primary-font);
     background-color: var(--background);
     color: var(--text);
@@ -14,12 +14,12 @@
     margin: 0;
 }
 
-.adminDashboard>h1 {
+.admin-dashboard h1 {
     font-size: 24px;
     margin: 30px 0 10px 0;
 }
 
-.searchBar {
+.search-bar-admin {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -31,11 +31,11 @@
     justify-content: center;
 }
 
-.searchBar form {
+.search-bar-admin form {
     width: 100%;
 }
 
-.searchBar input {
+.search-bar-admin input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -44,7 +44,7 @@
     outline: none;
 }
 
-.issueColumns {
+.issue-columns {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -55,7 +55,7 @@
     overflow-y: auto;
 }
 
-.issueColumn {
+.issue-column {
     flex: 1;
     background-color: rgb(245, 248, 250);
     border: 1px solid rgb(216, 222, 227);
@@ -66,15 +66,15 @@
     max-height: calc(100vh - 35vh);
 }
 
-.issueColumn:first-child {
+.issue-column:first-child {
     margin-left: 20px;
 }
 
-.issueColumn:last-child {
+.issue-column:last-child {
     margin-right: 20px;
 }
 
-.columnHeader {
+.column-header {
     display: flex;
     justify-content: flex-start;
     background-color: rgb(245, 248, 250);
@@ -91,7 +91,7 @@
 
 }
 
-.statusCircle {
+.status-circle {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -99,31 +99,31 @@
     display: inline-block;
 }
 
-.statusCircle.notstarted {
+.status-circle.notstarted {
     background-color: rgba(184, 44, 28, 0.214);
     border: 2px solid rgb(184, 44, 28);
 }
 
-.statusCircle.inprogress {
+.status-circle.inprogress {
     background-color: rgba(157, 105, 2, 0.209);
     border: 2px solid rgb(157, 106, 2);
 }
 
-.statusCircle.awaitingresponse {
-    background-color: rgba(31, 109, 235, 0.217);
-    border: 2px solid rgb(31, 110, 235);
+.status-circle.awaitingresponse {
+    background-color: rgba(218, 54, 51, 0.206);
+    border: 2px solid rgb(218,54,51);
 }
 
-.statusCircle.resolved {
+.status-circle.resolved {
     background-color: rgba(35, 134, 55, 0.226);
     border: 2px solid rgb(35, 134, 54);
 }
 
-.columnHeader>h3 {
+.column-header>h3 {
     margin-top: -3px
 }
 
-.issueCount {
+.issue-count {
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -137,7 +137,7 @@
     margin-top: -4px;
 }
 
-.issueCard {
+.issue-card {
     position: relative;
     padding: 10px;
     background-color: #ffffff;
@@ -151,23 +151,23 @@
     transition: height 0.3s ease;
 }
 
-.issueCard:hover {
+.issue-card:hover {
     background-color: var(--secondary);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: visible;
 }
 
-.issueCard h4 {
+.issue-card h4 {
     font-weight: normal;
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-.issueCard p {
+.issue-card p {
     display: none;
 }
 
-.issueDate {
+.issue-date {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -180,18 +180,18 @@
     color: var(--primary);
 }
 
-.issueCard:hover h4 {
+.issue-card:hover h4 {
     font-weight: bold
 }
 
-.issueCard:hover p {
+.issue-card:hover p {
     display: block;
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
 }
 
-.columnSpecificOverlayButton {
+.column-specific-overlay-button {
     background: none;
     border: none;
     color: var(--text);
@@ -203,11 +203,11 @@
     margin-top: -30px;
 }
 
-.columnSpecificOverlayButton:hover {
+.column-specific-overlay-button:hover {
     color: var(--primary)
 }
 
-.columnSpecificOverlay {
+.column-specific-overlay {
     position: absolute;
     top: 100%;
     right: 30px;
@@ -222,7 +222,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.columnSpecificOverlay button {
+.column-specific-overlay button {
     font: normal;
     padding: 8px 15px;
     border: none;
@@ -235,15 +235,15 @@
     transition: background-color 0.3s;
 }
 
-.columnSpecificOverlay button:hover {
+.column-specific-overlay button:hover {
     background-color: var(--secondary);
 }
 
-.columnSpecificOverlay button:last-child {
+.column-specific-overlay button:last-child {
     margin-bottom: 0;
 }
 
-.priorityTag {
+.priority-tag {
     font-size: 10px;
     font-weight: bold;
     border-radius: 5px;
@@ -252,18 +252,18 @@
     display: inline-block;
 }
 
-.priorityTag.highpriority {
+.priority-tag.highpriority {
     background-color: rgba(184, 44, 28, 0.214);
     color: rgb(184, 44, 28);
 
 }
 
-.priorityTag.new {
+.priority-tag.new {
     background-color: rgba(131, 84, 219, 0.212);
     color: rgb(131, 84, 219);
 }
 
-.priorityTag.reopened {
+.priority-tag.reopened {
     background-color: rgba(157, 105, 2, 0.209);
     color: rgb(157, 106, 2);
 }

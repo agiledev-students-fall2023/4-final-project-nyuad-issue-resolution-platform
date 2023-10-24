@@ -132,10 +132,10 @@ function AdminDashboard() {
     }, [isOverlayOptionsOpen]);
 
     return (
-        <div className="adminDashboard">
+        <div className="admin-dashboard">
             <h1>Issue Board</h1>
-            <div className="searchBar">
-                <form>
+            <div className="search-bar-admin">
+                <form onSubmit={(e) => e.preventDefault()}>
                     <input
                         type="text"
                         placeholder="Search by keyword, netid:, name:, date:, priority:"
@@ -144,15 +144,15 @@ function AdminDashboard() {
                     />
                 </form>
             </div>
-            <div className="issueColumns">
+            <div className="issue-columns">
                 {groupedAndOrderedIssues.map(({ status, issues }) => (
-                    <div key={status} className="issueColumn">
-                        <div className="columnHeader">
-                            <span className={`statusCircle ${status.replace(/\s+/g, '').toLowerCase()}`}></span>
+                    <div key={status} className="issue-column">
+                        <div className="column-header">
+                            <span className={`status-circle ${status.replace(/\s+/g, '').toLowerCase()}`}></span>
                             <h3>{status}</h3>
-                            <span className="issueCount">{issues.length}</span>
+                            <span className="issue-count">{issues.length}</span>
                             <button
-                                className="columnSpecificOverlayButton"
+                                className="column-specific-overlay-button"
                                 onClick={() => {
                                     setActiveOptionsOverlay(status);
                                     setIsOverlayOptionsOpen(true);
@@ -161,7 +161,7 @@ function AdminDashboard() {
                                 ...
                             </button>
                             {activeOptionsOverlay === status && isOverlayOptionsOpen && (
-                                <div className="columnSpecificOverlay" ref={overlayRef}>
+                                <div className="column-specific-overlay" ref={overlayRef}>
                                     <button onClick={() => {
                                         const updatedSortOptions = { ...columnSortOptions, [status]: 'priority' };
                                         setColumnSortOptions(updatedSortOptions);
@@ -190,14 +190,14 @@ function AdminDashboard() {
                             )}
                         </div>
                         {issues.map(issue => (
-                            <div key={issue.index} className="issueCard">
+                            <div key={issue.index} className="issue-card">
                                 <h4 className='admin-dashboard-studentName'>{issue.studentName} ({issue.studentNetID})</h4>
                                 <h4>{issue.title}</h4>
                                 <p>{issue.description}</p>
-                                <div className={`priorityTag ${issue.currentPriority.toLowerCase().replace(/\s+/g, '')}`}>
+                                <div className={`priority-tag ${issue.currentPriority.toLowerCase().replace(/\s+/g, '')}`}>
                                     {issue.currentPriority}
                                 </div>
-                                <div className="issueDate">{issue.dateCreated}</div>
+                                <div className="issue-date">{issue.dateCreated}</div>
                             </div>
                         ))}
                     </div>
