@@ -1,0 +1,24 @@
+.search-bar-admin {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 95.5%;
+    margin-right: 25px;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-admin form {
+    width: 100%;
+}
+
+.search-bar-admin input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
