@@ -14,9 +14,20 @@
     margin: 0;
 }
 
-.admin-dashboard h1 {
+.admin-dashboard-header {
     font-size: 24px;
     margin: 30px 0 10px 0;
+}
+
+.issue-columns-admin {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+    margin: 20px 10px;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .footer-admin-dashboard {

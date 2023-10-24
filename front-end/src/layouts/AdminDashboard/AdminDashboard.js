@@ -105,9 +105,9 @@ function AdminDashboard() {
 
     return (
         <div className="admin-dashboard">
-            <h1>Issue Board</h1>
+            <h1 className='admin-dashboard-header'>Issue Board</h1>
             <SearchBarAdmin searchText={searchText} onSearchTextChange={setSearchText} />
-            <div className="issue-columns">
+            <div className="issue-columns-admin">
                 {groupedAndOrderedIssues.map(({ status, issues }) => (
                     <IssueColumn
                         key={status}
