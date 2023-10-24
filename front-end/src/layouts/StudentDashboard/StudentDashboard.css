@@ -1,11 +1,18 @@
 @import url("../../assets/styles.css");
 
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .requests {
   font-family: var(--primary-font);
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: filter 0.3s ease; /* Smooth transition for the blur effect */
 }
 
 .h2-student-dashboard {
@@ -91,6 +98,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 
 .title-cell:hover,
@@ -203,6 +211,21 @@
   margin: 0 2px;
   padding: 5px 10px;
   border-radius: 20px;
+}
+
+.issueOverlay {
+  position: absolute;
+  right: 12.5%;
+  top: 6.5%;
+  width: 75%;
+  padding: 10px;
+  background-color: var(--background);
+  border-radius: 5px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .pagination button:hover {
