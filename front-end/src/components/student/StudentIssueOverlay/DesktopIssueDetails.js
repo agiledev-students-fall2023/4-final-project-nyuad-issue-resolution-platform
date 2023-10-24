@@ -108,45 +108,58 @@ const DesktopIssueDetails = ({ index }) => {
 
     return (
 
-        <div className="issue-details-container">
+        <div className="student-issue-view">
             {/* {renderIssueOverlay()} */}
+            <h2>{issue.title}</h2>
             <div className="issue-content">
-                <div className="issue-heading-section">
-                    <h2>{issue.title}</h2>
-                </div>
-                <div className="history-section">
-                    <h3>Issue History</h3>
-                    {issueUpdates.map((update, index) => (
-                        <div key={index} className="update">
-                            <h4>Update {issueUpdates.length - index}</h4>
-                            <p>{update}</p>
-                        </div>
-                    ))}
-                </div>
-                {comments && comments.length > 0 && (
-                    <div className="comments-section">
-                        <h3>Comments</h3>
-                        {comments.map((comment, index) => (
-                            <div key={index} className="comment">
-                                <p>{comment.text /* Assuming comment object has a text property */}</p>
-                            </div>
-                        ))}
-                    </div>
-                )}
+                {/* <div className="issue-heading-section">
 
-                <div className="add-comment">
-                    <h3>Add a Comment</h3>
-                    <textarea className='comment-input'
-                        value={comment}
-                        onChange={handleCommentChange}
-                        placeholder="Your comment..."
-                    ></textarea>
-                    <button className="issue-buttons" onClick={submitComment}>Submit Comment</button>
+                </div> */}
+
+                <div className='leftside-section'>
+                    <div className="issue-history-section">
+                        <div className='issue-history-and-status'>
+                            <h3>Issue History</h3>
+                            <span className={`issue-status-box ${getStatusClass(issue.currentStatus)}`}>{issue.currentStatus}</span>
+                        </div>
+
+                        <div className='history-updates'>
+                            {issueUpdates.map((update, index) => (
+                                <div key={index} className="update">
+                                    <h4>Update {issueUpdates.length - index}</h4>
+                                    <p>{update}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className='rightside-section'>
+                    <h1>Right side goes here</h1>
                 </div>
             </div>
 
+            {comments && comments.length > 0 && (
+                <div className="comments-section">
+                    <h3>Comments</h3>
+                    {comments.map((comment, index) => (
+                        <div key={index} className="comment">
+                            <p>{comment.text /* Assuming comment object has a text property */}</p>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <div className="add-comment">
+                <h3>Add a Comment</h3>
+                <textarea className='comment-input'
+                    value={comment}
+                    onChange={handleCommentChange}
+                    placeholder="Your comment..."
+                ></textarea>
+                <button className="issue-buttons" onClick={submitComment}>Submit Comment</button>
+            </div>
+
             <aside className="sidebar">
-                <span className={`issue-status-box ${getStatusClass(issue.currentStatus)}`}>{issue.currentStatus}</span>
                 <div className="departments-tagged">
                     <h3>Departments Tagged</h3>
                     <ul className='issue-ul'>

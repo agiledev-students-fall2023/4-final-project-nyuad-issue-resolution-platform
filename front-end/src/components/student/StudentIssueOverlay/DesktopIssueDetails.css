@@ -1,154 +1,115 @@
 @import url("../../../assets/styles.css");
-  
-  .issue-details-container {
-    font-family: var(--primary-font);
-    color: var(--text);
-    background: var(--background);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .issue-content {
-    display: flex;
-    flex-direction: column;
-    flex: 3 1;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: stretch;
-    margin-right: 50px;
-    margin-top: 55px;
+
+.student-issue-view {
+  font-family: var(--primary-font);
+  color: var(--text);
+  background: var(--background);
+  text-align: left;
 }
-  
-  .issue-heading-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .action-required-tag {
-    font-family: var(--secondary-font);
-    background-color: var(--primary);
-    color: var(--background);
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .history-section {
-    margin-top: 20px;
-  }
-  
-  .comments-section {
-    margin-top: 20px;
-  }
-  
-  .add-comment {
-    margin-top: 20px;
-  }
-  
-  .comment-input {
-    width: 100%;
-    padding: 10px;
-    font-family: var(--primary-font);
-  }
-  
-  .issue-buttons {
-    background: var(--primary);
-    color: var(--background);
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-family: var(--primary-font);
-  }
-  
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    align-content: center;
+
+.student-issue-view>h2 {
+  margin: 30px;
+  width: 90%;
 }
-.sidebar {
-    margin-top: 20px;
-    flex: 1 1;
-    margin-top: 75px;
+
+.student-issue-view .issue-content {
+  display: flex;
 }
-  
-  .departments-tagged,
-  .attachments {
-    background: var(--secondary);
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .issue-ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .issue-li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-buttons {
-    margin-top: auto;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .closeButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-  }
+
+.student-issue-view .leftside-section {
+  flex: 3;
+}
+
+.student-issue-view .rightside-section {
+  flex: 1;
+}
+
+.student-issue-view .issue-history-section {
+  margin: 0 30px;
+}
+
+.student-issue-view .issue-history-and-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-issue-view .issue-history-and-status>h3 {
+  font-size: 20px;
+  margin: 0px;
+}
+
+.student-issue-view .issue-status-box {
+  padding: 10px 13px;
+  border-radius: 5px;
+}
+
+.student-issue-view .history-updates {
+  background-color: gray;
+}
+
+.issue-heading-section {}
+
+.action-required-tag {}
+
+
+
+.comments-section {}
+
+.add-comment {}
+
+.comment-input {
+  width: 100%;
+  padding: 10px;
+  font-family: var(--primary-font);
+}
+
+.issue-buttons {
+  background: var(--primary);
+  color: var(--background);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: var(--primary-font);
+}
+
+.sidebar {}
+
+.departments-tagged,
+.attachments {}
+
+.issue-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.issue-li {}
+
+.footer-buttons {}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
 
 .issue-heading-section,
 .history-section,
 .comments-section,
-.add-comment {
-  margin-bottom: 20px;
-}
+.add-comment {}
 
 .departments-tagged,
-.attachments {
-  margin-top: 70px;
-}
+.attachments {}
 
-.issue-status-box {
-    padding: 10px 10px;
-    border-radius: 5px;
-    font-size: 15px;
-  }
 
-.status-action-required {
-    background-color: rgba(184, 44, 28, 0.214);
-    font-weight: bold;
-    color: rgb(184, 44, 28);
-  }
-  
-  .status-closed {
-    background-color: rgba(35, 134, 55, 0.226);
-    font-weight: bold;
-    color: rgb(35, 134, 54);
-  }
-  
-  .status-in-progress {
-    background-color: rgba(157, 105, 2, 0.209);
-    font-weight: bold;
-    color: rgb(157, 106, 2);
-  }
-  
-  .status-open {
-    background-color: rgba(31, 109, 235, 0.217);
-    font-weight: bold;
-    color: rgb(31, 110, 235);
-  }
+
+.status-action-required {}
+
+.status-closed {}
+
+.status-in-progress {}
+
+.status-open {}
