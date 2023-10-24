@@ -10,10 +10,21 @@ const DesktopIssueDetails = (issueIndex) => {
     // const navigate = useNavigate();
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]); // Assuming comments is an array
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
       };
+
+      // Track Window Resizing
+      useEffect(() => {
+        const handleResize = () => {
+          setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        // Clean up the event listener when the component unmounts
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
 
     const submitComment = async () => {
     if (comment.trim()) {
@@ -135,6 +146,11 @@ const DesktopIssueDetails = (issueIndex) => {
               <div className="issue-heading-section">
                   <h2>{issue.title}</h2>
               </div>
+              {windowWidth <= 768 && (
+                <span className={`issue-status-box ${getStatusClass(issue.currentStatus)}`}>
+                {issue.currentStatus}
+                </span>
+            )}
               <div className="history-section">
                   <h3>Issue History</h3>
                   {issueUpdates.map((update, index) => (
@@ -167,7 +183,11 @@ const DesktopIssueDetails = (issueIndex) => {
           </div>
 
           <aside className="sidebar">
-            <span className={`issue-status-box ${getStatusClass(issue.currentStatus)}`}>{issue.currentStatus}</span>
+          {windowWidth > 768 && (
+        <span className={`issue-status-box ${getStatusClass(issue.currentStatus)}`}>
+          {issue.currentStatus}
+        </span>
+      )}
               <div className="departments-tagged">
                   <h3>Departments Tagged</h3>
                   <ul className='issue-ul'>

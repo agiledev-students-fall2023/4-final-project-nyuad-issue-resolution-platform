@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
@@ -157,13 +156,17 @@ const StudentDashboard = () => {
       if (windowWidth <= 768) {
         return (
           <tr key={index}>
-            <td className="title-cell-mobile">
-              <Link to={`/issue/${request.index}`} className="issue-link">
+            <td className="title-cell-mobile" onClick={() => {
+            setIsIssueOverlayOpen(true);
+            setRequest(request.index);
+        }}>
                 {request.title}
-              </Link>
             </td>
             <td>
-              <span className={`status-box ${getStatusClass(request.currentStatus)}`}>
+              <span className={`status-box ${getStatusClass(request.currentStatus)}` } onClick={() => {
+            setIsIssueOverlayOpen(true);
+            setRequest(request.index);
+        }}>
                 {request.currentStatus}
               </span>
             </td>

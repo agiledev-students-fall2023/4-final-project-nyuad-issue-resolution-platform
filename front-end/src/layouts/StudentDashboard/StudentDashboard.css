@@ -315,4 +315,23 @@
   .footer-student-dashboard {
     font-size: 10px;
   }
+
+  .issueOverlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    /* padding: 10px; */
+    background-color: var(--background);
+    border-radius: 5px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+
 }
