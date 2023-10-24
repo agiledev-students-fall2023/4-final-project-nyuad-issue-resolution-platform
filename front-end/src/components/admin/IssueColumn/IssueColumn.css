@@ -59,13 +59,13 @@
 }
 
 .status-circle.inprogress {
-    background-color: rgba(157, 105, 2, 0.209);
-    border: 2px solid rgb(157, 106, 2);
+    background-color: rgba(31, 109, 235, 0.217);
+    border: 2px solid rgb(31, 110, 235);
 }
 
 .status-circle.awaitingresponse {
-    background-color: rgba(218, 54, 51, 0.206);
-    border: 2px solid rgb(218, 54, 51);
+    background-color: rgba(157, 105, 2, 0.209);
+    border: 2px solid rgb(157, 106, 2);
 }
 
 .status-circle.resolved {
