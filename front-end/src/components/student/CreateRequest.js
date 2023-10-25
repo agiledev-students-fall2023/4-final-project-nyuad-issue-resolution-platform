@@ -81,7 +81,7 @@ export function CreateRequest({ isVisible, onClose }) {
                 </div>
                 <input className='file-select' type="file" id="fileInput" onChange={handleFileChange} />
             </div>
-            <button className='close-button' onClick={onClose}>Submit Request</button>
+            <button type="submit" className='close-button' onClick={onClose}>Submit Request</button>
         </div>
     );
 }
