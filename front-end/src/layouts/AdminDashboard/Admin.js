@@ -2,6 +2,7 @@ import Column from '../../components/admin/Column/Column.js';
 import AdminIssueOverlay from '../../components/admin/AdminIssueOverlay/AdminIssueOverlay.js';
 import { useState } from 'react';
 import '../../components/admin/AdminIssueOverlay/AdminIssueOverlay.css';
+import  '../../components/admin/Column/Column.css';
 import './Admin.css';
 
 const notStartedCards = [
