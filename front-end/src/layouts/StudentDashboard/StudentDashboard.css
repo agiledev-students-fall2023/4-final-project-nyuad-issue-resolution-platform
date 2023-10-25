@@ -119,6 +119,7 @@
   border-radius: 15px;
   font-size: 12px;
   background-color: rgba(131, 84, 219, 0.212);
+  /* border: 1px solid rgba(131, 84, 219, 0.782); */
   font-weight: bold;
   color: rgb(131, 84, 219);
   margin: 2px;

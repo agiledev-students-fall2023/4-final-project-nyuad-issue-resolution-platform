@@ -8,8 +8,9 @@
 }
 
 .student-issue-view>h2 {
-  margin: 30px;
+  margin: 30px 0 20px 30px;
   width: 90%;
+  font-size: 25px;
 }
 
 .student-issue-view .issue-content {
@@ -35,7 +36,7 @@
 }
 
 .student-issue-view .issue-history-and-status>h3 {
-  font-size: 20px;
+  font-size: 23px;
   margin: 0px;
 }
 
@@ -45,10 +46,57 @@
 }
 
 .student-issue-view .history-updates {
-  background-color: gray;
+  height: 300px;
+  background-color: var(--secondary);
+  overflow-y: scroll;
+  margin-top: 15px;
+  border-radius: 2px;
 }
 
-.issue-heading-section {}
+.student-issue-view .history-updates>.update {
+  margin: 20px 20px 25px 20px;
+}
+
+.student-issue-view .history-updates>.update>h4 {
+  margin: 0;
+}
+
+.student-issue-view .history-updates>.update>p {
+  background-color: gray;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.student-issue-view .add-comment {
+  /* margin-top: 10px; */
+}
+
+.student-issue-view .add-comment>h3 {
+  margin: 30px 0 10px 0;
+
+}
+
+.student-issue-view .comment-input {
+  height: 68px;
+  width: 97%;
+  resize: vertical;
+  padding: 10px;
+  font-family: var(--primary-font);
+  border-radius: 2px;
+  border: 1px solid var(--primary);
+  /* outline: 5px var(--primary); */
+}
+
+.student-issue-view .comment-input:focus {
+  outline: 1px solid var(--accent);
+}
+
+.student-issue-view .add-comment>.issue-buttons {
+  transform: translate(945px, -60px);
+}
+
+.student-issue-view .issue-buttons .student-issue-view .issue-heading-section {}
 
 .action-required-tag {}
 
@@ -58,11 +106,7 @@
 
 .add-comment {}
 
-.comment-input {
-  width: 100%;
-  padding: 10px;
-  font-family: var(--primary-font);
-}
+.comment-input {}
 
 .issue-buttons {
   background: var(--primary);

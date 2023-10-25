@@ -60,7 +60,11 @@ const DesktopIssueDetails = ({ index }) => {
     }
 
     const issueUpdates = [
+        issue.description,
+        issue.description,
+        issue.description,
         issue.description
+        // just replicated issues for styling updates
     ];
 
     // Converts a department value to its display name
@@ -131,10 +135,44 @@ const DesktopIssueDetails = ({ index }) => {
                                 </div>
                             ))}
                         </div>
+
+                        <div className="add-comment">
+                            <h3>Add a Comment</h3>
+                            <textarea className='comment-input'
+                                value={comment}
+                                onChange={handleCommentChange}
+                                placeholder="Your comment..."
+                            ></textarea>
+                            <button className="issue-buttons" onClick={submitComment}>Add</button>
+                        </div>
                     </div>
                 </div>
                 <div className='rightside-section'>
                     <h1>Right side goes here</h1>
+                    <aside className="sidebar">
+                        <div className="departments-tagged">
+                            <h3>Departments Tagged</h3>
+                            <ul className='issue-ul'>
+                                {issue.departments.map((dept, index) => <li className='issue-li' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
+                            </ul>
+                        </div>
+                        {issue.attachments && issue.attachments.length > 0 && (
+                            <div className="attachments">
+                                <h3>Attachments</h3>
+                                <ul className='issue-ul'>
+                                    {issue.attachments.map((attach, index) => <li className='issue-li' key={index}>{attach}</li>)}
+                                </ul>
+                            </div>
+                        )}
+                        <div className="footer-buttons">
+                            {issue.currentStatus === 'Resolved' && (
+                                <button className="issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
+                            )}
+                            {issue.currentStatus === 'Action Required' && (
+                                <button className="issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
+                            )}
+                        </div>
+                    </aside>
                 </div>
             </div>
 
@@ -148,41 +186,6 @@ const DesktopIssueDetails = ({ index }) => {
                     ))}
                 </div>
             )}
-
-            <div className="add-comment">
-                <h3>Add a Comment</h3>
-                <textarea className='comment-input'
-                    value={comment}
-                    onChange={handleCommentChange}
-                    placeholder="Your comment..."
-                ></textarea>
-                <button className="issue-buttons" onClick={submitComment}>Submit Comment</button>
-            </div>
-
-            <aside className="sidebar">
-                <div className="departments-tagged">
-                    <h3>Departments Tagged</h3>
-                    <ul className='issue-ul'>
-                        {issue.departments.map((dept, index) => <li className='issue-li' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
-                    </ul>
-                </div>
-                {issue.attachments && issue.attachments.length > 0 && (
-                    <div className="attachments">
-                        <h3>Attachments</h3>
-                        <ul className='issue-ul'>
-                            {issue.attachments.map((attach, index) => <li className='issue-li' key={index}>{attach}</li>)}
-                        </ul>
-                    </div>
-                )}
-                <div className="footer-buttons">
-                    {issue.currentStatus === 'Resolved' && (
-                        <button className="issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
-                    )}
-                    {issue.currentStatus === 'Action Required' && (
-                        <button className="issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
-                    )}
-                </div>
-            </aside>
 
         </div>
     );
