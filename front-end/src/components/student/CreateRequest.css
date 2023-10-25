@@ -1,9 +1,15 @@
+@import url("../../assets/styles.css");
+
+
 .request-container {
     height: 600px;
     width: 500px;
     position: absolute;
     border: 1px solid #000; /* Optional border for visualization */
     background-color: #fff;
+    top: 50%; /* Move the container down by 50% of the parent's height */
+    left: 50%; /* Center the container horizontally by 50% of the parent's width */
+    transform: translate(-50%, -50%); /* Center the container precisely */
 }
   .top-rectangle {
     background-color: #57068C; /* Set the background color to #57068C */
@@ -21,10 +27,9 @@
     position: absolute; 
     top: 50px; /* Set the Y coordinate to 63px */
     left: 50px; /* Set the X coordinate to 63px */
-    font-family: 'Lato', sans-serif;
-}
+    font-family: var(--primary-font), var(--secondary-font);
 
-
+  }
 
 .issue-title-group {
     position: absolute;
@@ -36,7 +41,7 @@
 .issue-title-label {
     color: #3D7D2E; /* Set the text color to #3D7D2E */
     font-size: 24px; 
-    font-family: 'Lato', sans-serif;
+    font-family: var(--primary-font), var(--secondary-font);
 }
 
 /* Style for the text input */
@@ -59,7 +64,7 @@
 .description-label {
     color: #3D7D2E; /* Set the text color to #3D7D2E */
     font-size: 24px; 
-    font-family: 'Lato', sans-serif;
+    font-family: var(--primary-font), var(--secondary-font);
     margin-bottom: 5px; /* Add some space below the title */
 }
 
@@ -85,7 +90,7 @@
 .department-label {
     color: #3D7D2E; /* Set the text color to #57068C or your desired color */
     font-size: 18px; /* Adjust the font size as needed */
-    font-family: 'Lato', sans-serif;
+    font-family: var(--primary-font), var(--secondary-font);
 }
 
 /* Style for the department selection dropdown */
@@ -95,8 +100,6 @@
     margin-top: 10px;
     left: 1px;
 }
-
-
 
 
 .file-group{
@@ -109,7 +112,7 @@ position:absolute;
     color: #29561f; /* Set the text color to #57068C or your desired color */
     font-weight: 500;
     font-size: 15px; /* Adjust the font size as needed */
-    font-family: 'Lato', sans-serif;
+    font-family: var(--primary-font), var(--secondary-font);
 }
 
 .file-select{
@@ -120,6 +123,16 @@ position:absolute;
 
 .close-button{
     top: 500px;
-    left: 230px;
+    left: 178px;
+    font-size: large;
     position: absolute;
+    background-color: var(--primary);
+    color: var(--background);
+    border-radius: 7px;
+    margin-right: 10px;
+    margin-left: auto;
 }
+
+.close-button:hover {
+    background-color: var(--accent);
+  }
