@@ -12,7 +12,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: filter 0.3s ease; /* Smooth transition for the blur effect */
+  transition: filter 0.3s ease;
+  /* Smooth transition for the blur effect */
 }
 
 .h2-student-dashboard {
@@ -118,6 +119,7 @@
   border-radius: 15px;
   font-size: 12px;
   background-color: rgba(131, 84, 219, 0.212);
+  /* border: 1px solid rgba(131, 84, 219, 0.782); */
   font-weight: bold;
   color: rgb(131, 84, 219);
   margin: 2px;
@@ -215,17 +217,25 @@
 
 .issueOverlay {
   position: absolute;
-  right: 12.5%;
-  top: 6.5%;
-  width: 75%;
-  padding: 10px;
+  /* centering the div */
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+
+  width: 95%;
+  height: 87%;
+  /* padding: 10px; */
   background-color: var(--background);
   border-radius: 5px;
   z-index: 1001;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .pagination button:hover {
