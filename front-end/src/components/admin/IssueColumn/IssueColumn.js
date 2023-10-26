@@ -18,13 +18,13 @@ function IssueColumn({
     };
 
     return (
-        <div className="issue-column">
-            <div className="column-header">
-                <span className={`status-circle ${status.replace(/\s+/g, '').toLowerCase()}`}></span>
-                <h3>{status}</h3>
-                <span className="issue-count">{issues.length}</span>
+        <div className="issue-column-admin">
+            <div className="column-header-admin">
+                <span className={`status-circle-column-header-admin ${status.replace(/\s+/g, '').toLowerCase()}`}></span>
+                <h3 className="column-header-admin-status">{status}</h3>
+                <span className="issue-count-column-header-admin">{issues.length}</span>
                 <button
-                    className="column-specific-overlay-button"
+                    className="column-specific-header-overlay-options-button"
                     onClick={() => {
                         setActiveOptionsOverlay(status);
                         setIsOverlayOptionsOpen(true);
@@ -33,17 +33,17 @@ function IssueColumn({
                     ...
                 </button>
                 {activeOptionsOverlay === status && isOverlayOptionsOpen && (
-                    <div className="column-specific-overlay" ref={overlayRef}>
-                        <button onClick={() => handleSortOptionClick(status, 'priority')}>
+                    <div className="column-specific-header-overlay-options" ref={overlayRef}>
+                        <button className="column-specific-header-overlay-options-buttons" onClick={() => handleSortOptionClick(status, 'priority')}>
                             Priority ↑
                         </button>
-                        <button onClick={() => handleSortOptionClick(status, 'priorityReverse')}>
+                        <button className="column-specific-header-overlay-options-buttons" onClick={() => handleSortOptionClick(status, 'priorityReverse')}>
                             Priority ↓
                         </button>
-                        <button onClick={() => handleSortOptionClick(status, 'date')}>
+                        <button className="column-specific-header-overlay-options-buttons" onClick={() => handleSortOptionClick(status, 'date')}>
                             Date ↑
                         </button>
-                        <button onClick={() => handleSortOptionClick(status, 'dateAscending')}>
+                        <button className="column-specific-header-overlay-options-buttons" onClick={() => handleSortOptionClick(status, 'dateAscending')}>
                             Date ↓
                         </button>
                     </div>

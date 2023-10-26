@@ -10,11 +10,11 @@
     justify-content: center;
 }
 
-.search-bar-admin form {
+.search-bar-admin-form {
     width: 100%;
 }
 
-.search-bar-admin input {
+.search-bar-admin-form-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;

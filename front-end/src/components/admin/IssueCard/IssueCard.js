@@ -2,14 +2,14 @@ import './IssueCard.css';
 
 function IssueCard({ issue }) {
    return (
-      <div key={issue.index} className="issue-card">
-         <h4 className='admin-dashboard-studentName'>{issue.studentName} ({issue.studentNetID})</h4>
-         <h4>{issue.title}</h4>
-         <p>{issue.description}</p>
-         <div className={`priority-tag ${issue.currentPriority.toLowerCase().replace(/\s+/g, '')}`}>
+      <div key={issue.index} className="issue-card-admin">
+         <h4 className="issue-card-admin-name-id">{issue.studentName} ({issue.studentNetID})</h4>
+         <h4 className="issue-card-admin-title">{issue.title}</h4>
+         <p className="issue-card-admin-description">{issue.description}</p>
+         <div className={`issue-card-admin-priority-tag ${issue.currentPriority.toLowerCase().replace(/\s+/g, '')}`}>
             {issue.currentPriority}
          </div>
-         <div className="issue-date">{issue.dateCreated}</div>
+         <div className="issue-card-admin-date">{issue.dateCreated}</div>
       </div>
    );
 }

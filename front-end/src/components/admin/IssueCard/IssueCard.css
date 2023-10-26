@@ -1,4 +1,4 @@
-.issue-card {
+.issue-card-admin {
     position: relative;
     padding: 10px;
     background-color: #ffffff;
@@ -12,23 +12,23 @@
     transition: height 0.3s ease;
 }
 
-.issue-card:hover {
+.issue-card-admin:hover {
     background-color: var(--secondary);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: visible;
 }
 
-.issue-card h4 {
+.issue-card-admin-title {
     font-weight: normal;
     margin-top: 0;
     margin-bottom: 5px;
 }
 
-.issue-card p {
+.issue-card-admin p {
     display: none;
 }
 
-.issue-date {
+.issue-card-admin-date {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -36,23 +36,26 @@
     color: (--secondary);
 }
 
-.admin-dashboard-studentName {
+.issue-card-admin-name-id {
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 5px;
     font-size: small;
     color: var(--primary);
 }
 
-.issue-card:hover h4 {
+.issue-card-admin:hover h4 {
     font-weight: bold
 }
 
-.issue-card:hover p {
+.issue-card-admin:hover p {
     display: block;
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
 }
 
-.priority-tag {
+.issue-card-admin-priority-tag {
     font-size: 10px;
     font-weight: bold;
     border-radius: 5px;
@@ -61,18 +64,18 @@
     display: inline-block;
 }
 
-.priority-tag.highpriority {
+.issue-card-admin-priority-tag.highpriority {
     background-color: rgba(184, 44, 28, 0.214);
     color: rgb(184, 44, 28);
 
 }
 
-.priority-tag.new {
+.issue-card-admin-priority-tag.new {
     background-color: rgba(131, 84, 219, 0.212);
     color: rgb(131, 84, 219);
 }
 
-.priority-tag.reopened {
+.issue-card-admin-priority-tag.reopened {
     background-color: rgba(157, 105, 2, 0.209);
     color: rgb(157, 106, 2);
 }
