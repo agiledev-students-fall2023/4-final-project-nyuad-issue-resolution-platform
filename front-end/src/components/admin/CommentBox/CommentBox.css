@@ -3,9 +3,9 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
-    background-color: #f8f8f8;
-    width: 65%;
+    background-color: rgb(242, 242, 242);
     height: 18%;
+    margin-top: 20px;
   }
   
   .comment-box textarea {
@@ -17,7 +17,7 @@
   }
   
   .comment-box button {
-    background-color: #2196F3;
+    background-color: var(--primary);
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -30,7 +30,7 @@
   }
   
   .comment {
-    background-color: #fff;
+    background-color: var(--secondary);
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px;

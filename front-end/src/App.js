@@ -3,9 +3,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import StudentDashboard from "./layouts/StudentDashboard/StudentDashboard";
-import IssueDetails from "./components/student/IssueDetails";
+import IssueDetails from "./components/student/StudentIssueOverlay/IssueDetails";
 import LoginPage from "./layouts/LoginPage/LoginPage.js";
-import Admin from "./layouts/AdminDashboard/Admin.js";
+import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
+
+import AdminIssueOverlay from "./components/admin/AdminIssueOverlay/AdminIssueOverlay";
 
 const App = (props) => {
   return (
@@ -16,7 +18,8 @@ const App = (props) => {
             <Route path="/" element={<LoginPage />} />
             <Route path="/student/dashboard" element={<StudentDashboard />} />
             <Route path="/issue/:index" element={<IssueDetails />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="admin/dashboard" element={<AdminDashboard />} />
+            <Route path="admin/dashboard/:index" element={<AdminIssueOverlay />} />
           </Routes>
         </main>
       </Router>

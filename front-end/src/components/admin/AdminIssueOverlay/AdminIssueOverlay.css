@@ -1,42 +1,49 @@
-.admin-issue-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-  
-  .overlay-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: relative;
-    width: 90%;
-    height: 90%;
-    text-align: start;
-  }
+/* Import the common styles from the studentdashboard.css */
+@import url("../../../assets/styles.css");
 
-  .overlaytitle p{
-    font-size: 10px
-  }
+/* Apply generic styles for admin dashboard */
+.admin-issue-overlay {
+    font-family: var(--primary-font);
+    background-color: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.issue-history-text{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.issue-history-text h2{
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.overlay-content {
+  background: white;
+  padding-left: 25px;
+  position: relative;
+  text-align: start;
+}
+
+
   
-  .close-button {
-    color: black;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
+.close-button {
+  color: black;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
   
-  /* UpdateBox.css */
+
 
   
   .issue-overlay-container{
@@ -44,23 +51,18 @@
   }
   
   .issue-overlaycontainer .left-bar{
-    margin: 0;
     width: 70%;
+    display: flex;
+    justify-content: space-evenly;
   }
   
   .issue-overlay-container .right-bar{
-    margin: 50px;
+    margin-top: 180px;
+    margin-left: 20px;
     width: 30%;
   }
 
-  .left-bar h1{
-    margin: 0;
-    margin-block-end: 0;
-    margin-block-start: 0;
-
-  }
-
-  .markedasolvebtn button[type="submit"]{
+  .marked-as-solve-btn button[type="submit"]{
     background-color: #0074d9; /* Background color */
     color: #fff; /* Text color */
     padding: 10px 20px; /* Padding around the text */
@@ -70,16 +72,27 @@
     font-size: 16px; /* Text size */
     font-weight: bold; /* Text boldness */
     width: 100%;
+   
     
   }
-
-  .markedasolvebtn button[type="submit"]{
-    background-color: #0056b3;
+  .marked-as-solve-btn {
+    margin-top: 57px;
+    width: 90%;
   }
 
-  .allupdates {
+
+  .marked-as-solve-btn button[type="submit"]{
+    background-color: var(--primary);
+  }
+  
+  .all-updates {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: 300px;;
+    height: 300px;
+    border: 0.5px solid gray;
+    border-radius: 8px;
+    align-items: center;
+    background-color: rgb(242, 242, 242)
+
   }

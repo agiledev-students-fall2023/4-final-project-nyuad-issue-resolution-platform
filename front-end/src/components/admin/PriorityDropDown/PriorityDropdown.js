@@ -12,7 +12,7 @@ const PriorityDropdown = () => {
   };
 
   return (
-    <div className="prioritydropdown">
+    <div className="priority-dropdown">
       {console.log(selectedOption)}
       <select onChange={handleOptionSelect}>
         <option value="">High priority</option>

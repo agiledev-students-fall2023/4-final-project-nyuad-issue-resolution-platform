@@ -1,21 +1,33 @@
 /* Style for the dropdown button */
+@import url("../../../assets/styles.css");
+
+.priority-dropdown {
+  margin-top: 10px;
+}
+
+.priority-dropdown select{
+  width: 120px; 
+  height: 30px; 
+  font-size: 13px; 
+}
+
+
 .dynamic-dropdown button {
-    background-color: #3498db;
+    background-color: var(--background);
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    width: 200px;
+    width: 300px;
     text-align: left;
-    margin-bottom: 10px;
   }
   
   /* Style for the dropdown content (hidden by default) */
   .dynamic-dropdown .dropdown-content {
     display: none;
     position: relative;
-    background-color: #f9f9f9;
-    min-width: 200px;
+    background-color: var(--secondary);
+    min-width: 300px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
@@ -32,6 +44,8 @@
   .dynamic-dropdown .dropdown-content div:hover {
     background-color: #ddd;
   }
+
+
 
 
   

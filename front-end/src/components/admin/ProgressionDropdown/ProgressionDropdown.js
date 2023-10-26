@@ -13,7 +13,7 @@ const ProgressionDropdown = () => {
     <div className="progress-dropdown">
       {console.log(selectedOption)}
       <select onChange={handleOptionSelect}>
-        <option value="">High priority</option>
+        <option value="">In Progress</option>
         {options.map((option, index) => (
           <option key={index} value={option}>
             {option}

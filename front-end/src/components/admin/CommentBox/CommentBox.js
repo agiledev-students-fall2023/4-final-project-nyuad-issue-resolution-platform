@@ -1,18 +1,13 @@
-/* eslint-disable */
 import './CommentBox.css';
 import { useState } from 'react';
 
 function CommentBox({ onAdd }) {
- 
+  const [textAreaValue, setTextAreaValue] = useState('');
 
-  const [textAreaValue , setTextAreaValue] = useState('')
-
-  const sendNewUpdateBox = (e) =>
-  {
-    // handleSubmitComment(e)
-    e.preventDefault();
-    onAdd({"updateDescription":textAreaValue})
-  }
+  // const sendNewUpdateBox = (e) => {
+  //   e.preventDefault();
+  //   onAdd({ updateDescription: textAreaValue });
+  // };
 
   const handleTextChange = (event) => {
     // Step 3: Update the state variable when the user types
@@ -22,14 +17,16 @@ function CommentBox({ onAdd }) {
   return (
     <div className="comment-box">
       <h3>Add a Comment</h3>
-      <form>
+      <form onSubmit={onAdd}>
         <textarea
+          name ="comment"
           placeholder="Write your comment..."
           onChange={handleTextChange}
           value={textAreaValue}
         ></textarea>
+        <button type="submit"><strong> Submit</strong></button>
       </form>
-      <button onClick={sendNewUpdateBox} type="submit">Submit</button>
+
     </div>
   );
 }

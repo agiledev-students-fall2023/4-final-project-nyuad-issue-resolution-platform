@@ -1,4 +1,3 @@
-// import React from 'react';
 import './StudentDetails.css';
 
 const StudentDetails = (props) => {

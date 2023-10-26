@@ -33,6 +33,10 @@ const LoginPage = () => {
             // Redirect to the student dashboard
             navigate('/student/dashboard');
         }
+
+        if (userType === 'admin') {
+            navigate('/admin/dashboard');
+        }
     };
 
     return (

@@ -1,28 +1,32 @@
-/* TagSidebar.css */
+@import url("../../../assets/styles.css");
 .tag-sidebar {
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
+    background-color: var(--background);
     border-radius: 8px;
-    padding: 20px;
     width: 200px;
     margin-bottom: 10px;
-    height: 100px;
   }
   
   .tag-sidebar ul {
     list-style-type: none;
     padding: 0;
     margin: 2px;
+   
   }
 
 
-  .tag-sidebar h2 {
+  .tag-sidebar h3 {
     margin: 0;
   }
   
   .tag-sidebar li {
+    text-align: center;
+    font-weight: bold;
     cursor: pointer;
-    padding: 5px 0;
+    color: #845dd0;
+    border-radius: 16px;
+    margin: 10px;
+    padding: 3px 0;
+    background-color:#e6dbf9
   }
   
   .tag-sidebar li:hover {
