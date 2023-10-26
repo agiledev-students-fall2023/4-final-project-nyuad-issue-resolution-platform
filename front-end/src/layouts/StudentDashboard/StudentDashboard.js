@@ -1,19 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
 import { CreateRequest } from "../../components/student/CreateRequest";
-import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/IssueDetails";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
   const [allRequests, setAllRequests] = useState([]);
   const [displayedRequests, setDisplayedRequests] = useState([]);
-
-  // State initialization for handling overlay options
-  const [isIssueOverlayOpen, setIsIssueOverlayOpen] = useState(false);
-  const [request, setRequest] = useState(null);
 
   // API
   const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
@@ -85,33 +80,6 @@ const StudentDashboard = () => {
     }
   };
 
-  // Ref for the overlay div
-  const overlayRef = useRef(null);
-
-  // Function to close the overlay
-  const closeIssueOverlay = () => {
-    setIsIssueOverlayOpen(false);
-  };
-
-  // Add event listener to handle clicks outside the overlay
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (overlayRef.current && !overlayRef.current.contains(e.target)) {
-        closeIssueOverlay();
-      }
-    };
-
-    if (isIssueOverlayOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
-    } else {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [isIssueOverlayOpen]);
-
   const getStatusClass = (status) => {
     switch (status) {
       case 'Action Required':
@@ -172,24 +140,18 @@ const StudentDashboard = () => {
           </tr>
         );
       } else {
-        // The Overlay popup is triggered by clicking on the title or description
-        // It is only for Desktop view for now
         return (
           <tr key={index}>
-            <td className="title-cell" onClick={() => {
-              setIsIssueOverlayOpen(true);
-              setRequest(request.index);
-            }}>
-              {request.title}
+            <td className="title-cell">
+              <Link to={`/issue/${request.index}`} className="issue-link">
+                {request.title}
+              </Link>
             </td>
-
-            <td className="description-cell" onClick={() => {
-              setIsIssueOverlayOpen(true);
-              setRequest(request.index);
-            }}>
-              {truncatedDescription}
+            <td className="description-cell">
+              <Link to={`/issue/${request.index}`} className="issue-link">
+                {truncatedDescription}
+              </Link>
             </td>
-
             <td className="departments-cell">
               {request.departments.map((department, index) => (
                 <span key={index} className="department-pill">
@@ -414,56 +376,46 @@ const StudentDashboard = () => {
   };
 
   return (
-    <>
-      <div className={`requests ${isIssueOverlayOpen ? 'blur-background' : ''}`}>
+    <div className="requests">
 
-        <StudentNavbar studentName={studentName} />
+      <StudentNavbar studentName={studentName} />
 
-        <h2 className="h2-student-dashboard">Your Requests</h2>
-        <div className="actions">
-          <div className="search-bar">
-            <input
-              className="input-student-dashboard"
-              type="text"
-              placeholder="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-            <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
-          </div>
-
-          <StudentViewFilter filterHandler={handleFilterByDepartment} selectedOption={selectedDepartment} options={departmentOptions} />
-          <StudentViewFilter filterHandler={handleFilterByStatus} selectedOption={selectedStatus} options={statusOptions} />
-
-          <div className="create-request-button">
-            <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
-          </div>
+      <h2 className="h2-student-dashboard">Your Requests</h2>
+      <div className="actions">
+        <div className="search-bar">
+          <input
+            className="input-student-dashboard"
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
         </div>
 
-        <div className="table">
-          <table className="table-student-dashboard">
-            {renderTableHeader()}
-            <tbody>{renderRequests()}</tbody>
-          </table>
-        </div>
-        <div className="pagination">
-          <div className="pagination-box">{renderPagination()}</div>
-        </div>
-        <div className="footer-student-dashboard">
-          <p>New York University Abu Dhabi</p>
-        </div>
+        <StudentViewFilter filterHandler={handleFilterByDepartment} selectedOption={selectedDepartment} options={departmentOptions} />
+        <StudentViewFilter filterHandler={handleFilterByStatus} selectedOption={selectedStatus} options={statusOptions} />
+
+        <div className="create-request-button">
+                    <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
+                </div>
       </div>
-      {/* The Overlay popup is triggered by clicking on the title or description */}
-      {/* It is only for Desktop view for now */}
-      {isIssueOverlayOpen && (
-        <div className="issueOverlay" ref={overlayRef}>
-          <button className="closeButton issue-buttons" onClick={closeIssueOverlay}>X</button>
+      <div className="table">
+        <table className="table-student-dashboard">
+          {renderTableHeader()}
+          <tbody>{renderRequests()}</tbody>
+        </table>
+      </div>
+      <div className="pagination">
+        <div className="pagination-box">{renderPagination()}</div>
+      </div>
+      <div className="footer-student-dashboard">
+        <p>New York University Abu Dhabi</p>
+      </div>
+      {isCreateRequestVisible && <CreateRequest isVisible={isCreateRequestVisible} onClose={handleCreateRequest} />}
 
-          <DesktopIssueDetails index={request} />
-        </div>
-      )}
-    </>
+    </div>
   );
 };
 
