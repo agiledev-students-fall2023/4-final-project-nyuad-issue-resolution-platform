@@ -109,16 +109,18 @@ const DesktopIssueDetails = ({ index }) => {
                 return '';
         }
     };
-
+    // hardcoded attachments for testing
+    issue.attachments = [
+        "attachment 1",
+        "attachment 2",
+        "attachment 3"
+    ];
     return (
 
         <div className="student-issue-view">
             {/* {renderIssueOverlay()} */}
             <h2>{issue.title}</h2>
             <div className="issue-content">
-                {/* <div className="issue-heading-section">
-
-                </div> */}
 
                 <div className='leftside-section'>
                     <div className="issue-history-section">
@@ -138,41 +140,48 @@ const DesktopIssueDetails = ({ index }) => {
 
                         <div className="add-comment">
                             <h3>Add a Comment</h3>
-                            <textarea className='comment-input'
-                                value={comment}
-                                onChange={handleCommentChange}
-                                placeholder="Your comment..."
-                            ></textarea>
-                            <button className="issue-buttons" onClick={submitComment}>Add</button>
+                            <div className='fix-add-button'>
+                                {/* the above div is just for the purpose of styling */}
+                                {/* it is essential to make sure the button stays fixed in diverse screen sizes */}
+                                <textarea className='comment-input'
+                                    value={comment}
+                                    onChange={handleCommentChange}
+                                    placeholder="Your comment..."
+                                ></textarea>
+                                <button className="submit-comment-button" onClick={submitComment}>Add</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div className='rightside-section'>
-                    <h1>Right side goes here</h1>
-                    <aside className="sidebar">
+                    {/* Right side goes here */}
+                    <div >
+                        {/* use of the outer div is just for consistent styling regardless of the number of attachments */}
+                        {/* it makes sure that the footer buttons always stay at the bottom */}
                         <div className="departments-tagged">
                             <h3>Departments Tagged</h3>
-                            <ul className='issue-ul'>
-                                {issue.departments.map((dept, index) => <li className='issue-li' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
+                            <ul className='department-box'>
+                                {issue.departments.map((dept, index) => <li className='issue-li department-pill' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
                             </ul>
                         </div>
                         {issue.attachments && issue.attachments.length > 0 && (
                             <div className="attachments">
                                 <h3>Attachments</h3>
-                                <ul className='issue-ul'>
+                                <ul className='attachment-box'>
                                     {issue.attachments.map((attach, index) => <li className='issue-li' key={index}>{attach}</li>)}
                                 </ul>
                             </div>
                         )}
-                        <div className="footer-buttons">
-                            {issue.currentStatus === 'Resolved' && (
-                                <button className="issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
-                            )}
-                            {issue.currentStatus === 'Action Required' && (
-                                <button className="issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
-                            )}
-                        </div>
-                    </aside>
+                    </div>
+                    <div className="footer-buttons">
+                        {issue.currentStatus === 'Resolved' && (
+                            <button className="issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
+                        )}
+                        {issue.currentStatus === 'Action Required' && (
+                            <button className="issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
+                        )}
+                    </div>
                 </div>
             </div>
 
