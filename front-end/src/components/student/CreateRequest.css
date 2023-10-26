@@ -123,7 +123,7 @@ position:absolute;
 
 .close-button{
     top: 500px;
-    left: 178px;
+    left: 190px;
     font-size: large;
     position: absolute;
     background-color: var(--primary);
@@ -135,4 +135,20 @@ position:absolute;
 
 .close-button:hover {
     background-color: var(--accent);
+  }
+
+.x-button{
+    top: 0;
+    left: 0;
+    font-size: large;
+    position: absolute;
+    color: #000;
+    background-color: var(--secondary);
+    border-radius: 7px;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.x-button:hover {
+    background-color: var(--background);
   }

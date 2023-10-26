@@ -1,13 +1,11 @@
-/* eslint-disable */
 import { useState } from 'react';  // Import useState here
 import '../../components/student/CreateRequest.css';
-
 
 export function CreateRequest({ isVisible, onClose }) {
     const [issueTitle, setIssueTitle] = useState('');
     const [description, setDescription] = useState('');
     const [department, setDepartment] = useState('department1');
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [setSelectedFile] = useState(null);
 
     const handleIssueTitleChange = (event) => {
         setIssueTitle(event.target.value);
@@ -81,7 +79,8 @@ export function CreateRequest({ isVisible, onClose }) {
                 </div>
                 <input className='file-select' type="file" id="fileInput" onChange={handleFileChange} />
             </div>
-            <button type="submit" className='close-button' onClick={onClose}>Submit Request</button>
+            <button type="submit" className='close-button' onClick={onClose}>Post Request</button>
+            <button className='x-button' onClick={onClose}>x</button>
         </div>
     );
 }
