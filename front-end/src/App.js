@@ -6,8 +6,7 @@ import StudentDashboard from "./layouts/StudentDashboard/StudentDashboard";
 import IssueDetails from "./components/student/StudentIssueOverlay/DesktopIssueDetails";
 import LoginPage from "./layouts/LoginPage/LoginPage.js";
 import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
-
-import AdminIssueOverlay from "./components/admin/AdminIssueOverlay/AdminIssueOverlay";
+import AdminIssueDetails from "./components/admin/AdminIssueDetails/AdminIssueDetails";
 
 const App = (props) => {
   return (
@@ -19,7 +18,7 @@ const App = (props) => {
             <Route path="/student/dashboard" element={<StudentDashboard />} />
             <Route path="/issue/:index" element={<IssueDetails />} />
             <Route path="admin/dashboard" element={<AdminDashboard />} />
-            <Route path="admin/dashboard/:index" element={<AdminIssueOverlay />} />
+            <Route path="admin/dashboard/:index" element={<AdminIssueDetails />} />
           </Routes>
         </main>
       </Router>

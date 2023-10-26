@@ -3,7 +3,7 @@
     background-color: var(--background);
     border-radius: 8px;
     width: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
   }
   
   .tag-sidebar ul {
@@ -29,7 +29,30 @@
     background-color:#e6dbf9
   }
   
-  .tag-sidebar li:hover {
-    background-color: #e0e0e0;
-  }
+.tag-sidebar li:hover {
+  background-color: #e0e0e0;
+}
+
+.plus-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 70px;
+}
+
+.plus-button:hover {
+    background-color: #0056b3;
+}
+
+.plus-button:focus {
+    outline: none;
+}
+
+.tag-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+}
   

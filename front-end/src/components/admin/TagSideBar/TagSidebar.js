@@ -1,11 +1,54 @@
 import './TagSidebar.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function TagSidebar({ name, tags, onTagClick }) {
+function TagSidebar({ name, tags }) {
+  const [departmentTags, setdepartmentTags] = useState([]);
+  const [inputVisible, setInputVisible] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+  const dummyPostDepartmentDelegation = async (event) => {
+    event.preventDefault();
+    try {
+        await axios.post(`${BASE_URL}/addNewDepartment`, null);
+    } catch (error) {
+        console.error('Error during form submission:', error);
+    }
+};
+
+  const toggleInput = () => {
+    setInputVisible(!inputVisible);
+  };
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleAddDepartment = (e) => {
+    if (e.key === 'Enter') {
+      const newValue = e.target.value;
+      setdepartmentTags([newValue, ...departmentTags]);
+      setInputValue('');
+      dummyPostDepartmentDelegation(e);
+    }
+  };
+
+  useEffect(() => {
+    setdepartmentTags(tags);
+  }, []);
+
   return (
     <div className="tag-sidebar">
-      <h3>{name}</h3>
+      <div className="tag-sidebar-header">
+        <h3>{name}</h3>
+        <button className="plus-button" onClick={toggleInput}>+</button>
+      </div>
       <ul>
-        {tags.map((tag, index) => (
+        <l1>
+            {inputVisible && <input type="text" onKeyDown={handleAddDepartment} placeholder="Enter new Department" value={inputValue} onChange={handleInputChange} />}
+        </l1>
+        {departmentTags.map((tag, index) => (
           <li key={index}>
             {tag}
           </li>

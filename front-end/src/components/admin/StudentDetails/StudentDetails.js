@@ -1,7 +1,8 @@
 import './StudentDetails.css';
 
-const StudentDetails = (props) => {
-  const { name, age, grade } = props;
+const StudentDetails = ({ props }) => {
+  const name = props.studentName;
+  const netID = props.studentNetID;
 
   return (
     <div className="student-details">
@@ -11,10 +12,7 @@ const StudentDetails = (props) => {
           <strong>Name:</strong> {name}
         </li>
         <li>
-          <strong>Age:</strong> {age}
-        </li>
-        <li>
-          <strong>Grade:</strong> {grade}
+          <strong>Netid:</strong> {netID}
         </li>
       </ul>
     </div>

@@ -57,10 +57,16 @@
   }
   
   .issue-overlay-container .right-bar{
-    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
     margin-left: 20px;
     width: 30%;
+    justify-content: space-between;
   }
+
+
+
 
   .marked-as-solve-btn button[type="submit"]{
     background-color: #0074d9; /* Background color */
@@ -71,14 +77,10 @@
     cursor: pointer; /* Add a pointer cursor on hover */
     font-size: 16px; /* Text size */
     font-weight: bold; /* Text boldness */
-    width: 100%;
-   
+    width: 90%;
     
   }
-  .marked-as-solve-btn {
-    margin-top: 57px;
-    width: 90%;
-  }
+
 
 
   .marked-as-solve-btn button[type="submit"]{

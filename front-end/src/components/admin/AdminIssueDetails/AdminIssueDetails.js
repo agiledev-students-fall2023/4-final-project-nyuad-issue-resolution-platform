@@ -4,7 +4,7 @@ import TagSidebar from '../TagSideBar/TagSidebar.js';
 import '../CommentBox/CommentBox.css';
 import '../TagSideBar/TagSidebar.css';
 import '../UpdateBox/UpdatesBox.css';
-import './AdminIssueOverlay.css';
+import './AdminIssueDetails.css';
 import PriorityDropdown from '../PriorityDropDown/PriorityDropdown.js';
 import ProgressionDropdown from '../ProgressionDropdown/ProgressionDropdown.js';
 import StudentDetails from '../StudentDetails/StudentDetails.js';
@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const AdminIssueOverlay = () => {
+const AdminIssueDetails = () => {
   const { index } = useParams();
   const [updateBoxes, setUpdateBoxes] = useState([]);
   const [specificIssue, setSpecificIssue] = useState([]);
@@ -61,8 +61,6 @@ const AdminIssueOverlay = () => {
     fetchData();
 }, []);
 
-  console.log(specificIssue[index]);
-
   return (
 
     <div className="admin-issue-overlay">
@@ -73,10 +71,11 @@ const AdminIssueOverlay = () => {
         <div className="issue-overlay-container">
             <div className="left-bar">
               <h1>{specificIssue[index].title}</h1>
-              <PriorityDropdown/>
+              {/* Passses the issue fetched from the API */}
+              <PriorityDropdown currentState={specificIssue[index]}/>
               <div className="issue-history-text">
                 <h2> Issue History </h2>
-                <ProgressionDropdown/>
+                <ProgressionDropdown currentState={specificIssue[index]}/>
               </div>
 
               <div className="all-updates">
@@ -90,8 +89,8 @@ const AdminIssueOverlay = () => {
               <CommentBox onAdd={dummyPostUpdateCommentAdd}/>
             </div>
             <div className="right-bar">
-                <StudentDetails/>
-                <TagSidebar name="Departments Tagged" tags = {specificIssue[index].departments} />
+                <StudentDetails props={specificIssue[index]}/>
+                <TagSidebar name="Departments" tags = {specificIssue[index].departments} />
                 <TagSidebar name="Attachments" tags = {["Attachtment1", "Attachment2"]} />
                 <div className="marked-as-solve-btn">
                   <button onClick={dummyPostMarkAsResolved} type="submit">Mark as Resolved</button>
@@ -107,4 +106,4 @@ const AdminIssueOverlay = () => {
   );
 };
 
-export default AdminIssueOverlay;
+export default AdminIssueDetails;
