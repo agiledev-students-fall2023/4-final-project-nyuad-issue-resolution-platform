@@ -4,6 +4,7 @@ import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
 import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/DesktopIssueDetails";
+import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -448,9 +449,6 @@ const StudentDashboard = () => {
         <div className="pagination">
           <div className="pagination-box">{renderPagination()}</div>
         </div>
-        <div className="footer-student-dashboard">
-          <p>New York University Abu Dhabi</p>
-        </div>
       </div>
       {/* The Overlay popup is triggered by clicking on the title or description */}
       {/* It is only for Desktop view for now */}
@@ -461,6 +459,7 @@ const StudentDashboard = () => {
           <DesktopIssueDetails index={request} />
         </div>
       )}
+      <SiteWideFooter />
     </>
   );
 };

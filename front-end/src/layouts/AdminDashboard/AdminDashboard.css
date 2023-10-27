@@ -29,10 +29,3 @@
     box-sizing: border-box;
     overflow-y: auto;
 }
-
-.footer-admin-dashboard {
-    text-align: center;
-    background-color: var(--secondary);
-    color: var(--text);
-    width: 100%;
-}

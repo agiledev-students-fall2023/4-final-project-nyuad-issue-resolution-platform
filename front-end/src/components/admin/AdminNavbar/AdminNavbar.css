@@ -1,0 +1,54 @@
+.header-admin-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 10px;
+    margin: 0;
+}
+
+.h1-admin-dashboard {
+    text-align: left;
+    margin: 15px;
+    font-size: 17px;
+}
+
+.h1-admin-dashboard,
+.admin-name {
+    /* font-size: 15px; */
+    color: var(--background);
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.admin-name {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.unresolved-issues {
+    margin: 0 15px;
+    border: 3px solid rgb(131, 84, 219);
+    padding: 9px 10px;
+    border-radius: 100%;
+    color: #f0f0f0;
+    text-shadow:
+        0 0 5px rgba(131, 84, 219, 0.9),
+        0 0 10px rgba(131, 84, 219, 0.9),
+        0 0 15px rgba(131, 84, 219, 0.8),
+        0 0 20px rgba(131, 84, 219, 0.8);
+    font-size: 20px;
+    font-family: var(--primary-font);
+}
+
+.logout-button {
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+    cursor: pointer;
+    margin-right: 15px;
+}
