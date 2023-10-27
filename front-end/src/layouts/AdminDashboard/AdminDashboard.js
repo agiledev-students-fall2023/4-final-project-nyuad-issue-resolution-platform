@@ -8,12 +8,15 @@ import {
     sortByDateAscending,
     sortByDate
 } from '../../components/admin/helper/sorting/SortingFunctions';
+import AdminNavbar from '../../components/admin/AdminNavbar/AdminNavbar';
+import SiteWideFooter from '../../components/general/SiteWideFooter/SiteWideFooter';
 
 function AdminDashboard() {
     const [searchText, setSearchText] = useState('');
     const [issues, setIssues] = useState([]);
     const [activeOptionsOverlay, setActiveOptionsOverlay] = useState(null);
     const [isOverlayOptionsOpen, setIsOverlayOptionsOpen] = useState(false);
+    const [unresolvedIssues, setUnresolvedIssues] = useState(0);
     const [columnSortOptions, setColumnSortOptions] = useState({});
     const overlayRef = useRef(null);
     const currentDepartment = "IT"; // will change this later sprint
@@ -44,6 +47,11 @@ function AdminDashboard() {
             document.removeEventListener('mousedown', handleOutsideClick);
         };
     }, [isOverlayOptionsOpen]);
+
+    // for future to update the number of unresolved issues
+    useEffect(() => {
+        setUnresolvedIssues(issues.filter(issue => issue.departments.includes(currentDepartment) && issue.currentStatus !== 'Resolved').length);
+    }, [issues]); // every time the issues list changes, update the number of unresolved issues
 
     // Function to close the overlay
     const closeOverlayOptions = () => {
@@ -104,29 +112,31 @@ function AdminDashboard() {
     }));
 
     return (
-        <div className="admin-dashboard">
-            <h1 className='admin-dashboard-header'>Issue Board</h1>
-            <SearchBarAdmin searchText={searchText} onSearchTextChange={setSearchText} />
-            <div className="issue-columns-admin">
-                {groupedAndOrderedIssues.map(({ status, issues }) => (
-                    <IssueColumn
-                        key={status}
-                        status={status}
-                        issues={issues}
-                        activeOptionsOverlay={activeOptionsOverlay}
-                        setActiveOptionsOverlay={setActiveOptionsOverlay}
-                        setIsOverlayOptionsOpen={setIsOverlayOptionsOpen}
-                        columnSortOptions={columnSortOptions}
-                        setColumnSortOptions={setColumnSortOptions}
-                        overlayRef={overlayRef}
-                        isOverlayOptionsOpen={isOverlayOptionsOpen}
-                    />
-                ))}
+        <>
+            <AdminNavbar adminName={currentDepartment} unresolvedIssues={unresolvedIssues} />
+            <div className="admin-dashboard">
+
+                {/* <h1 className='admin-dashboard-header'>Issue Board</h1> */}
+                <SearchBarAdmin searchText={searchText} onSearchTextChange={setSearchText} />
+                <div className="issue-columns-admin">
+                    {groupedAndOrderedIssues.map(({ status, issues }) => (
+                        <IssueColumn
+                            key={status}
+                            status={status}
+                            issues={issues}
+                            activeOptionsOverlay={activeOptionsOverlay}
+                            setActiveOptionsOverlay={setActiveOptionsOverlay}
+                            setIsOverlayOptionsOpen={setIsOverlayOptionsOpen}
+                            columnSortOptions={columnSortOptions}
+                            setColumnSortOptions={setColumnSortOptions}
+                            overlayRef={overlayRef}
+                            isOverlayOptionsOpen={isOverlayOptionsOpen}
+                        />
+                    ))}
+                </div>
             </div>
-            <div className="footer-admin-dashboard">
-                <p>New York University Abu Dhabi</p>
-            </div>
-        </div>
+            <SiteWideFooter />
+        </>
     );
 }
 
