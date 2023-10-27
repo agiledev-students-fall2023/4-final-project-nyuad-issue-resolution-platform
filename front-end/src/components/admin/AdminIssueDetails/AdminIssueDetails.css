@@ -1,16 +1,17 @@
-/* Import the common styles from the studentdashboard.css */
+
 @import url("../../../assets/styles.css");
 
-/* Apply generic styles for admin dashboard */
-.admin-issue-overlay {
+.admin-issue {
     font-family: var(--primary-font);
     background-color: var(--background);
     color: var(--text);
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     justify-content: flex-start;
     margin: 0;
+    padding-left: 30px;
+    position: relative;
+    text-align: start;
 }
 
 .issue-history-text{
@@ -23,78 +24,44 @@
   margin-top: 5px;
   margin-bottom: 0;
 }
-
-.overlay-content {
-  background: white;
-  padding-left: 25px;
-  position: relative;
-  text-align: start;
-}
-
-
   
-.close-button {
-  color: black;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-  
-
-
-  
-  .issue-overlay-container{
-    display: flex;
-  }
-  
-  .issue-overlaycontainer .left-bar{
-    width: 70%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .issue-overlay-container .right-bar{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 30%;
-    justify-content: space-between;
-  }
-
-
-
-
-  .marked-as-solve-btn button[type="submit"]{
-    background-color: #0074d9; /* Background color */
-    color: #fff; /* Text color */
-    padding: 10px 20px; /* Padding around the text */
-    border: none; /* Remove the border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Add a pointer cursor on hover */
-    font-size: 16px; /* Text size */
-    font-weight: bold; /* Text boldness */
-    width: 90%;
     
-  }
+.left-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.right-bar{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+  justify-content: space-between;
+}
 
 
-
-  .marked-as-solve-btn button[type="submit"]{
-    background-color: var(--primary);
-  }
+.marked-as-solve-btn button[type="submit"]{
+  background-color: var(--primary);
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: bold;
+  width: 90%;
   
-  .all-updates {
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    height: 300px;
-    border: 0.5px solid gray;
-    border-radius: 8px;
-    align-items: center;
-    background-color: rgb(242, 242, 242)
+}
+  
+.all-updates {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 300px;
+  border: 0.5px solid gray;
+  border-radius: 8px;
+  align-items: center;
+  background-color: rgb(242, 242, 242)
 
-  }
+}

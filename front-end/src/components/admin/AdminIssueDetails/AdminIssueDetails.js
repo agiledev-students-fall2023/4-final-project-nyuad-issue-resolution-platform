@@ -63,12 +63,10 @@ const AdminIssueDetails = () => {
 
   return (
 
-    <div className="admin-issue-overlay">
-
+    <div>
       { loading
 ? (
-        <div className="overlay-content">
-        <div className="issue-overlay-container">
+        <div className="admin-issue">
             <div className="left-bar">
               <h1>{specificIssue[index].title}</h1>
               {/* Passses the issue fetched from the API */}
@@ -97,7 +95,6 @@ const AdminIssueDetails = () => {
                 </div>
             </div>
         </div>
-      </div>
       )
       : (
         <p>Loading...</p>

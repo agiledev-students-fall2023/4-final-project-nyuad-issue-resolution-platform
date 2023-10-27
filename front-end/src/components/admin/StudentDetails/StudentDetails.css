@@ -1,9 +1,5 @@
 .student-details {
-    border: 0.5px solid gray;
-    border-radius: 8px;
-    padding: 10px;
     background-color: var(--background);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
     width: 220px;
     margin-top: 20px;

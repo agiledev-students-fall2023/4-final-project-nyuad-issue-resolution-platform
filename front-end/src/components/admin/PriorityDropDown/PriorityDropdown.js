@@ -1,16 +1,21 @@
-// src/DynamicDropdown.js
+/* eslint-disable */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Select from 'react-select';
 
 import './PriorityDropdown.css';
 
 const PriorityDropdown = ({ currentState }) => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const options = ['High Priority', 'New', 'Reopened'];
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  const options = [
+    { value: 'High Priority', label: 'High Priority', color: '#b82c1c37', textColor: '#b82c1c', isBold: 'true' },
+    { value: 'New', label: 'New', color: '#1f6deb37', textColor: '#1f6eeb', isBold: 'true' },
+    { value: 'Reopened', label: 'Reopened', color: '#9d690235', textColor: '#9d6a02', isBold: 'true' }
+  ];
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+ 
 
-  const dummyPostPriorityUpdated = async (event) => {
-    event.preventDefault();
+  const dummyPostPriorityUpdated = async (param) => {
     try {
         await axios.post(`${BASE_URL}/dummyPostPriorityUpdated`, null);
     } catch (error) {
@@ -18,40 +23,57 @@ const PriorityDropdown = ({ currentState }) => {
     }
 };
 
-  const handleOptionSelect = (e) => {
-    // setSelectedOption(e.target.value);
-    dummyPostPriorityUpdated(e);
+  const handleOptionChange = (newselectedOption) => {
+    setDefaultValue();
+    setSelectedOption(newselectedOption);
+    dummyPostPriorityUpdated(newselectedOption);
   };
 
-  useEffect(() => {
-    const selectedStatus = currentState.currentPriority;
-    switch (selectedStatus) {
-      case 'High Priority':
-        setSelectedOption(options[0]);
-        break;
-      case 'New':
-        setSelectedOption(options[1]);
-        break;
-      case 'Reopened':
-        setSelectedOption(options[2]);
-        break;
+  const customStyles = {
+    control: (base) => ({
+      ...base,
+      backgroundColor: selectedOption.color,
+      color:'blue'
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.data.color,
+      color: state.data.textColor,
+      fontWeight: state.data.isBold ? 'bold' : 'normal'
+    }), singleValue: provided => ({
+      ...provided,
+      color: selectedOption.textColor,
+      fontWeight : 'bold'
+    })
+  };
+  const setDefaultValue = () => {
+    switch (currentState.currentPriority) {
+        case "High Priority":
+          setSelectedOption(options[0]);
+          break;
+        case "New":
+          setSelectedOption(options[1]);
+          break;
+        case "Reopened":
+          setSelectedOption(options[2]);
+          break;
     }
+  };
+  useEffect(() => {
+    setDefaultValue();
   }, []);
   return (
     <div className="priority-dropdown">
-      <select onChange={handleOptionSelect}>
-        <option value="">{selectedOption}</option>
-        {
-          options.filter((item) => { return item !== selectedOption; }).map((option, index) => (
-            <option key={index} value={option}>
-              {option}
-            </option>
-        ))
-        };
-      </select>
-      {
-
-      }
+       <div>
+          <Select
+            options={options}
+            defaultValue={selectedOption}
+            value={selectedOption}
+            onChange={handleOptionChange}
+            styles={customStyles}
+            isSearchable = {false}
+          />
+       </div>
     </div>
   );
 };

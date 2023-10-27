@@ -8,30 +8,15 @@
   
   .tag-sidebar ul {
     list-style-type: none;
+    margin-left: 0;
     padding: 0;
-    margin: 2px;
    
   }
-
 
   .tag-sidebar h3 {
     margin: 0;
   }
   
-  .tag-sidebar li {
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-    color: #845dd0;
-    border-radius: 16px;
-    margin: 10px;
-    padding: 3px 0;
-    background-color:#e6dbf9
-  }
-  
-.tag-sidebar li:hover {
-  background-color: #e0e0e0;
-}
 
 .plus-button {
     background-color: #007BFF;
@@ -55,4 +40,35 @@
   display: flex;
   justify-content: space-between;
 }
+
+.round-tag {
+  background-color:#e6dbf9;
+  border-radius: 16px;
+  padding: 10px 20px;
+  color: #845dd0;
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  color: #060606;
+  font-size: 23px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  border-radius: 0 20px 20px 0;
+}
+
+.close-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
   
