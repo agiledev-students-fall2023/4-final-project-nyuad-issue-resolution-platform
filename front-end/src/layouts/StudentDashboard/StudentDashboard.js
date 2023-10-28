@@ -4,6 +4,8 @@ import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
 import { CreateRequest } from "../../components/student/CreateRequest";
+import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/DesktopIssueDetails";
+import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -376,46 +378,18 @@ const StudentDashboard = () => {
   };
 
   return (
-    <div className="requests">
-
-      <StudentNavbar studentName={studentName} />
-
-      <h2 className="h2-student-dashboard">Your Requests</h2>
-      <div className="actions">
-        <div className="search-bar">
-          <input
-            className="input-student-dashboard"
-            type="text"
-            placeholder="Search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-          <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
+    <>
+      <div className="requests">
+        <StudentNavbar studentName={studentName} />
+        {/* ... other components and elements ... */}
+        <div className="footer-student-dashboard">
+          <p>New York University Abu Dhabi</p>
         </div>
-
-        <StudentViewFilter filterHandler={handleFilterByDepartment} selectedOption={selectedDepartment} options={departmentOptions} />
-        <StudentViewFilter filterHandler={handleFilterByStatus} selectedOption={selectedStatus} options={statusOptions} />
-
-        <div className="create-request-button">
-                    <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
-                </div>
+        {isCreateRequestVisible && <CreateRequest isVisible={isCreateRequestVisible} onClose={handleCreateRequest} />}
       </div>
-      <div className="table">
-        <table className="table-student-dashboard">
-          {renderTableHeader()}
-          <tbody>{renderRequests()}</tbody>
-        </table>
-      </div>
-      <div className="pagination">
-        <div className="pagination-box">{renderPagination()}</div>
-      </div>
-      <div className="footer-student-dashboard">
-        <p>New York University Abu Dhabi</p>
-      </div>
-      {isCreateRequestVisible && <CreateRequest isVisible={isCreateRequestVisible} onClose={handleCreateRequest} />}
-
-    </div>
+      <DesktopIssueDetails index={request} />
+      <SiteWideFooter />
+    </>
   );
 };
 

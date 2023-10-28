@@ -247,13 +247,6 @@
   color: var(--background);
 }
 
-.footer-student-dashboard {
-  margin-top: 20px;
-  text-align: center;
-  background-color: var(--secondary);
-  color: var(--text);
-}
-
 .issue-link {
   text-decoration: none;
   color: inherit;
