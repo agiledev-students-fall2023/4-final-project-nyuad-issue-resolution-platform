@@ -5,7 +5,7 @@ const StudentDetails = ({ props }) => {
   const netID = props.studentNetID;
 
   return (
-    <div className="student-details">
+    <div className="admin-student-details">
       <h2>Student Details</h2>
       <ul>
         <li>

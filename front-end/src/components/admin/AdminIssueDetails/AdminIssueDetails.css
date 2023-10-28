@@ -14,25 +14,25 @@
     text-align: start;
 }
 
-.issue-history-text{
+.admin-issue .issue-history-text{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 }
 
-.issue-history-text h2{
+.admin-issue .issue-history-text h2{
   margin-top: 5px;
   margin-bottom: 0;
 }
   
     
-.left-bar{
+.admin-issue .left-bar{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
-.right-bar{
+.admin-issue .right-bar{
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -41,7 +41,7 @@
 }
 
 
-.marked-as-solve-btn button[type="submit"]{
+.admin-issue .marked-as-solve-btn button[type="submit"]{
   background-color: var(--primary);
   color: #fff; 
   padding: 10px 20px; 
@@ -54,7 +54,7 @@
   
 }
   
-.all-updates {
+.admin-issue .all-updates {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;

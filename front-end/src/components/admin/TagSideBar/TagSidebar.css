@@ -1,24 +1,24 @@
 @import url("../../../assets/styles.css");
-.tag-sidebar {
-    background-color: var(--background);
-    border-radius: 8px;
-    width: 200px;
-    margin-bottom: 50px;
-  }
+.admin-tag-sidebar {
+  background-color: var(--background);
+  border-radius: 8px;
+  width: 200px;
+  margin-bottom: 50px;
+}
   
-  .tag-sidebar ul {
-    list-style-type: none;
-    margin-left: 0;
-    padding: 0;
-   
-  }
+.admin-tag-sidebar ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  
+}
 
-  .tag-sidebar h3 {
-    margin: 0;
-  }
+.admin-tag-sidebar h3 {
+  margin: 0;
+}
   
 
-.plus-button {
+.admin-tag-sidebar .plus-button {
     background-color: #007BFF;
     color: white;
     border: none;
@@ -28,20 +28,20 @@
     margin-left: 70px;
 }
 
-.plus-button:hover {
+.admin-tag-sidebar .plus-button:hover {
     background-color: #0056b3;
 }
 
-.plus-button:focus {
+.admin-tag-sidebar .plus-button:focus {
     outline: none;
 }
 
-.tag-sidebar-header {
+.admin-tag-sidebar .tag-sidebar-header {
   display: flex;
   justify-content: space-between;
 }
 
-.round-tag {
+.admin-tag-sidebar .round-tag {
   background-color:#e6dbf9;
   border-radius: 16px;
   padding: 10px 20px;
@@ -54,7 +54,7 @@
   font-weight: bold;
 }
 
-.close-button {
+.admin-tag-sidebar .tag-close-button {
   background-color: transparent;
   border: none;
   color: #060606;
@@ -67,7 +67,7 @@
   border-radius: 0 20px 20px 0;
 }
 
-.close-button:hover {
+.admin-tag-sidebar  .tag-close-button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 

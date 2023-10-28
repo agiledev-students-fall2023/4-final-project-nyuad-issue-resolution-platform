@@ -25,7 +25,7 @@ const AdminIssueDetails = () => {
   //     setUpdateBoxes(array);
   // };
 
-  const dummyPostUpdateCommentAdd = async (event) => {
+  const postUpdateCommentAdd = async (event) => {
       event.preventDefault();
       const updateBoxData = event.target.elements[0].value;
       try {
@@ -36,7 +36,7 @@ const AdminIssueDetails = () => {
       setUpdateBoxes([]);
   };
 
-  const dummyPostMarkAsResolved = async (event) => {
+  const postMarkAsResolved = async (event) => {
     event.preventDefault();
     try {
         await axios.post(`${BASE_URL}/markasresolved`, null);
@@ -84,14 +84,14 @@ const AdminIssueDetails = () => {
                 }
                   <UpdatesBox description={specificIssue[index].description} />
               </div>
-              <CommentBox onAdd={dummyPostUpdateCommentAdd}/>
+              <CommentBox onAdd={postUpdateCommentAdd}/>
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue[index]}/>
                 <TagSidebar name="Departments" tags = {specificIssue[index].departments} />
                 <TagSidebar name="Attachments" tags = {["Attachtment1", "Attachment2"]} />
                 <div className="marked-as-solve-btn">
-                  <button onClick={dummyPostMarkAsResolved} type="submit">Mark as Resolved</button>
+                  <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
                 </div>
             </div>
         </div>

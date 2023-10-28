@@ -15,9 +15,9 @@ const PriorityDropdown = ({ currentState }) => {
   const [selectedOption, setSelectedOption] = useState(options[0]);
  
 
-  const dummyPostPriorityUpdated = async (param) => {
+  const postPriorityUpdated = async (param) => {
     try {
-        await axios.post(`${BASE_URL}/dummyPostPriorityUpdated`, null);
+        await axios.post(`${BASE_URL}/PostPriorityUpdated`, null);
     } catch (error) {
         console.error('Error during form submission:', error);
     }
@@ -26,7 +26,7 @@ const PriorityDropdown = ({ currentState }) => {
   const handleOptionChange = (newselectedOption) => {
     setDefaultValue();
     setSelectedOption(newselectedOption);
-    dummyPostPriorityUpdated(newselectedOption);
+    postPriorityUpdated(newselectedOption);
   };
 
   const customStyles = {

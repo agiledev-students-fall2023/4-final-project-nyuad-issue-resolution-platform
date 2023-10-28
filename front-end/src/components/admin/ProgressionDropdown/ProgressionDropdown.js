@@ -72,7 +72,7 @@ const setDefaultValue = () => {
   }, []);
 
   return (
-    <div className="progress-dropdown">
+    <div className="admin-progress-dropdown">
       <Select
         options={options}
         defaultValue={selectedOption}

@@ -11,7 +11,7 @@ function TagSidebar({ name, tags }) {
   const [inputValue, setInputValue] = useState('');
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
-  const dummyPostDepartmentDelegation = async (event) => {
+  const postDepartmentDelegation = async (event) => {
     event.preventDefault();
     try {
         await axios.post(`${BASE_URL}/addNewDepartment`, null);
@@ -33,7 +33,7 @@ function TagSidebar({ name, tags }) {
       const newValue = e.target.value;
       setdepartmentTags([newValue, ...departmentTags]);
       setInputValue('');
-      dummyPostDepartmentDelegation(e);
+      postDepartmentDelegation(e);
     }
   };
 
@@ -54,7 +54,7 @@ function TagSidebar({ name, tags }) {
   }, []);
 
   return (
-    <div className="tag-sidebar">
+    <div className="admin-tag-sidebar">
       <div className="tag-sidebar-header">
         <h3>{name}</h3>
         <button className="plus-button" onClick={toggleInput}>+</button>
@@ -66,9 +66,9 @@ function TagSidebar({ name, tags }) {
         </l1>
         {departmentTags.map((tag, index) => (
           <li key={index}>
-            <div class="round-tag">
+            <div class="round-tag ">
                 <span>{tag}</span>
-                <button class="close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
+                <button class="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
             </div>
           </li>
          

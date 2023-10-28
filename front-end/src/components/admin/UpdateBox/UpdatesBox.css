@@ -1,4 +1,4 @@
-.update-box {
+.admin-update-box {
     padding: 10px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -7,7 +7,7 @@
     width: 95%;
 }
   
-.update-box p {
+.admin-update-box p {
   margin: 0;
   font-size: 16px;
 }

@@ -15,7 +15,7 @@ function CommentBox({ onAdd }) {
   };
 
   return (
-    <div className="comment-box">
+    <div className="admin-comment-box">
       <h3>Add a Comment</h3>
       <form onSubmit={onAdd}>
         <textarea

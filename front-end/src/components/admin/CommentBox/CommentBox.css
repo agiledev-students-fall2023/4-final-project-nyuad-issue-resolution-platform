@@ -1,22 +1,20 @@
-/* CommentBox.css */
-.comment-box {
+.admin-comment-box {
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
     background-color: rgb(242, 242, 242);
     height: 18%;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   
-  .comment-box textarea {
+.admin-comment-box textarea {
     width: 95%;
     border: 1px solid #ccc;
     border-radius: 6px;
     padding: 10px;
-    margin-bottom: 10px;
   }
   
-  .comment-box button {
+.admin-comment-box button {
     background-color: var(--primary);
     color: #fff;
     border: none;
@@ -25,11 +23,11 @@
     cursor: pointer;
   }
   
-  .comments-list {
+.admin-comments-list {
     margin-top: 20px;
   }
   
-  .comment {
+.admin-comment {
     background-color: var(--secondary);
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -37,8 +35,7 @@
     margin-bottom: 10px;
   }
 
-
-  .comment-box > h3 {
+  .admin-comment-box > h3 {
     margin: 0;
   }
   
