@@ -155,11 +155,11 @@ const StudentDashboard = () => {
 
       if (windowWidth <= 768) {
         return (
-          <tr key={index}>
-            <td className="title-cell-mobile" onClick={() => {
+          <tr key={index} onClick={() => {
             setIsIssueOverlayOpen(true);
             setRequest(request.index);
-        }}>
+          }}>
+            <td className="title-cell-mobile">
                 {request.title}
             </td>
             <td>
