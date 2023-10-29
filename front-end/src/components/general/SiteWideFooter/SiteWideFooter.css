@@ -1,0 +1,28 @@
+.footer-container {
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    font-family: var(--primary-font);
+    margin-top: auto;
+}
+
+.footer-container .info>div {
+    margin: 7px 0 7px 0;
+
+}
+
+.footer-container a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-container {
+        font-size: 12px;
+    }
+}
