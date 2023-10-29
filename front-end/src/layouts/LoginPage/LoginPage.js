@@ -17,7 +17,6 @@ const LoginPage = () => {
     const handleFormSubmit = async (event) => {
         // preventing reload of the page
         event.preventDefault();
-
         // creating a new FormData object(key-value pairs representing form fields and values
         const formData = new FormData(event.target);
 

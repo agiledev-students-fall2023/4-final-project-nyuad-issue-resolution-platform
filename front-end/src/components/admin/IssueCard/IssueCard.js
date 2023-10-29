@@ -1,8 +1,17 @@
 import './IssueCard.css';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function IssueCard({ issue }) {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+   }, []);
+   const onClickIssueCard = async (event) => {
+      navigate('/admin/dashboard/' + (issue.index - 1));
+   };
    return (
-      <div key={issue.index} className="issue-card-admin">
+      <div onClick = {onClickIssueCard} key={issue.index} className="issue-card-admin">
          <h4 className="issue-card-admin-name-id">{issue.studentName} ({issue.studentNetID})</h4>
          <h4 className="issue-card-admin-title">{issue.title}</h4>
          <p className="issue-card-admin-description">{issue.description}</p>
@@ -12,6 +21,5 @@ function IssueCard({ issue }) {
          <div className="issue-card-admin-date">{issue.dateCreated}</div>
       </div>
    );
-}
-
+};
 export default IssueCard;
