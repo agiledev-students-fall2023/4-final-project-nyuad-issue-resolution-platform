@@ -149,3 +149,39 @@
   right: 20px;
   z-index: 10;
 }
+
+@media only screen and (max-width: 768px) {
+
+  .student-issue-view>h2 {
+    margin: 75px 0 20px 30px;
+    /* width: 90%; */
+    font-size: 25px;
+  }
+
+  .student-issue-view .issue-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.student-issue-view .rightside-section {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-bottom: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+.student-issue-view .attachment-box, .student-issue-view .department-box {
+  list-style-type: none;
+  padding: 0;
+  text-align: -webkit-center;
+}
+
+}
