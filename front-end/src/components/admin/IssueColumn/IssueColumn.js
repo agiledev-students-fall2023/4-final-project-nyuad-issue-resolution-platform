@@ -55,5 +55,4 @@ function IssueColumn({
         </div>
     );
 }
-
 export default IssueColumn;
