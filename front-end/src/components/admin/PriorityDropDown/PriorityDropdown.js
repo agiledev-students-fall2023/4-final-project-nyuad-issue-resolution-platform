@@ -63,7 +63,7 @@ const PriorityDropdown = ({ currentState }) => {
     setDefaultValue();
   }, []);
   return (
-    <div className="priority-dropdown">
+    <div className="admin-priority-dropdown">
        <div>
           <Select
             options={options}
