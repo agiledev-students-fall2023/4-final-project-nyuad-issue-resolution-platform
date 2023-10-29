@@ -65,8 +65,8 @@
 }
 
 .issue-card-admin-priority-tag.highpriority {
-    background-color: #b82c1c37;
-    color: #b82c1c;
+    background-color: rgba(184, 44, 28, 0.214);
+    color: rgb(184, 44, 28);
 
 }
 
@@ -76,6 +76,6 @@
 }
 
 .issue-card-admin-priority-tag.reopened {
-    background-color: #9d690235;
-    color: #9d6a02;
+    background-color: rgba(157, 105, 2, 0.209);
+    color: rgb(157, 106, 2);
 }
