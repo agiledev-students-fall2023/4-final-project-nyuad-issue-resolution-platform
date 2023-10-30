@@ -22,4 +22,5 @@ function IssueCard({ issue }) {
       </div>
    );
 };
+
 export default IssueCard;
