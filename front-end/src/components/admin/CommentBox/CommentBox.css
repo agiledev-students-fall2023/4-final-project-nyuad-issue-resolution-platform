@@ -21,10 +21,12 @@
     border-radius: 6px;
     padding: 10px 20px;
     cursor: pointer;
+
   }
   
 .admin-comments-list {
     margin-top: 20px;
+    
   }
   
 .admin-comment {
