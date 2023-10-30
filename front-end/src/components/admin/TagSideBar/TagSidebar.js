@@ -1,4 +1,3 @@
-/* eslint-disable */
 import './TagSidebar.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -6,7 +5,6 @@ import axios from 'axios';
 function TagSidebar({ name, tags }) {
   const [departmentTags, setdepartmentTags] = useState([]);
   const [inputVisible, setInputVisible] = useState(false);
-  const [dropDownVisible, setDropDownVisible] = useState(true);
   const [departmentNames, setDepartmentNames] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -37,16 +35,14 @@ function TagSidebar({ name, tags }) {
     }
   };
 
-  const handleRemoveDepartments =  (param) =>{
-
-    return ()=>{
-      const modifiedDepartmentTags = departmentTags.filter(item => item !==param) 
-      console.log(modifiedDepartmentTags)
+  const handleRemoveDepartments = (param) => {
+    return () => {
+      const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
+      console.log(departmentNames);
+      console.log(modifiedDepartmentTags);
       setdepartmentTags(modifiedDepartmentTags);
-    }
-    
-  }
-
+    };
+  };
 
   useEffect(() => {
     setdepartmentTags(tags);
@@ -62,16 +58,16 @@ function TagSidebar({ name, tags }) {
       <ul>
         <l1>
             {inputVisible && <input type="text" onKeyDown={handleAddDepartment} placeholder="Enter new Department" value={inputValue} onChange={handleInputChange} />}
-           
+
         </l1>
         {departmentTags.map((tag, index) => (
           <li key={index}>
-            <div class="round-tag ">
+            <div className="round-tag ">
                 <span>{tag}</span>
-                <button class="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
+                <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
             </div>
           </li>
-         
+
         ))}
       </ul>
     </div>
