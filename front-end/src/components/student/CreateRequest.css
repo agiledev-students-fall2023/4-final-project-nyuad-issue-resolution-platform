@@ -1,7 +1,8 @@
 @import url("../../assets/styles.css");
 
 
-.request-container {
+
+.create-request-component-student {
     height: 600px;
     width: 500px;
     position: absolute;
@@ -11,7 +12,7 @@
     left: 50%; /* Center the container horizontally by 50% of the parent's width */
     transform: translate(-50%, -50%); /* Center the container precisely */
 }
-  .top-rectangle {
+.create-request-component-student .top-rectangle {
     background-color: #57068C; /* Set the background color to #57068C */
     width: 500px; /* Set the width to 637px */
     height: 50px; /* Set the height to 50px */
@@ -20,7 +21,7 @@
     left: 0; /* Set the X coordinate to 0 */
 }
 
-  .create-request-title {
+.create-request-component-student .create-request-title {
     color: #57068C; 
     font-size: 45px; 
     margin-bottom: 10px; /* Add some space below the title */
@@ -31,21 +32,21 @@
 
   }
 
-.issue-title-group {
+.create-request-component-student .issue-title-group {
     position: absolute;
     top: 160px; /* Set the Y coordinate to 162px */
     left: 65px; /* Set the X coordinate to 75px */
 }
 
 /* Style for the label "Issue Title" */
-.issue-title-label {
+.create-request-component-student .issue-title-label {
     color: #3D7D2E; /* Set the text color to #3D7D2E */
     font-size: 24px; 
     font-family: var(--primary-font), var(--secondary-font);
 }
 
 /* Style for the text input */
-.issue-title-input {
+.create-request-component-student .issue-title-input {
     position: absolute;
     width: 350px; /* Adjust the width of the text box as needed */
     margin-top: 30px;
@@ -54,14 +55,14 @@
 }
 
 
-.description-group {
+.create-request-component-student .description-group {
     position: absolute;
     top: 230px; /* Set the Y coordinate to 192px */
     left: 65px; /* Set the X coordinate to 75px */
 }
 
 /* Style for the label "Description" */
-.description-label {
+.create-request-component-student .description-label {
     color: #3D7D2E; /* Set the text color to #3D7D2E */
     font-size: 24px; 
     font-family: var(--primary-font), var(--secondary-font);
@@ -69,7 +70,7 @@
 }
 
 /* Style for the text area input */
-.description-input {
+.create-request-component-student .description-input {
     width: 350px; /* Adjust the width of the text area as needed */
     height: 100px; /* Adjust the height of the text area as needed */
     position: absolute;
@@ -80,21 +81,21 @@
 
 
 
-.department-group {
+.create-request-component-student .department-group {
     position: absolute;
     top: 390px; /* Adjust the Y coordinate as needed */
     left: 65px; /* Set the X coordinate to 75px (or adjust as needed) */
 }
 
 /* Style for the label "Select Department" */
-.department-label {
+.create-request-component-student .department-label {
     color: #3D7D2E; /* Set the text color to #57068C or your desired color */
     font-size: 18px; /* Adjust the font size as needed */
     font-family: var(--primary-font), var(--secondary-font);
 }
 
 /* Style for the department selection dropdown */
-.department-select {
+.create-request-component-student .department-select {
     width: 200px; /* Adjust the width of the dropdown as needed */
     position: absolute;
     margin-top: 10px;
@@ -102,26 +103,26 @@
 }
 
 
-.file-group{
+.create-request-component-student .file-group{
 position:absolute;
     top: 390px;
     left: 300px;
 }
 
-.file-label{
+.create-request-component-student .file-label{
     color: #29561f; /* Set the text color to #57068C or your desired color */
     font-weight: 500;
     font-size: 15px; /* Adjust the font size as needed */
     font-family: var(--primary-font), var(--secondary-font);
 }
 
-.file-select{
+.create-request-component-student .file-select{
     left: 1px;
     margin-top: 7px;
     position: absolute;
 }
 
-.close-button{
+.create-request-component-student .close-button{
     top: 500px;
     left: 190px;
     font-size: large;
@@ -133,11 +134,11 @@ position:absolute;
     margin-left: auto;
 }
 
-.close-button:hover {
+.create-request-component-student .close-button:hover {
     background-color: var(--accent);
   }
 
-.x-button{
+.create-request-component-student .x-button{
     top: 0;
     left: 0;
     font-size: large;
@@ -149,6 +150,6 @@ position:absolute;
     margin-left: auto;
 }
 
-.x-button:hover {
+.create-request-component-student .x-button:hover {
     background-color: var(--background);
   }
