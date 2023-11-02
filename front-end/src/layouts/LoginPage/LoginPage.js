@@ -20,10 +20,11 @@ const LoginPage = () => {
 
         // creating a new FormData object(key-value pairs representing form fields and values
         const formData = new FormData(event.target);
+        const urlEncodedData = new URLSearchParams(formData);
 
         try {
             // making a POST request to the backend
-            await axios.post(`${BASE_URL}/api/${userType}/login`, formData);
+            await axios.post(`${BASE_URL}/api/${userType}/login`, urlEncodedData);
             // handle response here - after backend implementation
         } catch (error) {
             console.error('Error during form submission:', error);
