@@ -2,8 +2,8 @@
 import express from "express"; // ESM import style!
 import morgan from "morgan";
 import cors from "cors";
-import url from 'url';
-import path from 'path';
+import url from "url";
+import path from "path";
 // import multer from "multer"; - configure when required
 
 const app = express(); // instantiate an Express object
@@ -24,7 +24,7 @@ app.use(cors());
 
 // serve static files from the public folders
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // parse JSON in the request body
 app.use(express.json());
@@ -39,13 +39,13 @@ app.use(morgan("dev"));
 
 // testing function
 app.get("/", (req, res) => {
-    res.send("Hello!");
+  res.send("Hello!");
 });
 
 // testing cross origin requests - login username and password
 app.post("/api/student/login", (req, res) => {
-    console.log(req.body);
-    res.send("Hello!1");
+  console.log(req.body);
+  res.send("Hello!1");
 });
 
 // export the express app we created to make it available to other modules
