@@ -5,6 +5,7 @@ import StudentViewFilter from "../../components/student/StudentViewFilter/Studen
 import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/DesktopIssueDetails";
 import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
 import { CreateRequest } from "../../components/student/CreateRequest";
+import axios from "axios";
 
 const StudentDashboard = () => {
   // State initialization for holding requests and their display variant
@@ -16,21 +17,40 @@ const StudentDashboard = () => {
   const [request, setRequest] = useState(null);
 
   // API
-  const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
-  // Fetch data from the API
   useEffect(() => {
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const sortedData = data.sort((a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated));
-        setAllRequests(sortedData);
-        setDisplayedRequests(sortedData);
-      })
-      .catch((error) => {
-        console.error("Error fetching data from API:", error);
-      });
-  }, [apiUrl]);
+    let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/issues/student/all`);
+        const sortedData = response.data.sort(
+          (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
+        );
+        if (isMounted) {
+          setAllRequests(sortedData);
+          setDisplayedRequests(sortedData);
+        }
+        console.log("Fetched Data");
+      } catch (error) {
+        if (isMounted) {
+          console.error("Error fetching data from API:", error);
+        }
+      }
+    };
+
+    fetchData();
+
+    // Interval for polling from the server - 5 seconds
+    const intervalId = setInterval(fetchData, 5000);
+
+    // Clean up interval on unmount
+    return () => {
+      clearInterval(intervalId); // clear interval on unmount to prevent memory leaks
+      isMounted = false; // set flag to false when we know the component will unmount
+    };
+  }, []); // Empty dependency array means this effect will only run once on mount
 
   // State initialization for tracking window width and adjusting display
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -73,7 +93,8 @@ const StudentDashboard = () => {
             <th>Title</th>
             <th>Description</th>
             <th>Departments</th>
-            <th className="date-created-header">Date Created
+            <th className="date-created-header">
+              Date Created
               <button onClick={() => toggleSortOrder()} className="sort-button">
                 {sortOrder === "latestFirst" ? "↑" : "↓"}
               </button>
@@ -102,34 +123,34 @@ const StudentDashboard = () => {
     };
 
     if (isIssueOverlayOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
+      document.addEventListener("mousedown", handleOutsideClick);
     } else {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [isIssueOverlayOpen]);
 
   const getStatusClass = (status) => {
     switch (status) {
-      case 'Action Required':
-        return 'status-action-required';
-      case 'Resolved':
-        return 'status-closed';
-      case 'In Progress':
-        return 'status-in-progress';
-      case 'Open':
-        return 'status-open';
+      case "Action Required":
+        return "status-action-required";
+      case "Resolved":
+        return "status-closed";
+      case "In Progress":
+        return "status-in-progress";
+      case "Open":
+        return "status-open";
       default:
-        return '';
+        return "";
     }
   };
 
   // Custom date parsing function for "dd/mm/yyyy" format
   const parseDate = (dateString) => {
-    const [day, month, year] = dateString.split('/').map(Number);
+    const [day, month, year] = dateString.split("/").map(Number);
     return new Date(year, month - 1, day); // Month is 0-based in JavaScript
   };
 
@@ -137,16 +158,21 @@ const StudentDashboard = () => {
     const sortedRequests = [...displayedRequests];
 
     if (order === "latestFirst") {
-      sortedRequests.sort((a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated));
+      sortedRequests.sort(
+        (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
+      );
     } else if (order === "oldestFirst") {
-      sortedRequests.sort((a, b) => parseDate(a.dateCreated) - parseDate(b.dateCreated));
+      sortedRequests.sort(
+        (a, b) => parseDate(a.dateCreated) - parseDate(b.dateCreated)
+      );
     }
 
     setDisplayedRequests(sortedRequests);
   };
 
   const toggleSortOrder = () => {
-    const newSortOrder = sortOrder === "latestFirst" ? "oldestFirst" : "latestFirst";
+    const newSortOrder =
+      sortOrder === "latestFirst" ? "oldestFirst" : "latestFirst";
     setSortOrder(newSortOrder);
     sortRequests(newSortOrder);
   };
@@ -158,18 +184,24 @@ const StudentDashboard = () => {
 
       if (windowWidth <= 768) {
         return (
-          <tr key={index} onClick={() => {
-            setIsIssueOverlayOpen(true);
-            setRequest(request.index);
-          }}>
-            <td className="title-cell-mobile">
-                {request.title}
-            </td>
+          <tr
+            key={index}
+            onClick={() => {
+              setIsIssueOverlayOpen(true);
+              setRequest(request.index);
+            }}
+          >
+            <td className="title-cell-mobile">{request.title}</td>
             <td>
-              <span className={`status-box ${getStatusClass(request.currentStatus)}` } onClick={() => {
-            setIsIssueOverlayOpen(true);
-            setRequest(request.index);
-        }}>
+              <span
+                className={`status-box ${getStatusClass(
+                  request.currentStatus
+                )}`}
+                onClick={() => {
+                  setIsIssueOverlayOpen(true);
+                  setRequest(request.index);
+                }}
+              >
                 {request.currentStatus}
               </span>
             </td>
@@ -180,17 +212,23 @@ const StudentDashboard = () => {
         // It is only for Desktop view for now
         return (
           <tr key={index}>
-            <td className="title-cell" onClick={() => {
-              setIsIssueOverlayOpen(true);
-              setRequest(request.index);
-            }}>
+            <td
+              className="title-cell"
+              onClick={() => {
+                setIsIssueOverlayOpen(true);
+                setRequest(request.index);
+              }}
+            >
               {request.title}
             </td>
 
-            <td className="description-cell" onClick={() => {
-              setIsIssueOverlayOpen(true);
-              setRequest(request.index);
-            }}>
+            <td
+              className="description-cell"
+              onClick={() => {
+                setIsIssueOverlayOpen(true);
+                setRequest(request.index);
+              }}
+            >
               {truncatedDescription}
             </td>
 
@@ -201,11 +239,13 @@ const StudentDashboard = () => {
                 </span>
               ))}
             </td>
-            <td className="date-created-cell">
-              {request.dateCreated}
-            </td>
+            <td className="date-created-cell">{request.dateCreated}</td>
             <td>
-              <span className={`status-box ${getStatusClass(request.currentStatus)}`}>
+              <span
+                className={`status-box ${getStatusClass(
+                  request.currentStatus
+                )}`}
+              >
                 {request.currentStatus}
               </span>
             </td>
@@ -249,8 +289,8 @@ const StudentDashboard = () => {
     }
 
     if (selectedStatus !== "") {
-      filteredRequests = filteredRequests.filter((request) =>
-        request.currentStatus === selectedStatus
+      filteredRequests = filteredRequests.filter(
+        (request) => request.currentStatus === selectedStatus
       );
     }
 
@@ -288,8 +328,8 @@ const StudentDashboard = () => {
     }
 
     if (status !== "") {
-      filteredRequests = filteredRequests.filter((request) =>
-        request.currentStatus === status
+      filteredRequests = filteredRequests.filter(
+        (request) => request.currentStatus === status
       );
     }
 
@@ -305,7 +345,7 @@ const StudentDashboard = () => {
   // Placeholder for the "Create Request" functionality
   const handleCreateRequest = () => {
     setIsCreateRequestVisible(!isCreateRequestVisible);
-};
+  };
 
   // Handles pagination and page switching
   const handlePageChange = (page) => {
@@ -329,7 +369,7 @@ const StudentDashboard = () => {
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        {'«'}
+        {"«"}
       </button>
     );
 
@@ -364,7 +404,7 @@ const StudentDashboard = () => {
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        {'»'}
+        {"»"}
       </button>
     );
 
@@ -419,8 +459,9 @@ const StudentDashboard = () => {
 
   return (
     <>
-      <div className={`requests ${isIssueOverlayOpen ? 'blur-background' : ''}`}>
-
+      <div
+        className={`requests ${isIssueOverlayOpen ? "blur-background" : ""}`}
+      >
         <StudentNavbar studentName={studentName} />
 
         <h2 className="h2-student-dashboard">Your Requests</h2>
@@ -434,14 +475,29 @@ const StudentDashboard = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleKeyDown}
             />
-            <button className="button-student-dashboard" onClick={handleSearch}>Search</button>
+            <button className="button-student-dashboard" onClick={handleSearch}>
+              Search
+            </button>
           </div>
 
-          <StudentViewFilter filterHandler={handleFilterByDepartment} selectedOption={selectedDepartment} options={departmentOptions} />
-          <StudentViewFilter filterHandler={handleFilterByStatus} selectedOption={selectedStatus} options={statusOptions} />
+          <StudentViewFilter
+            filterHandler={handleFilterByDepartment}
+            selectedOption={selectedDepartment}
+            options={departmentOptions}
+          />
+          <StudentViewFilter
+            filterHandler={handleFilterByStatus}
+            selectedOption={selectedStatus}
+            options={statusOptions}
+          />
 
           <div className="create-request-button">
-            <button className="button-student-dashboard" onClick={handleCreateRequest}>Create Request +</button>
+            <button
+              className="button-student-dashboard"
+              onClick={handleCreateRequest}
+            >
+              Create Request +
+            </button>
           </div>
         </div>
 
@@ -454,13 +510,23 @@ const StudentDashboard = () => {
         <div className="pagination">
           <div className="pagination-box">{renderPagination()}</div>
         </div>
-        {isCreateRequestVisible && <CreateRequest isVisible={isCreateRequestVisible} onClose={handleCreateRequest} />}
+        {isCreateRequestVisible && (
+          <CreateRequest
+            isVisible={isCreateRequestVisible}
+            onClose={handleCreateRequest}
+          />
+        )}
       </div>
       {/* The Overlay popup is triggered by clicking on the title or description */}
       {/* It is only for Desktop view for now */}
       {isIssueOverlayOpen && (
         <div className="issueOverlay" ref={overlayRef}>
-          <button className="closeButton issue-buttons" onClick={closeIssueOverlay}>X</button>
+          <button
+            className="closeButton issue-buttons"
+            onClick={closeIssueOverlay}
+          >
+            X
+          </button>
 
           <DesktopIssueDetails index={request} />
         </div>
