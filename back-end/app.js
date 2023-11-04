@@ -4,6 +4,7 @@ import morgan from "morgan";
 import cors from "cors";
 import url from "url";
 import path from "path";
+import login from "./src/routes/login.js";
 // import multer from "multer"; - configure when required
 
 const app = express(); // instantiate an Express object
@@ -37,16 +38,8 @@ app.use(morgan("dev"));
 
 // ROUTE HANDLERS
 
-// testing function
-app.get("/", (req, res) => {
-  res.send("Hello!");
-});
-
-// testing cross origin requests - login username and password
-app.post("/api/student/login", (req, res) => {
-  console.log(req.body);
-  res.send("Hello!1");
-});
+// login
+app.use("/api/login", login);
 
 // export the express app we created to make it available to other modules
 export default app;
