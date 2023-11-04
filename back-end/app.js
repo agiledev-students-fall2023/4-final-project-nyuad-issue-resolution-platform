@@ -5,6 +5,7 @@ import cors from "cors";
 import url from "url";
 import path from "path";
 import login from "./src/routes/login.js";
+import studentIssues from "./src/routes/studentIssues.js";
 // import multer from "multer"; - configure when required
 
 const app = express(); // instantiate an Express object
@@ -40,6 +41,9 @@ app.use(morgan("dev"));
 
 // login
 app.use("/api/login", login);
+
+// Student Side Issue Retrieval
+app.use("/api/issues/student", studentIssues);
 
 // export the express app we created to make it available to other modules
 export default app;

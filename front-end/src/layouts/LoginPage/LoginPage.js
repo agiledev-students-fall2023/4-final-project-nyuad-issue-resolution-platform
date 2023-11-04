@@ -31,9 +31,6 @@ const LoginPage = () => {
       );
       // The response data from the server
       auth = response.data.authenticated;
-
-      // Now you can use responseData as needed
-      console.log("Response data:", auth);
     } catch (error) {
       console.error("Error during form submission:", error);
       // In case of error, if you need to access the response provided by the server (if any)
