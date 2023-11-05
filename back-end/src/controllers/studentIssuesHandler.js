@@ -6,7 +6,7 @@ export async function issueRetrievalHandler(req, res) {
   try {
     // Assuming the data you want is at the response.data property
     const response = await axios.get(
-      `${process.env.BACKEND_URL}/json/contextual_mockapi.json` // will be replaced with db call
+      `${process.env.BACKEND_URL}/json/mockapi.json` // will be replaced with db call
     );
 
     // Assuming response.data is an array of items and each item has a studentNetId field

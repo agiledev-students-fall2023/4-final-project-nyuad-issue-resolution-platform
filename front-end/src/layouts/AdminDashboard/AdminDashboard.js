@@ -10,6 +10,7 @@ import {
 } from '../../components/admin/helper/sorting/SortingFunctions';
 import AdminNavbar from '../../components/admin/AdminNavbar/AdminNavbar';
 import SiteWideFooter from '../../components/general/SiteWideFooter/SiteWideFooter';
+import axios from "axios";
 
 function AdminDashboard() {
     const [searchText, setSearchText] = useState('');
@@ -21,12 +22,32 @@ function AdminDashboard() {
     const overlayRef = useRef(null);
     const currentDepartment = "IT"; // will change this later sprint
 
+    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
     useEffect(() => {
-        // Fetch data from the API when the component mounts
-        fetch('https://hasiburratul.github.io/mock-api/MOCK_DATA_ADMIN.json')
-            .then(response => response.json())
-            .then(data => setIssues(data))
-            .catch(error => console.error('Error fetching data:', error));
+        let isMounted = true;
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    `${BASE_URL}/api/issues/admin/${currentDepartment}`
+                );
+                setIssues(response.data);
+            } catch (error) {
+                if (isMounted) {
+                    console.error('Error fetching data:', error);
+                }
+            }
+        };
+
+        fetchData();
+
+        const intervalId = setInterval(fetchData, 5000);
+
+        return () => {
+            clearInterval(intervalId);
+            isMounted = false;
+        };
     }, []);
 
     // Add event listener to handle clicks outside the overlay
