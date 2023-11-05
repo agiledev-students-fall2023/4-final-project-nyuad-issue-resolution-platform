@@ -6,6 +6,8 @@ import url from "url";
 import path from "path";
 import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
+import adminIssues from "./src/routes/adminIssues.js";
+
 // import multer from "multer"; - configure when required
 
 const app = express(); // instantiate an Express object
@@ -44,6 +46,9 @@ app.use("/api/login", login);
 
 // Student Side Issue Retrieval
 app.use("/api/issues/student", studentIssues);
+
+// Admin side issue retrieval
+app.use("/api/issues/admin", adminIssues);
 
 // export the express app we created to make it available to other modules
 export default app;
