@@ -3,7 +3,7 @@ import logoutImage from "../../../assets/images/logout-icon.png";
 import "./AdminNavbar.css";
 
 export default function AdminNavbar({ adminName, unresolvedIssues }) {
-    // const [showNotification, setShowNotification] = useState(false);
+  //    const [showNotification, setShowNotification] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -16,7 +16,6 @@ export default function AdminNavbar({ adminName, unresolvedIssues }) {
             <div className="admin-info">
                 <span className="admin-name">Hello, {adminName}</span>
                 <span className="unresolved-issues">{unresolvedIssues}</span>
-
                 <img
                     src={logoutImage}
                     alt="Logout"

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Select from 'react-select';
@@ -13,7 +12,6 @@ const PriorityDropdown = ({ currentState }) => {
     { value: 'Reopened', label: 'Reopened', color: '#9d690235', textColor: '#9d6a02', isBold: 'true' }
   ];
   const [selectedOption, setSelectedOption] = useState(options[0]);
- 
 
   const postPriorityUpdated = async (param) => {
     try {
@@ -33,17 +31,18 @@ const PriorityDropdown = ({ currentState }) => {
     control: (base) => ({
       ...base,
       backgroundColor: selectedOption.color,
-      color:'blue'
+      color: 'blue'
     }),
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.data.color,
       color: state.data.textColor,
       fontWeight: state.data.isBold ? 'bold' : 'normal'
-    }), singleValue: provided => ({
+    }),
+singleValue: provided => ({
       ...provided,
       color: selectedOption.textColor,
-      fontWeight : 'bold'
+      fontWeight: 'bold'
     })
   };
   const setDefaultValue = () => {

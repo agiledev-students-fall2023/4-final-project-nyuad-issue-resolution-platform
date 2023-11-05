@@ -33,6 +33,7 @@ function AdminDashboard() {
                     `${BASE_URL}/api/issues/admin/${currentDepartment}`
                 );
                 setIssues(response.data);
+                console.log(response.data);
             } catch (error) {
                 if (isMounted) {
                     console.error('Error fetching data:', error);

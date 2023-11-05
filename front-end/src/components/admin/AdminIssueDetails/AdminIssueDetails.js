@@ -1,3 +1,4 @@
+/* eslint-disable */
 import UpdatesBox from '../UpdateBox/UpdatesBox.js';
 import CommentBox from '../CommentBox/CommentBox.js';
 import TagSidebar from '../TagSideBar/TagSidebar.js';
@@ -15,7 +16,7 @@ import axios from 'axios';
 const AdminIssueDetails = () => {
   const { index } = useParams();
   const [updateBoxes, setUpdateBoxes] = useState([]);
-  const [specificIssue, setSpecificIssue] = useState([]);
+  const [specificIssue, setSpecificIssue] = useState();
   // const [commentBoxValue, setcommentBoxValue] = useState('');
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -50,9 +51,12 @@ const AdminIssueDetails = () => {
 
     async function fetchData() {
       try {
-        const response = await fetch('https://hasiburratul.github.io/mock-api/MOCK_DATA_ADMIN.json');
+        const response = await fetch(`${BASE_URL}/api/issues/admin/IT/${index}`);
+        // const response = await fetch('https://hasiburratul.github.io/mock-api/MOCK_DATA_ADMIN.json');
         const result = await response.json();
-        setSpecificIssue(result);
+        setSpecificIssue(result[0]);
+        setUpdateBoxes(result[0].comments);
+
         setLoading(true);
       } catch (error) {
         console.error(error);
@@ -65,31 +69,31 @@ const AdminIssueDetails = () => {
 
     <div>
       { loading
-? (
+      ? (
         <div className="admin-issue">
             <div className="left-bar">
-              <h1>{specificIssue[index].title}</h1>
+              <h1>{specificIssue.title}</h1>
               {/* Passses the issue fetched from the API */}
-              <PriorityDropdown currentState={specificIssue[index]}/>
+              <PriorityDropdown currentState={specificIssue}/>
               <div className="issue-history-text">
                 <h2> Issue History </h2>
-                <ProgressionDropdown currentState={specificIssue[index]}/>
+                <ProgressionDropdown currentState={specificIssue}/>
               </div>
 
               <div className="all-updates">
                 {
                     updateBoxes.map((item, index) => {
-                      return <UpdatesBox key={index} index ={updateBoxes.length - index + 1}description={item} />;
+                      return <UpdatesBox key={index} name={"Update"} index ={updateBoxes.length - (index)}description={item} />;
                     })
                 }
-                  <UpdatesBox description={specificIssue[index].description} />
+                <UpdatesBox name={"Issue Details"} description={specificIssue.description} />
               </div>
               <CommentBox onAdd={postUpdateCommentAdd}/>
             </div>
             <div className="right-bar">
-                <StudentDetails props={specificIssue[index]}/>
-                <TagSidebar name="Departments" tags = {specificIssue[index].departments} />
-                <TagSidebar name="Attachments" tags = {["Attachtment1", "Attachment2"]} />
+                <StudentDetails props={specificIssue}/>
+                <TagSidebar name="Departments" tags = {specificIssue.departments} />
+                <TagSidebar name="Attachments" tags = {specificIssue.attachments} />
                 <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
                 </div>
