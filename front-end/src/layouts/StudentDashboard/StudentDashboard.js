@@ -18,13 +18,19 @@ const StudentDashboard = () => {
 
   // API
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  const mockStudent = {
+    name: "Ted Mosby",
+    netid: "tm2005"
+  };
 
   useEffect(() => {
     let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/issues/student/all`);
+        const response = await axios.get(
+          `${BASE_URL}/api/issues/student/${mockStudent.netid}`
+        );
         const sortedData = response.data.sort(
           (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
         );
@@ -65,7 +71,7 @@ const StudentDashboard = () => {
 
   // all the useState hooks below where the function isn't called yet can be put below to escape linter
   /* eslint-disable no-unused-vars */
-  const [studentName, setStudentName] = useState("John Doe");
+  const [studentName, setStudentName] = useState("Ted Mosby");
   /* eslint-enable no-unused-vars */
 
   // Event listener to track window resizing
