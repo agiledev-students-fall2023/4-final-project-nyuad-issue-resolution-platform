@@ -2,7 +2,7 @@ import axios from "axios";
 
 // The function retrieves all the issues related to this departmen
 
-export async function adminIssuesHandler(req, res) {
+export async function adminIssueViewDetailsHandler(req, res) {
   const { paramName } = req.params;
   try {
     // Assuming the data you want is at the response.data property
@@ -12,7 +12,7 @@ export async function adminIssuesHandler(req, res) {
 
     // Assuming response.data is an array of items and each item has a index
     const filteredData = response.data.filter(
-      (item) => item.departments.includes(paramName)
+      (item) => String(item.index) === String(paramName)
     );
 
     res.json(filteredData); // Send only the data that matches the specific issue index

@@ -6,8 +6,8 @@ import url from "url";
 import path from "path";
 import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
-import adminIssues from "./src/routes/adminIssuesHandler.js";
-import adminIssuesViewDetails from "./src/routes/adminIssuesViewDetails.js";
+import adminIssues from "./src/routes/adminIssues.js";
+import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 // import multer from "multer"; - configure when required
 
 const app = express(); // instantiate an Express object
@@ -51,7 +51,7 @@ app.use("/api/issues/student", studentIssues);
 app.use("/api/issues/admin", adminIssues);
 
 // Retrieve the specific Issue card from the admin Side
-app.use("/api/issues/admin/dashboard", adminIssuesViewDetails);
+app.use("/api/issues/admin/:department", adminIssueViewDetails);
 
 // export the express app we created to make it available to other modules
 export default app;
