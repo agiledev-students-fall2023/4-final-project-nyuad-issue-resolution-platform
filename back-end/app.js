@@ -7,6 +7,7 @@ import path from "path";
 import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
 import adminIssues from "./src/routes/adminIssues.js";
+import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 
 // import multer from "multer"; - configure when required
 
@@ -49,6 +50,8 @@ app.use("/api/issues/student", studentIssues);
 
 // Admin side issue retrieval
 app.use("/api/issues/admin", adminIssues);
+
+app.use("/api/issues/admin/", adminIssueViewDetails);
 
 // export the express app we created to make it available to other modules
 export default app;

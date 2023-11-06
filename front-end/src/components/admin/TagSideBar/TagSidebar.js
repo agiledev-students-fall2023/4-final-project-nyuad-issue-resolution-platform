@@ -56,11 +56,11 @@ function TagSidebar({ name, tags }) {
         <button className="plus-button" onClick={toggleInput}>+</button>
       </div>
       <ul>
-        <l1>
+        <li>
             {inputVisible && <input type="text" onKeyDown={handleAddDepartment} placeholder="Enter new Department" value={inputValue} onChange={handleInputChange} />}
 
-        </l1>
-        {departmentTags.map((tag, index) => (
+        </li>
+        {departmentTags.filter(item => item != null).map((tag, index) => (
           <li key={index}>
             <div className="round-tag ">
                 <span>{tag}</span>
