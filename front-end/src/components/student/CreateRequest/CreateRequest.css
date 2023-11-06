@@ -15,6 +15,7 @@
   justify-content: flex-start;
   align-items: center;
   overflow: auto;
+  border-radius: 3px;
 }
 
 .create-request-component-student .title-container {
@@ -31,8 +32,7 @@
 }
 
 .create-request-component-student .issue-title-group,
-.create-request-component-student .description-group,
-.create-request-component-student .department-group {
+.create-request-component-student .description-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -41,21 +41,21 @@
 }
 
 .create-request-component-student .issue-title-label,
-.create-request-component-student .description-label,
-.create-request-component-student .department-label {
+.create-request-component-student .description-label {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .create-request-component-student .issue-title-group > input,
-.create-request-component-student .description-group > textarea {
+.create-request-component-student .description-group > textarea,
+.create-request-component-student .department-group .department-select {
+  font-family: var(--primary-font);
   width: 95%;
   height: 30px;
   font-size: 16px;
   border-radius: 3px;
   border: 1px solid #ccc;
-
   padding: 5px;
 }
 
@@ -65,10 +65,75 @@
 }
 
 .create-request-component-student .issue-title-group > input:focus,
-.create-request-component-student .description-group > textarea:focus {
+.create-request-component-student .description-group > textarea:focus,
+.create-request-component-student .department-group .department-select:focus {
   outline: 1px solid var(--accent);
   background-color: rgb(245, 248, 250);
 }
 
-.create-request-component-student .description-group > i {
+.create-request-component-student .department-file-group {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-request-component-student .department-group {
+  display: flex;
+  align-items: flex-start;
+  width: 45%;
+}
+
+.create-request-component-student .file-select {
+  display: none;
+}
+
+.create-request-component-student .file-select-label {
+  font-size: 16px;
+  margin-right: 15px;
+  padding: 5px 10px;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.create-request-component-student .selected-files-and-departments {
+  width: 90%;
+  display: flex;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 4px;
+  position: relative;
+  margin-top: 5px;
+  min-height: 100px;
+  /* border: 1px solid #ccc; */
+}
+.create-request-component-student
+  .selected-files-and-departments
+  .selected-departments {
+  flex: 1;
+}
+
+.create-request-component-student
+  .selected-files-and-departments
+  .selected-files {
+  flex: 1;
+}
+
+.create-request-component-student .submit-button-container {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+.create-request-component-student .submit-button {
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

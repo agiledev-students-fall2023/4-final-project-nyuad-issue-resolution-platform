@@ -49,7 +49,8 @@ export function CreateRequest({ isVisible, onClose }) {
   };
 
   return (
-    <div
+    <form
+      onSubmit={handleFormSubmit}
       id="createRequestComponent"
       className={`create-request-component-student ${
         isVisible ? "visible" : ""
@@ -60,7 +61,6 @@ export function CreateRequest({ isVisible, onClose }) {
 
         <img src={closebutton} className="close-button" onClick={onClose} />
       </div>
-
       <div className="input-group issue-title-group">
         <label htmlFor="issueTitle" className="issue-title-label">
           Issue Title
@@ -71,6 +71,7 @@ export function CreateRequest({ isVisible, onClose }) {
           value={issueTitle}
           onChange={handleIssueTitleChange}
           className="issue-title-input"
+          required
         />
       </div>
 
@@ -84,45 +85,54 @@ export function CreateRequest({ isVisible, onClose }) {
           value={description}
           onChange={handleDescriptionChange}
           className="description-input"
+          required
         />
       </div>
 
-      <div className="department-group">
-        <div>
-          <label htmlFor="department" className="department-label">
-            Select Department
-          </label>
+      <div className="department-file-group">
+        <div className="department-group">
+          <select
+            id="department"
+            value={department}
+            onChange={handleDepartmentChange}
+            className="department-select"
+            required
+          >
+            <option value="" selected>
+              Select Department
+            </option>
+            <option value="department2">Dining</option>
+            <option value="department3">Residential Education</option>
+            <option value="department4">Global Education</option>
+            <option value="department5">Student Finance</option>
+          </select>
         </div>
-        <select
-          id="department"
-          value={department}
-          onChange={handleDepartmentChange}
-          className="department-select"
-        >
-          <option value="department1">Select Department</option>
-          <option value="department2">Dining</option>
-          <option value="department3">Residential Education</option>
-          <option value="department4">Global Education</option>
-          <option value="department5">Student Finance</option>
-        </select>
+
+        <label className="file-select-label">
+          Attach file(s)
+          <input
+            className="file-select"
+            type="file"
+            id="fileInput"
+            onChange={handleFileChange}
+          />
+        </label>
       </div>
 
-      <div className="input-group file-group">
-        <div>
-          <label htmlFor="fileInput" className="file-label">
-            Attach File(s)
-          </label>
+      <div className="selected-files-and-departments">
+        <div className="selected-departments">
+          <p>Selected Departments:</p>
         </div>
-        <input
-          className="file-select"
-          type="file"
-          id="fileInput"
-          onChange={handleFileChange}
-        />
+        <div className="selected-files">
+          <p>Uploaded Files:</p>
+        </div>
       </div>
-      <button type="submit" className="close-button" onClick={handleFormSubmit}>
-        Post Request
-      </button>
-    </div>
+
+      <div className="submit-button-container">
+        <button type="submit" className="submit-button">
+          Post Request
+        </button>
+      </div>
+    </form>
   );
 }
