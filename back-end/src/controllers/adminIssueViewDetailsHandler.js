@@ -4,8 +4,6 @@ import axios from "axios";
 export async function adminIssueViewDetailsHandler(req, res) {
   const { paramName } = req.params;
   const { department } = req.params;
-
-  console.log(paramName, department);
   try {
     // Assuming the data you want is at the response.data property
     const response = await axios.get(
