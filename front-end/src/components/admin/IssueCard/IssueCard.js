@@ -8,7 +8,7 @@ function IssueCard({ issue }) {
    useEffect(() => {
    }, []);
    const onClickIssueCard = async (event) => {
-      navigate('/admin/dashboard/' + (issue.index - 1));
+      navigate('/admin/dashboard/' + (issue.index));
    };
    return (
       <div onClick = {onClickIssueCard} key={issue.index} className="issue-card-admin">
