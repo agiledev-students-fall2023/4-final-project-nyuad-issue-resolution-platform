@@ -51,7 +51,7 @@ app.use("/api/issues/student", studentIssues);
 // Admin side issue retrieval
 app.use("/api/issues/admin", adminIssues);
 
-app.use("/api/issues/admin/IT", adminIssueViewDetails);
+app.use("/api/issues/admin/", adminIssueViewDetails);
 
 // export the express app we created to make it available to other modules
 export default app;

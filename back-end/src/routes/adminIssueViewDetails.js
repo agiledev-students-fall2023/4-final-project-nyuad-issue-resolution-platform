@@ -3,6 +3,6 @@ import { adminIssueViewDetailsHandler } from "../controllers/adminIssueViewDetai
 
 const router = express.Router();
 
-router.get("/:paramName", adminIssueViewDetailsHandler);
+router.get("/:department/:paramName", adminIssueViewDetailsHandler);
 
 export default router;
