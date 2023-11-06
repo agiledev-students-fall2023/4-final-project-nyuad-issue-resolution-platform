@@ -11,7 +11,7 @@ import {
 import AdminNavbar from '../../components/admin/AdminNavbar/AdminNavbar';
 import SiteWideFooter from '../../components/general/SiteWideFooter/SiteWideFooter';
 import axios from "axios";
-export const currentSetDepartment = "ResEd";
+export const currentSetDepartment = "IT";
 
 function AdminDashboard() {
     const [searchText, setSearchText] = useState('');
