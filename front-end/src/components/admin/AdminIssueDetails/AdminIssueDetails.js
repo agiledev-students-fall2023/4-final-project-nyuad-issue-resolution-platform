@@ -11,6 +11,7 @@ import StudentDetails from '../StudentDetails/StudentDetails.js';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
 
 const AdminIssueDetails = () => {
   const { index } = useParams();
@@ -19,6 +20,7 @@ const AdminIssueDetails = () => {
   // const [commentBoxValue, setcommentBoxValue] = useState('');
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  console.log(currentSetDepartment);
 
   // const addUpdateBoxes = (newupdateBox) => {
   //     const array = [newupdateBox.updateDescription,...updateBoxes]
@@ -50,7 +52,7 @@ const AdminIssueDetails = () => {
 
     async function fetchData() {
       try {
-        const response = await fetch(`${BASE_URL}/api/issues/admin/IT/${index}`);
+        const response = await fetch(`${BASE_URL}/api/issues/admin/${currentSetDepartment}/${index}`);
         const result = await response.json();
         setSpecificIssue(result[0]);
         setUpdateBoxes(result[0].comments);
