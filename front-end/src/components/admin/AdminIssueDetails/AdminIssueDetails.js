@@ -20,8 +20,6 @@ const AdminIssueDetails = () => {
   // const [commentBoxValue, setcommentBoxValue] = useState('');
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-  console.log(currentSetDepartment);
-
   // const addUpdateBoxes = (newupdateBox) => {
   //     const array = [newupdateBox.updateDescription,...updateBoxes]
   //     setUpdateBoxes(array);
