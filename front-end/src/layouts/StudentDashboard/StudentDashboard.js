@@ -4,7 +4,7 @@ import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar"
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
 import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/DesktopIssueDetails";
 import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
-import { CreateRequest } from "../../components/student/CreateRequest";
+import { CreateRequest } from "../../components/student/CreateRequest/CreateRequest.js";
 import axios from "axios";
 
 const StudentDashboard = () => {

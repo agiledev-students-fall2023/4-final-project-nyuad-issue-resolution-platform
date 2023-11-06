@@ -1,0 +1,74 @@
+.create-request-component-student {
+  background-color: white;
+  border: 1px solid black;
+  position: fixed;
+  z-index: 1000;
+  width: 550px;
+  height: 600px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: auto;
+}
+
+.create-request-component-student .title-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.create-request-component-student .close-button {
+  width: 27px;
+  height: 27px;
+}
+
+.create-request-component-student .issue-title-group,
+.create-request-component-student .description-group,
+.create-request-component-student .department-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.create-request-component-student .issue-title-label,
+.create-request-component-student .description-label,
+.create-request-component-student .department-label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.create-request-component-student .issue-title-group > input,
+.create-request-component-student .description-group > textarea {
+  width: 95%;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+
+  padding: 5px;
+}
+
+.create-request-component-student .description-group > textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.create-request-component-student .issue-title-group > input:focus,
+.create-request-component-student .description-group > textarea:focus {
+  outline: 1px solid var(--accent);
+  background-color: rgb(245, 248, 250);
+}
+
+.create-request-component-student .description-group > i {
+}
