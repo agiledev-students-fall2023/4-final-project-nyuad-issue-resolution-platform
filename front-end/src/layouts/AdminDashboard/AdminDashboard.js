@@ -11,6 +11,7 @@ import {
 import AdminNavbar from '../../components/admin/AdminNavbar/AdminNavbar';
 import SiteWideFooter from '../../components/general/SiteWideFooter/SiteWideFooter';
 import axios from "axios";
+export const currentSetDepartment = "IT";
 
 function AdminDashboard() {
     const [searchText, setSearchText] = useState('');
@@ -20,7 +21,7 @@ function AdminDashboard() {
     const [unresolvedIssues, setUnresolvedIssues] = useState(0);
     const [columnSortOptions, setColumnSortOptions] = useState({});
     const overlayRef = useRef(null);
-    const currentDepartment = "IT"; // will change this later sprint
+    const currentDepartment = currentSetDepartment; // will change this later sprint
 
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
