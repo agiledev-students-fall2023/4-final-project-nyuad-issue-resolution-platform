@@ -165,7 +165,7 @@ const DesktopIssueDetails = ({ index }) => {
                         <div className='history-updates'>
                             {/* Display the issue description as Update 1 */}
                             <div className="update">
-                                <h4>Update 1</h4>
+                                <h4>Issue Description</h4>
                                 <p>{issue.description}</p>
                             </div>
 
@@ -173,7 +173,7 @@ const DesktopIssueDetails = ({ index }) => {
                             {issue.comments.map((update, index) => (
                                 <div key={index} className="update">
                                     {/* Since we start counting updates from 2, add 2 to the current index */}
-                                    <h4>Update {index + 2}</h4>
+                                    <h4>Update {issue.comments.length - index}</h4>
                                     <p>{update}</p>
                                 </div>
                             ))}
@@ -206,7 +206,7 @@ const DesktopIssueDetails = ({ index }) => {
                                 {issue.departments.map((dept, index) => <li className='issue-li department-pill' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
                             </ul>
                         </div>
-                        {issue.attachments && issue.attachments.length > 0 && (
+                        {issue.attachments.length > 1 && (
                             <div className="attachments">
                                 <h3>Attachments</h3>
                                 <ul className='attachment-box'>
