@@ -172,7 +172,7 @@ const DesktopIssueDetails = ({ index }) => {
                             {/* Map through the comments and display them starting with Update 2 */}
                             {issue.comments.map((update, index) => (
                                 <div key={index} className="update">
-                                    {/* Since we start counting updates from 2, add 2 to the current index */}
+                                    {/* Updates in Reverse */}
                                     <h4>Update {issue.comments.length - index}</h4>
                                     <p>{update}</p>
                                 </div>
