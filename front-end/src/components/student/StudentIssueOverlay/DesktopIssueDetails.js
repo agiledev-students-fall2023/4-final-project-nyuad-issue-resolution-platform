@@ -52,22 +52,32 @@ const DesktopIssueDetails = ({ index }) => {
 
             // let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
 
+            // Define `fetchData` as an asynchronous function.
             const fetchData = async () => {
-              try {
+                try {
+                // Attempt to make an HTTP GET request using axios.
                 const response = await axios.get(
-                  `${BACKEND_BASE_URL}/api/issues/student/${mockStudent.netid}/${index}`
+                    `${BACKEND_BASE_URL}/api/issues/student/${mockStudent.netid}/${index}`
                 );
-                // const result = await response.json();
-                // setIssue(result[0]);
+                // If the request is successful, take the first item from the response data
+                // (assuming the response data is an array) and update the `issue` state with it.
                 setIssue(response.data[0]);
+                // Log to the console that the data was fetched successfully.
                 console.log("Fetched Data");
+                // Also log the entire response for debugging purposes.
                 console.log(response);
-              } catch (error) {
+                } catch (error) {
+                // If an error occurs during the fetch operation, log it to the console.
                 console.error("Error fetching data from API:", error);
-              }
+                }
             };
+            // Call `fetchData` to execute the data fetching operation.
             fetchData();
-    }, [index]);
+            // The empty array `[]` as a second argument to useEffect indicates that
+            // this effect should only run once when the component mounts.
+            // The `index` in the dependency array means the effect will re-run
+            // every time the `index` changes.
+        }, [index]);
 
     const reopenIssue = () => {
         setIssue({ ...issue, currentStatus: 'Open' });
