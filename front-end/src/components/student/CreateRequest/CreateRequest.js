@@ -2,35 +2,30 @@ import { useState } from "react"; // Import useState here
 import closebutton from "../../../assets/images/cross1.png";
 import "./CreateRequest.css";
 
-export function CreateRequest({ isVisible, onClose }) {
-  const [issueTitle, setIssueTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [department, setDepartment] = useState("department1");
-  const [selectedFile, setSelectedFile] = useState(null);
-  const handleIssueTitleChange = (event) => {
-    setIssueTitle(event.target.value);
-  };
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
+export function CreateRequest({ isVisible, onClose, departmentOptions }) {
+  const [departments, setDepartments] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState([]);
   const handleDepartmentChange = (event) => {
-    setDepartment(event.target.value);
+    setDepartments([...departments, event.target.value]);
+  };
+  const handleDeptRemove = (event) => {
+    const departmentToRemove = event.target.innerText;
+    setDepartments(
+      departments.filter((department) => department !== departmentToRemove)
+    );
   };
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+    setSelectedFiles([...selectedFiles, event.target.files]);
+    console.log(event.target.files);
   };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("issueTitle", issueTitle);
-    formData.append("description", description);
-    formData.append("department", department);
-    if (selectedFile) {
-      formData.append("file", selectedFile);
-    }
-    const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
+    const formData = new FormData(e.target);
+    formData.set("deptTagged", departments);
+    formData.set("uploadedFiles", selectedFiles);
+    // const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch("/apple", {
         method: "POST",
         body: formData
       });
@@ -68,10 +63,9 @@ export function CreateRequest({ isVisible, onClose }) {
         <input
           type="text"
           id="issueTitle"
-          value={issueTitle}
-          onChange={handleIssueTitleChange}
           className="issue-title-input"
           required
+          name="issueTitle"
         />
       </div>
 
@@ -82,9 +76,8 @@ export function CreateRequest({ isVisible, onClose }) {
 
         <textarea
           id="description"
-          value={description}
-          onChange={handleDescriptionChange}
           className="description-input"
+          name="issueDesc"
           required
         />
       </div>
@@ -93,18 +86,25 @@ export function CreateRequest({ isVisible, onClose }) {
         <div className="department-group">
           <select
             id="department"
-            value={department}
+            // value={department}
+            name="deptTagged"
             onChange={handleDepartmentChange}
             className="department-select"
-            required
+            required={departments.length <= 0}
           >
-            <option value="" selected>
-              Select Department
-            </option>
-            <option value="department2">Dining</option>
-            <option value="department3">Residential Education</option>
-            <option value="department4">Global Education</option>
-            <option value="department5">Student Finance</option>
+            <option value="">Select Department</option>
+            {/* only render option if not present in departments array */}
+            {departmentOptions.map((option) => {
+              const { value, label } = option; // complications due to similar names of value and label
+              if (!departments.includes(value) && value !== "") {
+                return (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                );
+              }
+              return null;
+            })}
           </select>
         </div>
 
@@ -114,6 +114,7 @@ export function CreateRequest({ isVisible, onClose }) {
             className="file-select"
             type="file"
             id="fileInput"
+            name="uploadedFiles"
             onChange={handleFileChange}
           />
         </label>
@@ -122,9 +123,27 @@ export function CreateRequest({ isVisible, onClose }) {
       <div className="selected-files-and-departments">
         <div className="selected-departments">
           <p>Selected Departments:</p>
+          <div className="department-list">
+            {departments.map((department) => {
+              return (
+                <p key={department} onClick={handleDeptRemove}>
+                  {department}
+                </p>
+              );
+            })}
+          </div>
         </div>
         <div className="selected-files">
           <p>Uploaded Files:</p>
+          <ul className="file-list">
+            {selectedFiles.length > 0 ? (
+              selectedFiles.map((file) => {
+                return <li key={file[0].name}>{file[0].name}</li>;
+              })
+            ) : (
+              <li>No files uploaded</li>
+            )}
+          </ul>
         </div>
       </div>
 
