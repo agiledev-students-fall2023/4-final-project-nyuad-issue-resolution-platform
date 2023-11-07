@@ -1,22 +1,12 @@
 import './TagSidebar.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-function TagSidebar({ name, tags }) {
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+function TagSidebar({ index, name, tags }) {
   const [departmentTags, setdepartmentTags] = useState([]);
   const [inputVisible, setInputVisible] = useState(false);
   const [departmentNames, setDepartmentNames] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-
-  const postDepartmentDelegation = async (event) => {
-    event.preventDefault();
-    try {
-        await axios.post(`${BASE_URL}/addNewDepartment`, null);
-    } catch (error) {
-        console.error('Error during form submission:', error);
-    }
-};
 
   const toggleInput = () => {
     setInputVisible(!inputVisible);
@@ -30,8 +20,16 @@ function TagSidebar({ name, tags }) {
     if (e.key === 'Enter') {
       const newValue = e.target.value;
       setdepartmentTags([newValue, ...departmentTags]);
+      postDepartmentTags([newValue, ...departmentTags]);
       setInputValue('');
-      postDepartmentDelegation(e);
+    }
+  };
+
+  const postDepartmentTags = async (param) => {
+    try {
+      await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, issueDepartmentTags: param });
+    } catch (error) {
+      console.error('Error during form submission:', error);
     }
   };
 
@@ -39,7 +37,6 @@ function TagSidebar({ name, tags }) {
     return () => {
       const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
       console.log(departmentNames);
-      console.log(modifiedDepartmentTags);
       setdepartmentTags(modifiedDepartmentTags);
     };
   };

@@ -29,6 +29,7 @@ app.use(cors());
 
 // serve static files from the public folders
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+export const publicpath = path.join(__dirname, "public");
 app.use(express.static(path.join(__dirname, "public")));
 
 // parse JSON in the request body

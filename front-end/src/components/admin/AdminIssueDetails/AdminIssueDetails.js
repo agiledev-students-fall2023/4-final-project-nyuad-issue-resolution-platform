@@ -9,7 +9,7 @@ import PriorityDropdown from '../PriorityDropDown/PriorityDropdown.js';
 import ProgressionDropdown from '../ProgressionDropdown/ProgressionDropdown.js';
 import StudentDetails from '../StudentDetails/StudentDetails.js';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
 
@@ -17,37 +17,22 @@ const AdminIssueDetails = () => {
   const { index } = useParams();
   const [updateBoxes, setUpdateBoxes] = useState([]);
   const [specificIssue, setSpecificIssue] = useState();
-  // const [commentBoxValue, setcommentBoxValue] = useState('');
+  const [departmentsTags, setDepartmentTags] = useState([]);
+  const [commentBoxValue, setcommentBoxValue] = useState('');
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-  // const addUpdateBoxes = (newupdateBox) => {
-  //     const array = [newupdateBox.updateDescription,...updateBoxes]
-  //     setUpdateBoxes(array);
-  // };
-
-  const postUpdateCommentAdd = async (event) => {
-      event.preventDefault();
-      const updateBoxData = event.target.elements[0].value;
-      try {
-          await axios.post(`${BASE_URL}/dummypost`, updateBoxData);
-      } catch (error) {
-          console.error('Error during form submission:', error);
-      }
-      setUpdateBoxes([]);
-  };
+  const navigate = useNavigate();
 
   const postMarkAsResolved = async (event) => {
-    event.preventDefault();
-    try {
-        await axios.post(`${BASE_URL}/markasresolved`, null);
-    } catch (error) {
+      // event.prevenDefault();
+      navigate('/admin/dashboard/');
+      try {
+        await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, issueStatus: "Resolved" });
+      } catch (error) {
         console.error('Error during form submission:', error);
-    }
+      }
 };
-
   useEffect(() => {
-    // Fetch data from the API when the component mounts
-
     async function fetchData() {
       try {
         const response = await fetch(`${BASE_URL}/api/issues/admin/${currentSetDepartment}/${index}`);
@@ -60,10 +45,9 @@ const AdminIssueDetails = () => {
       }
     }
     fetchData();
-}, []);
+}, [index, commentBoxValue, departmentsTags]);
 
   return (
-
     <div>
       { loading
 ? (
@@ -71,12 +55,11 @@ const AdminIssueDetails = () => {
             <div className="left-bar">
               <h1>{specificIssue.title}</h1>
               {/* Passses the issue fetched from the API */}
-              <PriorityDropdown currentState={specificIssue}/>
+              <PriorityDropdown index = { index } currentState={specificIssue} />
               <div className="issue-history-text">
                 <h2> Issue History </h2>
-                <ProgressionDropdown currentState={specificIssue}/>
+                <ProgressionDropdown index = { index } currentState={specificIssue}/>
               </div>
-
               <div className="all-updates">
                 {
                     updateBoxes.map((item, index) => {
@@ -85,12 +68,12 @@ const AdminIssueDetails = () => {
                 }
                   <UpdatesBox name={"Issue Details"}description={specificIssue.description} />
               </div>
-              <CommentBox onAdd={postUpdateCommentAdd}/>
+              <CommentBox index={ index } setcommentBoxValue={setcommentBoxValue}/>
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
-                <TagSidebar name="Departments" tags = {specificIssue.departments} />
-                <TagSidebar name="Attachments" tags = {specificIssue.attachments} />
+                <TagSidebar index = { index }name="Departments" tags = {specificIssue.departments} setParentDepartments={setDepartmentTags}/>
+                {/* <TagSidebar name="Attachments" tags = {specificIssue.attachments} setDepartments ={setDepartments} /> */}
                 <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
                 </div>

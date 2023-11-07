@@ -1,1540 +1,2497 @@
 [
-  {
-    "index": 1,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Access to Special Collections",
-    "description": "I'm researching for my thesis and need access to the special collections section.",
-    "attachments": [null],
-    "departments": ["Library", "Admin"],
-    "comments": ["The library hours will be extended during finals week."],
-    "dateCreated": "24/05/2021",
-    "timeCreated": "14:17",
-    "currentStatus": "In Progress",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 2,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Dorm Heating Issue",
-    "description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
-    "attachments": [null],
-    "departments": ["ResEd", "Admin", "Library"],
-    "comments": ["A work order for the heating system has been placed."],
-    "dateCreated": "20/02/2022",
-    "timeCreated": "0:30",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 3,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Software Installation Permission",
-    "description": "I require permission to install statistical analysis software for my class.",
-    "attachments": [null],
-    "departments": ["IT", "ResEd"],
-    "comments": [
-      "A password reset link has been sent to your university email address."
-    ],
-    "dateCreated": "12/05/2022",
-    "timeCreated": "15:50",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 4,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Dorm Heating Issue",
-    "description": "The heating system in my room is not working, and it's extremely cold.",
-    "attachments": [null],
-    "departments": ["ResEd"],
-    "comments": [
-      "We are planning to upgrade the laundry facilities this summer."
-    ],
-    "dateCreated": "10/11/2022",
-    "timeCreated": "7:07",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 5,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Book Reservation Confirmation",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library", "Facilities", "CDC"],
-    "comments": [
-      "Access to the special collections has been granted. Please bring your student ID."
-    ],
-    "dateCreated": "15/02/2023",
-    "timeCreated": "14:37",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 6,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Global Programs Information Session",
-    "description": "When is the next information session for global education programs?",
-    "attachments": [null],
-    "departments": ["GlobalEd"],
-    "comments": [
-      "Our international student office can assist you with the visa process."
-    ],
-    "dateCreated": "05/01/2023",
-    "timeCreated": "21:51",
-    "currentStatus": "Action Required",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 7,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Career Fair Event Details",
-    "description": "Could you provide the details for the upcoming career fair event?",
-    "attachments": [null],
-    "departments": ["CDC", "Facilities"],
-    "comments": ["Details for the career fair have been sent to your email."],
-    "dateCreated": "11/09/2023",
-    "timeCreated": "16:20",
-    "currentStatus": "Action Required",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 8,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "International Student Visa Assistance",
-    "description": "What is the deadline for the study abroad program application?",
-    "attachments": [null],
-    "departments": ["GlobalEd", "Health", "Library"],
-    "comments": ["The application deadline for study abroad is March 15."],
-    "dateCreated": "15/05/2023",
-    "timeCreated": "13:54",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 9,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Extended Study Space Hours Request",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library", "Health"],
-    "comments": [
-      "Your book reservation is confirmed. Please pick it up at the front desk."
-    ],
-    "dateCreated": "14/09/2023",
-    "timeCreated": "15:00",
-    "currentStatus": "Action Required",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 10,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Career Fair Event Details",
-    "description": "I am looking for internship opportunities in my field, can you provide some guidance?",
-    "attachments": [null],
-    "departments": ["CDC", "IT"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "11/10/2022",
-    "timeCreated": "2:39",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 11,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Scholarship Eligibility Requirements",
-    "description": "I want to set up a payment plan for my tuition fees.",
-    "attachments": [null],
-    "departments": ["Finance"],
-    "comments": [
-      "Your payment plan has been set up and details emailed to you."
-    ],
-    "dateCreated": "23/02/2023",
-    "timeCreated": "7:49",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 12,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Enrollment Confirmation for Next Semester",
-    "description": "I need confirmation that my enrollment for the next semester is secured.",
-    "attachments": [null],
-    "departments": ["Registrar", "Admin"],
-    "comments": [
-      "We have informed the faculty about the schedule conflict and are working on a solution."
-    ],
-    "dateCreated": "04/07/2023",
-    "timeCreated": "4:15",
-    "currentStatus": "In Progress",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 13,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Transcript Request for Job Application",
-    "description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
-    "attachments": [null],
-    "departments": ["Admin"],
-    "comments": [
-      "An extension for your tuition fee payment has been approved."
-    ],
-    "dateCreated": "24/07/2023",
-    "timeCreated": "4:02",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 14,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Classroom A/C Malfunction",
-    "description": "The air conditioning in the main lecture hall isn't working.",
-    "attachments": [null],
-    "departments": ["Facilities"],
-    "comments": ["A work order for the gym equipment has been placed."],
-    "dateCreated": "14/07/2023",
-    "timeCreated": "18:33",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 15,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Laundry Facilities Upgrade Request",
-    "description": "I would like to know the status of my housing application for the next semester.",
-    "attachments": [null],
-    "departments": ["ResEd"],
-    "comments": [
-      "We are planning to upgrade the laundry facilities this summer."
-    ],
-    "dateCreated": "29/04/2023",
-    "timeCreated": "1:12",
-    "currentStatus": "In Progress",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 16,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Internship Opportunity Inquiry",
-    "description": "Could you provide the details for the upcoming career fair event?",
-    "attachments": [null],
-    "departments": ["CDC", "ResEd", "IT"],
-    "comments": ["Details for the career fair have been sent to your email."],
-    "dateCreated": "04/08/2023",
-    "timeCreated": "8:50",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 17,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Internship Opportunity Inquiry",
-    "description": "Could you provide the details for the upcoming career fair event?",
-    "attachments": [null],
-    "departments": ["CDC", "Library", "ResEd"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "10/11/2023",
-    "timeCreated": "15:48",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 18,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Software Installation Permission",
-    "description": "I am experiencing persistent Wi-Fi connectivity issues in the dorms.",
-    "attachments": [null],
-    "departments": ["IT", "ResEd", "CDC"],
-    "comments": [
-      "We are aware of the Wi-Fi issues and are working on a solution."
-    ],
-    "dateCreated": "10/02/2023",
-    "timeCreated": "15:32",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 19,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Enrollment Confirmation for Next Semester",
-    "description": "Two of my required classes are scheduled at the same time, and I need assistance.",
-    "attachments": [null],
-    "departments": ["Registrar"],
-    "comments": [
-      "We have informed the faculty about the schedule conflict and are working on a solution."
-    ],
-    "dateCreated": "12/04/2023",
-    "timeCreated": "18:08",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 20,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Resume Review and Feedback",
-    "description": "I am looking for internship opportunities in my field, can you provide some guidance?",
-    "attachments": [null],
-    "departments": ["CDC", "Library", "ResEd"],
-    "comments": ["Your resume review is scheduled for tomorrow afternoon."],
-    "dateCreated": "11/01/2023",
-    "timeCreated": "21:39",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 21,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Transcript Request for Job Application",
-    "description": "I am applying for a job and the employer has requested an official transcript.",
-    "attachments": [null],
-    "departments": ["Admin", "Finance"],
-    "comments": [
-      "An extension for your tuition fee payment has been approved."
-    ],
-    "dateCreated": "09/11/2023",
-    "timeCreated": "3:53",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 22,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Tuition Fee Payment Extension",
-    "description": "I need a verification letter for my enrollment to submit for a visa application.",
-    "attachments": [null],
-    "departments": ["Admin"],
-    "comments": [
-      "An extension for your tuition fee payment has been approved."
-    ],
-    "dateCreated": "26/11/2023",
-    "timeCreated": "23:23",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 23,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Class Schedule Conflict",
-    "description": "I need confirmation that my enrollment for the next semester is secured.",
-    "attachments": [null],
-    "departments": ["Registrar", "Admin"],
-    "comments": [
-      "We have informed the faculty about the schedule conflict and are working on a solution."
-    ],
-    "dateCreated": "18/06/2023",
-    "timeCreated": "18:15",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 24,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Gym Equipment Repair Request",
-    "description": "The air conditioning in the main lecture hall isn't working.",
-    "attachments": [null],
-    "departments": ["Facilities", "GlobalEd", "Registrar"],
-    "comments": [
-      "We are reviewing the lighting situation in the parking lot and will make improvements."
-    ],
-    "dateCreated": "27/09/2022",
-    "timeCreated": "22:04",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 25,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Global Programs Information Session",
-    "description": "What is the deadline for the study abroad program application?",
-    "attachments": [null],
-    "departments": ["GlobalEd", "IT"],
-    "comments": [
-      "Our international student office can assist you with the visa process."
-    ],
-    "dateCreated": "26/12/2022",
-    "timeCreated": "6:16",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 26,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Transcript Hold Inquiry",
-    "description": "There is a hold on my transcript, and I would like to know why.",
-    "attachments": [null],
-    "departments": ["Registrar", "CDC"],
-    "comments": [
-      "The hold on your transcript is due to an unpaid library fine."
-    ],
-    "dateCreated": "19/12/2023",
-    "timeCreated": "1:13",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 27,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Internship Opportunity Inquiry",
-    "description": "I would like to have my resume reviewed before applying for jobs.",
-    "attachments": [null],
-    "departments": ["CDC"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "02/12/2023",
-    "timeCreated": "6:53",
-    "currentStatus": "In Progress",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 28,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Account Password Reset",
-    "description": "I require permission to install statistical analysis software for my class.",
-    "attachments": [null],
-    "departments": ["IT"],
-    "comments": [
-      "A password reset link has been sent to your university email address."
-    ],
-    "dateCreated": "29/08/2023",
-    "timeCreated": "10:13",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 29,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Book Reservation Confirmation",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library"],
-    "comments": [
-      "Your book reservation is confirmed. Please pick it up at the front desk."
-    ],
-    "dateCreated": "27/09/2022",
-    "timeCreated": "0:57",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 30,
-    "studentNetID": ["tm2005"],
-    "studentName": ["Ted Mosby"],
-    "title": "Scholarship Eligibility Requirements",
-    "description": "I would like to know if I'm eligible for the new scholarship program.",
-    "attachments": [null],
-    "departments": ["Finance", "Registrar", "Facilities"],
-    "comments": [
-      "Financial aid will be disbursed in the second week of the semester."
-    ],
-    "dateCreated": "16/11/2023",
-    "timeCreated": "11:52",
-    "currentStatus": "Action Required",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 31,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Carol Williams"],
-    "title": "Financial Aid Disbursement Date",
-    "description": "I would like to know if I'm eligible for the new scholarship program.",
-    "attachments": [null],
-    "departments": ["Finance"],
-    "comments": [
-      "You meet the initial eligibility requirements for the scholarship."
-    ],
-    "dateCreated": "18/11/2022",
-    "timeCreated": "0:48",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 32,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Bob Smith"],
-    "title": "Resume Review and Feedback",
-    "description": "I am looking for internship opportunities in my field, can you provide some guidance?",
-    "attachments": [null],
-    "departments": ["CDC", "Library", "Admin"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "11/04/2023",
-    "timeCreated": "3:09",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 33,
-    "studentNetID": ["ab123"],
-    "studentName": ["Alice Johnson"],
-    "title": "Tuition Fee Payment Extension",
-    "description": "I am applying for a job and the employer has requested an official transcript.",
-    "attachments": [null],
-    "departments": ["Admin", "Registrar"],
-    "comments": [
-      "Your transcript has been sent to the provided employer address."
-    ],
-    "dateCreated": "01/12/2023",
-    "timeCreated": "13:25",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 34,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Eva Davis"],
-    "title": "International Student Visa Assistance",
-    "description": "When is the next information session for global education programs?",
-    "attachments": [null],
-    "departments": ["GlobalEd", "IT"],
-    "comments": [
-      "The next global programs information session is on April 10th."
-    ],
-    "dateCreated": "23/08/2023",
-    "timeCreated": "12:30",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 35,
-    "studentNetID": ["cd245"],
-    "studentName": ["Bob Smith"],
-    "title": "Tuition Payment Plan Setup",
-    "description": "I would like to know if I'm eligible for the new scholarship program.",
-    "attachments": [null],
-    "departments": ["Finance", "Health", "Admin"],
-    "comments": [
-      "You meet the initial eligibility requirements for the scholarship."
-    ],
-    "dateCreated": "20/05/2023",
-    "timeCreated": "22:50",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 36,
-    "studentNetID": ["cd245"],
-    "studentName": ["Carol Williams"],
-    "title": "Vaccination Documentation Submission",
-    "description": "I have my own health insurance and would like to apply for a waiver for the university plan.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "31/12/2023",
-    "timeCreated": "16:55",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 37,
-    "studentNetID": ["jd2856"],
-    "studentName": ["David Brown"],
-    "title": "Classroom A/C Malfunction",
-    "description": "Several machines in the gym are out of order and need to be repaired.",
-    "attachments": [null],
-    "departments": ["Facilities"],
-    "comments": ["A work order for the gym equipment has been placed."],
-    "dateCreated": "24/05/2023",
-    "timeCreated": "3:05",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 38,
-    "studentNetID": ["cd245"],
-    "studentName": ["Bob Smith"],
-    "title": "Laundry Facilities Upgrade Request",
-    "description": "The laundry machines on the third floor are frequently out of service. Can they be upgraded?",
-    "attachments": [null],
-    "departments": ["ResEd", "GlobalEd", "Library"],
-    "comments": ["A work order for the heating system has been placed."],
-    "dateCreated": "23/02/2023",
-    "timeCreated": "4:03",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 39,
-    "studentNetID": ["ab123"],
-    "studentName": ["Eva Davis"],
-    "title": "Parking Lot Lighting Concern",
-    "description": "The lighting in the south parking lot is inadequate during the night.",
-    "attachments": [null],
-    "departments": ["Facilities", "ResEd", "Registrar"],
-    "comments": [
-      "We are reviewing the lighting situation in the parking lot and will make improvements."
-    ],
-    "dateCreated": "07/10/2023",
-    "timeCreated": "13:34",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 40,
-    "studentNetID": ["ab123"],
-    "studentName": ["Eva Davis"],
-    "title": "Health Insurance Waiver Request",
-    "description": "I need to reschedule my appointment at the health center to a later date.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "08/09/2022",
-    "timeCreated": "6:16",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 41,
-    "studentNetID": ["cd245"],
-    "studentName": ["David Brown"],
-    "title": "Career Fair Event Details",
-    "description": "I would like to have my resume reviewed before applying for jobs.",
-    "attachments": [null],
-    "departments": ["CDC"],
-    "comments": ["Details for the career fair have been sent to your email."],
-    "dateCreated": "12/12/2022",
-    "timeCreated": "14:15",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 42,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Access to Special Collections",
-    "description": "During finals week, could the library extend its operating hours for additional study time?",
-    "attachments": [null],
-    "departments": ["Library", "Admin"],
-    "comments": [
-      "Access to the special collections has been granted. Please bring your student ID."
-    ],
-    "dateCreated": "23/08/2023",
-    "timeCreated": "17:03",
-    "currentStatus": "In Progress",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 43,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Account Password Reset",
-    "description": "I am experiencing persistent Wi-Fi connectivity issues in the dorms.",
-    "attachments": [null],
-    "departments": ["IT"],
-    "comments": [
-      "Installation permissions have been granted. Please proceed with the software setup."
-    ],
-    "dateCreated": "09/06/2023",
-    "timeCreated": "0:19",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 44,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Eva Davis"],
-    "title": "Software Installation Permission",
-    "description": "I require permission to install statistical analysis software for my class.",
-    "attachments": [null],
-    "departments": ["IT", "GlobalEd", "Registrar"],
-    "comments": [
-      "A password reset link has been sent to your university email address."
-    ],
-    "dateCreated": "14/10/2022",
-    "timeCreated": "13:58",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 45,
-    "studentNetID": ["ab123"],
-    "studentName": ["Carol Williams"],
-    "title": "Laundry Facilities Upgrade Request",
-    "description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
-    "attachments": [null],
-    "departments": ["ResEd", "Health", "Finance"],
-    "comments": [
-      "Please come to the housing office to discuss the roommate situation."
-    ],
-    "dateCreated": "13/01/2024",
-    "timeCreated": "3:26",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 46,
-    "studentNetID": ["ab123"],
-    "studentName": ["Bob Smith"],
-    "title": "Parking Lot Lighting Concern",
-    "description": "The lighting in the south parking lot is inadequate during the night.",
-    "attachments": [null],
-    "departments": ["Facilities"],
-    "comments": ["A work order for the gym equipment has been placed."],
-    "dateCreated": "08/03/2023",
-    "timeCreated": "3:54",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 47,
-    "studentNetID": ["jd2856"],
-    "studentName": ["David Brown"],
-    "title": "Laundry Facilities Upgrade Request",
-    "description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
-    "attachments": [null],
-    "departments": ["ResEd", "GlobalEd"],
-    "comments": ["A work order for the heating system has been placed."],
-    "dateCreated": "22/09/2022",
-    "timeCreated": "23:18",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 48,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Class Schedule Conflict",
-    "description": "Two of my required classes are scheduled at the same time, and I need assistance.",
-    "attachments": [null],
-    "departments": ["Registrar", "Facilities", "Finance"],
-    "comments": [
-      "We have informed the faculty about the schedule conflict and are working on a solution."
-    ],
-    "dateCreated": "30/11/2022",
-    "timeCreated": "7:09",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 49,
-    "studentNetID": ["cd245"],
-    "studentName": ["David Brown"],
-    "title": "Class Schedule Conflict",
-    "description": "I need confirmation that my enrollment for the next semester is secured.",
-    "attachments": [null],
-    "departments": ["Registrar"],
-    "comments": [
-      "We have informed the faculty about the schedule conflict and are working on a solution."
-    ],
-    "dateCreated": "22/01/2023",
-    "timeCreated": "18:51",
-    "currentStatus": "In Progress",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 50,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Carol Williams"],
-    "title": "Housing Application Query",
-    "description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
-    "attachments": [null],
-    "departments": ["ResEd", "GlobalEd", "Admin"],
-    "comments": [
-      "We are planning to upgrade the laundry facilities this summer."
-    ],
-    "dateCreated": "30/01/2024",
-    "timeCreated": "7:22",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 51,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Resume Review and Feedback",
-    "description": "I would like to have my resume reviewed before applying for jobs.",
-    "attachments": [null],
-    "departments": ["CDC", "Registrar"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "20/10/2023",
-    "timeCreated": "20:43",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 52,
-    "studentNetID": ["jd2856"],
-    "studentName": ["David Brown"],
-    "title": "Tuition Payment Plan Setup",
-    "description": "I want to set up a payment plan for my tuition fees.",
-    "attachments": [null],
-    "departments": ["Finance"],
-    "comments": [
-      "You meet the initial eligibility requirements for the scholarship."
-    ],
-    "dateCreated": "12/08/2023",
-    "timeCreated": "22:23",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 53,
-    "studentNetID": ["cd245"],
-    "studentName": ["Bob Smith"],
-    "title": "Appointment Rescheduling Needed",
-    "description": "I have my own health insurance and would like to apply for a waiver for the university plan.",
-    "attachments": [null],
-    "departments": ["Health", "Admin"],
-    "comments": [
-      "Your request for a health insurance waiver is being processed."
-    ],
-    "dateCreated": "18/05/2023",
-    "timeCreated": "2:56",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 54,
-    "studentNetID": ["cd245"],
-    "studentName": ["Eva Davis"],
-    "title": "Career Fair Event Details",
-    "description": "I would like to have my resume reviewed before applying for jobs.",
-    "attachments": [null],
-    "departments": ["CDC", "Health", "ResEd"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "24/02/2023",
-    "timeCreated": "14:02",
-    "currentStatus": "Open",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 55,
-    "studentNetID": ["ab123"],
-    "studentName": ["Eva Davis"],
-    "title": "Wi-Fi Connectivity Issue",
-    "description": "I require permission to install statistical analysis software for my class.",
-    "attachments": [null],
-    "departments": ["IT"],
-    "comments": [
-      "A password reset link has been sent to your university email address."
-    ],
-    "dateCreated": "26/06/2023",
-    "timeCreated": "8:09",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 56,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Alice Johnson"],
-    "title": "International Student Visa Assistance",
-    "description": "What is the deadline for the study abroad program application?",
-    "attachments": [null],
-    "departments": ["GlobalEd", "Admin"],
-    "comments": [
-      "The next global programs information session is on April 10th."
-    ],
-    "dateCreated": "29/11/2023",
-    "timeCreated": "2:28",
-    "currentStatus": "Action Required",
-    "currentPriority": "New"
-  },
-  {
-    "index": 57,
-    "studentNetID": ["cd245"],
-    "studentName": ["Eva Davis"],
-    "title": "Resume Review and Feedback",
-    "description": "Could you provide the details for the upcoming career fair event?",
-    "attachments": [null],
-    "departments": ["CDC", "Admin", "Facilities"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "27/05/2023",
-    "timeCreated": "20:13",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 58,
-    "studentNetID": ["cd245"],
-    "studentName": ["David Brown"],
-    "title": "Dorm Heating Issue",
-    "description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
-    "attachments": [null],
-    "departments": ["ResEd", "IT"],
-    "comments": ["A work order for the heating system has been placed."],
-    "dateCreated": "03/02/2023",
-    "timeCreated": "23:17",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 59,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Transcript Request for Job Application",
-    "description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
-    "attachments": [null],
-    "departments": ["Admin", "CDC", "Registrar"],
-    "comments": [
-      "An extension for your tuition fee payment has been approved."
-    ],
-    "dateCreated": "10/07/2023",
-    "timeCreated": "5:03",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 60,
-    "studentNetID": ["efg3456"],
-    "studentName": ["David Brown"],
-    "title": "Laundry Facilities Upgrade Request",
-    "description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
-    "attachments": [null],
-    "departments": ["ResEd"],
-    "comments": [
-      "Your housing application is under review, and you'll be notified by email."
-    ],
-    "dateCreated": "23/12/2022",
-    "timeCreated": "14:15",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 61,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Roommate Conflict Resolution",
-    "description": "The heating system in my room is not working, and it's extremely cold.",
-    "attachments": [null],
-    "departments": ["ResEd", "GlobalEd"],
-    "comments": [
-      "Please come to the housing office to discuss the roommate situation."
-    ],
-    "dateCreated": "09/03/2023",
-    "timeCreated": "23:22",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 62,
-    "studentNetID": ["cd245"],
-    "studentName": ["Eva Davis"],
-    "title": "Vaccination Documentation Submission",
-    "description": "I need to reschedule my appointment at the health center to a later date.",
-    "attachments": [null],
-    "departments": ["Health", "Admin"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "02/10/2022",
-    "timeCreated": "16:23",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 63,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Bob Smith"],
-    "title": "Tuition Payment Plan Setup",
-    "description": "When is the financial aid for this semester going to be disbursed?",
-    "attachments": [null],
-    "departments": ["Finance", "Library"],
-    "comments": [
-      "Financial aid will be disbursed in the second week of the semester."
-    ],
-    "dateCreated": "14/11/2022",
-    "timeCreated": "9:25",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 64,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Global Programs Information Session",
-    "description": "I need help with the visa process as an international student.",
-    "attachments": [null],
-    "departments": ["GlobalEd", "Health"],
-    "comments": ["The application deadline for study abroad is March 15."],
-    "dateCreated": "01/01/2024",
-    "timeCreated": "10:48",
-    "currentStatus": "In Progress",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 65,
-    "studentNetID": ["cd245"],
-    "studentName": ["Eva Davis"],
-    "title": "Gym Equipment Repair Request",
-    "description": "The lighting in the south parking lot is inadequate during the night.",
-    "attachments": [null],
-    "departments": ["Facilities"],
-    "comments": [
-      "We are reviewing the lighting situation in the parking lot and will make improvements."
-    ],
-    "dateCreated": "12/12/2022",
-    "timeCreated": "1:31",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 66,
-    "studentNetID": ["efg3456"],
-    "studentName": ["David Brown"],
-    "title": "Appointment Rescheduling Needed",
-    "description": "I need to submit my vaccination documents to comply with the university's health requirements.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "19/11/2023",
-    "timeCreated": "18:51",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 67,
-    "studentNetID": ["cd245"],
-    "studentName": ["Eva Davis"],
-    "title": "Access to Special Collections",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library", "IT"],
-    "comments": [
-      "Access to the special collections has been granted. Please bring your student ID."
-    ],
-    "dateCreated": "03/06/2023",
-    "timeCreated": "18:08",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 68,
-    "studentNetID": ["efg3456"],
-    "studentName": ["David Brown"],
-    "title": "Appointment Rescheduling Needed",
-    "description": "I have my own health insurance and would like to apply for a waiver for the university plan.",
-    "attachments": [null],
-    "departments": ["Health", "Admin", "ResEd"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "20/03/2023",
-    "timeCreated": "20:41",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 69,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Eva Davis"],
-    "title": "Vaccination Documentation Submission",
-    "description": "I need to submit my vaccination documents to comply with the university's health requirements.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": [
-      "Your request for a health insurance waiver is being processed."
-    ],
-    "dateCreated": "20/11/2022",
-    "timeCreated": "10:47",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 70,
-    "studentNetID": ["cd245"],
-    "studentName": ["Carol Williams"],
-    "title": "Transcript Request for Job Application",
-    "description": "I am applying for a job and the employer has requested an official transcript.",
-    "attachments": [null],
-    "departments": ["Admin"],
-    "comments": [
-      "The enrollment verification letter has been prepared and can be picked up from the admin office."
-    ],
-    "dateCreated": "10/07/2023",
-    "timeCreated": "16:28",
-    "currentStatus": "Open",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 71,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Eva Davis"],
-    "title": "Enrollment Confirmation for Next Semester",
-    "description": "There is a hold on my transcript, and I would like to know why.",
-    "attachments": [null],
-    "departments": ["Registrar", "IT"],
-    "comments": ["Your enrollment for the next semester has been confirmed."],
-    "dateCreated": "20/03/2023",
-    "timeCreated": "9:16",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 72,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Access to Special Collections",
-    "description": "I'm researching for my thesis and need access to the special collections section.",
-    "attachments": [null],
-    "departments": ["Library", "CDC"],
-    "comments": ["The library hours will be extended during finals week."],
-    "dateCreated": "02/12/2022",
-    "timeCreated": "9:39",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 73,
-    "studentNetID": ["cd245"],
-    "studentName": ["David Brown"],
-    "title": "Dorm Heating Issue",
-    "description": "The laundry machines on the third floor are frequently out of service. Can they be upgraded?",
-    "attachments": [null],
-    "departments": ["ResEd"],
-    "comments": ["A work order for the heating system has been placed."],
-    "dateCreated": "20/11/2022",
-    "timeCreated": "13:48",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 74,
-    "studentNetID": ["cd245"],
-    "studentName": ["Alice Johnson"],
-    "title": "Extended Study Space Hours Request",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library"],
-    "comments": [
-      "Access to the special collections has been granted. Please bring your student ID."
-    ],
-    "dateCreated": "24/01/2024",
-    "timeCreated": "19:28",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 75,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Carol Williams"],
-    "title": "Access to Special Collections",
-    "description": "During finals week, could the library extend its operating hours for additional study time?",
-    "attachments": [null],
-    "departments": ["Library", "Registrar"],
-    "comments": ["The library hours will be extended during finals week."],
-    "dateCreated": "15/09/2022",
-    "timeCreated": "14:56",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 76,
-    "studentNetID": ["cd245"],
-    "studentName": ["David Brown"],
-    "title": "Dorm Heating Issue",
-    "description": "I would like to know the status of my housing application for the next semester.",
-    "attachments": [null],
-    "departments": ["ResEd", "IT", "GlobalEd"],
-    "comments": [
-      "We are planning to upgrade the laundry facilities this summer."
-    ],
-    "dateCreated": "25/11/2022",
-    "timeCreated": "1:59",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 77,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Enrollment Verification Letter Needed",
-    "description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
-    "attachments": [null],
-    "departments": ["Admin", "IT"],
-    "comments": [
-      "Your transcript has been sent to the provided employer address."
-    ],
-    "dateCreated": "02/09/2023",
-    "timeCreated": "9:49",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 78,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Resume Review and Feedback",
-    "description": "I am looking for internship opportunities in my field, can you provide some guidance?",
-    "attachments": [null],
-    "departments": ["CDC", "Registrar"],
-    "comments": [
-      "We have a list of internship opportunities available at the CDC."
-    ],
-    "dateCreated": "06/01/2023",
-    "timeCreated": "9:47",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 79,
-    "studentNetID": ["cd245"],
-    "studentName": ["Bob Smith"],
-    "title": "Extended Study Space Hours Request",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library", "Admin"],
-    "comments": [
-      "Your book reservation is confirmed. Please pick it up at the front desk."
-    ],
-    "dateCreated": "14/11/2022",
-    "timeCreated": "21:53",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 80,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Carol Williams"],
-    "title": "Career Fair Event Details",
-    "description": "Could you provide the details for the upcoming career fair event?",
-    "attachments": [null],
-    "departments": ["CDC"],
-    "comments": ["Details for the career fair have been sent to your email."],
-    "dateCreated": "10/01/2023",
-    "timeCreated": "8:27",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 81,
-    "studentNetID": ["ab123"],
-    "studentName": ["Alice Johnson"],
-    "title": "Software Installation Permission",
-    "description": "I am experiencing persistent Wi-Fi connectivity issues in the dorms.",
-    "attachments": [null],
-    "departments": ["IT", "Admin"],
-    "comments": [
-      "Installation permissions have been granted. Please proceed with the software setup."
-    ],
-    "dateCreated": "13/07/2023",
-    "timeCreated": "22:48",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 82,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Financial Aid Disbursement Date",
-    "description": "I would like to know if I'm eligible for the new scholarship program.",
-    "attachments": [null],
-    "departments": ["Finance"],
-    "comments": [
-      "Financial aid will be disbursed in the second week of the semester."
-    ],
-    "dateCreated": "01/05/2023",
-    "timeCreated": "7:20",
-    "currentStatus": "Action Required",
-    "currentPriority": "New"
-  },
-  {
-    "index": 83,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Bob Smith"],
-    "title": "Gym Equipment Repair Request",
-    "description": "The air conditioning in the main lecture hall isn't working.",
-    "attachments": [null],
-    "departments": ["Facilities", "Registrar", "ResEd"],
-    "comments": ["A work order for the gym equipment has been placed."],
-    "dateCreated": "07/12/2023",
-    "timeCreated": "17:07",
-    "currentStatus": "Resolved",
-    "currentPriority": "New"
-  },
-  {
-    "index": 84,
-    "studentNetID": ["ab123"],
-    "studentName": ["Bob Smith"],
-    "title": "Account Password Reset",
-    "description": "I have forgotten my account password and need a reset link.",
-    "attachments": [null],
-    "departments": ["IT"],
-    "comments": [
-      "A password reset link has been sent to your university email address."
-    ],
-    "dateCreated": "17/05/2023",
-    "timeCreated": "6:21",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 85,
-    "studentNetID": ["cd245"],
-    "studentName": ["Eva Davis"],
-    "title": "Class Schedule Conflict",
-    "description": "I need confirmation that my enrollment for the next semester is secured.",
-    "attachments": [null],
-    "departments": ["Registrar", "Library"],
-    "comments": ["Your enrollment for the next semester has been confirmed."],
-    "dateCreated": "19/07/2023",
-    "timeCreated": "17:44",
-    "currentStatus": "Open",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 86,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Classroom A/C Malfunction",
-    "description": "The lighting in the south parking lot is inadequate during the night.",
-    "attachments": [null],
-    "departments": ["Facilities"],
-    "comments": ["A work order for the gym equipment has been placed."],
-    "dateCreated": "08/11/2023",
-    "timeCreated": "7:06",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 87,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Bob Smith"],
-    "title": "Scholarship Eligibility Requirements",
-    "description": "I would like to know if I'm eligible for the new scholarship program.",
-    "attachments": [null],
-    "departments": ["Finance", "Facilities"],
-    "comments": [
-      "Financial aid will be disbursed in the second week of the semester."
-    ],
-    "dateCreated": "25/07/2023",
-    "timeCreated": "0:50",
-    "currentStatus": "Action Required",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 88,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Alice Johnson"],
-    "title": "Appointment Rescheduling Needed",
-    "description": "I need to submit my vaccination documents to comply with the university's health requirements.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "23/02/2023",
-    "timeCreated": "17:56",
-    "currentStatus": "Action Required",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 89,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Book Reservation Confirmation",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library", "Facilities"],
-    "comments": ["The library hours will be extended during finals week."],
-    "dateCreated": "25/01/2024",
-    "timeCreated": "20:29",
-    "currentStatus": "In Progress",
-    "currentPriority": "New"
-  },
-  {
-    "index": 90,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Alice Johnson"],
-    "title": "Class Schedule Conflict",
-    "description": "Two of my required classes are scheduled at the same time, and I need assistance.",
-    "attachments": [null],
-    "departments": ["Registrar", "CDC", "Library"],
-    "comments": [
-      "The hold on your transcript is due to an unpaid library fine."
-    ],
-    "dateCreated": "07/05/2023",
-    "timeCreated": "0:22",
-    "currentStatus": "Open",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 91,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Bob Smith"],
-    "title": "Health Insurance Waiver Request",
-    "description": "I need to submit my vaccination documents to comply with the university's health requirements.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": [
-      "Your request for a health insurance waiver is being processed."
-    ],
-    "dateCreated": "16/10/2023",
-    "timeCreated": "5:13",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 92,
-    "studentNetID": ["efg3456"],
-    "studentName": ["David Brown"],
-    "title": "International Student Visa Assistance",
-    "description": "I need help with the visa process as an international student.",
-    "attachments": [null],
-    "departments": ["GlobalEd"],
-    "comments": [
-      "Our international student office can assist you with the visa process."
-    ],
-    "dateCreated": "10/10/2022",
-    "timeCreated": "10:25",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 93,
-    "studentNetID": ["ab123"],
-    "studentName": ["Alice Johnson"],
-    "title": "Class Schedule Conflict",
-    "description": "There is a hold on my transcript, and I would like to know why.",
-    "attachments": [null],
-    "departments": ["Registrar", "GlobalEd", "Health"],
-    "comments": [
-      "The hold on your transcript is due to an unpaid library fine."
-    ],
-    "dateCreated": "13/12/2023",
-    "timeCreated": "9:13",
-    "currentStatus": "Resolved",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 94,
-    "studentNetID": ["jd2856"],
-    "studentName": ["David Brown"],
-    "title": "Transcript Request for Job Application",
-    "description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
-    "attachments": [null],
-    "departments": ["Admin"],
-    "comments": [
-      "The enrollment verification letter has been prepared and can be picked up from the admin office."
-    ],
-    "dateCreated": "14/06/2023",
-    "timeCreated": "20:55",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 95,
-    "studentNetID": ["efg3456"],
-    "studentName": ["David Brown"],
-    "title": "Book Reservation Confirmation",
-    "description": "During finals week, could the library extend its operating hours for additional study time?",
-    "attachments": [null],
-    "departments": ["Library"],
-    "comments": [
-      "Your book reservation is confirmed. Please pick it up at the front desk."
-    ],
-    "dateCreated": "10/08/2023",
-    "timeCreated": "0:57",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 96,
-    "studentNetID": ["efg3456"],
-    "studentName": ["Alice Johnson"],
-    "title": "Book Reservation Confirmation",
-    "description": "I reserved a book online and would like to confirm that it's ready for pickup.",
-    "attachments": [null],
-    "departments": ["Library", "Finance", "GlobalEd"],
-    "comments": ["The library hours will be extended during finals week."],
-    "dateCreated": "19/03/2023",
-    "timeCreated": "13:10",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  },
-  {
-    "index": 97,
-    "studentNetID": ["ab123"],
-    "studentName": ["David Brown"],
-    "title": "Account Password Reset",
-    "description": "I require permission to install statistical analysis software for my class.",
-    "attachments": [null],
-    "departments": ["IT", "Library", "Admin"],
-    "comments": [
-      "A password reset link has been sent to your university email address."
-    ],
-    "dateCreated": "23/10/2022",
-    "timeCreated": "9:12",
-    "currentStatus": "Resolved",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 98,
-    "studentNetID": ["jd2856"],
-    "studentName": ["Alice Johnson"],
-    "title": "Tuition Payment Plan Setup",
-    "description": "When is the financial aid for this semester going to be disbursed?",
-    "attachments": [null],
-    "departments": ["Finance", "CDC"],
-    "comments": [
-      "Financial aid will be disbursed in the second week of the semester."
-    ],
-    "dateCreated": "06/08/2023",
-    "timeCreated": "5:34",
-    "currentStatus": "Action Required",
-    "currentPriority": "Reopened"
-  },
-  {
-    "index": 99,
-    "studentNetID": ["jd2856"],
-    "studentName": ["David Brown"],
-    "title": "Health Insurance Waiver Request",
-    "description": "I need to submit my vaccination documents to comply with the university's health requirements.",
-    "attachments": [null],
-    "departments": ["Health"],
-    "comments": ["Your vaccination documents have been received and recorded."],
-    "dateCreated": "22/01/2023",
-    "timeCreated": "0:00",
-    "currentStatus": "Open",
-    "currentPriority": "High Priority"
-  },
-  {
-    "index": 100,
-    "studentNetID": ["cd245"],
-    "studentName": ["Alice Johnson"],
-    "title": "Laundry Facilities Upgrade Request",
-    "description": "The heating system in my room is not working, and it's extremely cold.",
-    "attachments": [null],
-    "departments": ["ResEd"],
-    "comments": [
-      "Your housing application is under review, and you'll be notified by email."
-    ],
-    "dateCreated": "04/12/2022",
-    "timeCreated": "10:01",
-    "currentStatus": "Open",
-    "currentPriority": "New"
-  }
+	{
+		"index": 1,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Access to Special Collections",
+		"description": "I'm researching for my thesis and need access to the special collections section.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Admin"
+		],
+		"comments": [
+			"The library hours will be extended during finals week."
+		],
+		"dateCreated": "24/05/2021",
+		"timeCreated": "14:17",
+		"currentStatus": "In Progress",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 2,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Dorm Heating Issue",
+		"description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"Admin",
+			"Library"
+		],
+		"comments": [
+			"A work order for the heating system has been placed."
+		],
+		"dateCreated": "20/02/2022",
+		"timeCreated": "0:30",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 3,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Software Installation Permission",
+		"description": "I require permission to install statistical analysis software for my class.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT",
+			"ResEd"
+		],
+		"comments": [
+			"A password reset link has been sent to your university email address."
+		],
+		"dateCreated": "12/05/2022",
+		"timeCreated": "15:50",
+		"currentStatus": "Open",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 4,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Dorm Heating Issue",
+		"description": "The heating system in my room is not working, and it's extremely cold.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd"
+		],
+		"comments": [
+			"We are planning to upgrade the laundry facilities this summer."
+		],
+		"dateCreated": "10/11/2022",
+		"timeCreated": "7:07",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 5,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Book Reservation Confirmation",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Facilities",
+			"CDC"
+		],
+		"comments": [
+			"Access to the special collections has been granted. Please bring your student ID."
+		],
+		"dateCreated": "15/02/2023",
+		"timeCreated": "14:37",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 6,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Global Programs Information Session",
+		"description": "When is the next information session for global education programs?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd"
+		],
+		"comments": [
+			"Our international student office can assist you with the visa process."
+		],
+		"dateCreated": "05/01/2023",
+		"timeCreated": "21:51",
+		"currentStatus": "Action Required",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 7,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Career Fair Event Details",
+		"description": "Could you provide the details for the upcoming career fair event?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Facilities"
+		],
+		"comments": [
+			"Details for the career fair have been sent to your email."
+		],
+		"dateCreated": "11/09/2023",
+		"timeCreated": "16:20",
+		"currentStatus": "Action Required",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 8,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "International Student Visa Assistance",
+		"description": "What is the deadline for the study abroad program application?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd",
+			"Health",
+			"Library"
+		],
+		"comments": [
+			"The application deadline for study abroad is March 15."
+		],
+		"dateCreated": "15/05/2023",
+		"timeCreated": "13:54",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 9,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Extended Study Space Hours Request",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Health"
+		],
+		"comments": [
+			"Your book reservation is confirmed. Please pick it up at the front desk."
+		],
+		"dateCreated": "14/09/2023",
+		"timeCreated": "15:00",
+		"currentStatus": "Action Required",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 10,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Career Fair Event Details",
+		"description": "I am looking for internship opportunities in my field, can you provide some guidance?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"IT"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "11/10/2022",
+		"timeCreated": "2:39",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 11,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Scholarship Eligibility Requirements",
+		"description": "I want to set up a payment plan for my tuition fees.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance"
+		],
+		"comments": [
+			"Your payment plan has been set up and details emailed to you."
+		],
+		"dateCreated": "23/02/2023",
+		"timeCreated": "7:49",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 12,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Enrollment Confirmation for Next Semester",
+		"description": "I need confirmation that my enrollment for the next semester is secured.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"Admin"
+		],
+		"comments": [
+			"We have informed the faculty about the schedule conflict and are working on a solution."
+		],
+		"dateCreated": "04/07/2023",
+		"timeCreated": "4:15",
+		"currentStatus": "In Progress",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 13,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Transcript Request for Job Application",
+		"description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin"
+		],
+		"comments": [
+			"An extension for your tuition fee payment has been approved."
+		],
+		"dateCreated": "24/07/2023",
+		"timeCreated": "4:02",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 14,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Classroom A/C Malfunction",
+		"description": "The air conditioning in the main lecture hall isn't working.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities"
+		],
+		"comments": [
+			"A work order for the gym equipment has been placed."
+		],
+		"dateCreated": "14/07/2023",
+		"timeCreated": "18:33",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 15,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Laundry Facilities Upgrade Request",
+		"description": "I would like to know the status of my housing application for the next semester.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd"
+		],
+		"comments": [
+			"We are planning to upgrade the laundry facilities this summer."
+		],
+		"dateCreated": "29/04/2023",
+		"timeCreated": "1:12",
+		"currentStatus": "In Progress",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 16,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Internship Opportunity Inquiry",
+		"description": "Could you provide the details for the upcoming career fair event?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"ResEd",
+			"IT"
+		],
+		"comments": [
+			"Details for the career fair have been sent to your email."
+		],
+		"dateCreated": "04/08/2023",
+		"timeCreated": "8:50",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 17,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Internship Opportunity Inquiry",
+		"description": "Could you provide the details for the upcoming career fair event?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Library",
+			"ResEd"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "10/11/2023",
+		"timeCreated": "15:48",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 18,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Software Installation Permission",
+		"description": "I am experiencing persistent Wi-Fi connectivity issues in the dorms.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT",
+			"ResEd",
+			"CDC"
+		],
+		"comments": [
+			"We are aware of the Wi-Fi issues and are working on a solution."
+		],
+		"dateCreated": "10/02/2023",
+		"timeCreated": "15:32",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 19,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Enrollment Confirmation for Next Semester",
+		"description": "Two of my required classes are scheduled at the same time, and I need assistance.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar"
+		],
+		"comments": [
+			"We have informed the faculty about the schedule conflict and are working on a solution."
+		],
+		"dateCreated": "12/04/2023",
+		"timeCreated": "18:08",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 20,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Resume Review and Feedback",
+		"description": "I am looking for internship opportunities in my field, can you provide some guidance?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Library",
+			"ResEd"
+		],
+		"comments": [
+			"Your resume review is scheduled for tomorrow afternoon."
+		],
+		"dateCreated": "11/01/2023",
+		"timeCreated": "21:39",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 21,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Transcript Request for Job Application",
+		"description": "I am applying for a job and the employer has requested an official transcript.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin",
+			"Finance"
+		],
+		"comments": [
+			"An extension for your tuition fee payment has been approved."
+		],
+		"dateCreated": "09/11/2023",
+		"timeCreated": "3:53",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 22,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Tuition Fee Payment Extension",
+		"description": "I need a verification letter for my enrollment to submit for a visa application.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin"
+		],
+		"comments": [
+			"An extension for your tuition fee payment has been approved."
+		],
+		"dateCreated": "26/11/2023",
+		"timeCreated": "23:23",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 23,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Class Schedule Conflict",
+		"description": "I need confirmation that my enrollment for the next semester is secured.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"Admin"
+		],
+		"comments": [
+			"We have informed the faculty about the schedule conflict and are working on a solution."
+		],
+		"dateCreated": "18/06/2023",
+		"timeCreated": "18:15",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 24,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Gym Equipment Repair Request",
+		"description": "The air conditioning in the main lecture hall isn't working.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities",
+			"GlobalEd",
+			"Registrar"
+		],
+		"comments": [
+			"We are reviewing the lighting situation in the parking lot and will make improvements."
+		],
+		"dateCreated": "27/09/2022",
+		"timeCreated": "22:04",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 25,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Global Programs Information Session",
+		"description": "What is the deadline for the study abroad program application?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd",
+			"IT"
+		],
+		"comments": [
+			"Our international student office can assist you with the visa process."
+		],
+		"dateCreated": "26/12/2022",
+		"timeCreated": "6:16",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 26,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Transcript Hold Inquiry",
+		"description": "There is a hold on my transcript, and I would like to know why.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"CDC"
+		],
+		"comments": [
+			"The hold on your transcript is due to an unpaid library fine."
+		],
+		"dateCreated": "19/12/2023",
+		"timeCreated": "1:13",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 27,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Internship Opportunity Inquiry",
+		"description": "I would like to have my resume reviewed before applying for jobs.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "02/12/2023",
+		"timeCreated": "6:53",
+		"currentStatus": "In Progress",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 28,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Account Password Reset",
+		"description": "I require permission to install statistical analysis software for my class.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT"
+		],
+		"comments": [
+			"A password reset link has been sent to your university email address."
+		],
+		"dateCreated": "29/08/2023",
+		"timeCreated": "10:13",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 29,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Book Reservation Confirmation",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library"
+		],
+		"comments": [
+			"Your book reservation is confirmed. Please pick it up at the front desk."
+		],
+		"dateCreated": "27/09/2022",
+		"timeCreated": "0:57",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 30,
+		"studentNetID": [
+			"tm2005"
+		],
+		"studentName": [
+			"Ted Mosby"
+		],
+		"title": "Scholarship Eligibility Requirements",
+		"description": "I would like to know if I'm eligible for the new scholarship program.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance",
+			"Registrar",
+			"Facilities"
+		],
+		"comments": [
+			"Financial aid will be disbursed in the second week of the semester."
+		],
+		"dateCreated": "16/11/2023",
+		"timeCreated": "11:52",
+		"currentStatus": "Action Required",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 31,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Financial Aid Disbursement Date",
+		"description": "I would like to know if I'm eligible for the new scholarship program.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance"
+		],
+		"comments": [
+			"You meet the initial eligibility requirements for the scholarship."
+		],
+		"dateCreated": "18/11/2022",
+		"timeCreated": "0:48",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 32,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Resume Review and Feedback",
+		"description": "I am looking for internship opportunities in my field, can you provide some guidance?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Library",
+			"Admin"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "11/04/2023",
+		"timeCreated": "3:09",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 33,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Tuition Fee Payment Extension",
+		"description": "I am applying for a job and the employer has requested an official transcript.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin",
+			"Registrar"
+		],
+		"comments": [
+			"Your transcript has been sent to the provided employer address."
+		],
+		"dateCreated": "01/12/2023",
+		"timeCreated": "13:25",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 34,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "International Student Visa Assistance",
+		"description": "When is the next information session for global education programs?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd",
+			"IT"
+		],
+		"comments": [
+			"The next global programs information session is on April 10th."
+		],
+		"dateCreated": "23/08/2023",
+		"timeCreated": "12:30",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 35,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Tuition Payment Plan Setup",
+		"description": "I would like to know if I'm eligible for the new scholarship program.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance",
+			"Health",
+			"Admin"
+		],
+		"comments": [
+			"You meet the initial eligibility requirements for the scholarship."
+		],
+		"dateCreated": "20/05/2023",
+		"timeCreated": "22:50",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 36,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Vaccination Documentation Submission",
+		"description": "I have my own health insurance and would like to apply for a waiver for the university plan.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "31/12/2023",
+		"timeCreated": "16:55",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 37,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Classroom A/C Malfunction",
+		"description": "Several machines in the gym are out of order and need to be repaired.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities"
+		],
+		"comments": [
+			"A work order for the gym equipment has been placed."
+		],
+		"dateCreated": "24/05/2023",
+		"timeCreated": "3:05",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 38,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Laundry Facilities Upgrade Request",
+		"description": "The laundry machines on the third floor are frequently out of service. Can they be upgraded?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"GlobalEd",
+			"Library"
+		],
+		"comments": [
+			"A work order for the heating system has been placed."
+		],
+		"dateCreated": "23/02/2023",
+		"timeCreated": "4:03",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 39,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Parking Lot Lighting Concern",
+		"description": "The lighting in the south parking lot is inadequate during the night.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities",
+			"ResEd",
+			"Registrar"
+		],
+		"comments": [
+			"We are reviewing the lighting situation in the parking lot and will make improvements."
+		],
+		"dateCreated": "07/10/2023",
+		"timeCreated": "13:34",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 40,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Health Insurance Waiver Request",
+		"description": "I need to reschedule my appointment at the health center to a later date.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "08/09/2022",
+		"timeCreated": "6:16",
+		"currentStatus": "Open",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 41,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Career Fair Event Details",
+		"description": "I would like to have my resume reviewed before applying for jobs.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC"
+		],
+		"comments": [
+			"Details for the career fair have been sent to your email."
+		],
+		"dateCreated": "12/12/2022",
+		"timeCreated": "14:15",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 42,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Access to Special Collections",
+		"description": "During finals week, could the library extend its operating hours for additional study time?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Admin"
+		],
+		"comments": [
+			"Access to the special collections has been granted. Please bring your student ID."
+		],
+		"dateCreated": "23/08/2023",
+		"timeCreated": "17:03",
+		"currentStatus": "In Progress",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 43,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Account Password Reset",
+		"description": "I am experiencing persistent Wi-Fi connectivity issues in the dorms.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT"
+		],
+		"comments": [
+			"Installation permissions have been granted. Please proceed with the software setup."
+		],
+		"dateCreated": "09/06/2023",
+		"timeCreated": "0:19",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 44,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Software Installation Permission",
+		"description": "I require permission to install statistical analysis software for my class.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT",
+			"GlobalEd",
+			"Registrar"
+		],
+		"comments": [
+			"A password reset link has been sent to your university email address."
+		],
+		"dateCreated": "14/10/2022",
+		"timeCreated": "13:58",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 45,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Laundry Facilities Upgrade Request",
+		"description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"Health",
+			"Finance"
+		],
+		"comments": [
+			"Please come to the housing office to discuss the roommate situation."
+		],
+		"dateCreated": "13/01/2024",
+		"timeCreated": "3:26",
+		"currentStatus": "Open",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 46,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Parking Lot Lighting Concern",
+		"description": "The lighting in the south parking lot is inadequate during the night.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities"
+		],
+		"comments": [
+			"A work order for the gym equipment has been placed."
+		],
+		"dateCreated": "08/03/2023",
+		"timeCreated": "3:54",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 47,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Laundry Facilities Upgrade Request",
+		"description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"GlobalEd"
+		],
+		"comments": [
+			"A work order for the heating system has been placed."
+		],
+		"dateCreated": "22/09/2022",
+		"timeCreated": "23:18",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 48,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Class Schedule Conflict",
+		"description": "Two of my required classes are scheduled at the same time, and I need assistance.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"Facilities",
+			"Finance"
+		],
+		"comments": [
+			"We have informed the faculty about the schedule conflict and are working on a solution."
+		],
+		"dateCreated": "30/11/2022",
+		"timeCreated": "7:09",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 49,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Class Schedule Conflict",
+		"description": "I need confirmation that my enrollment for the next semester is secured.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar"
+		],
+		"comments": [
+			"We have informed the faculty about the schedule conflict and are working on a solution."
+		],
+		"dateCreated": "22/01/2023",
+		"timeCreated": "18:51",
+		"currentStatus": "In Progress",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 50,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Housing Application Query",
+		"description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"GlobalEd",
+			"Admin"
+		],
+		"comments": [
+			"We are planning to upgrade the laundry facilities this summer."
+		],
+		"dateCreated": "30/01/2024",
+		"timeCreated": "7:22",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 51,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Resume Review and Feedback",
+		"description": "I would like to have my resume reviewed before applying for jobs.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Registrar"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "20/10/2023",
+		"timeCreated": "20:43",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 52,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Tuition Payment Plan Setup",
+		"description": "I want to set up a payment plan for my tuition fees.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance"
+		],
+		"comments": [
+			"You meet the initial eligibility requirements for the scholarship."
+		],
+		"dateCreated": "12/08/2023",
+		"timeCreated": "22:23",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 53,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Appointment Rescheduling Needed",
+		"description": "I have my own health insurance and would like to apply for a waiver for the university plan.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health",
+			"Admin"
+		],
+		"comments": [
+			"Your request for a health insurance waiver is being processed."
+		],
+		"dateCreated": "18/05/2023",
+		"timeCreated": "2:56",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 54,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Career Fair Event Details",
+		"description": "I would like to have my resume reviewed before applying for jobs.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Health",
+			"ResEd"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "24/02/2023",
+		"timeCreated": "14:02",
+		"currentStatus": "Open",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 55,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Wi-Fi Connectivity Issue",
+		"description": "I require permission to install statistical analysis software for my class.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT"
+		],
+		"comments": [
+			"A password reset link has been sent to your university email address."
+		],
+		"dateCreated": "26/06/2023",
+		"timeCreated": "8:09",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 56,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "International Student Visa Assistance",
+		"description": "What is the deadline for the study abroad program application?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd",
+			"Admin"
+		],
+		"comments": [
+			"The next global programs information session is on April 10th."
+		],
+		"dateCreated": "29/11/2023",
+		"timeCreated": "2:28",
+		"currentStatus": "Action Required",
+		"currentPriority": "New"
+	},
+	{
+		"index": 57,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Resume Review and Feedback",
+		"description": "Could you provide the details for the upcoming career fair event?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Admin",
+			"Facilities"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "27/05/2023",
+		"timeCreated": "20:13",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 58,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Dorm Heating Issue",
+		"description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"IT"
+		],
+		"comments": [
+			"A work order for the heating system has been placed."
+		],
+		"dateCreated": "03/02/2023",
+		"timeCreated": "23:17",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 59,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Transcript Request for Job Application",
+		"description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin",
+			"CDC",
+			"Registrar"
+		],
+		"comments": [
+			"An extension for your tuition fee payment has been approved."
+		],
+		"dateCreated": "10/07/2023",
+		"timeCreated": "5:03",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 60,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Laundry Facilities Upgrade Request",
+		"description": "I'm having ongoing conflicts with my roommate and need assistance to resolve them.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd"
+		],
+		"comments": [
+			"Your housing application is under review, and you'll be notified by email."
+		],
+		"dateCreated": "23/12/2022",
+		"timeCreated": "14:15",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 61,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Roommate Conflict Resolution",
+		"description": "The heating system in my room is not working, and it's extremely cold.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"GlobalEd"
+		],
+		"comments": [
+			"Please come to the housing office to discuss the roommate situation."
+		],
+		"dateCreated": "09/03/2023",
+		"timeCreated": "23:22",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 62,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Vaccination Documentation Submission",
+		"description": "I need to reschedule my appointment at the health center to a later date.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health",
+			"Admin"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "02/10/2022",
+		"timeCreated": "16:23",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 63,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Tuition Payment Plan Setup",
+		"description": "When is the financial aid for this semester going to be disbursed?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance",
+			"Library"
+		],
+		"comments": [
+			"Financial aid will be disbursed in the second week of the semester."
+		],
+		"dateCreated": "14/11/2022",
+		"timeCreated": "9:25",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 64,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Global Programs Information Session",
+		"description": "I need help with the visa process as an international student.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd",
+			"Health"
+		],
+		"comments": [
+			"The application deadline for study abroad is March 15."
+		],
+		"dateCreated": "01/01/2024",
+		"timeCreated": "10:48",
+		"currentStatus": "In Progress",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 65,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Gym Equipment Repair Request",
+		"description": "The lighting in the south parking lot is inadequate during the night.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities"
+		],
+		"comments": [
+			"We are reviewing the lighting situation in the parking lot and will make improvements."
+		],
+		"dateCreated": "12/12/2022",
+		"timeCreated": "1:31",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 66,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Appointment Rescheduling Needed",
+		"description": "I need to submit my vaccination documents to comply with the university's health requirements.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "19/11/2023",
+		"timeCreated": "18:51",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 67,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Access to Special Collections",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"IT"
+		],
+		"comments": [
+			"Access to the special collections has been granted. Please bring your student ID."
+		],
+		"dateCreated": "03/06/2023",
+		"timeCreated": "18:08",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 68,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Appointment Rescheduling Needed",
+		"description": "I have my own health insurance and would like to apply for a waiver for the university plan.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health",
+			"Admin",
+			"ResEd"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "20/03/2023",
+		"timeCreated": "20:41",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 69,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Vaccination Documentation Submission",
+		"description": "I need to submit my vaccination documents to comply with the university's health requirements.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your request for a health insurance waiver is being processed."
+		],
+		"dateCreated": "20/11/2022",
+		"timeCreated": "10:47",
+		"currentStatus": "Open",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 70,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Transcript Request for Job Application",
+		"description": "I am applying for a job and the employer has requested an official transcript.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin"
+		],
+		"comments": [
+			"The enrollment verification letter has been prepared and can be picked up from the admin office."
+		],
+		"dateCreated": "10/07/2023",
+		"timeCreated": "16:28",
+		"currentStatus": "Open",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 71,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Enrollment Confirmation for Next Semester",
+		"description": "There is a hold on my transcript, and I would like to know why.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"IT"
+		],
+		"comments": [
+			"Your enrollment for the next semester has been confirmed."
+		],
+		"dateCreated": "20/03/2023",
+		"timeCreated": "9:16",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 72,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Access to Special Collections",
+		"description": "I'm researching for my thesis and need access to the special collections section.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"CDC"
+		],
+		"comments": [
+			"The library hours will be extended during finals week."
+		],
+		"dateCreated": "02/12/2022",
+		"timeCreated": "9:39",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 73,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Dorm Heating Issue",
+		"description": "The laundry machines on the third floor are frequently out of service. Can they be upgraded?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd"
+		],
+		"comments": [
+			"A work order for the heating system has been placed."
+		],
+		"dateCreated": "20/11/2022",
+		"timeCreated": "13:48",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 74,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Extended Study Space Hours Request",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library"
+		],
+		"comments": [
+			"Access to the special collections has been granted. Please bring your student ID."
+		],
+		"dateCreated": "24/01/2024",
+		"timeCreated": "19:28",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 75,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Access to Special Collections",
+		"description": "During finals week, could the library extend its operating hours for additional study time?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Registrar"
+		],
+		"comments": [
+			"The library hours will be extended during finals week."
+		],
+		"dateCreated": "15/09/2022",
+		"timeCreated": "14:56",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 76,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Dorm Heating Issue",
+		"description": "I would like to know the status of my housing application for the next semester.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd",
+			"IT",
+			"GlobalEd"
+		],
+		"comments": [
+			"We are planning to upgrade the laundry facilities this summer."
+		],
+		"dateCreated": "25/11/2022",
+		"timeCreated": "1:59",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 77,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Enrollment Verification Letter Needed",
+		"description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin",
+			"IT"
+		],
+		"comments": [
+			"Your transcript has been sent to the provided employer address."
+		],
+		"dateCreated": "02/09/2023",
+		"timeCreated": "9:49",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 78,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Resume Review and Feedback",
+		"description": "I am looking for internship opportunities in my field, can you provide some guidance?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC",
+			"Registrar"
+		],
+		"comments": [
+			"We have a list of internship opportunities available at the CDC."
+		],
+		"dateCreated": "06/01/2023",
+		"timeCreated": "9:47",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 79,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Extended Study Space Hours Request",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Admin"
+		],
+		"comments": [
+			"Your book reservation is confirmed. Please pick it up at the front desk."
+		],
+		"dateCreated": "14/11/2022",
+		"timeCreated": "21:53",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 80,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Carol Williams"
+		],
+		"title": "Career Fair Event Details",
+		"description": "Could you provide the details for the upcoming career fair event?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"CDC"
+		],
+		"comments": [
+			"Details for the career fair have been sent to your email."
+		],
+		"dateCreated": "10/01/2023",
+		"timeCreated": "8:27",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 81,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Software Installation Permission",
+		"description": "I am experiencing persistent Wi-Fi connectivity issues in the dorms.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT",
+			"Admin"
+		],
+		"comments": [
+			"Installation permissions have been granted. Please proceed with the software setup."
+		],
+		"dateCreated": "13/07/2023",
+		"timeCreated": "22:48",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 82,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Financial Aid Disbursement Date",
+		"description": "I would like to know if I'm eligible for the new scholarship program.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance"
+		],
+		"comments": [
+			"Financial aid will be disbursed in the second week of the semester."
+		],
+		"dateCreated": "01/05/2023",
+		"timeCreated": "7:20",
+		"currentStatus": "Action Required",
+		"currentPriority": "New"
+	},
+	{
+		"index": 83,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Gym Equipment Repair Request",
+		"description": "The air conditioning in the main lecture hall isn't working.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities",
+			"Registrar",
+			"ResEd"
+		],
+		"comments": [
+			"A work order for the gym equipment has been placed."
+		],
+		"dateCreated": "07/12/2023",
+		"timeCreated": "17:07",
+		"currentStatus": "Resolved",
+		"currentPriority": "New"
+	},
+	{
+		"index": 84,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Account Password Reset",
+		"description": "I have forgotten my account password and need a reset link.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Hello",
+			"IT"
+		],
+		"comments": [
+			"Admin Changed the current priority of the issue to Action Required",
+			"Admin Changed the current priority of the issue to In Progress",
+			"Admin Changed the current status of the issue to Reopened",
+			"Admin Changed the current status of the issue to High Priority",
+			"Admin Changed the current status of the issue toNew",
+			"How are you ?",
+			"A password reset link has been sent to your university email address."
+		],
+		"dateCreated": "17/05/2023",
+		"timeCreated": "6:21",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 85,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Eva Davis"
+		],
+		"title": "Class Schedule Conflict",
+		"description": "I need confirmation that my enrollment for the next semester is secured.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"Library"
+		],
+		"comments": [
+			"Your enrollment for the next semester has been confirmed."
+		],
+		"dateCreated": "19/07/2023",
+		"timeCreated": "17:44",
+		"currentStatus": "Open",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 86,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Classroom A/C Malfunction",
+		"description": "The lighting in the south parking lot is inadequate during the night.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Facilities"
+		],
+		"comments": [
+			"A work order for the gym equipment has been placed."
+		],
+		"dateCreated": "08/11/2023",
+		"timeCreated": "7:06",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 87,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Scholarship Eligibility Requirements",
+		"description": "I would like to know if I'm eligible for the new scholarship program.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance",
+			"Facilities"
+		],
+		"comments": [
+			"Financial aid will be disbursed in the second week of the semester."
+		],
+		"dateCreated": "25/07/2023",
+		"timeCreated": "0:50",
+		"currentStatus": "Action Required",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 88,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Appointment Rescheduling Needed",
+		"description": "I need to submit my vaccination documents to comply with the university's health requirements.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "23/02/2023",
+		"timeCreated": "17:56",
+		"currentStatus": "Action Required",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 89,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Book Reservation Confirmation",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Facilities"
+		],
+		"comments": [
+			"The library hours will be extended during finals week."
+		],
+		"dateCreated": "25/01/2024",
+		"timeCreated": "20:29",
+		"currentStatus": "In Progress",
+		"currentPriority": "New"
+	},
+	{
+		"index": 90,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Class Schedule Conflict",
+		"description": "Two of my required classes are scheduled at the same time, and I need assistance.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"CDC",
+			"Library"
+		],
+		"comments": [
+			"The hold on your transcript is due to an unpaid library fine."
+		],
+		"dateCreated": "07/05/2023",
+		"timeCreated": "0:22",
+		"currentStatus": "Open",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 91,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Bob Smith"
+		],
+		"title": "Health Insurance Waiver Request",
+		"description": "I need to submit my vaccination documents to comply with the university's health requirements.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your request for a health insurance waiver is being processed."
+		],
+		"dateCreated": "16/10/2023",
+		"timeCreated": "5:13",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 92,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "International Student Visa Assistance",
+		"description": "I need help with the visa process as an international student.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"GlobalEd"
+		],
+		"comments": [
+			"Our international student office can assist you with the visa process."
+		],
+		"dateCreated": "10/10/2022",
+		"timeCreated": "10:25",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 93,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Class Schedule Conflict",
+		"description": "There is a hold on my transcript, and I would like to know why.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Registrar",
+			"GlobalEd",
+			"Health"
+		],
+		"comments": [
+			"The hold on your transcript is due to an unpaid library fine."
+		],
+		"dateCreated": "13/12/2023",
+		"timeCreated": "9:13",
+		"currentStatus": "Resolved",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 94,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Transcript Request for Job Application",
+		"description": "Due to financial difficulties, I'm requesting an extension for my tuition fee payment.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Admin"
+		],
+		"comments": [
+			"The enrollment verification letter has been prepared and can be picked up from the admin office."
+		],
+		"dateCreated": "14/06/2023",
+		"timeCreated": "20:55",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 95,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Book Reservation Confirmation",
+		"description": "During finals week, could the library extend its operating hours for additional study time?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library"
+		],
+		"comments": [
+			"Your book reservation is confirmed. Please pick it up at the front desk."
+		],
+		"dateCreated": "10/08/2023",
+		"timeCreated": "0:57",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 96,
+		"studentNetID": [
+			"efg3456"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Book Reservation Confirmation",
+		"description": "I reserved a book online and would like to confirm that it's ready for pickup.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Library",
+			"Finance",
+			"GlobalEd"
+		],
+		"comments": [
+			"The library hours will be extended during finals week."
+		],
+		"dateCreated": "19/03/2023",
+		"timeCreated": "13:10",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	},
+	{
+		"index": 97,
+		"studentNetID": [
+			"ab123"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Account Password Reset",
+		"description": "I require permission to install statistical analysis software for my class.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"IT",
+			"Library",
+			"Admin"
+		],
+		"comments": [
+			"A password reset link has been sent to your university email address."
+		],
+		"dateCreated": "23/10/2022",
+		"timeCreated": "9:12",
+		"currentStatus": "Resolved",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 98,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Tuition Payment Plan Setup",
+		"description": "When is the financial aid for this semester going to be disbursed?",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Finance",
+			"CDC"
+		],
+		"comments": [
+			"Financial aid will be disbursed in the second week of the semester."
+		],
+		"dateCreated": "06/08/2023",
+		"timeCreated": "5:34",
+		"currentStatus": "Action Required",
+		"currentPriority": "Reopened"
+	},
+	{
+		"index": 99,
+		"studentNetID": [
+			"jd2856"
+		],
+		"studentName": [
+			"David Brown"
+		],
+		"title": "Health Insurance Waiver Request",
+		"description": "I need to submit my vaccination documents to comply with the university's health requirements.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"Health"
+		],
+		"comments": [
+			"Your vaccination documents have been received and recorded."
+		],
+		"dateCreated": "22/01/2023",
+		"timeCreated": "0:00",
+		"currentStatus": "Open",
+		"currentPriority": "High Priority"
+	},
+	{
+		"index": 100,
+		"studentNetID": [
+			"cd245"
+		],
+		"studentName": [
+			"Alice Johnson"
+		],
+		"title": "Laundry Facilities Upgrade Request",
+		"description": "The heating system in my room is not working, and it's extremely cold.",
+		"attachments": [
+			null
+		],
+		"departments": [
+			"ResEd"
+		],
+		"comments": [
+			"Your housing application is under review, and you'll be notified by email."
+		],
+		"dateCreated": "04/12/2022",
+		"timeCreated": "10:01",
+		"currentStatus": "Open",
+		"currentPriority": "New"
+	}
 ]
