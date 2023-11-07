@@ -16,6 +16,7 @@
   align-items: center;
   overflow: auto;
   border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .create-request-component-student .title-container {
@@ -60,7 +61,7 @@
 }
 
 .create-request-component-student .description-group > textarea {
-  height: 150px;
+  height: 130px;
   resize: vertical;
 }
 
@@ -107,13 +108,23 @@
   padding-left: 4px;
   position: relative;
   margin-top: 5px;
-  min-height: 85px;
+  min-height: 95px;
+  height: auto;
+  margin-top: 15px;
+  overflow-y: auto;
+
   /* border: 1px solid #ccc; */
 }
 .create-request-component-student
   .selected-files-and-departments
   .selected-departments {
   flex: 1;
+  /* overflow-y: auto; */
+}
+
+.create-request-component-student .selected-departments > p,
+.create-request-component-student .selected-files > p {
+  margin: 5px 0;
 }
 
 .create-request-component-student
@@ -122,11 +133,28 @@
   flex: 1;
 }
 
+.create-request-component-student .department-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.create-request-component-student .department-list > p {
+  font-weight: 400;
+  padding: 7px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  background-color: rgba(131, 84, 219, 0.212);
+  font-weight: bold;
+  color: rgb(131, 84, 219);
+  margin: 3px 14px 5px 0;
+}
 .create-request-component-student .submit-button-container {
   width: 90%;
   display: flex;
   justify-content: flex-start;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 .create-request-component-student .submit-button {
   margin-bottom: 30px;
