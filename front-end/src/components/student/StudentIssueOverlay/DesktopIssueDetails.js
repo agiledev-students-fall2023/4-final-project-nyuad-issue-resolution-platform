@@ -6,6 +6,11 @@ const DesktopIssueDetails = ({ index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]); // Assuming comments is an array
+    const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+    const mockStudent = {
+        name: "Ted Mosby",
+        netid: "tm2005"
+      };
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -34,16 +39,34 @@ const DesktopIssueDetails = ({ index }) => {
 
     // Might change implementation to passing data by props from the previous page
     useEffect(() => {
-        const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const specificIssue = data[parseInt(index - 1)];
-                setIssue(specificIssue);
-            })
-            .catch(error => {
-                console.error("Error fetching the issue data: ", error);
-            });
+        // const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
+        // fetch(apiUrl)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         const specificIssue = data[parseInt(index - 1)];
+        //         setIssue(specificIssue);
+        //     })
+        //     .catch(error => {
+        //         console.error("Error fetching the issue data: ", error);
+        //     });
+
+            // let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
+
+            const fetchData = async () => {
+              try {
+                const response = await axios.get(
+                  `${BACKEND_BASE_URL}/api/issues/student/${mockStudent.netid}/${index}`
+                );
+                // const result = await response.json();
+                // setIssue(result[0]);
+                setIssue(response.data[0]);
+                console.log("Fetched Data");
+                console.log(response);
+              } catch (error) {
+                console.error("Error fetching data from API:", error);
+              }
+            };
+            fetchData();
     }, [index]);
 
     const reopenIssue = () => {
@@ -59,13 +82,13 @@ const DesktopIssueDetails = ({ index }) => {
         return <p>Loading issue data...</p>;
     }
 
-    const issueUpdates = [
-        issue.description,
-        issue.description,
-        issue.description,
-        issue.description
-        // just replicated issues for styling updates
-    ];
+    // const issueUpdates = [
+    //     issue.description,
+    //     issue.description,
+    //     issue.description,
+    //     issue.description
+    //     // just replicated issues for styling updates
+    // ];
 
     // Converts a department value to its display name
     const mapDepartmentToDisplayName = (departmentValue) => {
@@ -109,12 +132,12 @@ const DesktopIssueDetails = ({ index }) => {
                 return '';
         }
     };
-    // hardcoded attachments for testing
-    issue.attachments = [
-        "attachment 1",
-        "attachment 2",
-        "attachment 3"
-    ];
+    // // hardcoded attachments for testing
+    // issue.attachments = [
+    //     "attachment 1",
+    //     "attachment 2",
+    //     "attachment 3"
+    // ];
     return (
 
         <div className="student-issue-view">
@@ -130,9 +153,17 @@ const DesktopIssueDetails = ({ index }) => {
                         </div>
 
                         <div className='history-updates'>
-                            {issueUpdates.map((update, index) => (
+                            {/* Display the issue description as Update 1 */}
+                            <div className="update">
+                                <h4>Update 1</h4>
+                                <p>{issue.description}</p>
+                            </div>
+
+                            {/* Map through the comments and display them starting with Update 2 */}
+                            {issue.comments.map((update, index) => (
                                 <div key={index} className="update">
-                                    <h4>Update {issueUpdates.length - index}</h4>
+                                    {/* Since we start counting updates from 2, add 2 to the current index */}
+                                    <h4>Update {index + 2}</h4>
                                     <p>{update}</p>
                                 </div>
                             ))}
