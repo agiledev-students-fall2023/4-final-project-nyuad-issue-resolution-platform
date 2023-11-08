@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
-
+import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
 import './PriorityDropdown.css';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -19,10 +19,10 @@ const PriorityDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes }) 
   };
 
   const postCurrentPriority = async (param) => {
-    const statusUpdate = `Admin Changed the current status of the issue to ${param}`;
-    setUpdateBoxes([statusUpdate, ...updateBoxes]); // // Updates the update boxes locally in the parent
+    // const statusUpdate = `Admin Changed the current status of the issue to ${param}`;
+    // setUpdateBoxes([statusUpdate, ...updateBoxes]); // // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issuePriority: param });
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentSetDepartment}`, { issueindex: index, issuePriority: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }

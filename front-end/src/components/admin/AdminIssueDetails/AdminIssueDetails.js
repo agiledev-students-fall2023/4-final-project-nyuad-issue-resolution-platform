@@ -29,7 +29,7 @@ const AdminIssueDetails = () => {
       // event.prevenDefault();
       navigate('/admin/dashboard/');
       try {
-        await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, issueStatus: "Resolved" });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentSetDepartment}`, { issueindex: index, issueStatus: "Action Required" });
       } catch (error) {
         console.error('Error during form submission:', error);
       }

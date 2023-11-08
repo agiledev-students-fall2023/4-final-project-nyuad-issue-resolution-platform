@@ -9,6 +9,7 @@ import studentIssues from "./src/routes/studentIssues.js";
 import studentIssueViewDetails from "./src/routes/studentIssueViewDetails.js";
 import adminIssues from "./src/routes/adminIssues.js";
 import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
+import adminPostDetails from "./src/routes/adminPostDetails.js";
 
 // import multer from "multer"; - configure when required
 
@@ -57,6 +58,8 @@ app.use("/api/issues/student/", studentIssueViewDetails);
 app.use("/api/issues/admin", adminIssues);
 
 app.use("/api/issues/admin/", adminIssueViewDetails);
+
+app.use("/api/actions/admin/", adminPostDetails);
 
 // export the express app we created to make it available to other modules
 export default app;
