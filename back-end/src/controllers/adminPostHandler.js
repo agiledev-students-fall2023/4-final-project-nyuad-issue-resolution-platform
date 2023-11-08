@@ -7,9 +7,6 @@ export async function adminPostHandler(req, res) {
   const currentStatus = req.body.issueStatus;
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
-
-  console.log(issueindex, newcomment, currentStatus, currentPriority, departmentTags);
-
   const filePath = publicpath + "/json/mockapi.json";
   const fileContent = await fs.readFile(filePath, 'utf8');
 
