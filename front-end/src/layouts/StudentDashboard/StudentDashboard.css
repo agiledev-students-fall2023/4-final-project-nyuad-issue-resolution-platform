@@ -238,6 +238,27 @@
   overflow-y: scroll;
 }
 
+/* .createRequestOverlay {
+  background-color: white;
+  border: 1px solid black;
+  position: absolute;
+  z-index: 1002;
+  width: 550px;
+  height: 600px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: auto;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} */
+
 .pagination button:hover {
   background-color: var(--accent);
 }
