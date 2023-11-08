@@ -9,7 +9,6 @@ export async function adminPostHandler(req, res) {
   const departmentTags = req.body.issueDepartmentTags;
   const filePath = publicpath + "/json/mockapi.json";
   const fileContent = await fs.readFile(filePath, 'utf8');
-
   const jsonData = JSON.parse(fileContent);
 
   const specificIssue = jsonData.filter(
