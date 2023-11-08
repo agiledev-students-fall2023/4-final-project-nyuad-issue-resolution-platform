@@ -1,23 +1,31 @@
 import './CommentBox.css';
 import { useState } from 'react';
+import axios from 'axios';
+import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
 
-function CommentBox({ onAdd }) {
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+function CommentBox({ index, setcommentBoxValue }) {
   const [textAreaValue, setTextAreaValue] = useState('');
-
-  // const sendNewUpdateBox = (e) => {
-  //   e.preventDefault();
-  //   onAdd({ updateDescription: textAreaValue });
-  // };
-
   const handleTextChange = (event) => {
-    // Step 3: Update the state variable when the user types
     setTextAreaValue(event.target.value);
   };
+
+  const postNewComment = async (event) => {
+    event.preventDefault();
+    const updateBoxData = event.target.elements[0].value;
+    setcommentBoxValue(updateBoxData);
+      try {
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentSetDepartment}`, { issueindex: index, commentbox: updateBoxData });
+      } catch (error) {
+        console.error('Error during form submission:', error);
+      }
+    event.target.elements[0].value = '';
+};
 
   return (
     <div className="admin-comment-box">
       <h3>Add a Comment</h3>
-      <form onSubmit={onAdd}>
+      <form onSubmit={postNewComment}>
         <textarea
           name ="comment"
           placeholder="Write your comment..."
