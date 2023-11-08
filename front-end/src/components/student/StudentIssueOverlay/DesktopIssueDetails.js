@@ -6,6 +6,11 @@ const DesktopIssueDetails = ({ index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]); // Assuming comments is an array
+    const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+    const mockStudent = {
+        name: "Ted Mosby",
+        netid: "tm2005"
+      };
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -34,17 +39,45 @@ const DesktopIssueDetails = ({ index }) => {
 
     // Might change implementation to passing data by props from the previous page
     useEffect(() => {
-        const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const specificIssue = data[parseInt(index - 1)];
-                setIssue(specificIssue);
-            })
-            .catch(error => {
-                console.error("Error fetching the issue data: ", error);
-            });
-    }, [index]);
+        // const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
+        // fetch(apiUrl)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         const specificIssue = data[parseInt(index - 1)];
+        //         setIssue(specificIssue);
+        //     })
+        //     .catch(error => {
+        //         console.error("Error fetching the issue data: ", error);
+        //     });
+
+            // let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
+
+            // Define `fetchData` as an asynchronous function.
+            const fetchData = async () => {
+                try {
+                // Attempt to make an HTTP GET request using axios.
+                const response = await axios.get(
+                    `${BACKEND_BASE_URL}/api/issues/student/${mockStudent.netid}/${index}`
+                );
+                // If the request is successful, take the first item from the response data
+                // (assuming the response data is an array) and update the `issue` state with it.
+                setIssue(response.data[0]);
+                // Log to the console that the data was fetched successfully.
+                console.log("Fetched Data");
+                // Also log the entire response for debugging purposes.
+                console.log(response);
+                } catch (error) {
+                // If an error occurs during the fetch operation, log it to the console.
+                console.error("Error fetching data from API:", error);
+                }
+            };
+            // Call `fetchData` to execute the data fetching operation.
+            fetchData();
+            // The empty array `[]` as a second argument to useEffect indicates that
+            // this effect should only run once when the component mounts.
+            // The `index` in the dependency array means the effect will re-run
+            // every time the `index` changes.
+        }, [index]);
 
     const reopenIssue = () => {
         setIssue({ ...issue, currentStatus: 'Open' });
@@ -59,13 +92,13 @@ const DesktopIssueDetails = ({ index }) => {
         return <p>Loading issue data...</p>;
     }
 
-    const issueUpdates = [
-        issue.description,
-        issue.description,
-        issue.description,
-        issue.description
-        // just replicated issues for styling updates
-    ];
+    // const issueUpdates = [
+    //     issue.description,
+    //     issue.description,
+    //     issue.description,
+    //     issue.description
+    //     // just replicated issues for styling updates
+    // ];
 
     // Converts a department value to its display name
     const mapDepartmentToDisplayName = (departmentValue) => {
@@ -109,12 +142,12 @@ const DesktopIssueDetails = ({ index }) => {
                 return '';
         }
     };
-    // hardcoded attachments for testing
-    issue.attachments = [
-        "attachment 1",
-        "attachment 2",
-        "attachment 3"
-    ];
+    // // hardcoded attachments for testing
+    // issue.attachments = [
+    //     "attachment 1",
+    //     "attachment 2",
+    //     "attachment 3"
+    // ];
     return (
 
         <div className="student-issue-view">
@@ -130,9 +163,17 @@ const DesktopIssueDetails = ({ index }) => {
                         </div>
 
                         <div className='history-updates'>
-                            {issueUpdates.map((update, index) => (
+                            {/* Display the issue description as Update 1 */}
+                            <div className="update">
+                                <h4>Issue Description</h4>
+                                <p>{issue.description}</p>
+                            </div>
+
+                            {/* Map through the comments and display them starting with Update 2 */}
+                            {issue.comments.map((update, index) => (
                                 <div key={index} className="update">
-                                    <h4>Update {issueUpdates.length - index}</h4>
+                                    {/* Since we start counting updates from 2, add 2 to the current index */}
+                                    <h4>Update {issue.comments.length - index}</h4>
                                     <p>{update}</p>
                                 </div>
                             ))}
@@ -165,7 +206,7 @@ const DesktopIssueDetails = ({ index }) => {
                                 {issue.departments.map((dept, index) => <li className='issue-li department-pill' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
                             </ul>
                         </div>
-                        {issue.attachments && issue.attachments.length > 0 && (
+                        {issue.attachments.length > 1 && (
                             <div className="attachments">
                                 <h3>Attachments</h3>
                                 <ul className='attachment-box'>

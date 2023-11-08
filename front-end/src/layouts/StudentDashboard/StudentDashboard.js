@@ -520,6 +520,7 @@ const StudentDashboard = () => {
           <CreateRequest
             isVisible={isCreateRequestVisible}
             onClose={handleCreateRequest}
+            departmentOptions={departmentOptions}
           />
         )}
       </div>
