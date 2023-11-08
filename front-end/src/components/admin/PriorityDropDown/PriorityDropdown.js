@@ -5,7 +5,7 @@ import axios from 'axios';
 import './PriorityDropdown.css';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-const PriorityDropdown = ({ index, currentState }) => {
+const PriorityDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes }) => {
   const options = [
     { value: 'High Priority', label: 'High Priority', color: '#b82c1c37', textColor: '#b82c1c', isBold: 'true' },
     { value: 'New', label: 'New', color: '#1f6deb37', textColor: '#1f6eeb', isBold: 'true' },
@@ -20,12 +20,12 @@ const PriorityDropdown = ({ index, currentState }) => {
 
   const postCurrentPriority = async (param) => {
     const statusUpdate = `Admin Changed the current status of the issue to ${param}`;
+    setUpdateBoxes([statusUpdate, ...updateBoxes]); // // Updates the update boxes locally in the parent
     try {
       await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issuePriority: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }
-    window.location.reload();
 };
 
   useEffect(() => {

@@ -2,10 +2,9 @@ import './TagSidebar.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-function TagSidebar({ index, name, tags }) {
+function TagSidebar({ index, name, tags, setUpdateBoxes, updateBoxes }) {
   const [departmentTags, setdepartmentTags] = useState([]);
   const [inputVisible, setInputVisible] = useState(false);
-  const [departmentNames, setDepartmentNames] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
   const toggleInput = () => {
@@ -26,24 +25,35 @@ function TagSidebar({ index, name, tags }) {
   };
 
   const postDepartmentTags = async (param) => {
+    const lastdepartmentString = param[0];
+    const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
+    setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, issueDepartmentTags: param });
+      await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }
   };
 
   const handleRemoveDepartments = (param) => {
-    return () => {
-      const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
-      console.log(departmentNames);
-      setdepartmentTags(modifiedDepartmentTags);
+    return async () => {
+      if (departmentTags.length > 1) {
+        const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
+        setdepartmentTags(modifiedDepartmentTags);
+        setUpdateBoxes(modifiedDepartmentTags);
+        const statusUpdate = `Admin removed a department tag [${param}]`;
+        setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
+        try {
+          await axios.post(`${BASE_URL}/api/issues/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });
+        } catch (error) {
+          console.error('Error during form submission:', error);
+        }
+      }
     };
   };
 
   useEffect(() => {
     setdepartmentTags(tags);
-    setDepartmentNames(['Resed', 'StudentLife', 'Finance']);
   }, []);
 
   return (
@@ -60,8 +70,9 @@ function TagSidebar({ index, name, tags }) {
         {departmentTags.filter(item => item != null).map((tag, index) => (
           <li key={index}>
             <div className="round-tag ">
-                <span>{tag}</span>
-                <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
+                <span>{tag}</span>{
+                   <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
+                }
             </div>
           </li>
 
