@@ -7,6 +7,7 @@ import path from "path";
 import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
 import studentIssueViewDetails from "./src/routes/studentIssueViewDetails.js";
+import studentIssueUpdate from "./src/routes/studentIssueUpdate.js";
 import adminIssues from "./src/routes/adminIssues.js";
 import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 import adminPostDetails from "./src/routes/adminPostDetails.js";
@@ -53,6 +54,9 @@ app.use("/api/issues/student", studentIssues);
 
 // Student Side Issue View Details
 app.use("/api/issues/student/", studentIssueViewDetails);
+
+// Student Side Issue Update
+app.use("/api/actions/student/", studentIssueUpdate);
 
 // Admin side issue retrieval
 app.use("/api/issues/admin", adminIssues);

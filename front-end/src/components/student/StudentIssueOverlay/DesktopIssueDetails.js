@@ -19,7 +19,27 @@ const DesktopIssueDetails = ({ index }) => {
     const submitComment = async () => {
         if (comment.trim()) {
             try {
-                const response = await axios.post('/api/comments', { comment });
+                const response = await axios.post(
+                    `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+                    { 
+                        'index': index,
+                        "studentNetID": [
+                            mockStudent.netid
+                        ],
+                        "studentName": [
+                            mockStudent.name
+                        ],
+                        "title": issue.title,
+                        "description": issue.description,
+                        "attachments": issue.attachments,
+                        "departments": issue.departments,
+                        "comments": issue.comment,
+                        "dateCreated": issue.dateCreated,
+                        "timeCreated": issue.timeCreated,
+                        "currentStatus": issue.currentStatus,
+                        "currentPriority": issue.currentPriority 
+                    }
+                );
                 console.log('Comment submitted successfully:', response.data);
                 // You can add more logic here depending on your needs
                 // For example, clear the comment field or update the UI to show the new comment
@@ -28,6 +48,7 @@ const DesktopIssueDetails = ({ index }) => {
                 // Assuming response.data contains the new comment object
                 setComments([...comments, response.data]);
             } catch (error) {
+                console.log('Data: ', { comments });
                 console.error('Error submitting comment:', error.response ? error.response.data : error.message);
                 // Handle the error accordingly
             }
@@ -181,6 +202,7 @@ const DesktopIssueDetails = ({ index }) => {
 
                         <div className="add-comment">
                             <h3>Add a Comment</h3>
+                            <form onSubmit={submitComment}>
                             <div className='fix-add-button'>
                                 {/* the above div is just for the purpose of styling */}
                                 {/* it is essential to make sure the button stays fixed in diverse screen sizes */}
@@ -189,9 +211,9 @@ const DesktopIssueDetails = ({ index }) => {
                                     onChange={handleCommentChange}
                                     placeholder="Your comment..."
                                 ></textarea>
-                                <button className="submit-comment-button" onClick={submitComment}>Add</button>
+                                <button className="submit-comment-button" type="submit">Add</button>
                             </div>
-
+                            </form>
                         </div>
                     </div>
                 </div>
