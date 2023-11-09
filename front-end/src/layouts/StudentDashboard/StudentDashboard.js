@@ -139,6 +139,25 @@ const StudentDashboard = () => {
     };
   }, [isIssueOverlayOpen]);
 
+   // Add event listener to handle clicks outside the overlay
+   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (overlayRef.current && !overlayRef.current.contains(e.target)) {
+        handleCreateRequest();
+      }
+    };
+
+    if (isCreateRequestVisible) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isCreateRequestVisible]);
+
   const getStatusClass = (status) => {
     switch (status) {
       case "Action Required":
@@ -466,7 +485,7 @@ const StudentDashboard = () => {
   return (
     <>
       <div
-        className={`requests ${isIssueOverlayOpen ? "blur-background" : ""}`}
+        className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}
       >
         <StudentNavbar studentName={studentName} />
 
@@ -516,13 +535,16 @@ const StudentDashboard = () => {
         <div className="pagination">
           <div className="pagination-box">{renderPagination()}</div>
         </div>
-        {isCreateRequestVisible && (
+      </div>
+      {isCreateRequestVisible && (
+          <div ref={overlayRef}>
           <CreateRequest
             isVisible={isCreateRequestVisible}
             onClose={handleCreateRequest}
+            departmentOptions={departmentOptions}
           />
-        )}
-      </div>
+          </div>
+      )}
       {/* The Overlay popup is triggered by clicking on the title or description */}
       {/* It is only for Desktop view for now */}
       {isIssueOverlayOpen && (

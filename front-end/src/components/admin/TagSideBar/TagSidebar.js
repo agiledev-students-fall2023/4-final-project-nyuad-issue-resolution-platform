@@ -1,22 +1,12 @@
 import './TagSidebar.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-function TagSidebar({ name, tags }) {
+import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+function TagSidebar({ index, name, tags, setUpdateBoxes, updateBoxes }) {
   const [departmentTags, setdepartmentTags] = useState([]);
   const [inputVisible, setInputVisible] = useState(false);
-  const [departmentNames, setDepartmentNames] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-
-  const postDepartmentDelegation = async (event) => {
-    event.preventDefault();
-    try {
-        await axios.post(`${BASE_URL}/addNewDepartment`, null);
-    } catch (error) {
-        console.error('Error during form submission:', error);
-    }
-};
 
   const toggleInput = () => {
     setInputVisible(!inputVisible);
@@ -30,23 +20,41 @@ function TagSidebar({ name, tags }) {
     if (e.key === 'Enter') {
       const newValue = e.target.value;
       setdepartmentTags([newValue, ...departmentTags]);
+      postDepartmentTags([newValue, ...departmentTags]);
       setInputValue('');
-      postDepartmentDelegation(e);
+    }
+  };
+
+  const postDepartmentTags = async (param) => {
+    const lastdepartmentString = param[0];
+    const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
+    setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
+    try {
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentSetDepartment}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
+    } catch (error) {
+      console.error('Error during form submission:', error);
     }
   };
 
   const handleRemoveDepartments = (param) => {
-    return () => {
-      const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
-      console.log(departmentNames);
-      console.log(modifiedDepartmentTags);
-      setdepartmentTags(modifiedDepartmentTags);
+    return async () => {
+      if (departmentTags.length > 1) {
+        const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
+        setdepartmentTags(modifiedDepartmentTags);
+        setUpdateBoxes(modifiedDepartmentTags);
+        const statusUpdate = `Admin removed a department tag [${param}]`;
+        setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
+        try {
+          await axios.post(`${BASE_URL}/api/actions/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });
+        } catch (error) {
+          console.error('Error during form submission:', error);
+        }
+      }
     };
   };
 
   useEffect(() => {
     setdepartmentTags(tags);
-    setDepartmentNames(['Resed', 'StudentLife', 'Finance']);
   }, []);
 
   return (
@@ -63,8 +71,9 @@ function TagSidebar({ name, tags }) {
         {departmentTags.filter(item => item != null).map((tag, index) => (
           <li key={index}>
             <div className="round-tag ">
-                <span>{tag}</span>
-                <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
+                <span>{tag}</span>{
+                   <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
+                }
             </div>
           </li>
 
