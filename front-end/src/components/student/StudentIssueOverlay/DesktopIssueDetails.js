@@ -6,6 +6,7 @@ const DesktopIssueDetails = ({ index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]); // Assuming comments is an array
+    const [changeOccured, setChangeOccured] = useState(false); // To force a re-render
     const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const mockStudent = {
         name: "Ted Mosby",
@@ -21,26 +22,13 @@ const DesktopIssueDetails = ({ index }) => {
             try {
                 const response = await axios.post(
                     `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
-                    { 
-                        'index': index,
-                        "studentNetID": [
-                            mockStudent.netid
-                        ],
-                        "studentName": [
-                            mockStudent.name
-                        ],
-                        "title": issue.title,
-                        "description": issue.description,
-                        "attachments": issue.attachments,
-                        "departments": issue.departments,
-                        "comments": issue.comment,
-                        "dateCreated": issue.dateCreated,
-                        "timeCreated": issue.timeCreated,
-                        "currentStatus": issue.currentStatus,
-                        "currentPriority": issue.currentPriority 
+                    {
+                        issueindex: index,
+                        comments: comment
                     }
                 );
                 console.log('Comment submitted successfully:', response.data);
+                setChangeOccured(!changeOccured);
                 // You can add more logic here depending on your needs
                 // For example, clear the comment field or update the UI to show the new comment
                 setComment('');
@@ -55,6 +43,32 @@ const DesktopIssueDetails = ({ index }) => {
         } else {
             console.error('Comment cannot be empty');
             // You might want to show a user-friendly error message here
+        }
+    };
+
+    const postMarkAsResolved = async () => {
+        try {
+          await axios.post(
+            `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+          {
+            issueindex: index,
+            currentStatus: "Resolved"
+        });
+        } catch (error) {
+          console.error('Error during form submission:', error);
+        }
+    };
+
+    const postReopen = async (event) => {
+        try {
+          await axios.post(
+            `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+          {
+            issueindex: index,
+            currentStatus: "Open"
+        });
+        } catch (error) {
+          console.error('Error during form submission:', error);
         }
     };
 
@@ -98,14 +112,19 @@ const DesktopIssueDetails = ({ index }) => {
             // this effect should only run once when the component mounts.
             // The `index` in the dependency array means the effect will re-run
             // every time the `index` changes.
-        }, [index]);
+        }, [index, changeOccured]);
 
     const reopenIssue = () => {
-        setIssue({ ...issue, currentStatus: 'Open' });
+        // setIssue({ ...issue, currentStatus: 'Open' });
+        postReopen();
+        setChangeOccured(!changeOccured);
+        setIssue({ ...issue, currentStatus: issue.currentStatus });
     };
 
     const acceptResolution = () => {
-        setIssue({ ...issue, currentStatus: 'Resolved' });
+        postMarkAsResolved();
+        setChangeOccured(!changeOccured);
+        setIssue({ ...issue, currentStatus: issue.currentStatus });
         // Since the issue status is already 'Resolved', no need to change it.
     };
 
