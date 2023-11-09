@@ -5,7 +5,7 @@ import './DesktopIssueDetails.css';
 const DesktopIssueDetails = ({ index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([]); // Assuming comments is an array
+    // const [comments, setComments] = useState([]); // Assuming comments is an array
     const [changeOccured, setChangeOccured] = useState(false); // To force a re-render
     const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const mockStudent = {
@@ -17,7 +17,8 @@ const DesktopIssueDetails = ({ index }) => {
         setComment(event.target.value);
     };
 
-    const submitComment = async () => {
+    const submitComment = async (e) => {
+        e.preventDefault(); // Prevent the default form submit action
         if (comment.trim()) {
             try {
                 const response = await axios.post(
@@ -28,22 +29,20 @@ const DesktopIssueDetails = ({ index }) => {
                     }
                 );
                 console.log('Comment submitted successfully:', response.data);
-                setChangeOccured(!changeOccured);
+                // setChangeOccured(!changeOccured);
                 // You can add more logic here depending on your needs
                 // For example, clear the comment field or update the UI to show the new comment
-                setComment('');
-                // Update the UI to show the new comment
-                // Assuming response.data contains the new comment object
-                setComments([...comments, response.data]);
             } catch (error) {
-                console.log('Data: ', { comments });
                 console.error('Error submitting comment:', error.response ? error.response.data : error.message);
                 // Handle the error accordingly
             }
-        } else {
-            console.error('Comment cannot be empty');
-            // You might want to show a user-friendly error message here
+        setComment('');
+        setChangeOccured(!changeOccured);
         }
+        // else {
+        //     console.error('Comment cannot be empty');
+        //     // You might want to show a user-friendly error message here
+        // }
     };
 
     const postMarkAsResolved = async () => {
@@ -221,7 +220,7 @@ const DesktopIssueDetails = ({ index }) => {
 
                         <div className="add-comment">
                             <h3>Add a Comment</h3>
-                            <form onSubmit={submitComment}>
+                            <form onSubmit={(e) => submitComment(e)}>
                             <div className='fix-add-button'>
                                 {/* the above div is just for the purpose of styling */}
                                 {/* it is essential to make sure the button stays fixed in diverse screen sizes */}
@@ -229,6 +228,7 @@ const DesktopIssueDetails = ({ index }) => {
                                     value={comment}
                                     onChange={handleCommentChange}
                                     placeholder="Your comment..."
+                                    required
                                 ></textarea>
                                 <button className="submit-comment-button" type="submit">Add</button>
                             </div>
@@ -266,17 +266,6 @@ const DesktopIssueDetails = ({ index }) => {
                     </div>
                 </div>
             </div>
-
-            {comments && comments.length > 0 && (
-                <div className="comments-section">
-                    <h3>Comments</h3>
-                    {comments.map((comment, index) => (
-                        <div key={index} className="comment">
-                            <p>{comment.text /* Assuming comment object has a text property */}</p>
-                        </div>
-                    ))}
-                </div>
-            )}
 
         </div>
     );
