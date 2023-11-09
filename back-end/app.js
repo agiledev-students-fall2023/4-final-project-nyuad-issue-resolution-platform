@@ -68,5 +68,4 @@ app.use("/api/actions/admin/", adminPostDetails);
 
 app.use("/api/actions/student", createIssue)
 
-// export the express app we created to make it available to other modules
 export default app;
