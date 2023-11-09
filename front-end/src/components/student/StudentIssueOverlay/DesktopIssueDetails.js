@@ -5,7 +5,8 @@ import './DesktopIssueDetails.css';
 const DesktopIssueDetails = ({ index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([]); // Assuming comments is an array
+    // const [comments, setComments] = useState([]); // Assuming comments is an array
+    const [changeOccured, setChangeOccured] = useState(false); // To force a re-render
     const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const mockStudent = {
         name: "Ted Mosby",
@@ -16,24 +17,57 @@ const DesktopIssueDetails = ({ index }) => {
         setComment(event.target.value);
     };
 
-    const submitComment = async () => {
+    const submitComment = async (e) => {
+        e.preventDefault(); // Prevent the default form submit action
         if (comment.trim()) {
             try {
-                const response = await axios.post('/api/comments', { comment });
+                const response = await axios.post(
+                    `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+                    {
+                        issueindex: index,
+                        comments: comment
+                    }
+                );
                 console.log('Comment submitted successfully:', response.data);
+                // setChangeOccured(!changeOccured);
                 // You can add more logic here depending on your needs
                 // For example, clear the comment field or update the UI to show the new comment
-                setComment('');
-                // Update the UI to show the new comment
-                // Assuming response.data contains the new comment object
-                setComments([...comments, response.data]);
             } catch (error) {
                 console.error('Error submitting comment:', error.response ? error.response.data : error.message);
                 // Handle the error accordingly
             }
-        } else {
-            console.error('Comment cannot be empty');
-            // You might want to show a user-friendly error message here
+        setComment('');
+        setChangeOccured(!changeOccured);
+        }
+        // else {
+        //     console.error('Comment cannot be empty');
+        //     // You might want to show a user-friendly error message here
+        // }
+    };
+
+    const postMarkAsResolved = async () => {
+        try {
+          await axios.post(
+            `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+          {
+            issueindex: index,
+            currentStatus: "Resolved"
+        });
+        } catch (error) {
+          console.error('Error during form submission:', error);
+        }
+    };
+
+    const postReopen = async (event) => {
+        try {
+          await axios.post(
+            `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+          {
+            issueindex: index,
+            currentStatus: "Open"
+        });
+        } catch (error) {
+          console.error('Error during form submission:', error);
         }
     };
 
@@ -77,14 +111,19 @@ const DesktopIssueDetails = ({ index }) => {
             // this effect should only run once when the component mounts.
             // The `index` in the dependency array means the effect will re-run
             // every time the `index` changes.
-        }, [index]);
+        }, [index, changeOccured]);
 
     const reopenIssue = () => {
-        setIssue({ ...issue, currentStatus: 'Open' });
+        // setIssue({ ...issue, currentStatus: 'Open' });
+        postReopen();
+        setChangeOccured(!changeOccured);
+        setIssue({ ...issue, currentStatus: issue.currentStatus });
     };
 
     const acceptResolution = () => {
-        setIssue({ ...issue, currentStatus: 'Resolved' });
+        postMarkAsResolved();
+        setChangeOccured(!changeOccured);
+        setIssue({ ...issue, currentStatus: issue.currentStatus });
         // Since the issue status is already 'Resolved', no need to change it.
     };
 
@@ -172,7 +211,7 @@ const DesktopIssueDetails = ({ index }) => {
                             {/* Map through the comments and display them starting with Update 2 */}
                             {issue.comments.map((update, index) => (
                                 <div key={index} className="update">
-                                    {/* Since we start counting updates from 2, add 2 to the current index */}
+                                    {/* Updates in Reverse */}
                                     <h4>Update {issue.comments.length - index}</h4>
                                     <p>{update}</p>
                                 </div>
@@ -181,6 +220,7 @@ const DesktopIssueDetails = ({ index }) => {
 
                         <div className="add-comment">
                             <h3>Add a Comment</h3>
+                            <form onSubmit={(e) => submitComment(e)}>
                             <div className='fix-add-button'>
                                 {/* the above div is just for the purpose of styling */}
                                 {/* it is essential to make sure the button stays fixed in diverse screen sizes */}
@@ -188,10 +228,11 @@ const DesktopIssueDetails = ({ index }) => {
                                     value={comment}
                                     onChange={handleCommentChange}
                                     placeholder="Your comment..."
+                                    required
                                 ></textarea>
-                                <button className="submit-comment-button" onClick={submitComment}>Add</button>
+                                <button className="submit-comment-button" type="submit">Add</button>
                             </div>
-
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -225,17 +266,6 @@ const DesktopIssueDetails = ({ index }) => {
                     </div>
                 </div>
             </div>
-
-            {comments && comments.length > 0 && (
-                <div className="comments-section">
-                    <h3>Comments</h3>
-                    {comments.map((comment, index) => (
-                        <div key={index} className="comment">
-                            <p>{comment.text /* Assuming comment object has a text property */}</p>
-                        </div>
-                    ))}
-                </div>
-            )}
 
         </div>
     );
