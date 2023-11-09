@@ -25,7 +25,7 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     formData.set("deptTagged", departments);
     formData.set("uploadedFiles", selectedFiles);
     try {
-      const response = await fetch("${BASE_URL}/api/actions/admin", {
+      const response = await fetch("${BASE_URL}/api/actions/student", {
         method: "POST",
         body: formData
       });
