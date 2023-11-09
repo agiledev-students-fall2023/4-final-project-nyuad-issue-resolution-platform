@@ -5,6 +5,7 @@ import "./CreateRequest.css";
 export function CreateRequest({ isVisible, onClose, departmentOptions }) {
   const [departments, setDepartments] = useState([]);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
   const handleDepartmentChange = (event) => {
     setDepartments([...departments, event.target.value]);
   };
@@ -23,9 +24,8 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     const formData = new FormData(e.target);
     formData.set("deptTagged", departments);
     formData.set("uploadedFiles", selectedFiles);
-    // const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
     try {
-      const response = await fetch("/apple", {
+      const response = await fetch("${BASE_URL}/api/actions/admin", {
         method: "POST",
         body: formData
       });
