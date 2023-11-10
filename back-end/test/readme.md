@@ -9,7 +9,7 @@ inside the back-end directory.
 We are following Test-Driven Development (TDD) style guide for test codes. This guide emphasizes using `assert`-style assertions. For example:
 
 ```
-import assert from "assert";
+import chai, { assert } from "chai";
 import { yourFunctionToTest } from "../src/yourModule.js";
 
 describe("Your Module Test Suite", () => {
