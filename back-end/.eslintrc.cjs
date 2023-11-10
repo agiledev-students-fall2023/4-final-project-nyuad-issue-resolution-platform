@@ -4,53 +4,49 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: 'standard',
+  extends: "standard",
   overrides: [
     {
       env: {
         node: true
       },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
+      files: [".eslintrc.{js,cjs}", "**/test.js"],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: "script"
       }
     }
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
+    ecmaVersion: "latest",
+    sourceType: "module"
   },
   rules: {
-    'semi': [
-      'error',
-      'always'
+    semi: ["error", "always"],
+    "no-var": ["error"],
+    "prefer-const": [
+      "warn",
+      {
+        destructuring: "any",
+        ignoreReadBeforeAssign: false
+      }
     ],
-    'no-var': [
-      'error',
-    ],
-    'prefer-const': ['warn', {
-      'destructuring': 'any',
-      'ignoreReadBeforeAssign': false
-    }],
-    'curly': ['warn'],
-    'eqeqeq': ['error'],
-    'no-multi-spaces': ['warn'],
-    'no-lone-blocks': ['error'],
-    'no-self-compare': ['error'],
-    'no-unused-expressions': ['error'],
-    'no-useless-call': ['error'],
-    'no-use-before-define': ['warn'],
+    curly: ["warn"],
+    eqeqeq: ["error"],
+    "no-multi-spaces": ["warn"],
+    "no-lone-blocks": ["error"],
+    "no-self-compare": ["error"],
+    "no-unused-expressions": ["error"],
+    "no-useless-call": ["error"],
+    "no-use-before-define": ["warn"],
 
-    'camelcase': ['warn', { properties: 'never' }],
-    'func-call-spacing': ['off'],
-    'no-lonely-if': ['off'],
-    'array-bracket-spacing': ['warn'],
+    camelcase: ["warn", { properties: "never" }],
+    "func-call-spacing": ["off"],
+    "no-lonely-if": ["off"],
+    "array-bracket-spacing": ["warn"],
 
-    'no-console': ['off'],
+    "no-console": ["off"],
     "space-before-function-paren": ["off"],
-    "quotes": ["off"],
-    "indent": "off"
+    quotes: ["off"],
+    indent: "off"
   }
-}
+};
