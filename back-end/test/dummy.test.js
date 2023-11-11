@@ -1,14 +1,13 @@
 /*eslint-disable*/
-
-import chai from "chai";
-import { expect } from "chai";
+import { assert } from "chai";
 
 describe("Sample Test Suite", () => {
   it("should pass this test", () => {
-    expect(1 + 1).to.equal(2);
+    assert.equal(1 + 1, 2);
   });
 
   it("should fail this test", () => {
-    expect(2 * 2).to.equal(5);
+    assert.equal(2 * 2, 5);
   });
 });
+/*eslint-enable*/
