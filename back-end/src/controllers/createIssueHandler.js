@@ -2,6 +2,8 @@ import { publicpath } from "../../app.js";
 import { promises as fs } from 'fs';
 
 export async function createIssueHandler(req, res) {
+    const { studentNetID } = req.params;
+  
     try {
       const {
         studentNetID: ID,
@@ -13,11 +15,12 @@ export async function createIssueHandler(req, res) {
       } = req.body;
   
       const filePath = publicpath + '/json/mockapi.json';
-      const lastIndex = jsonData.length > 0 ? jsonData[jsonData.length - 1].index : 0;
   
-      // read the existing JSON file
+      // Read the existing JSON file
       const fileContent = await fs.readFile(filePath, 'utf8');
       const jsonData = JSON.parse(fileContent);
+  
+      const lastIndex = jsonData.length > 0 ? jsonData[jsonData.length - 1].index : 0;
   
       jsonData.push({
         index: lastIndex + 1,
@@ -29,7 +32,7 @@ export async function createIssueHandler(req, res) {
         currentStatus,
       });
   
-      // write the updated JSON back to the file
+      // Write the updated JSON back to the file
       await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2));
   
       console.log('Data written to the file successfully.');
@@ -39,3 +42,4 @@ export async function createIssueHandler(req, res) {
       res.status(500).json({ error: 'An error occurred while writing data to the file' });
     }
   }
+  

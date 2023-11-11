@@ -4,7 +4,9 @@ import { createIssueHandler } from '../controllers/createIssueHandler.js';
 
 const router = express.Router();
 
-router.post("/:paraName", createIssueHandler) //controller logic
+//router.get('/:studentNetID', createIssueHandler);
+
+router.post('/:studentNetID', createIssueHandler);
 
 
 export default router;
