@@ -3,6 +3,10 @@ import closebutton from "../../../assets/images/cross1.png";
 import "./CreateRequest.css";
 
 export function CreateRequest({ isVisible, onClose, departmentOptions }) {
+  const mockStudent = {
+    name: "Ted Mosby",
+    netid: "tm2005"
+  };
   const [departments, setDepartments] = useState([]);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -26,7 +30,7 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     formData.set("uploadedFiles", selectedFiles);
 
     try {
-      const response = await fetch(`${BASE_URL}/api/actions/student${formData}`, {
+      const response = await fetch(`${BASE_URL}/api/actions/student/${mockStudent.netid}`, {
         method: "POST",
         body: formData
       });
