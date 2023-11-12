@@ -26,6 +26,8 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+    formData.append('studentNetID', mockStudent.netid);
+    formData.append('studentName', mockStudent.name);
     formData.set("deptTagged", departments);
     formData.set("uploadedFiles", selectedFiles);
 
@@ -47,7 +49,6 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
       console.error("Error during form submission:", error);
     }
   };
-
   return (
     <form
       onSubmit={handleFormSubmit}
@@ -58,7 +59,6 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     >
       <div className="title-container">
         <h1 className="create-request-title">Create Request</h1>
-
         <img src={closebutton} className="close-button" onClick={onClose} />
       </div>
       <div className="input-group issue-title-group">
@@ -73,12 +73,10 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
           name="issueTitle"
         />
       </div>
-
       <div className="input-group description-group">
         <label htmlFor="description" className="description-label">
           Description
         </label>
-
         <textarea
           id="description"
           className="description-input"
@@ -86,7 +84,6 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
           required
         />
       </div>
-
       <div className="department-file-group">
         <div className="department-group">
           <select
@@ -112,7 +109,6 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
             })}
           </select>
         </div>
-
         <label className="file-select-label">
           Attach file(s)
           <input
@@ -124,7 +120,6 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
           />
         </label>
       </div>
-
       <div className="selected-files-and-departments">
         <div className="selected-departments">
           <p>Selected Departments:</p>
@@ -151,7 +146,6 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
           </ul>
         </div>
       </div>
-
       <div className="submit-button-container">
         <button type="submit" className="submit-button">
           Post Request
