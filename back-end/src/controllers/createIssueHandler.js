@@ -1,9 +1,8 @@
-
 import { publicpath } from "../../app.js";
 import { promises as fs } from 'fs';
 
 export async function createIssueHandler(req, res) {
-    const { studentNetID } = req.params;
+    const { studentNetID, studentName } = req.params;
 
     try {
         const filePath = publicpath + '/json/mockapi.json';
@@ -11,39 +10,41 @@ export async function createIssueHandler(req, res) {
         // Assuming all the needed body parameters are provided correctly from the client side.
         console.log(req.body); 
         const {
-            issueTitle,
-            issueDesc,
             dateCreated, // Assuming this is sent from the client or generated here.
             timeCreated, // Assuming this is sent from the client or generated here.
             currentStatus, // This should have a default status if not provided by the client.
-            currentPriority // This should have a default priority if not provided by the client.
+            currentPriority, // This should have a default priority if not provided by the client.
+            comments
           } = req.body;
 
-        // Additional checks and processing can be performed here for attachments and departments.
-        // For example, here's how you might process an array of department tags received in the request.
-        // The actual implementation will depend on the format of departments in req.body.
-        const processedDepartments = req.body.deptTagged || []; // Add your processing logic here
-        const processedAttachments = req.body.uploadedFiles ? req.body.uploadedFiles.split(';') : []; // Add your processing logic here
+        let attachments = req.files ? req.files.map(file => file.filename) : []; // Map uploaded files to an array of filenames
 
         // Read the existing JSON file
         const fileContent = await fs.readFile(filePath, 'utf8');
         const jsonData = JSON.parse(fileContent);
 
         const issueDateCreated = dateCreated || new Date().toLocaleDateString();
-        const issueTimeCreated = timeCreated || new Date().toLocaleTimeString();
+        const issueTimeCreated = new Date().toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: undefined, // Explicitly prevent seconds from showing
+            hour12: false // Use 24-hour format, change to true for 12-hour format if preferred
+          });
+        const newcomments = ' ';
 
         const newIssue = {
             index: jsonData.length + 1,
-            studentNetID: req.body.studentNetID,
+            studentNetID: req.params.studentNetID,
             studentName: req.body.studentName, // Now taking directly from req.body with validation
-            title: issueTitle,
-            description: issueDesc,
-            attachments: processedAttachments,
-            departments: processedDepartments,
+            title: req.body.issueTitle,
+            description: req.body.issueDesc,
+            attachments: req.body.uploadedFiles,
+            departments: req.body.deptTagged,
+            comments: newcomments,
             dateCreated: issueDateCreated,
             timeCreated: issueTimeCreated,
-            currentStatus: currentStatus || 'New',
-            currentPriority: currentPriority || 'Normal',
+            currentStatus: currentStatus || 'Open',
+            currentPriority: currentPriority || 'New',
         }; 
 
         jsonData.push(newIssue);
@@ -52,6 +53,8 @@ export async function createIssueHandler(req, res) {
         await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2)); // Corrected to use async/await
 
         console.log('Issue created successfully and JSON file updated.');
+        console.log('Body:', req.body);
+        console.log('Params:', req.params);
         res.status(200).send('Issue created successfully');
     } catch (error) {
         // Handle errors
