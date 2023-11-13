@@ -17,7 +17,7 @@ export async function createIssueHandler(req, res) {
             comments
           } = req.body;
 
-        let attachments = req.files ? req.files.map(file => file.filename) : [null]; // Map uploaded files to an array of filenames
+        let attachments = req.files ? req.files.map(file => file.filename) : null; // Map uploaded files to an array of filenames
 
         // Read the existing JSON file
         const fileContent = await fs.readFile(filePath, 'utf8');
@@ -38,7 +38,7 @@ export async function createIssueHandler(req, res) {
             studentName: [req.body.studentName], // Now taking directly from req.body with validation
             title: req.body.issueTitle,
             description: req.body.issueDesc,
-            attachments: req.body.uploadedFiles.includes(',') ? req.body.uploadedFiles.split(',') : [req.body.uploadedFiles],
+            attachments: req.body.uploadedFiles ? (req.body.uploadedFiles.includes(',') ? req.body.uploadedFiles.split(',') : [req.body.uploadedFiles]) : [null],
             departments: req.body.deptTagged.includes(',') ? req.body.deptTagged.split(',') : [req.body.deptTagged],
             comments: [newcomments],
             dateCreated: issueDateCreated,
