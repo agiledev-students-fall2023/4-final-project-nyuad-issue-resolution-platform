@@ -40,7 +40,7 @@ export async function createIssueHandler(req, res) {
             description: req.body.issueDesc,
             attachments: req.body.uploadedFiles ? (req.body.uploadedFiles.includes(',') ? req.body.uploadedFiles.split(',') : [req.body.uploadedFiles]) : [null],
             departments: req.body.deptTagged.includes(',') ? req.body.deptTagged.split(',') : [req.body.deptTagged],
-            comments: [newcomments],
+            comments: [null],
             dateCreated: issueDateCreated,
             timeCreated: issueTimeCreated,
             currentStatus: currentStatus || 'Open',
