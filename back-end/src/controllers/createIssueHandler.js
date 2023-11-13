@@ -38,8 +38,8 @@ export async function createIssueHandler(req, res) {
             studentName: [req.body.studentName], // Now taking directly from req.body with validation
             title: req.body.issueTitle,
             description: req.body.issueDesc,
-            attachments: [req.body.uploadedFiles],
-            departments: [req.body.deptTagged],
+            attachments: req.body.uploadedFiles.includes(',') ? req.body.uploadedFiles.split(',') : [req.body.uploadedFiles],
+            departments: req.body.deptTagged.includes(',') ? req.body.deptTagged.split(',') : [req.body.deptTagged],
             comments: [newcomments],
             dateCreated: issueDateCreated,
             timeCreated: issueTimeCreated,
