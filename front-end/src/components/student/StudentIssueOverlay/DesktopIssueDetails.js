@@ -21,7 +21,8 @@ const DesktopIssueDetails = ({ index }) => {
         e.preventDefault(); // Prevent the default form submit action
         if (comment.trim()) {
             try {
-                const response = await axios.post(
+                const response = await axios
+                .post(
                     `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
                     {
                         issueindex: index,
