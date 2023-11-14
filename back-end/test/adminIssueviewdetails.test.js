@@ -72,7 +72,6 @@ describe("Unit Tests for Retrieval of Admin specific indexed issue of a departme
 });
 
 // Integration Testing
-
 import chaiHttp from "chai-http";
 chai.use(chaiHttp);
 
