@@ -56,15 +56,27 @@ describe("Unit Tests for Retrieval of Admin specific indexed issue of a departme
       "Returned data should match the filtered data"
     );
   });
+
+  // Edge Case Test Case
+  it('should return an empty array when specific index of the issue is not found', async () => {
+    req.params.paramName = "darkSoul";
+    axiosGetStub.resolves({ data: mockData });
+    await adminIssueViewDetailsHandler(req, res);
+    assert.isTrue(axiosGetStub.calledOnce, "axios.get should be called once");
+    assert.equal(
+        res.json.firstCall.args[0].length,
+        0,
+        "Number of records should be 0 when paramName is not found"
+    );
+  });
 });
 
 // Integration Testing
 
 import chaiHttp from "chai-http";
-
 chai.use(chaiHttp);
 
-describe("Unit Tests for Retrieval of Admin specific indexed issue of a department Endpoints", () => {
+describe("Integration Tests for Retrieval of Admin specific indexed issue of a department Endpoints", () => {
   describe("GET /api/issues/student/:department/:paramName", () => {
     it("should retrieve issues for a given department with a specific issue index", async () => {
       const department  = "IT";
@@ -91,18 +103,18 @@ describe("Unit Tests for Retrieval of Admin specific indexed issue of a departme
       });
     });
 
-    // it("should handle requests for a non-existent student gracefully", async () => {
-    //   const nonExistentStudentNetID = "nonexistent";
-    //   const res = await chai
-    //     .request(server)
-    //     .get(`/api/issues/student/${nonExistentStudentNetID}`);
-
-    //   assert.equal(
-    //     res.status,
-    //     500,
-    //     "Response status should be 500 for a non-existent student"
-    //   );
-    // });
+    it("should handle requests for a non-existent department & non existent issue index gracefully", async () => {
+      const nonExistentDepartment  = "nonexistent";
+      const nonExistentissueindex  = "nonexistent";
+      const res = await chai
+        .request("http://localhost:5000")
+        .get(`/api/issues/admin/${nonExistentDepartment}/${nonExistentissueindex}`);
+        assert.lengthOf(
+        res.body,
+        0,
+        "Response body should be empty for nonExistentDepartment and nonExistentissueIndex"
+      );
+    });
   });
 });
 /* eslint-enable */
