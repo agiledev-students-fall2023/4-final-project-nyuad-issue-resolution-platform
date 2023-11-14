@@ -1,38 +1,38 @@
-
-// const StudentIssue = require('../models/studentIssue');
-
-// async function getStudentIssueDetails(req, res) {
-//   try {
-//     const { id } = req.params;
-//     const studentIssue = await StudentIssue.findById(id);
-//     if (!studentIssue) {
-//       return res.status(404).json({ message: 'Student issue not found' });
-//     }
-//     return res.status(200).json(studentIssue);
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({ message: 'Server error' });
-//   }
-// }
-
-// module.exports = { getStudentIssueDetails };
-
 import axios from "axios";
 
 // The function retrieves all the issues related to this student
 export async function studentIssueViewDetailsHandler(req, res) {
   const { paramName } = req.params;
   const { studentNetID } = req.params;
+
+  if (!studentNetID) {
+    return res.status(400).send("Missing or invalid studentNetID.");
+  }
+
+  if (!paramName) {
+    return res.status(400).send("Missing or invalid issue index.");
+  }
+
   try {
     // Assuming the data you want is at the response.data property
     const response = await axios.get(
       `${process.env.BACKEND_URL}/api/issues/student/${studentNetID}`
     );
 
+    // Check if any data is returned for the student
+    if (!response.data || response.data.length === 0) {
+      return res.status(500).send("No issues found for the given studentNetID.");
+    }
+
     // Assuming response.data is an array of items and each item has a index
     const filteredData = response.data.filter(
       (item) => String(item.index) === String(paramName)
     );
+
+    // Check if the specific issue index exists
+    if (filteredData.length === 0) {
+      return res.status(500).send("Issue with the given index not found.");
+    }
 
     res.json(filteredData); // Send only the data that matches the specific issue index
   } catch (error) {
