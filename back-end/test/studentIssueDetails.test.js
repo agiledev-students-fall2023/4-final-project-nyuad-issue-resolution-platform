@@ -10,9 +10,76 @@ let server = "http://localhost:5000";
 const data = await fs.readFile("./public/json/mockapi.json", "utf8");
 const mockResponse = JSON.parse(data);
 
+// Unit Testing
+
+describe("Unit Tests for studentIssueViewDetailsHandler", () => {
+    let req, res, axiosGetStub, sendSpy, jsonSpy, statusSpy;
+
+    beforeEach(() => {
+        req = { params: { paramName: "123", studentNetID: "s123456" } };
+        res = {
+            json: sinon.spy(),
+            status: sinon.stub().returns({ send: sinon.spy() })
+        };
+        sendSpy = res.status().send;
+        jsonSpy = res.json;
+        statusSpy = res.status;
+        axiosGetStub = sinon.stub(axios, "get");
+    });
+
+    afterEach(() => {
+        sinon.restore();
+    });
+
+    it("should return 400 error if studentNetID is missing", async () => {
+        delete req.params.studentNetID;
+        await studentIssueViewDetailsHandler(req, res);
+        assert.isTrue(statusSpy.calledWith(400));
+        assert.isTrue(sendSpy.calledWith("Missing or invalid studentNetID."));
+    });
+
+    it("should return 400 error if paramName is missing", async () => {
+        delete req.params.paramName;
+        await studentIssueViewDetailsHandler(req, res);
+        assert.isTrue(statusSpy.calledWith(400));
+        assert.isTrue(sendSpy.calledWith("Missing or invalid issue index."));
+    });
+
+    it("should return filtered data for a valid request", async () => {
+        const mockData = [{ index: "123", detail: "Issue details" }];
+        axiosGetStub.resolves({ data: mockData });
+        await studentIssueViewDetailsHandler(req, res);
+        assert.isTrue(jsonSpy.calledWith([mockData[0]]));
+    });
+
+    it("should return 500 error if no data found for student", async () => {
+        axiosGetStub.resolves({ data: [] });
+        await studentIssueViewDetailsHandler(req, res);
+        assert.isTrue(statusSpy.calledWith(500));
+        assert.isTrue(sendSpy.calledWith("No issues found for the given studentNetID."));
+    });
+
+    it("should return 500 error if issue index not found", async () => {
+        const mockData = [{ index: "124", detail: "Issue details" }];
+        axiosGetStub.resolves({ data: mockData });
+        await studentIssueViewDetailsHandler(req, res);
+        assert.isTrue(statusSpy.calledWith(500));
+        assert.isTrue(sendSpy.calledWith("Issue with the given index not found."));
+    });
+
+    it("should handle axios errors", async () => {
+        axiosGetStub.rejects(new Error("Axios error"));
+        await studentIssueViewDetailsHandler(req, res);
+        assert.isTrue(statusSpy.calledWith(500));
+        assert.isTrue(sendSpy.calledWith("An error occurred while retrieving the data."));
+    });
+});
+
+// Integration Testing
+
 chai.use(chaiHttp);
 
-describe("StudentIssueViewDetailsHandler Test Suite", () => {
+describe("Integration Tests for Student Issue Details", () => {
   // Stub for axios
   let req, res, axiosStub;
 
