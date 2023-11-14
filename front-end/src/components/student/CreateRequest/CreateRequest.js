@@ -20,8 +20,7 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     );
   };
   const handleFileChange = (event) => {
-    setSelectedFiles([...selectedFiles, event.target.files]);
-    console.log(event.target.files);
+    setSelectedFiles([...selectedFiles, ...Array.from(event.target.files)]);
   };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -29,7 +28,9 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     formData.append('studentNetID', mockStudent.netid);
     formData.append('studentName', mockStudent.name);
     formData.set("deptTagged", departments);
-    formData.set("uploadedFiles", selectedFiles);
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append('uploadedFiles', selectedFiles[i]);
+    }
 
     try {
       const response = await fetch(`${BASE_URL}/api/actions/student/${mockStudent.netid}`, {
@@ -136,13 +137,13 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
         <div className="selected-files">
           <p>Uploaded Files:</p>
           <ul className="file-list">
-            {selectedFiles.length > 0 ? (
-              selectedFiles.map((file) => {
-                return <li key={file[0].name}>{file[0].name}</li>;
-              })
-            ) : (
-              <li>No files uploaded</li>
-            )}
+          {selectedFiles.length > 0 ? (
+           selectedFiles.map((file, index) => {
+          return <li key={index}>{file.name}</li>;
+  })
+) : (
+  <li>No files uploaded</li>
+)}
           </ul>
         </div>
       </div>
