@@ -1,5 +1,11 @@
 Keep all the test files in this directory. Name your test files with the `.test.js` suffix, matching the module or file you want to test. 
 
+Before running the integration testing start the backend server with
+
+```
+npm run dev
+```
+
 Run tests with 
 ```
 npm test
