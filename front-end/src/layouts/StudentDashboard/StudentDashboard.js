@@ -16,48 +16,6 @@ const StudentDashboard = () => {
   const [isIssueOverlayOpen, setIsIssueOverlayOpen] = useState(false);
   const [request, setRequest] = useState(null);
 
-  // API
-  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-  const mockStudent = {
-    name: "Ted Mosby",
-    netid: "tm2005"
-  };
-
-  useEffect(() => {
-    let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${BASE_URL}/api/issues/student/${mockStudent.netid}`
-        );
-        const sortedData = response.data.sort(
-          (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
-        );
-        if (isMounted) {
-          setAllRequests(sortedData);
-          setDisplayedRequests(sortedData);
-        }
-        console.log("Fetched Data");
-      } catch (error) {
-        if (isMounted) {
-          console.error("Error fetching data from API:", error);
-        }
-      }
-    };
-
-    fetchData();
-
-    // Interval for polling from the server - 5 seconds
-    const intervalId = setInterval(fetchData, 5000);
-
-    // Clean up interval on unmount
-    return () => {
-      clearInterval(intervalId); // clear interval on unmount to prevent memory leaks
-      isMounted = false; // set flag to false when we know the component will unmount
-    };
-  }, []); // Empty dependency array means this effect will only run once on mount
-
   // State initialization for tracking window width and adjusting display
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // Other state initializations for UI functionalities
@@ -69,10 +27,79 @@ const StudentDashboard = () => {
   const [sortOrder, setSortOrder] = useState("latestFirst");
   const [isCreateRequestVisible, setIsCreateRequestVisible] = useState(false);
 
-  // all the useState hooks below where the function isn't called yet can be put below to escape linter
   /* eslint-disable no-unused-vars */
   const [studentName, setStudentName] = useState("Ted Mosby");
   /* eslint-enable no-unused-vars */
+
+  // API
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  const mockStudent = {
+    name: "Ted Mosby",
+    netid: "tm2005"
+  };
+
+  const applyCurrentFilters = (newData) => {
+    let filteredData = newData;
+
+    if (selectedDepartment !== "") {
+      filteredData = filteredData.filter((request) =>
+        request.departments.includes(selectedDepartment)
+      );
+    }
+
+    if (selectedStatus !== "") {
+      filteredData = filteredData.filter(
+        (request) => request.currentStatus === selectedStatus
+      );
+    }
+
+    if (searchQuery !== "") {
+      filteredData = filteredData.filter((request) =>
+        request.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    return filteredData;
+  };
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_URL}/api/issues/student/${mockStudent.netid}`
+        );
+        const sortedData = response.data.sort(
+          (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
+        );
+        if (isMounted) {
+          setAllRequests(sortedData);
+          const filteredData = applyCurrentFilters(sortedData);
+          setDisplayedRequests(filteredData);
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error("Error fetching data from API:", error);
+        }
+      }
+    };
+
+    fetchData();
+    const intervalId = setInterval(fetchData, 5000);
+
+    return () => {
+      clearInterval(intervalId);
+      isMounted = false;
+    };
+  }, [selectedDepartment, selectedStatus, searchQuery]);
+
+  // Event listener to track window resizing
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Event listener to track window resizing
   useEffect(() => {
@@ -139,8 +166,8 @@ const StudentDashboard = () => {
     };
   }, [isIssueOverlayOpen]);
 
-   // Add event listener to handle clicks outside the overlay
-   useEffect(() => {
+  // Add event listener to handle clicks outside the overlay
+  useEffect(() => {
     const handleOutsideClick = (e) => {
       if (overlayRef.current && !overlayRef.current.contains(e.target)) {
         handleCreateRequest();
@@ -537,13 +564,13 @@ const StudentDashboard = () => {
         </div>
       </div>
       {isCreateRequestVisible && (
-          <div ref={overlayRef}>
+        <div ref={overlayRef}>
           <CreateRequest
             isVisible={isCreateRequestVisible}
             onClose={handleCreateRequest}
             departmentOptions={departmentOptions}
           />
-          </div>
+        </div>
       )}
       {/* The Overlay popup is triggered by clicking on the title or description */}
       {/* It is only for Desktop view for now */}

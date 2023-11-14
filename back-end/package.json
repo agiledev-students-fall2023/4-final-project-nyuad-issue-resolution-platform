@@ -7,13 +7,15 @@
     "test": "mocha test/**/*.test.js",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "coverage": "c8 mocha test/**/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.0",
+    "c8": "^8.0.1",
     "chai-http": "^4.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

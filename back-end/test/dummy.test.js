@@ -10,4 +10,4 @@ describe("Sample Test Suite", () => {
     assert.equal(2 * 2, 5);
   });
 });
-// /*eslint-enable*/
+/*eslint-enable*/
