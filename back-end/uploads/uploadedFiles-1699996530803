@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-image: url('https://assets.bonappetit.com/photos/653814a0367e9e8eb8ad5115/16:9/w_1920,c_limit/Watermelon%20Palestine.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .title {
+      font-size: 50px;
+      color: #000000;
+    }
+
+    .email {
+      font-size: 30px;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="interactiveContent">
+    <div class="title"></div>
+    <div class="email"></div>
+  </div>
+
+  <script>
+    const titleText = "Contact us through";
+    const emailText = "palicoaltion@gmail.com";
+
+    let titleElement = document.querySelector(".title");
+    let emailElement = document.querySelector(".email");
+
+    function typeText(element, text, delay = 100) {
+      element.textContent = ""; // Clear existing text
+      let index = 0;
+
+      function addLetter() {
+        if (index < text.length) {
+          element.textContent += text[index];
+          index++;
+          setTimeout(addLetter, delay);
+        }
+      }
+
+      addLetter();
+    }
+
+    // Trigger the typing effect for the title and email
+    setTimeout(function() {
+      typeText(titleElement, titleText);
+    }, 1000); // Delay for 1 second
+
+    setTimeout(function() {
+      typeText(emailElement, emailText);
+    }, 3000); // Delay for 3 seconds
+  </script>
+</body>
+</html>
+

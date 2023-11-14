@@ -11,7 +11,7 @@ import studentIssueUpdate from "./src/routes/studentIssueUpdate.js";
 import adminIssues from "./src/routes/adminIssues.js";
 import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 import adminPostDetails from "./src/routes/adminPostDetails.js";
-import createIssue from "./src/routes/createIssue.js"
+import createIssue from "./src/routes/createIssue.js";
 
 // import multer from "multer"; - configure when required
 
@@ -66,6 +66,6 @@ app.use("/api/issues/admin/", adminIssueViewDetails);
 
 app.use("/api/actions/admin/", adminPostDetails);
 
-app.use("/api/actions/student", createIssue)
+app.use("/api/actions/student", createIssue);
 
 export default app;
