@@ -16,34 +16,38 @@ export async function studentIssueUpdateHandler(req, res) {
     const jsonData = JSON.parse(fileContent);
 
 
-    const specificIssue = jsonData.filter(
-        (item) => String(item.index) === String(issueindex)
-      );
+  //   const specificIssue = jsonData.filter(
+  //       (item) => String(item.index) === String(issueindex)
+  //     );
 
-    if (newcomment !== undefined) {
-        specificIssue[0].comments.unshift(newcomment);
-    }
-    if (currentStatus !== undefined) {
-        specificIssue[0].currentStatus = currentStatus;
-    }
+  //   if (newcomment !== undefined) {
+  //       specificIssue[0].comments.unshift(newcomment);
+  //   }
+  //   if (currentStatus !== undefined) {
+  //       specificIssue[0].currentStatus = currentStatus;
+  //   }
 
-    fs.writeFile(filePath, JSON.stringify(jsonData, null, '\t'), (err) => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log('File written successfully.');
-        }
-      });
+  //   fs.writeFile(filePath, JSON.stringify(jsonData, null, '\t'), (err) => {
+  //       if (err) {
+  //         console.error(err);
+  //       } else {
+  //         console.log('File written successfully.');
+  //       }
+  //     });
 
-  const updateData = req.body; // This should contain the data you want to update
+  // const updateData = req.body; // This should contain the data you want to update
 
   try {
     // Make a POST request to the backend API to update the student issue
+    // const response = await axios.post(
+    //   `${process.env.BACKEND_URL}/api/actions/student/${studentNetID}`,
+    //   updateData
+    // );
+    
     const response = await axios.post(
-      `${process.env.BACKEND_URL}/api/actions/student/${studentNetID}`,
-      updateData
+      `${process.env.BACKEND_URL}/json/mockapi.json`,
+      updateData // will be replaced with db call
     );
-
 
     const specificIssue = jsonData.filter(
         (item) => String(item.index) === String(paramName)
