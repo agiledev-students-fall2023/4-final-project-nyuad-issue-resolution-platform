@@ -127,3 +127,6 @@ typings/
 
 ## Test coverage temp files
 back-end/coverage/
+
+#uploads file
+backend/uploads/
