@@ -32,4 +32,34 @@ The [CONTRIBUTING.md](./CONTRIBUTING.md) file contains information on how to con
 
 
 ## How to launch the app
-The project team will provide instructions for building and testing the project once it reaches that stage
+1. Clone this repository to your local machine
+2. Navigate into project direcotry
+3. Install the Dependencies by running 
+```
+npm run install-deps
+```
+This will install the dependencies specified in the `package.json`, `front-end/package.json`, `back-end/package.json` files.
+
+4. Start the Development Servers by running
+```
+npm run dev
+```
+This will start the backend server in the `back-end/` directory using nodemon and the frontend development server in the `front-end/`directory using npm start.
+
+5. You can start the backend only by running
+```
+npm run server
+```
+
+6. You can start the frontend only by running 
+```
+npm run client
+```
+
+More detail instructions for backend and frontend setup can be found in respective folder's README.md files.
+
+### Testing
+Backend testing details can be found in [back-end/test/README.md](back-end/test/README.md) file.
+
+Currently, the project is under development. The team will provide instructions for building the project once it reaches that stage.
+
