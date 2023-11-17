@@ -16,7 +16,7 @@ export async function studentIssueViewDetailsHandler(req, res) {
   try {
     // Assuming the data you want is at the response.data property
     const response = await axios.get(
-      `${process.env.BACKEND_URL}/api/issues/student/${studentNetID}`
+      `${process.env.BACKEND_URL}/json/mockapi.json` // will be replaced with db call
     );
 
     // Check if any data is returned for the student
