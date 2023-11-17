@@ -36,7 +36,8 @@ export async function adminPostHandler(req, res) {
     if (err) {
       console.error(err);
     } else {
-      console.log('File written successfully.');
+      res.status(200).send("File written successfully");
     }
   });
+  res.status(200).send("Sucess POST Request");
 }
