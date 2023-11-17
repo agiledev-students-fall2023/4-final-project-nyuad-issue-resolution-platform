@@ -28,10 +28,11 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
     formData.append('studentNetID', mockStudent.netid);
     formData.append('studentName', mockStudent.name);
     formData.set("deptTagged", departments);
-    for (let i = 0; i < selectedFiles.length; i++) {
+    if (selectedFiles.length > 1) {
+    for (let i = 0; i < selectedFiles.length - 1; i++) {
       formData.append('uploadedFiles', selectedFiles[i]);
     }
-
+  }
     try {
       const response = await fetch(`${BASE_URL}/api/actions/student/${mockStudent.netid}`, {
         method: "POST",
