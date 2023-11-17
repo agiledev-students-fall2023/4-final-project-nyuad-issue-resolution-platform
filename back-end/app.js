@@ -54,10 +54,10 @@ app.use("/api/login", login);
 app.use("/api/issues/student", studentIssues);
 
 // Student Side Issue View Details
-app.use("/api/issues/student/", studentIssueViewDetails);
+// app.use("/api/issues/student/", studentIssueViewDetails);
 
 // Student Side Issue Update
-app.use("/api/actions/student/", studentIssueUpdate);
+app.use("/api/actions/student", studentIssueUpdate);
 
 // Admin side issue retrieval
 app.use("/api/issues/admin", adminIssues);
