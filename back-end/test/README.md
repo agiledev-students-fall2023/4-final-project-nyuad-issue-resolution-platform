@@ -1,5 +1,11 @@
 Keep all the test files in this directory. Name your test files with the `.test.js` suffix, matching the module or file you want to test. 
 
+Before running the integration testing start the backend server with
+
+```
+npm run dev
+```
+
 Run tests with 
 ```
 npm test
@@ -30,3 +36,11 @@ For reference [Official Assert Documentation](https://www.chaijs.com/api/assert/
 Use [`sinon`](https://www.npmjs.com/package/sinon) for stubs, mocks, and fakes. Use [`chaihttp`](https://www.chaijs.com/plugins/chai-http/) to simplify testing of express.js routes.
 
 Also checkout the [dummy test file](./dummy.test.js) as working example of test file. 
+
+
+We are using `c8` to check test coeverage. You can check test coverage with
+
+```
+npm run coverage
+```
+inside the back-end directory. Start the backend server before checking test coverage.
