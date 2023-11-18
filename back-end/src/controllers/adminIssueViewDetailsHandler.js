@@ -1,18 +1,18 @@
 import axios from "axios";
+// import the issueDetailsModelSchema
 
 // The function retrieves all the issues related to this departmen
 export async function adminIssueViewDetailsHandler(req, res) {
-  const { paramName } = req.params;
+  const { index } = req.params;
   // const { department } = req.params;
   try {
-    // Assuming the data you want is at the response.data property
+    // const allIssues = await Issue.find({ Issueindex : index});
     const response = await axios.get(
       `${process.env.BACKEND_URL}/json/mockapi.json` // will be replaced with db call
     );
-
     // Assuming response.data is an array of items and each item has a index
     const filteredData = response.data.filter(
-      (item) => String(item.index) === String(paramName)
+      (item) => String(item.index) === String(index)
     );
 
     res.json(filteredData); // Send only the data that matches the specific issue index
