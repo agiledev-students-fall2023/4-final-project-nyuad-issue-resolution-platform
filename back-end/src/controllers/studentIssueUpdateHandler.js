@@ -44,10 +44,10 @@ export async function studentIssueUpdateHandler(req, res) {
     //   updateData
     // );
     
-    const response = await axios.post(
-      `${process.env.BACKEND_URL}/json/mockapi.json`,
-      updateData // will be replaced with db call
-    );
+    // const response = await axios.post(
+    //   `${process.env.BACKEND_URL}/json/mockapi.json`,
+    //   updateData // will be replaced with db call
+    // );
 
     const specificIssue = jsonData.filter(
         (item) => String(item.index) === String(paramName)
@@ -70,7 +70,7 @@ export async function studentIssueUpdateHandler(req, res) {
 
 
     // Send a response back to the client indicating success
-    res.json({ message: 'Issue updated successfully', updatedIssue: response.data });
+    res.json({ message: 'Issue updated successfully'});
   } catch (error) {
     // Log the error and send an appropriate response
     console.error('Error updating data:', error.message);
