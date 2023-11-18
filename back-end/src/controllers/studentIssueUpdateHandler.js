@@ -37,6 +37,14 @@ export async function studentIssueUpdateHandler(req, res) {
 
   // const updateData = req.body; // This should contain the data you want to update
 
+  if (!studentNetID) {
+    return res.status(400).send("Missing or invalid studentNetID.");
+  }
+
+  if (!paramName) {
+    return res.status(400).send("Missing or invalid issue index.");
+  }
+
   try {
     // Make a POST request to the backend API to update the student issue
     // const response = await axios.post(
