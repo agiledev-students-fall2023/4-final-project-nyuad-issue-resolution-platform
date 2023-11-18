@@ -35,8 +35,10 @@ export async function adminPostHandler(req, res) {
   fs.writeFile(filePath, JSON.stringify(jsonData, null, '\t'), (err) => {
     if (err) {
       console.error(err);
+      res.status(500).send("Errror");
     } else {
-      console.log('File written successfully.');
+      res.status(200).send("File written successfully");
     }
   });
+  res.status(200).send("Success");
 }

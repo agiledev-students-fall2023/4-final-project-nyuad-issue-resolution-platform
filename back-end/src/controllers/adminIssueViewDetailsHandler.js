@@ -7,7 +7,7 @@ export async function adminIssueViewDetailsHandler(req, res) {
   try {
     // Assuming the data you want is at the response.data property
     const response = await axios.get(
-      `${process.env.BACKEND_URL}/api/issues/admin/${department}`
+      `${process.env.BACKEND_URL}/json/mockapi.json` // will be replaced with db call
     );
 
     // Assuming response.data is an array of items and each item has a index
