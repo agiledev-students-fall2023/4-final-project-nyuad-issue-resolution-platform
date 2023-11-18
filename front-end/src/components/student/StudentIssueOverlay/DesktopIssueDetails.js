@@ -210,7 +210,9 @@ const DesktopIssueDetails = ({ index }) => {
                             </div>
 
                             {/* Map through the comments and display them starting with Update 2 */}
-                            {issue.comments[0] != null && (issue.comments.map((update, index) => (
+                            {issue.comments[0] != null &&
+                            (issue.comments.map(
+                                (update, index) => (
                                 <div key={index} className="update">
                                     {/* Updates in Reverse */}
                                     <h4>Update {issue.comments.length - index}</h4>
