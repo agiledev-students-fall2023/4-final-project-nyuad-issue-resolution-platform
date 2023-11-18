@@ -2,8 +2,9 @@ import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import sinon from 'sinon';
 import axios from 'axios';
-import fs from 'fs/promises';
+import { promises as fs } from 'fs';
 import { studentIssueUpdateHandler } from '../src/controllers/studentIssueUpdateHandler.js';
+import { publicpath } from "../app.js";
 
 let server = "http://localhost:5000/";
 
@@ -56,15 +57,50 @@ chai.use(chaiHttp);
 
 describe('Integration Tests for studentIssueUpdateHandler', () => {
 
+    const studentNetID = "tm2005";
+    const paramName = "6";
+    const filePath = publicpath + "/json/mockapi.json";
+
+    let originalData;
+
+    beforeEach(async () => {
+      // Save the original data before each test
+      const fileContent = await fs.readFile(filePath, 'utf8');
+      originalData = JSON.parse(fileContent);
+    });
+
+    afterEach(async () => {
+      // Restore the original data after each test
+      // await chai.request(server)
+      //   .post(`api/actions/student/${studentNetID}/${paramName}`)
+      //   .send(originalData);
+
+      try {
+
+        // const specificIssue = originalData.filter(
+        //   (item) => String(item.index) === String(paramName)
+        // );
+
+        // await fs.promises.writeFile(filePath, JSON.stringify(originalData, null, 2));
+        await fs.writeFile(filePath, JSON.stringify(originalData, null, '\t'), (err) => {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('File written successfully.');
+          }
+        });
+        console.log('mockapi.json restored to original state');
+      } catch (err) {
+        console.error('Error restoring mockapi.json:', err);
+      }
+    });
+
     it('should update the issue and return the correct response when the request is valid', async () => {
 
         // Execute the handler
         // await studentIssueUpdateHandler(req, res);
 
         // axiosStub.resolves(mockResponse);
-
-        const studentNetID = "tm2005";
-        const paramName = "6";
 
         const res = await chai.request(server)
             .post(`api/actions/student/${studentNetID}/${paramName}`)
