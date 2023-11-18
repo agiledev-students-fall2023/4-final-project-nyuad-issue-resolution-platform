@@ -210,13 +210,15 @@ const DesktopIssueDetails = ({ index }) => {
                             </div>
 
                             {/* Map through the comments and display them starting with Update 2 */}
-                            {issue.comments.map((update, index) => (
+                            {issue.comments[0] != null &&
+                            (issue.comments.map(
+                                (update, index) => (
                                 <div key={index} className="update">
                                     {/* Updates in Reverse */}
                                     <h4>Update {issue.comments.length - index}</h4>
                                     <p>{update}</p>
                                 </div>
-                            ))}
+                            )))}
                         </div>
 
                         <div className="add-comment">
@@ -248,7 +250,7 @@ const DesktopIssueDetails = ({ index }) => {
                                 {issue.departments.map((dept, index) => <li className='issue-li department-pill' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
                             </ul>
                         </div>
-                        {issue.attachments.length > 1 && (
+                        {issue.attachments[0] != null && (
                             <div className="attachments">
                                 <h3>Attachments</h3>
                                 <ul className='attachment-box'>
