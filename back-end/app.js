@@ -12,11 +12,10 @@ import adminIssues from "./src/routes/adminIssues.js";
 import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 import adminPostDetails from "./src/routes/adminPostDetails.js";
 import createIssue from "./src/routes/createIssue.js";
-import dotenv from "dotenv";
+import "./env-config.js"; //to ensure that the environment variables are loaded before everything else
 /* eslint-disable no-unused-vars */
 import db from "./database/db.js";
 /* eslint-enable no-unused-vars */
-dotenv.config();
 
 // import multer from "multer"; - configure when required
 
