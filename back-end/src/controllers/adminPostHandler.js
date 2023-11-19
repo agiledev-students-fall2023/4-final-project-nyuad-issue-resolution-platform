@@ -1,5 +1,4 @@
-import { publicpath } from "../../app.js";
-import { promises as fs } from 'fs';
+import Issue from '../../models/issueModel.js';
 
 export async function adminPostHandler(req, res) {
   const issueindex = req.body.issueindex;
@@ -7,38 +6,29 @@ export async function adminPostHandler(req, res) {
   const currentStatus = req.body.issueStatus;
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
-  const filePath = publicpath + "/json/mockapi.json";
-  const fileContent = await fs.readFile(filePath, 'utf8');
-  const jsonData = JSON.parse(fileContent);
-
-  const specificIssue = jsonData.filter(
-    (item) => String(item.index) === String(issueindex)
-  );
-
-  if (newcomment !== undefined) {
-    specificIssue[0].comments.unshift(newcomment);
-  }
-  if (currentStatus !== undefined) {
-    specificIssue[0].currentStatus = currentStatus;
-  }
-  if (currentPriority !== undefined) {
-    specificIssue[0].currentPriority = currentPriority;
-  }
-  if (departmentTags !== undefined && departmentTags.length !== 0) {
-    specificIssue[0].departments = departmentTags;
-  }
-
-  jsonData.filter(
-    (item) => String(item.index) === String(issueindex)
-  )[0] = specificIssue;
-
-  fs.writeFile(filePath, JSON.stringify(jsonData, null, '\t'), (err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Errror");
-    } else {
-      res.status(200).send("File written successfully");
+  try {
+    const specificIssue = await Issue.findOne({ index: issueindex });
+    console.log(specificIssue);
+    if (!specificIssue) {
+      console.error('This specific issue could not found');
+      return;
     }
-  });
+      if (newcomment !== undefined) {
+      specificIssue.comments.unshift(newcomment);
+    }
+    if (currentStatus !== undefined) {
+      specificIssue.currentStatus = currentStatus;
+    }
+    if (currentPriority !== undefined) {
+      specificIssue.currentPriority = currentPriority;
+    }
+    if (departmentTags !== undefined && departmentTags.length !== 0) {
+      specificIssue.departments = departmentTags;
+    }
+    const updatedIssue = await specificIssue.save();
+    console.log('Issue updated:', updatedIssue);
+  } catch (err) {
+    console.error('Error updating issue:', err);
+  }
   res.status(200).send("Success");
 }
