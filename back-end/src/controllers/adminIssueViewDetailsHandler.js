@@ -6,7 +6,7 @@ export async function adminIssueViewDetailsHandler(req, res) {
   // const { department } = req.params;
   try {
     // Assuming the data you want is at the response.data property
-    const result = Issue.find({ index: paramName });
+    const result = await Issue.find({ index: paramName });
     console.log(result);
     res.json(result); // Send only the data that matches the specific issue index
   } catch (error) {
