@@ -1,6 +1,6 @@
 import Issue from '../../models/issueModel.js';
 
-// The function retrieves all the issues related to this departmen
+// The function retrieves all the issues related to this department with index
 export async function adminIssueViewDetailsHandler(req, res) {
   const { paramName } = req.params;
   // const { department } = req.params;
