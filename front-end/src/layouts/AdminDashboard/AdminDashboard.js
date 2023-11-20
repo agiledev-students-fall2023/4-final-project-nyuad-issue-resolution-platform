@@ -31,7 +31,10 @@ function AdminDashboard() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `${BASE_URL}/api/issues/admin/${currentDepartment}`
+                    `${BASE_URL}/api/issues/admin/${currentDepartment}`,
+                    {
+                        withCredentials: true
+                      }
                 );
                 setIssues(response.data);
             } catch (error) {

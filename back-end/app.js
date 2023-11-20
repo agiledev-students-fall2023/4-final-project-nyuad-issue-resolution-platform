@@ -1,4 +1,5 @@
 // IMPORTS
+import "./env-config.js"; // to ensure that the environment variables are loaded before everything else
 import express from "express"; // ESM import style!
 import morgan from "morgan";
 import cors from "cors";
@@ -12,10 +13,12 @@ import adminIssues from "./src/routes/adminIssues.js";
 import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 import adminPostDetails from "./src/routes/adminPostDetails.js";
 import createIssue from "./src/routes/createIssue.js";
-import "./env-config.js"; //to ensure that the environment variables are loaded before everything else
 /* eslint-disable no-unused-vars */
 import db from "./database/db.js";
 /* eslint-enable no-unused-vars */
+import passport from "./config/passportConfig.js";
+import checkJWT from "./src/middlewares/checkJWT.js";
+import cookieParser from "cookie-parser";
 
 // import multer from "multer"; - configure when required
 
@@ -24,7 +27,11 @@ const app = express(); // instantiate an Express object
 // MIDDLEWARES
 
 // enable CORS - to allow requests from React frontend to reach the Express backend
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND_URL, // The exact origin of frontend is required for credentials
+  credentials: true // This allows the server to accept cookies from the client
+};
+app.use(cors(corsOptions));
 
 // Later during deployment:
 // const corsOptions = {
@@ -48,6 +55,15 @@ app.use(express.urlencoded({ extended: true }));
 
 // log HTTP requests
 app.use(morgan("dev"));
+
+// parse cookies in the HTTP requests
+app.use(cookieParser());
+
+// initialize passport
+app.use(passport.initialize());
+
+// protected routes setup
+app.use(checkJWT);
 
 // ROUTE HANDLERS
 

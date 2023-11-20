@@ -27,7 +27,10 @@ const LoginPage = () => {
       // making a POST request to the backend
       const response = await axios.post(
         `${BASE_URL}/api/login/${userType}`,
-        urlEncodedData
+        urlEncodedData,
+        {
+          withCredentials: true
+        }
       );
       // The response data from the server
       auth = response.data.authenticated;

@@ -68,7 +68,10 @@ const StudentDashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/issues/student/${mockStudent.netid}`
+          `${BASE_URL}/api/issues/student/${mockStudent.netid}`,
+          {
+            withCredentials: true
+          }
         );
         const sortedData = response.data.sort(
           (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
