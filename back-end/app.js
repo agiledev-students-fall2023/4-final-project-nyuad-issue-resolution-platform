@@ -72,4 +72,17 @@ app.use("/api/actions/admin/", adminPostDetails);
 
 app.use("/api/actions/student", createIssue);
 
+// Temporary route to create users
+// import User from "./models/UserModel.js";
+// app.post("/create-user", async (req, res) => {
+//   try {
+//     const { name, netId, password, userType, userDept } = req.body;
+//     const newUser = new User({ name, netId, password, userType, userDept });
+//     await newUser.save();
+//     res.status(201).send("User created successfully");
+//   } catch (error) {
+//     res.status(500).send(error.message);
+//   }
+// });
+
 export default app;
