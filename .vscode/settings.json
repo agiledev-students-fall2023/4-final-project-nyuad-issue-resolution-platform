@@ -8,5 +8,8 @@
   "vs-code-prettier-eslint.prettierLast": "false", // set as "true" to run 'prettier' last not first
   "files.exclude": {
     "**/test.js": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }
