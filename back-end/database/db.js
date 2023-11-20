@@ -16,7 +16,6 @@ mongoose
 
 const db = mongoose.connection;
 
-
 // async function saveMockData() {
 //   try {
 //     const response = await axios.get(`${process.env.BACKEND_URL}/json/mockapi.json`);
@@ -36,6 +35,5 @@ const db = mongoose.connection;
 // }
 
 // saveMockData();
-
 
 export default db;
