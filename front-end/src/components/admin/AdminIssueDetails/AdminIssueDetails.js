@@ -1,8 +1,10 @@
 import UpdatesBox from '../UpdateBox/UpdatesBox.js';
 import CommentBox from '../CommentBox/CommentBox.js';
 import TagSidebar from '../TagSideBar/TagSidebar.js';
+import DepartmentSelection from '../DepartmentSelection/DepartmentSelection.js';
 import '../CommentBox/CommentBox.css';
 import '../TagSideBar/TagSidebar.css';
+import '../DepartmentSelection/DepartmentSelection.css';
 import '../UpdateBox/UpdatesBox.css';
 import './AdminIssueDetails.css';
 import PriorityDropdown from '../PriorityDropDown/PriorityDropdown.js';
@@ -78,7 +80,7 @@ const AdminIssueDetails = () => {
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
-                <TagSidebar index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes}/>
+                <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes}/>
                 <TagSidebar index = { index }name="Attachments" tags = {specificIssue.attachments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes}/>
                 <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
