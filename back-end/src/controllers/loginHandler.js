@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import User from "../../models/UserModel.js";
+import jwt from "jsonwebtoken";
 
 // Previous Hardcoded values
 // const student = { username: "s", password: "1" };
@@ -42,6 +43,10 @@ export async function loginStudentHandler(req, res) {
       password: undefined,
       _id: undefined
     };
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d"
+    }); // 1 day expiration
+    res.cookie("jwt", token, { httpOnly: true }); // Set token in a cookie
     res.status(200).send(userData);
   } catch (error) {
     res.status(500).send(error.message);
@@ -84,6 +89,10 @@ export async function loginAdminHandler(req, res) {
       password: undefined,
       _id: undefined
     };
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d"
+    }); // 1 day expiration
+    res.cookie("jwt", token, { httpOnly: true }); // Set token in a cookie
     res.status(200).send(userData);
   } catch (error) {
     res.status(500).send(error.message);
