@@ -9,7 +9,9 @@ import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
 import AdminIssueDetails from "./components/admin/AdminIssueDetails/AdminIssueDetails";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true" // Retrieve initial state from local storage
+  );
   const [error, setError] = useState("");
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
