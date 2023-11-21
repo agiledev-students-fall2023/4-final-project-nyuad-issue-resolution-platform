@@ -25,11 +25,6 @@ const App = () => {
       });
   }, [BASE_URL]);
 
-  const updateIsAuthenticated = (value) => {
-    setIsAuthenticated(value);
-    localStorage.setItem("isAuthenticated", value); // Persist state to local storage
-  };
-
   const ProtectedRoute = ({ component: Component, ...rest }) => (
     isAuthenticated ? <Component {...rest} /> : <Navigate to="/" />
   );
@@ -39,10 +34,10 @@ const App = () => {
       <Router>
         <main className="App-main">
           <Routes>
-            <Route path="/" element={<LoginPage setIsAuthenticated={updateIsAuthenticated} />} />
-            <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} setIsAuthenticated={updateIsAuthenticated} />} />
+            <Route path="/" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/issue/:index" element={<ProtectedRoute component={IssueDetails} />} />
-            <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} setIsAuthenticated={updateIsAuthenticated} />} />
+            <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/admin/dashboard/:index" element={<ProtectedRoute component={AdminIssueDetails} />} />
           </Routes>
         </main>
