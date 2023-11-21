@@ -42,9 +42,9 @@ const App = () => {
         <main className="App-main">
           <Routes>
             <Route path="/" element={<LoginPage setIsAuthenticated={updateIsAuthenticated} />} />
-            <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} />} />
+            <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} setIsAuthenticated={updateIsAuthenticated} />} />
             <Route path="/issue/:index" element={<ProtectedRoute component={IssueDetails} />} />
-            <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} />} />
+            <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} setIsAuthenticated={updateIsAuthenticated} />} />
             <Route path="/admin/dashboard/:index" element={<ProtectedRoute component={AdminIssueDetails} />} />
           </Routes>
         </main>

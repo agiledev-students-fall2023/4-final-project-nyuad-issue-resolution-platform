@@ -13,7 +13,7 @@ import SiteWideFooter from '../../components/general/SiteWideFooter/SiteWideFoot
 import axios from "axios";
 export const currentSetDepartment = "IT";
 
-function AdminDashboard() {
+function AdminDashboard({ setIsAuthenticated }) {
     const [searchText, setSearchText] = useState('');
     const [issues, setIssues] = useState([]);
     const [activeOptionsOverlay, setActiveOptionsOverlay] = useState(null);
@@ -138,7 +138,7 @@ function AdminDashboard() {
 
     return (
         <>
-            <AdminNavbar adminName={currentDepartment} unresolvedIssues={unresolvedIssues} />
+            <AdminNavbar adminName={currentDepartment} unresolvedIssues={unresolvedIssues} setIsAuthenticated={setIsAuthenticated} />
             <div className="admin-dashboard">
 
                 {/* <h1 className='admin-dashboard-header'>Issue Board</h1> */}

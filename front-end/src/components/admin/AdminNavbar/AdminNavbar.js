@@ -1,12 +1,24 @@
 import { useNavigate } from 'react-router-dom';
 import logoutImage from "../../../assets/images/logout-icon.png";
 import "./AdminNavbar.css";
+import axios from "axios";
 
-export default function AdminNavbar({ adminName, unresolvedIssues }) {
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+export default function AdminNavbar({ adminName, unresolvedIssues, setIsAuthenticated }) {
     // const [showNotification, setShowNotification] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        axios.get(`${BASE_URL}/api/logout`, { withCredentials: true })
+        .then(() => {
+          setIsAuthenticated(false); // Update state to reflect that user is logged out
+          // Redirect to login page or perform other actions as needed
+        })
+        .catch(error => {
+          console.error("Logout error:", error);
+          // Handle error
+        });
         navigate('/');
     };
 

@@ -75,6 +75,11 @@ app.get("/api/check-auth", (req, res) => {
   }
 });
 
+// Logout endpoint
+app.get('/api/logout', (req, res) => {
+  res.cookie('jwt', '', { maxAge: 0 }); // Clear the cookie
+  res.json({ message: 'Logged out successfully' });
+});
 
 // ROUTE HANDLERS
 

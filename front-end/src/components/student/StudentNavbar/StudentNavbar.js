@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import logoutImage from "../../../assets/images/logout-icon.png";
 import notificationIcon from "../../../assets/images/notification-icon.png";
+import axios from "axios";
 import "./StudentNavbar.css";
 
-export default function StudentNavbar({ studentName }) {
+const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+export default function StudentNavbar({ studentName, setIsAuthenticated }) {
     const [notificationTimer, setNotificationTimer] = useState(null);
     const [showNotificationOverlay, setShowNotificationOverlay] = useState(false);
     // const [showNotification, setShowNotification] = useState(false);
@@ -37,7 +40,16 @@ export default function StudentNavbar({ studentName }) {
     };
 
     const handleLogout = () => {
-        navigate('/');
+        axios.get(`${BASE_URL}/api/logout`, { withCredentials: true })
+        .then(() => {
+          setIsAuthenticated(false); // Update state to reflect that user is logged out
+          // Redirect to login page or perform other actions as needed
+          navigate('/');
+        })
+        .catch(error => {
+          console.error("Logout error:", error);
+          // Handle error
+        });
     };
 
     return (
