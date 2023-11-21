@@ -5,51 +5,39 @@ import "./LoginPage.css";
 import logo from "../../assets/images/nyu-logo.png";
 import LoginPageNavbar from "../../components/general/LoginPageNavbar/LoginPageNavbar";
 
-const LoginPage = () => {
-  // state variable to keep track of the user type
+const LoginPage = ({ setIsAuthenticated }) => {
   const [userType, setUserType] = useState("student");
-  const BASE_URL = process.env.REACT_APP_BACKEND_URL; // base url for the backend
-
-  // useNavigate hook later to be used to redirect to the student dashboard
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
   const navigate = useNavigate();
 
-  // handleFormSubmit function to handle form submission
   const handleFormSubmit = async (event) => {
-    // preventing reload of the page
     event.preventDefault();
-
-    // creating a new FormData object(key-value pairs representing form fields and values
     const formData = new FormData(event.target);
     const urlEncodedData = new URLSearchParams(formData);
     let auth = false;
 
     try {
-      // making a POST request to the backend
       const response = await axios.post(
         `${BASE_URL}/api/login/${userType}`,
         urlEncodedData,
-        {
-          withCredentials: true
-        }
+        { withCredentials: true }
       );
-      // The response data from the server
       auth = response.data.authenticated;
+
+      if (auth) {
+        setIsAuthenticated(true); // Set isAuthenticated to true on successful login
+        if (userType === "student") {
+          navigate("/student/dashboard");
+        } else if (userType === "admin") {
+          navigate("/admin/dashboard");
+        }
+      }
     } catch (error) {
       console.error("Error during form submission:", error);
-      // In case of error, if you need to access the response provided by the server (if any)
       if (error.response) {
         const errorData = error.response.data;
         console.error("Error data from server:", errorData);
       }
-    }
-
-    if (userType === "student" && auth) {
-      // Redirect to the student dashboard
-      navigate("/student/dashboard");
-    }
-
-    if (userType === "admin" && auth) {
-      navigate("/admin/dashboard");
     }
   };
 

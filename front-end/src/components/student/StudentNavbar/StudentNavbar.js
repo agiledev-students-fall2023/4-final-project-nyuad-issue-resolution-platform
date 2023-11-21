@@ -37,6 +37,7 @@ export default function StudentNavbar({ studentName }) {
     };
 
     const handleLogout = () => {
+        localStorage.setItem("isAuthenticated", "false");
         navigate('/');
     };
 
