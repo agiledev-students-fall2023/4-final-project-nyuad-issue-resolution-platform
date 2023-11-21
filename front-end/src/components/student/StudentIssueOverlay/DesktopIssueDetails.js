@@ -114,15 +114,15 @@ const DesktopIssueDetails = ({ index }) => {
             // every time the `index` changes.
         }, [index, changeOccured]);
 
-    const reopenIssue = () => {
+    const reopenIssue = async () => {
         // setIssue({ ...issue, currentStatus: 'Open' });
-        postReopen();
+        await postReopen();
         setChangeOccured(!changeOccured);
         setIssue({ ...issue, currentStatus: issue.currentStatus });
     };
 
-    const acceptResolution = () => {
-        postMarkAsResolved();
+    const acceptResolution = async () => {
+        await postMarkAsResolved();
         setChangeOccured(!changeOccured);
         setIssue({ ...issue, currentStatus: issue.currentStatus });
         // Since the issue status is already 'Resolved', no need to change it.

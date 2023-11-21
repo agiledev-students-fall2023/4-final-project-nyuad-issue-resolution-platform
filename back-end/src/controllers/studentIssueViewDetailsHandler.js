@@ -1,4 +1,4 @@
-import axios from "axios";
+import Issue from '../../models/issueModel.js';
 
 // The function retrieves all the issues related to this student
 export async function studentIssueViewDetailsHandler(req, res) {
@@ -14,27 +14,20 @@ export async function studentIssueViewDetailsHandler(req, res) {
   }
 
   try {
-    // Assuming the data you want is at the response.data property
-    const response = await axios.get(
-      `${process.env.BACKEND_URL}/json/mockapi.json` // will be replaced with db call
-    );
+
+    const response = await Issue.find({ index: paramName });
 
     // Check if any data is returned for the student
-    if (!response.data || response.data.length === 0) {
+    if (!response || response.length === 0) {
       return res.status(500).send("No issues found for the given studentNetID.");
     }
 
-    // Assuming response.data is an array of items and each item has a index
-    const filteredData = response.data.filter(
-      (item) => String(item.index) === String(paramName)
-    );
-
     // Check if the specific issue index exists
-    if (filteredData.length === 0) {
+    if (response.length === 0) {
       return res.status(500).send("Issue with the given index not found.");
     }
 
-    res.json(filteredData); // Send only the data that matches the specific issue index
+    res.json(response); // Send only the data that matches the specific issue index
   } catch (error) {
     // Log the error and send an appropriate response
     console.error("Error retrieving data:", error.message);
