@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, AuthContext } from './AuthContext'; // Import AuthProvider and AuthContext
 import { useContext } from 'react';
-
-import StudentDashboard from './layouts/StudentDashboard/StudentDashboard';
-import IssueDetails from './components/student/StudentIssueOverlay/DesktopIssueDetails';
-import LoginPage from './layouts/LoginPage/LoginPage';
-import AdminDashboard from './layouts/AdminDashboard/AdminDashboard';
-import AdminIssueDetails from './components/admin/AdminIssueDetails/AdminIssueDetails';
+import { AuthProvider, AuthContext } from "./components/general/AuthContext/AuthContext"; // Import AuthProvider and AuthContext
+import StudentDashboard from "./layouts/StudentDashboard/StudentDashboard";
+import IssueDetails from "./components/student/StudentIssueOverlay/DesktopIssueDetails";
+import LoginPage from "./layouts/LoginPage/LoginPage";
+import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
+import AdminIssueDetails from "./components/admin/AdminIssueDetails/AdminIssueDetails";
 
 // ProtectedRoute component
 const ProtectedRoute = ({ component: Component }) => {

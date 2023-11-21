@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import logoutImage from "../../../assets/images/logout-icon.png";
 import notificationIcon from "../../../assets/images/notification-icon.png";
-import { AuthContext } from "../../../AuthContext";
+import { AuthContext } from "../../general/AuthContext/AuthContext";
 import "./StudentNavbar.css";
 
 export default function StudentNavbar({ studentName }) {

@@ -1,6 +1,6 @@
 import { useContext } from 'react'; // Import useContext
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../AuthContext'; // Import AuthContext
+import { AuthContext } from "../../general/AuthContext/AuthContext"; // Import AuthContext
 import logoutImage from "../../../assets/images/logout-icon.png";
 import "./AdminNavbar.css";
 import axios from "axios";

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../AuthContext'; // Import AuthContext
+import { AuthContext } from '../../components/general/AuthContext/AuthContext'; // Import AuthContext
 import './LoginPage.css';
 import logo from '../../assets/images/nyu-logo.png';
 import LoginPageNavbar from '../../components/general/LoginPageNavbar/LoginPageNavbar';
