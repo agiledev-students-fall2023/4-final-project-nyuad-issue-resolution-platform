@@ -65,12 +65,12 @@ app.use(passport.initialize());
 // protected routes setup
 app.use(checkJWT);
 
-app.get("/api/check-auth", checkJWT, (req, res) => {
+app.get("/api/check-auth", (req, res) => {
   if (req.user) {
-    console.log("User authenticated!!!!!!!");
+    console.log("User authenticated");
     res.status(200).json({ authenticated: true, user: req.user });
   } else {
-    // User is not authenticated
+    console.log("User not authenticated");
     res.status(401).json({ authenticated: false, message: "User not authenticated" });
   }
 });

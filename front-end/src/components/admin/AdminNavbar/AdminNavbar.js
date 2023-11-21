@@ -7,7 +7,6 @@ export default function AdminNavbar({ adminName, unresolvedIssues }) {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.setItem("isAuthenticated", "false");
         navigate('/');
     };
 

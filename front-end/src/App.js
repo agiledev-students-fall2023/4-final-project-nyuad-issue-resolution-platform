@@ -16,22 +16,15 @@ const App = () => {
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      axios.get(`${BASE_URL}/api/check-auth`, { withCredentials: true })
-        .then((response) => {
-          if (response.data.authenticated) {
-            updateIsAuthenticated(true);
-          } else {
-            updateIsAuthenticated(false);
-            setError('User is not authenticated.');
-          }
-        })
-        .catch((error) => {
-          console.error("Authentication error:", error);
-          setError(`An error occurred during authentication: ${error.message}`);
-          updateIsAuthenticated(false);
-        });
-    }
+    axios.get(`${BASE_URL}/api/check-auth`, { withCredentials: true })
+      .then((response) => {
+        setIsAuthenticated(response.data.authenticated);
+      })
+      .catch((error) => {
+        console.error("Authentication error:", error);
+        setError(`An error occurred during authentication: ${error.message}`);
+        setIsAuthenticated(false);
+      });
   }, [BASE_URL]);
 
   const updateIsAuthenticated = (value) => {
@@ -40,9 +33,7 @@ const App = () => {
   };
 
   const ProtectedRoute = ({ component: Component, ...rest }) => (
-    localStorage.getItem("isAuthenticated") === "true" // Check local storage directly
-    ? <Component {...rest} />
-    : <Navigate to="/" />
+    isAuthenticated ? <Component {...rest} /> : <Navigate to="/" />
   );
 
   return (

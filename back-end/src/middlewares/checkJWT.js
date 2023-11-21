@@ -9,7 +9,6 @@ export default function checkJWT(req, res, next) {
     
     if (!user) {
       if (req.path !== "/") {
-        console.log("User not authenticated. Sending response.");
         // Send a 401 Unauthorized response with a message
         return res.status(401).json({ authenticated: false, message: "User not authenticated" });
       } else {
@@ -17,7 +16,6 @@ export default function checkJWT(req, res, next) {
       }
     } else {
       req.user = user;
-      console.log("User authenticated.");
       next();
     }
   })(req, res, next);
