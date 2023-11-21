@@ -1,24 +1,26 @@
+import { useContext } from 'react'; // Import useContext
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../AuthContext'; // Import AuthContext
 import logoutImage from "../../../assets/images/logout-icon.png";
 import "./AdminNavbar.css";
 import axios from "axios";
 
-export default function AdminNavbar({ adminName, unresolvedIssues, setIsAuthenticated }) {
-    // const [showNotification, setShowNotification] = useState(false);
+export default function AdminNavbar({ adminName, unresolvedIssues }) {
     const navigate = useNavigate();
+    const { setIsAuthenticated } = useContext(AuthContext); // Use AuthContext
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
     const handleLogout = () => {
         axios.get(`${BASE_URL}/api/logout`, { withCredentials: true })
         .then(() => {
           setIsAuthenticated(false); // Update state to reflect that user is logged out
-          // Redirect to login page or perform other actions as needed
+          localStorage.removeItem('isAuthenticated'); // Clear the authentication flag from browser storage
+          navigate('/'); // Redirect to login page
         })
         .catch(error => {
           console.error("Logout error:", error);
           // Handle error
         });
-        navigate('/');
     };
 
     return (
@@ -36,6 +38,5 @@ export default function AdminNavbar({ adminName, unresolvedIssues, setIsAuthenti
                 />
             </div>
         </div>
-
     );
 }

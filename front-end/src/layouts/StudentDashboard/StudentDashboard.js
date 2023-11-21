@@ -517,7 +517,7 @@ const StudentDashboard = ({ setIsAuthenticated }) => {
       <div
         className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}
       >
-        <StudentNavbar studentName={studentName} setIsAuthenticated={setIsAuthenticated} />
+        <StudentNavbar studentName={studentName} />
 
         <h2 className="h2-student-dashboard">Your Requests</h2>
         <div className="actions">
