@@ -7,7 +7,7 @@ import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFoot
 import { CreateRequest } from "../../components/student/CreateRequest/CreateRequest.js";
 import axios from "axios";
 
-const StudentDashboard = () => {
+const StudentDashboard = ({ setIsAuthenticated }) => {
   // State initialization for holding requests and their display variant
   const [allRequests, setAllRequests] = useState([]);
   const [displayedRequests, setDisplayedRequests] = useState([]);
@@ -517,7 +517,7 @@ const StudentDashboard = () => {
       <div
         className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}
       >
-        <StudentNavbar studentName={studentName} />
+        <StudentNavbar studentName={studentName} setIsAuthenticated={setIsAuthenticated} />
 
         <h2 className="h2-student-dashboard">Your Requests</h2>
         <div className="actions">

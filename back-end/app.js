@@ -65,6 +65,13 @@ app.use(passport.initialize());
 // protected routes setup
 app.use(checkJWT);
 
+// Logout endpoint
+app.get('/api/logout', (req, res) => {
+  res.cookie('jwt', '', { maxAge: 0 }); // Clear the cookie
+  console.log('Logged out successfully');
+  res.json({ message: 'Logged out successfully' });
+});
+
 // ROUTE HANDLERS
 
 // login
