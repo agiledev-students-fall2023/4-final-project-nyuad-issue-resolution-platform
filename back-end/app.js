@@ -65,7 +65,7 @@ app.use(passport.initialize());
 // protected routes setup
 app.use(checkJWT);
 
-// Logout endpoint
+// Logout endpoint to remove token from cookie
 app.get('/api/logout', (req, res) => {
   res.cookie('jwt', '', { maxAge: 0 }); // Clear the cookie
   console.log('Logged out successfully');
