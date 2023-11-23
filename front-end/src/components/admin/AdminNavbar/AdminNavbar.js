@@ -14,7 +14,6 @@ export default function AdminNavbar({ adminName, unresolvedIssues }) {
         axios.get(`${BASE_URL}/api/logout`, { withCredentials: true })
         .then(() => {
           setIsAuthenticated(false); // Update state to reflect that user is logged out
-          localStorage.removeItem('isAuthenticated'); // Clear the authentication flag from browser storage
           navigate('/'); // Redirect to login page
         })
         .catch(error => {

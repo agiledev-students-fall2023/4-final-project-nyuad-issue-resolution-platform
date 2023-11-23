@@ -9,13 +9,13 @@ import AdminIssueDetails from "./components/admin/AdminIssueDetails/AdminIssueDe
 
 // ProtectedRoute component
 const ProtectedRoute = ({ component: Component }) => {
-  const { isAuthenticated } = useContext(AuthContext); // Use AuthContext to get isAuthenticated
+  const { isAuthenticated, isAuthCheckComplete } = useContext(AuthContext);
 
-  return (
-    isAuthenticated
-      ? <Component />
-      : <Navigate to="/" />
-  );
+  if (!isAuthCheckComplete) {
+    return <div>Loading...</div>;
+  }
+
+  return isAuthenticated ? <Component /> : <Navigate to="/" />;
 };
 
 const App = () => {

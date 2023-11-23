@@ -8,7 +8,7 @@ import LoginPageNavbar from '../../components/general/LoginPageNavbar/LoginPageN
 
 const LoginPage = () => {
   const [userType, setUserType] = useState('student');
-  const { setIsAuthenticated } = useContext(AuthContext); // Use useContext to access AuthContext
+  const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -28,7 +28,6 @@ const LoginPage = () => {
 
       if (auth) {
         setIsAuthenticated(true); // Update the authentication state
-        localStorage.setItem('isAuthenticated', 'true');
         if (userType === 'student') {
           navigate('/student/dashboard');
         } else if (userType === 'admin') {
@@ -42,7 +41,6 @@ const LoginPage = () => {
         console.error('Error data from server:', errorData);
       }
       setIsAuthenticated(false);
-      localStorage.setItem('isAuthenticated', 'false');
     }
   };
 

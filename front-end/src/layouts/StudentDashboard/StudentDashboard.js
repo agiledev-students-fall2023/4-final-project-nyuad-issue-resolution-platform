@@ -1,13 +1,23 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
 import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/DesktopIssueDetails";
 import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
 import { CreateRequest } from "../../components/student/CreateRequest/CreateRequest.js";
+import { AuthContext } from '../../components/general/AuthContext/AuthContext';
 import axios from "axios";
 
-const StudentDashboard = ({ setIsAuthenticated }) => {
+const StudentDashboard = () => {
+  const { checkAuthentication } = useContext(AuthContext);
+
+  useEffect(() => {
+    const checkAuthState = async () => {
+      await checkAuthentication();
+    };
+    checkAuthState();
+  }, []);
+
   // State initialization for holding requests and their display variant
   const [allRequests, setAllRequests] = useState([]);
   const [displayedRequests, setDisplayedRequests] = useState([]);
@@ -61,6 +71,13 @@ const StudentDashboard = ({ setIsAuthenticated }) => {
 
     return filteredData;
   };
+
+  useEffect(() => {
+    const checkAuthState = async () => {
+      await checkAuthentication(); // Assuming `checkAuthentication` is provided through context
+    };
+    checkAuthState();
+  }, []);
 
   useEffect(() => {
     let isMounted = true;

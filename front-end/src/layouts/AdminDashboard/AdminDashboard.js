@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import './AdminDashboard.css';
+import { useState, useEffect, useRef, useContext } from 'react';
 import IssueColumn from '../../components/admin/IssueColumn/IssueColumn';
 import SearchBarAdmin from '../../components/admin/SearchBarAdmin/SearchBarAdmin';
 import {
@@ -10,10 +9,13 @@ import {
 } from '../../components/admin/helper/sorting/SortingFunctions';
 import AdminNavbar from '../../components/admin/AdminNavbar/AdminNavbar';
 import SiteWideFooter from '../../components/general/SiteWideFooter/SiteWideFooter';
+import { AuthContext } from '../../components/general/AuthContext/AuthContext';
 import axios from "axios";
+import './AdminDashboard.css';
+
 export const currentSetDepartment = "IT";
 
-function AdminDashboard({ setIsAuthenticated }) {
+function AdminDashboard() {
     const [searchText, setSearchText] = useState('');
     const [issues, setIssues] = useState([]);
     const [activeOptionsOverlay, setActiveOptionsOverlay] = useState(null);
@@ -24,6 +26,15 @@ function AdminDashboard({ setIsAuthenticated }) {
     const currentDepartment = currentSetDepartment; // will change this later sprint
 
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+    const { checkAuthentication } = useContext(AuthContext);
+
+    useEffect(() => {
+      const checkAuthState = async () => {
+        await checkAuthentication();
+      };
+      checkAuthState();
+    }, []);
 
     useEffect(() => {
         let isMounted = true;

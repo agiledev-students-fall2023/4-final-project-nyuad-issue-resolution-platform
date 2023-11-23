@@ -44,7 +44,6 @@ export default function StudentNavbar({ studentName }) {
         axios.get(`${BASE_URL}/api/logout`, { withCredentials: true })
         .then(() => {
           setIsAuthenticated(false);
-          localStorage.removeItem('isAuthenticated'); // Clear the authentication flag from browser storage
           navigate('/');
         })
         .catch(error => {
