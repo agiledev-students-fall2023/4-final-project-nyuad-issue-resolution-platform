@@ -8,28 +8,36 @@ import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
 import AdminIssueDetails from "./components/admin/AdminIssueDetails/AdminIssueDetails";
 
 // ProtectedRoute component
-const ProtectedRoute = ({ component: Component }) => {
-  const { isAuthenticated, isAuthCheckComplete } = useContext(AuthContext);
+const ProtectedRoute = ({ component: Component, requiredRole }) => {
+  const { isAuthenticated, userRole, isAuthCheckComplete } = useContext(AuthContext);
 
   if (!isAuthCheckComplete) {
     return <div>Loading...</div>;
   }
 
-  return isAuthenticated ? <Component /> : <Navigate to="/" />;
+  if (!isAuthenticated) {
+    return <Navigate to="/" />;
+  }
+
+  if (userRole !== requiredRole) {
+    return <Navigate to="/"/>;
+  }
+
+  return <Component />;
 };
 
 const App = () => {
   return (
-    <AuthProvider> {/* Wrap the application in AuthProvider */}
+    <AuthProvider>
       <div className="App">
         <Router>
           <main className="App-main">
             <Routes>
               <Route path="/" element={<LoginPage />} />
-              <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} />} />
-              <Route path="/issue/:index" element={<ProtectedRoute component={IssueDetails} />} />
-              <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} />} />
-              <Route path="/admin/dashboard/:index" element={<ProtectedRoute component={AdminIssueDetails} />} />
+              <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} requiredRole="student" />} />
+              <Route path="/issue/:index" element={<ProtectedRoute component={IssueDetails} requiredRole="student" />} />
+              <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} requiredRole="admin" />} />
+              <Route path="/admin/dashboard/:index" element={<ProtectedRoute component={AdminIssueDetails} requiredRole="admin" />} />
             </Routes>
           </main>
         </Router>

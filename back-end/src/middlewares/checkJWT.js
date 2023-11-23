@@ -17,7 +17,6 @@ export default function checkJWT(req, res, next) {
       }
     } else {
       req.user = user;
-      console.log("User authenticated.");
       next();
     }
   })(req, res, next);

@@ -74,7 +74,7 @@ app.get('/api/logout', (req, res) => {
 
 app.get("/api/check-auth", checkJWT, (req, res) => {
   if (req.user) {
-    console.log("User authenticated!!!!!!!");
+    console.log("User authenticated");
     res.status(200).json({ authenticated: true, user: req.user });
   } else {
     // User is not authenticated
