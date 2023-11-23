@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 import logoutImage from "../../../assets/images/logout-icon.png";
 import notificationIcon from "../../../assets/images/notification-icon.png";
+import { AuthContext } from "../../general/AuthContext/AuthContext";
 import "./StudentNavbar.css";
 
 export default function StudentNavbar({ studentName }) {
     const [notificationTimer, setNotificationTimer] = useState(null);
     const [showNotificationOverlay, setShowNotificationOverlay] = useState(false);
     // const [showNotification, setShowNotification] = useState(false);
+    const { setIsAuthenticated } = useContext(AuthContext); // Use AuthContext
     const navigate = useNavigate();
+    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
     // Handles notification click to display a notification overlay
     const handleNotificationClick = () => {
@@ -37,7 +41,15 @@ export default function StudentNavbar({ studentName }) {
     };
 
     const handleLogout = () => {
-        navigate('/');
+        axios.get(`${BASE_URL}/api/logout`, { withCredentials: true })
+        .then(() => {
+          setIsAuthenticated(false);
+          localStorage.removeItem('isAuthenticated'); // Clear the authentication flag from browser storage
+          navigate('/');
+        })
+        .catch(error => {
+          console.error("Logout error:", error);
+        });
     };
 
     return (
