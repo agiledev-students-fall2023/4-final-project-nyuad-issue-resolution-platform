@@ -8,9 +8,17 @@ import LoginPageNavbar from '../../components/general/LoginPageNavbar/LoginPageN
 
 const LoginPage = () => {
   const [userType, setUserType] = useState('student');
-  const { setIsAuthenticated, setUserRole, setUserName, setUserNetID, setUserDept } = useContext(AuthContext);
+  const { setIsAuthenticated, setUserRole, setUserName, setUserNetID, setUserDept, isAuthenticated, userRole } = useContext(AuthContext);
   const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+
+  if (isAuthenticated) {
+    if (userRole === 'student') {
+      navigate('/student/dashboard');
+    } else if (userRole === 'admin') {
+      navigate('/admin/dashboard');
+    }
+  }
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -23,7 +31,6 @@ const LoginPage = () => {
         urlEncodedData,
         { withCredentials: true }
       );
-      console.log(response);
       if (response.data.authenticated) {
         setIsAuthenticated(true);
         setUserRole(response.data.userType);
