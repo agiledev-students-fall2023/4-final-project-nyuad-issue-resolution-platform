@@ -127,12 +127,14 @@
 
 .date-created-cell {
   max-width: 100px;
+  cursor: pointer;
 }
 
 .status-box {
   padding: 4px 10px;
   border-radius: 15px;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .date-created-header {
@@ -356,5 +358,5 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     overflow-y: scroll;
-}
+  }
 }

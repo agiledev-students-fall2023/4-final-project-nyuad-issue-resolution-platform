@@ -296,15 +296,26 @@ const StudentDashboard = () => {
               {truncatedDescription}
             </td>
 
-            <td className="departments-cell">
+            <td className="departments-cell"
+              onClick={() => {
+                setIsIssueOverlayOpen(true);
+                setRequest(request.index);
+              }}>
               {request.departments.map((department, index) => (
                 <span key={index} className="department-pill">
                   {mapDepartmentToDisplayName(department)}
                 </span>
               ))}
             </td>
-            <td className="date-created-cell">{request.dateCreated}</td>
-            <td>
+            <td className="date-created-cell"
+              onClick={() => {
+                setIsIssueOverlayOpen(true);
+                setRequest(request.index);
+              }}>{request.dateCreated}</td>
+            <td onClick={() => {
+              setIsIssueOverlayOpen(true);
+              setRequest(request.index);
+            }}>
               <span
                 className={`status-box ${getStatusClass(
                   request.currentStatus
