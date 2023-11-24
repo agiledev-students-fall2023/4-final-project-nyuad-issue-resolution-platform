@@ -13,8 +13,6 @@ import { AuthContext } from '../../components/general/AuthContext/AuthContext';
 import axios from "axios";
 import './AdminDashboard.css';
 
-export const currentSetDepartment = "IT";
-
 function AdminDashboard() {
     const [searchText, setSearchText] = useState('');
     const [issues, setIssues] = useState([]);
@@ -23,11 +21,11 @@ function AdminDashboard() {
     const [unresolvedIssues, setUnresolvedIssues] = useState(0);
     const [columnSortOptions, setColumnSortOptions] = useState({});
     const overlayRef = useRef(null);
-    const currentDepartment = currentSetDepartment; // will change this later sprint
 
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
-    const { checkAuthentication } = useContext(AuthContext);
+    const { checkAuthentication, userDept } = useContext(AuthContext);
+    const currentDepartment = userDept;
 
     useEffect(() => {
       const checkAuthState = async () => {
@@ -125,6 +123,19 @@ function AdminDashboard() {
         'Action Required': 'Awaiting Response',
         'Resolved': 'Resolved'
     };
+    const departmentOptions = [
+        { value: "", label: "Filter by Department" },
+        { value: "IT", label: "IT" },
+        { value: "Admin", label: "Admin" },
+        { value: "Library", label: "Library" },
+        { value: "Facilities", label: "Facilities" },
+        { value: "Registrar", label: "Registrar" },
+        { value: "Health", label: "Health Center" },
+        { value: "Finance", label: "Student Finance" },
+        { value: "GlobalEd", label: "Global Education" },
+        { value: "ResEd", label: "Residential Education" },
+        { value: "CDC", label: "Career Development Center" }
+    ];
     /* eslint-enable quote-props */
 
     const getSortingFunctionForColumn = (status) => {
@@ -146,10 +157,11 @@ function AdminDashboard() {
             .filter(issue => issue.currentStatus === oldStatus)
             .sort(getSortingFunctionForColumn(newStatus))
     }));
+    const departmentLabel = departmentOptions.find(option => option.value === userDept)?.label || userDept;
 
     return (
         <>
-            <AdminNavbar adminName={currentDepartment} unresolvedIssues={unresolvedIssues} />
+            <AdminNavbar adminName={departmentLabel} unresolvedIssues={unresolvedIssues} />
             <div className="admin-dashboard">
 
                 {/* <h1 className='admin-dashboard-header'>Issue Board</h1> */}
@@ -167,7 +179,7 @@ function AdminDashboard() {
                             setColumnSortOptions={setColumnSortOptions}
                             overlayRef={overlayRef}
                             isOverlayOptionsOpen={isOverlayOptionsOpen}
-                        />
+                            />
                     ))}
                 </div>
             </div>
