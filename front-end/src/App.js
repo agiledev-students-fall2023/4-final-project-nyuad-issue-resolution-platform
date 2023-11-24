@@ -2,10 +2,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useContext } from 'react';
 import { AuthProvider, AuthContext } from "./components/general/AuthContext/AuthContext"; // Import AuthProvider and AuthContext
 import StudentDashboard from "./layouts/StudentDashboard/StudentDashboard";
-import IssueDetails from "./components/student/StudentIssueOverlay/DesktopIssueDetails";
 import LoginPage from "./layouts/LoginPage/LoginPage";
 import AdminDashboard from "./layouts/AdminDashboard/AdminDashboard";
-import AdminIssueDetails from "./components/admin/AdminIssueDetails/AdminIssueDetails";
+import AdminIssueDetails from "./layouts/AdminIssueDetails/AdminIssueDetails";
 
 // ProtectedRoute component
 const ProtectedRoute = ({ component: Component, requiredRole }) => {
@@ -35,7 +34,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<LoginPage />} />
               <Route path="/student/dashboard" element={<ProtectedRoute component={StudentDashboard} requiredRole="student" />} />
-              <Route path="/issue/:index" element={<ProtectedRoute component={IssueDetails} requiredRole="student" />} />
               <Route path="/admin/dashboard" element={<ProtectedRoute component={AdminDashboard} requiredRole="admin" />} />
               <Route path="/admin/dashboard/:index" element={<ProtectedRoute component={AdminIssueDetails} requiredRole="admin" />} />
             </Routes>
