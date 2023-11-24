@@ -17,8 +17,11 @@ export async function createIssueHandler(req, res) {
         hour12: false 
     });
     const attachments = req.files.map(file => file.filename);
+    const lastIssue = await Issue.findOne().sort({  index: -1  });
+    const newIndex = lastIssue ? lastIssue.index + 1 : 1;
 
     const newIssue = new Issue ({
+        index: newIndex,
         studentNetID: [req.params.studentNetID],
         studentName: [req.body.studentName],
         title: req.body.issueTitle,
@@ -28,8 +31,8 @@ export async function createIssueHandler(req, res) {
         comments: [null],
         dateCreated: issueDateCreated,
         timeCreated: issueTimeCreated,
-        currentStatus: currentStatus || 'Open',
-        currentPriority: currentPriority || 'New'
+        currentStatus:'Open',
+        currentPriority: 'New'
     });
 
     try {
