@@ -1,9 +1,22 @@
-.footer-container {
+/* .footer-container {
     padding: 10px;
     background-color: var(--primary);
     color: white;
     font-family: var(--primary-font);
     margin-top: auto;
+} */
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    font-family: var(--primary-font);
+    margin-top: auto;
+    text-align: center;
 }
 
 .footer-container .info>div {

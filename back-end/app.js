@@ -63,7 +63,24 @@ app.use(cookieParser());
 app.use(passport.initialize());
 
 // protected routes setup
-app.use(checkJWT);
+// app.use(checkJWT);
+
+// Logout endpoint to remove token from cookie
+app.get('/api/logout', (req, res) => {
+  res.cookie('jwt', '', { maxAge: 0 }); // Clear the cookie
+  console.log('Logged out successfully');
+  res.json({ message: 'Logged out successfully' });
+});
+
+app.get("/api/check-auth", checkJWT, (req, res) => {
+  if (req.user) {
+    console.log("User authenticated!!!!!!!");
+    res.status(200).json({ authenticated: true, user: req.user });
+  } else {
+    // User is not authenticated
+    res.status(401).json({ authenticated: false, message: "User not authenticated" });
+  }
+});
 
 // ROUTE HANDLERS
 

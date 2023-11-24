@@ -7,7 +7,7 @@ import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFoot
 import { CreateRequest } from "../../components/student/CreateRequest/CreateRequest.js";
 import axios from "axios";
 
-const StudentDashboard = () => {
+const StudentDashboard = ({ setIsAuthenticated }) => {
   // State initialization for holding requests and their display variant
   const [allRequests, setAllRequests] = useState([]);
   const [displayedRequests, setDisplayedRequests] = useState([]);
