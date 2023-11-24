@@ -1,55 +1,46 @@
 import { publicpath } from "../../app.js";
+import Issue from '../../models/issueModel.js';
 import { promises as fs } from 'fs';
 
 export async function createIssueHandler(req, res) {
+    console.log(req.body);
+    const {
+        dateCreated, 
+        currentStatus, 
+        currentPriority
+    } = req.body;
+
+    const issueDateCreated = dateCreated || new Date().toLocaleDateString();
+    const issueTimeCreated = new Date().toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false 
+    });
+    const attachments = req.files.map(file => file.filename);
+    const lastIssue = await Issue.findOne().sort({  index: -1  });
+    const newIndex = lastIssue ? lastIssue.index + 1 : 1;
+
+    const newIssue = new Issue ({
+        index: newIndex,
+        studentNetID: [req.params.studentNetID],
+        studentName: [req.body.studentName],
+        title: req.body.issueTitle,
+        description: req.body.issueDesc,
+        attachments: attachments,
+        departments: req.body.deptTagged.includes(',') ? req.body.deptTagged.split(',') : [req.body.deptTagged],
+        comments: [null],
+        dateCreated: issueDateCreated,
+        timeCreated: issueTimeCreated,
+        currentStatus:'Open',
+        currentPriority: 'New'
+    });
+
     try {
-        const filePath = publicpath + '/json/mockapi.json';
-
-        // Assuming all the needed body parameters are provided correctly from the client side.
-        console.log(req.body);
-        const {
-            dateCreated, // Assuming this is sent from the client or generated here.
-            currentStatus, // This should have a default status if not provided by the client.
-            currentPriority // This should have a default priority if not provided by the client.
-          } = req.body;
-        // Read the existing JSON file
-        const fileContent = await fs.readFile(filePath, 'utf8');
-        const jsonData = JSON.parse(fileContent);
-
-        const issueDateCreated = dateCreated || new Date().toLocaleDateString();
-        const issueTimeCreated = new Date().toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: undefined, // Explicitly prevent seconds from showing
-            hour12: false // Use 24-hour format, change to true for 12-hour format if preferred
-          });
-        const attachments = req.files.map(file => file.filename);
-        const newIssue = {
-            index: jsonData.length + 1,
-            studentNetID: [req.params.studentNetID],
-            studentName: [req.body.studentName], // Now taking directly from req.body with validation
-            title: req.body.issueTitle,
-            description: req.body.issueDesc,
-            attachments: attachments,
-            departments: req.body.deptTagged.includes(',') ? req.body.deptTagged.split(',') : [req.body.deptTagged],
-            comments: [null],
-            dateCreated: issueDateCreated,
-            timeCreated: issueTimeCreated,
-            currentStatus: currentStatus || 'Open',
-            currentPriority: currentPriority || 'New'
-        };
-
-        jsonData.push(newIssue);
-
-        // Write the updated JSON data back to the file
-        await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2)); // Corrected to use async/await
-        console.log('Issue created successfully and JSON file updated.');
-        console.log('Body:', req.body);
-        console.log('Params:', req.params);
+        await newIssue.save();
+        console.log('Issue:', newIssue);
         res.status(200).send('Issue created successfully');
     } catch (error) {
-        // Handle errors
         console.error('Error creating issue:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        // res.status(500).json({ error: 'Internal Server Error' });
     }
 }
