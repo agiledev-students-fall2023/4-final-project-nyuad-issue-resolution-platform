@@ -82,9 +82,18 @@ const StudentDashboard = () => {
             withCredentials: true
           }
         );
-        const sortedData = response.data.sort(
-          (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
-        );
+
+        const sortedData = response.data;
+        if (sortOrder === "latestFirst") {
+          sortedData.sort(
+            (a, b) => parseDate(b.dateCreated) - parseDate(a.dateCreated)
+          );
+        } else {
+          sortedData.sort(
+            (a, b) => parseDate(a.dateCreated) - parseDate(b.dateCreated)
+          );
+        }
+
         if (isMounted) {
           setAllRequests(sortedData);
           const filteredData = applyCurrentFilters(sortedData);
@@ -104,7 +113,7 @@ const StudentDashboard = () => {
       clearInterval(intervalId);
       isMounted = false;
     };
-  }, [selectedDepartment, selectedStatus, searchQuery]);
+  }, [selectedDepartment, selectedStatus, searchQuery, sortOrder]);
 
   // Event listener to track window resizing
   useEffect(() => {
