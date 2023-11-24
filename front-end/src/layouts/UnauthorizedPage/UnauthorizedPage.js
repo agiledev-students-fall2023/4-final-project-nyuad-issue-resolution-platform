@@ -1,8 +1,14 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const UnauthorizedPage = () => {
     const params = useParams();
+    const navigate = useNavigate();
     const attemptedUrl = params['*'] || 'unknown';
+
+    const handleLinkClick = () => {
+        navigate('/');
+        window.location.reload();
+    };
 
     return (
         <div className="unauthorized-page">
@@ -12,7 +18,7 @@ const UnauthorizedPage = () => {
                 &quot;{attemptedUrl}&quot;. You either supplied the wrong credentials (e.g., bad
                 password), or you do not have permission to access the URL.
             </p>
-            <Link to="/" className="login-link">Go to Login Page</Link>
+            <Link to="/" onClick={handleLinkClick} className="login-link">Go to Login Page</Link>
         </div>
     );
 };
