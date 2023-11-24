@@ -1,10 +1,9 @@
 import './CommentBox.css';
 import { useState } from 'react';
 import axios from 'axios';
-import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-function CommentBox({ index, setcommentBoxValue }) {
+function CommentBox({ index, setcommentBoxValue, currentDepartment }) {
   const [textAreaValue, setTextAreaValue] = useState('');
   const handleTextChange = (event) => {
     setTextAreaValue(event.target.value);
@@ -15,7 +14,7 @@ function CommentBox({ index, setcommentBoxValue }) {
     const updateBoxData = event.target.elements[0].value;
     setcommentBoxValue(updateBoxData);
       try {
-        await axios.post(`${BASE_URL}/api/actions/admin/${currentSetDepartment}`, { issueindex: index, commentbox: updateBoxData });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: updateBoxData });
       } catch (error) {
         console.error('Error during form submission:', error);
       }

@@ -1,10 +1,9 @@
 import './DepartmentSelection.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { currentSetDepartment } from '../../../layouts/AdminDashboard/AdminDashboard.js';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes }) {
+function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, currentDepartment }) {
   const [departmentTags, setdepartmentTags] = useState([]);
   const [inputVisible, setInputVisible] = useState(false);
   // const [inputValue, setInputValue] = useState('');
@@ -38,7 +37,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes })
     const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
     setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/actions/admin/${currentSetDepartment}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }
