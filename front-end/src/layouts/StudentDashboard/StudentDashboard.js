@@ -601,6 +601,8 @@ const StudentDashboard = () => {
             isVisible={isCreateRequestVisible}
             onClose={handleCreateRequest}
             departmentOptions={departmentOptions}
+            studentName={userName}
+            studentNetID={userNetID}
           />
         </div>
       )}

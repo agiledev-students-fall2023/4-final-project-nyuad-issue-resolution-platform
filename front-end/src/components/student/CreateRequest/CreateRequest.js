@@ -2,11 +2,7 @@ import { useState } from "react"; // Import useState here
 import closebutton from "../../../assets/images/cross1.png";
 import "./CreateRequest.css";
 
-export function CreateRequest({ isVisible, onClose, departmentOptions }) {
-  const mockStudent = {
-    name: "Ted Mosby",
-    netid: "tm2005"
-  };
+export function CreateRequest({ isVisible, onClose, departmentOptions, studentName, studentNetID }) {
   const [departments, setDepartments] = useState([]);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -25,14 +21,14 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    formData.append('studentNetID', mockStudent.netid);
-    formData.append('studentName', mockStudent.name);
+    formData.append('studentNetID', studentNetID);
+    formData.append('studentName', studentName);
     formData.set("deptTagged", departments);
     for (let i = 0; i < selectedFiles.length - 1; i++) {
       formData.append('uploadedFiles', selectedFiles[i]);
     }
     try {
-      const response = await fetch(`${BASE_URL}/api/actions/student/${mockStudent.netid}`, {
+      const response = await fetch(`${BASE_URL}/api/actions/student/${studentNetID}`, {
         method: "POST",
         body: formData
       });
@@ -148,7 +144,7 @@ export function CreateRequest({ isVisible, onClose, departmentOptions }) {
       </div>
       <div className="submit-button-container">
         <button type="submit" className="submit-button">
-          Post Request
+          Submit
         </button>
       </div>
     </form>
