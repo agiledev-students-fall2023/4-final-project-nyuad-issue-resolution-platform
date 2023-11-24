@@ -6,6 +6,9 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAuthCheckComplete, setIsAuthCheckComplete] = useState(false);
+  const [userName, setUserName] = useState(null);
+  const [userNetID, setUserNetID] = useState(null);
+  const [userDept, setUserDept] = useState(null);
   const [userRole, setUserRole] = useState(null);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -15,12 +18,18 @@ export const AuthProvider = ({ children }) => {
       .then((response) => {
         setIsAuthenticated(response.data.authenticated);
         setUserRole(response.data.user.userType);
+        setUserName(response.data.user.name);
+        setUserNetID(response.data.user.netId);
+        setUserDept(response.data.user.userDept);
         setIsAuthCheckComplete(true);
       })
       .catch((error) => {
         console.error("Authentication error:", error);
         setIsAuthenticated(false);
         setUserRole(null);
+        setUserName(null);
+        setUserNetID(null);
+        setUserDept(null);
         setIsAuthCheckComplete(true);
       });
   };
@@ -30,7 +39,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, userRole, setUserRole, checkAuthentication, isAuthCheckComplete }}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, checkAuthentication, isAuthCheckComplete, userName, setUserName, userNetID, setUserNetID, userDept, setUserDept, userRole, setUserRole }}>
       {children}
     </AuthContext.Provider>
   );

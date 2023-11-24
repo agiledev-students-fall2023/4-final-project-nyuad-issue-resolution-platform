@@ -9,7 +9,7 @@ import { AuthContext } from '../../components/general/AuthContext/AuthContext';
 import axios from "axios";
 
 const StudentDashboard = () => {
-  const { checkAuthentication } = useContext(AuthContext);
+  const { checkAuthentication, userName, userNetID } = useContext(AuthContext);
 
   useEffect(() => {
     const checkAuthState = async () => {
@@ -37,16 +37,8 @@ const StudentDashboard = () => {
   const [sortOrder, setSortOrder] = useState("latestFirst");
   const [isCreateRequestVisible, setIsCreateRequestVisible] = useState(false);
 
-  /* eslint-disable no-unused-vars */
-  const [studentName, setStudentName] = useState("Ted Mosby");
-  /* eslint-enable no-unused-vars */
-
   // API
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-  const mockStudent = {
-    name: "Ted Mosby",
-    netid: "tm2005"
-  };
 
   const applyCurrentFilters = (newData) => {
     let filteredData = newData;
@@ -74,7 +66,7 @@ const StudentDashboard = () => {
 
   useEffect(() => {
     const checkAuthState = async () => {
-      await checkAuthentication(); // Assuming `checkAuthentication` is provided through context
+      await checkAuthentication();
     };
     checkAuthState();
   }, []);
@@ -85,7 +77,7 @@ const StudentDashboard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/issues/student/${mockStudent.netid}`,
+          `${BASE_URL}/api/issues/student/${userNetID}`,
           {
             withCredentials: true
           }
@@ -534,7 +526,7 @@ const StudentDashboard = () => {
       <div
         className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}
       >
-        <StudentNavbar studentName={studentName} />
+        <StudentNavbar studentName={userName} />
 
         <h2 className="h2-student-dashboard">Your Requests</h2>
         <div className="actions">

@@ -8,7 +8,7 @@ import LoginPageNavbar from '../../components/general/LoginPageNavbar/LoginPageN
 
 const LoginPage = () => {
   const [userType, setUserType] = useState('student');
-  const { setIsAuthenticated, setUserRole, userRole } = useContext(AuthContext);
+  const { setIsAuthenticated, setUserRole, setUserName, setUserNetID, setUserDept } = useContext(AuthContext);
   const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -16,7 +16,6 @@ const LoginPage = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const urlEncodedData = new URLSearchParams(formData);
-    let auth = false;
 
     try {
       const response = await axios.post(
@@ -24,14 +23,16 @@ const LoginPage = () => {
         urlEncodedData,
         { withCredentials: true }
       );
-      auth = response.data.authenticated;
-
-      if (auth) {
+      console.log(response);
+      if (response.data.authenticated) {
         setIsAuthenticated(true);
         setUserRole(response.data.userType);
-        if (userRole === 'student') {
+        setUserName(response.data.name);
+        setUserNetID(response.data.netId);
+        setUserDept(response.data.userDept);
+        if (response.data.userType === 'student') {
           navigate('/student/dashboard');
-        } else if (userRole === 'admin') {
+        } else if (response.data.userType === 'admin') {
           navigate('/admin/dashboard');
         }
       }
