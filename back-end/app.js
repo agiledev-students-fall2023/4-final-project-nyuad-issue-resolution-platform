@@ -19,6 +19,7 @@ import db from "./database/db.js";
 import passport from "./config/passportConfig.js";
 import checkJWT from "./src/middlewares/checkJWT.js";
 import cookieParser from "cookie-parser";
+import checkReferer from "./src/middlewares/checkReferer.js";
 
 // import multer from "multer"; - configure when required
 
@@ -46,6 +47,8 @@ app.use(cors(corsOptions));
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 export const publicpath = path.join(__dirname, "public");
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(checkReferer);
 
 // parse JSON in the request body
 app.use(express.json());
