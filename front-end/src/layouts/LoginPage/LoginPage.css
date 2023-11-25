@@ -29,6 +29,17 @@
     padding-bottom: 25px;
 }
 
+.auth-error {
+    color: #D8000C;
+    background-color: #d8000b2c;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--primary-font);
+    margin: 10px 30px;
+    width: 53%;
+    padding: 10px;
+}
 
 .toggle-container {
     display: flex;
