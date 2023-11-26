@@ -10,6 +10,7 @@ const LoginPage = () => {
   const [userType, setUserType] = useState('student');
   const { setIsAuthenticated, setUserRole, setUserName, setUserNetID, setUserDept, isAuthenticated, userRole } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [authError, setAuthError] = useState('');
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
   if (isAuthenticated) {
@@ -21,6 +22,7 @@ const LoginPage = () => {
   }
 
   const handleFormSubmit = async (event) => {
+    setAuthError('');
     event.preventDefault();
     const formData = new FormData(event.target);
     const urlEncodedData = new URLSearchParams(formData);
@@ -42,6 +44,8 @@ const LoginPage = () => {
         } else if (response.data.userType === 'admin') {
           navigate('/admin/dashboard');
         }
+      } else if (response.data.authenticated === false) {
+        setAuthError('The password you entered was incorrect.');
       }
     } catch (error) {
       console.error('Error during form submission:', error);
@@ -74,6 +78,11 @@ const LoginPage = () => {
         </div>
         <img src={logo} alt="Logo" className="logo" />
         <h3>Log In to Your NYU Account</h3>
+        {authError && (
+          <div className="auth-error">
+            {authError}
+          </div>
+        )}
         <form className="login-form" onSubmit={handleFormSubmit}>
           {/* Form fields */}
           <label>
