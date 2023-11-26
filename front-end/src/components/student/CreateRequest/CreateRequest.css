@@ -165,3 +165,50 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 768px) {
+  .create-request-component-student {
+    width: 90%;
+    height: 90%;
+  }
+  .create-request-component-student {
+    background-color: white;
+    border: 1px solid black;
+    position: fixed;
+    z-index: 1000;
+    /* width: 550px; */
+    height: 600px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: nowrap;
+    align-content: center;
+}
+
+.create-request-component-student .selected-files-and-departments {
+  width: 90%;
+  display: flex;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 4px;
+  position: relative;
+  margin-top: 5px;
+  min-height: 95px;
+  height: auto;
+  margin-top: 15px;
+  overflow-y: auto;
+  /* border: 1px solid #ccc; */
+  flex-direction: column;
+}
+
+}
