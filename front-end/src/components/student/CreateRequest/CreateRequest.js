@@ -18,6 +18,11 @@ export function CreateRequest({ isVisible, onClose, departmentOptions, studentNa
   const handleFileChange = (event) => {
     setSelectedFiles([...selectedFiles, ...Array.from(event.target.files)]);
   };
+  const handleFileRemove = (fileIndex) => {
+    // Filter out the file at the specified index
+    const newSelectedFiles = selectedFiles.filter((_, index) => index !== fileIndex);
+    setSelectedFiles(newSelectedFiles);
+};
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -134,7 +139,7 @@ export function CreateRequest({ isVisible, onClose, departmentOptions, studentNa
           <ul className="file-list">
           {selectedFiles.length > 0 ? (
            selectedFiles.map((file, index) => {
-          return <li key={index}>{file.name}</li>;
+          return <li key={index} onClick={() => handleFileRemove(index)}>{file.name}</li>;
   })
 ) : (
   <li>No files uploaded</li>
