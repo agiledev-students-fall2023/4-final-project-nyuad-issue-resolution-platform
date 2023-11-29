@@ -38,10 +38,10 @@ const PriorityDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes, cu
       color: 'blue'
     }),
     option: (provided, state) => ({
-      ...provided,
-      backgroundColor: state.data.color,
-      color: state.data.textColor,
-      fontWeight: state.data.isBold ? 'bold' : 'normal'
+      ...provided
+      // backgroundColor: state.data.color,
+      // color: state.data.textColor,
+      // fontWeight: state.data.isBold ? 'bold' : 'normal'
     }),
     singleValue: provided => ({
       ...provided,

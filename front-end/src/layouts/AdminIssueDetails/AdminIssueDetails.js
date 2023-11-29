@@ -1,7 +1,9 @@
+/* eslint-disable */
 import UpdatesBox from '../../components/admin/UpdateBox/UpdatesBox.js';
 import CommentBox from '../../components/admin/CommentBox/CommentBox.js';
-import TagSidebar from '../../components/admin/TagSideBar/TagSidebar.js';
+import AttachmentBar from '../../components/admin/AttachmentBar/AttachmentBar.js';
 import DepartmentSelection from '../../components/admin/DepartmentSelection/DepartmentSelection.js';
+import '../../components/admin/AttachmentBar/AttachmentBar.css';
 import '../../components/admin/CommentBox/CommentBox.css';
 import '../../components/admin/TagSideBar/TagSidebar.css';
 import '../../components/admin/DepartmentSelection/DepartmentSelection.css';
@@ -19,12 +21,9 @@ const AdminIssueDetails = () => {
   const { index } = useParams();
   const [updateBoxes, setUpdateBoxes] = useState([]);
   const [specificIssue, setSpecificIssue] = useState();
-  // const [currentPriority, setcurrentPriority] = useState('');
-  // const [currentProgression, setcurrentProgression] = useState('');
-  // const [departmentsTags, setDepartmentTags] = useState([]);
-  const [commentBoxValue, setcommentBoxValue] = useState('');
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  const [selectedFilesname, setSelectedFilesname] = useState([]);
   const navigate = useNavigate();
 
   const { checkAuthentication, userDept } = useContext(AuthContext);
@@ -55,6 +54,7 @@ const AdminIssueDetails = () => {
           setSpecificIssue(result[0]);
           if (result[0].comments) {
             setUpdateBoxes(result[0].comments);
+            setSelectedFilesname(result[0].attachments);
           }
         }
         setLoading(true);
@@ -63,7 +63,8 @@ const AdminIssueDetails = () => {
       }
     }
     fetchData();
-}, [index, commentBoxValue]);
+    console.log(selectedFilesname);
+}, [index]);
 
   return (
     <div>
@@ -79,19 +80,19 @@ const AdminIssueDetails = () => {
                 <ProgressionDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment}/>
               </div>
               <div className="all-updates">
+              <UpdatesBox name={"Issue Description"}description={specificIssue.description} />
                 {
                     updateBoxes.map((item, index) => {
                       return <UpdatesBox key={index} name={ "Update" } index ={updateBoxes.length - index}description={item} />;
                     })
                 }
-                  <UpdatesBox name={"Issue Details"}description={specificIssue.description} />
               </div>
-              <CommentBox index={ index } setcommentBoxValue={setcommentBoxValue} currentDepartment={currentDepartment} />
+              <CommentBox index={ index } setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
-                <TagSidebar index = { index }name="Attachments" tags = {specificIssue.attachments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment}/>
+                <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment}/>
                 <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
                 </div>

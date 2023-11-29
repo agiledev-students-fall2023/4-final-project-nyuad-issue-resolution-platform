@@ -1,23 +1,36 @@
 @import url("../../../assets/styles.css");
-.admin-tag-sidebar {
+.department-selection {
   background-color: var(--background);
   border-radius: 8px;
-  width: 200px;
+  width: 250px;
   margin-bottom: 50px;
 }
+.department-selection .tag-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+}
+.department-selection .tag-sidebar-header select{
+  width: 45%;
+  font-size: 12px;
+  margin-right: 8px;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  color: var(--accent);
+  cursor: pointer;
+}
   
-.admin-tag-sidebar ul {
+.department-selection ul {
   list-style-type: none;
   margin-left: 0;
   padding: 0;
   
 }
 
-.admin-tag-sidebar h3 {
+.department-selection h3 {
   margin: 0;
 }
 
-.admin-tag-sidebar .plus-button {
+.department-selection .plus-button {
     background-color: #007BFF;
     color: white;
     border: none;
@@ -27,20 +40,20 @@
     margin-left: 70px;
 }
 
-.admin-tag-sidebar .plus-button:hover {
+.department-selection .plus-button:hover {
     background-color: #0056b3;
 }
 
-.admin-tag-sidebar .plus-button:focus {
+.department-selection .plus-button:focus {
     outline: none;
 }
 
-.admin-tag-sidebar .tag-sidebar-header {
+.department-selection .tag-sidebar-header {
   display: flex;
   justify-content: space-between;
 }
 
-.admin-tag-sidebar .round-tag {
+.department-selection .round-tag {
   background-color:#e6dbf9;
   border-radius: 16px;
   padding: 10px 20px;
@@ -51,9 +64,10 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-weight: bold;
+  margin-right: 10px;
 }
 
-.admin-tag-sidebar .tag-close-button {
+.department-selection .tag-close-button {
   background-color: transparent;
   border: none;
   color: #060606;
@@ -66,7 +80,7 @@
   border-radius: 0 20px 20px 0;
 }
 
-.admin-tag-sidebar  .tag-close-button:hover {
+.department-selection  .tag-close-button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 

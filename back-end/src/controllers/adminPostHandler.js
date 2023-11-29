@@ -6,9 +6,10 @@ export async function adminPostHandler(req, res) {
   const currentStatus = req.body.issueStatus;
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
+  const attachments = req.body.attachments;
+  console.log(req.body);
   try {
     const specificIssue = await Issue.findOne({ index: issueindex });
-    console.log(specificIssue);
     if (!specificIssue) {
       console.error('This specific issue could not found');
       return;
@@ -24,6 +25,9 @@ export async function adminPostHandler(req, res) {
     }
     if (departmentTags !== undefined && departmentTags.length !== 0) {
       specificIssue.departments = departmentTags;
+    }
+    if (attachments !== undefined) {
+      specificIssue.attachments = attachments;
     }
     const updatedIssue = await specificIssue.save();
     console.log('Issue updated:', updatedIssue);
