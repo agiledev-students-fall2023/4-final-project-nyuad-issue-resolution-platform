@@ -14,6 +14,10 @@ We decided to rotate the assignment of the following roles for each sprint.
 * **Product Owner:** Basil Ahmed
 * **Scrum Master:** Nada Elsharkawy
 
+### Sprint 4
+* **Product Owner:** Avinash Gyawali
+* **Scrum Master:** Swostik Pati
+
 ## About
 ### Product Vision Statement
 The NYUAD Issue Resolution Platform is envisioned as a transformative solution that streamlines and revolutionizes the way NYU Abu Dhabi students and administrative departments interact and resolve issues. Our vision is to create a transparent, efficient, and user-friendly web application that serves as a central hub for issue tracking and resolution. The platform will bridge the communication gap between students and departments, offering real-time insights, accountability, and enhanced collaboration.
