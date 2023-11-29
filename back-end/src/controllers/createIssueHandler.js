@@ -28,7 +28,7 @@ export async function createIssueHandler(req, res) {
         description: req.body.issueDesc,
         attachments: attachments,
         departments: req.body.deptTagged.includes(',') ? req.body.deptTagged.split(',') : [req.body.deptTagged],
-        comments: [null],
+        comments: [],
         dateCreated: issueDateCreated,
         timeCreated: issueTimeCreated,
         currentStatus:'Open',
