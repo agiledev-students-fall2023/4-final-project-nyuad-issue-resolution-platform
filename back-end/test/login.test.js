@@ -4,15 +4,18 @@ import chaiHttp from "chai-http";
 import server from "../app.js";
 
 chai.use(chaiHttp);
-
+// Integration tests for the login.js file
 describe("Integration Tests for Login Endpoints", () => {
+  // Check student login
   describe("POST /api/login/student", () => {
     it("should authenticate student with correct credentials", async () => {
       const res = await chai
         .request(server)
         .post("/api/login/student")
         .send({ username: "student", password: "student" });
+      // Check that the response is correct
       assert.equal(res.status, 200);
+      // Check if response matches expected response
       assert.deepEqual(res.body, {
         "__v": 0,
         authenticated: true,
@@ -34,12 +37,15 @@ describe("Integration Tests for Login Endpoints", () => {
   });
 
   describe("POST /api/login/admin", () => {
+    // Check admin login
     it("should authenticate admin with correct credentials", async () => {
       const res = await chai
         .request(server)
         .post("/api/login/admin")
         .send({ username: "admin", password: "admin" });
+      // Check that the response is correct
       assert.equal(res.status, 200);
+      // Check if response matches expected response
       assert.deepEqual(res.body, {
         "__v": 0,
         authenticated: true,
