@@ -6,7 +6,7 @@ import server from "../app.js";
 chai.use(chaiHttp);
 
 // Integration tests for the studentIssuesHandler.js file
-describe("Integration Tests for Issue Retrieval Endpoint", () => {
+describe("Integration Tests for Student Issue Handler Endpoint", () => {
   describe("GET /api/issues/student/:paramName", () => {
     it("should retrieve all issues for a valid student NetID", async () => {
       const paramName = "student";
