@@ -54,11 +54,13 @@
 }
 
 .department-selection .round-tag {
+  width: 80%;
+  height: 80%;
   background-color:#e6dbf9;
   border-radius: 16px;
-  padding: 10px 20px;
+  padding: 5px 5px;
   color: #845dd0;
-  font-size: 16px;
+  font-size: 14px;
   position: relative;
   text-align: center;
   margin-top: 10px;
@@ -76,7 +78,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 5px 10px;
   border-radius: 0 20px 20px 0;
 }
 

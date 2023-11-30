@@ -40,7 +40,10 @@ const customStyles = {
     color: 'blue'
   }),
   option: (provided, state) => ({
-    ...provided
+    ...provided,
+    borderRadius: '5px',
+    width: '95%',
+    'margin-left': '4px'
     // backgroundColor: state.data.color,
     // color: state.data.textColor,
     // fontWeight: state.data.isBold ? 'bold' : 'normal',
