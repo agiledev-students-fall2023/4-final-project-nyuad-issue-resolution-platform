@@ -1,17 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './DesktopIssueDetails.css';
+import './StudentIssueDetails.css';
 
-const DesktopIssueDetails = ({ index }) => {
+const StudentIssueDetails = ({ studentNetID, index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
     // const [comments, setComments] = useState([]); // Assuming comments is an array
     const [changeOccured, setChangeOccured] = useState(false); // To force a re-render
     const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
-    const mockStudent = {
-        name: "Ted Mosby",
-        netid: "tm2005"
-      };
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -23,7 +19,7 @@ const DesktopIssueDetails = ({ index }) => {
             try {
                 const response = await axios
                 .post(
-                    `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+                    `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
                     {
                         issueindex: index,
                         comments: comment
@@ -49,7 +45,7 @@ const DesktopIssueDetails = ({ index }) => {
     const postMarkAsResolved = async () => {
         try {
           await axios.post(
-            `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+            `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
             issueindex: index,
             currentStatus: "Resolved"
@@ -62,7 +58,7 @@ const DesktopIssueDetails = ({ index }) => {
     const postReopen = async (event) => {
         try {
           await axios.post(
-            `${BACKEND_BASE_URL}/api/actions/student/${mockStudent.netid}/${index}`,
+            `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
             issueindex: index,
             currentStatus: "Open"
@@ -92,7 +88,7 @@ const DesktopIssueDetails = ({ index }) => {
                 try {
                 // Attempt to make an HTTP GET request using axios.
                 const response = await axios.get(
-                    `${BACKEND_BASE_URL}/api/issues/student/${mockStudent.netid}/${index}`
+                    `${BACKEND_BASE_URL}/api/issues/student/${studentNetID}/${index}`
                 );
                 // If the request is successful, take the first item from the response data
                 // (assuming the response data is an array) and update the `issue` state with it.
@@ -274,4 +270,4 @@ const DesktopIssueDetails = ({ index }) => {
     );
 };
 
-export default DesktopIssueDetails;
+export default StudentIssueDetails;

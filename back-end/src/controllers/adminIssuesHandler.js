@@ -4,8 +4,8 @@ export async function issueRetrievalHandler(req, res) {
     const { paramName } = req.params;
 
     try {
+        // Check if issues exist for the department
         const issues = await IssueModel.find({ "departments": paramName });
-
         res.json(issues);
     } catch (error) {
         console.error("Error retrieving data:", error.message);

@@ -7,7 +7,6 @@ import url from "url";
 import path from "path";
 import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
-import studentIssueViewDetails from "./src/routes/studentIssueViewDetails.js";
 import studentIssueUpdate from "./src/routes/studentIssueUpdate.js";
 import adminIssues from "./src/routes/adminIssues.js";
 import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";

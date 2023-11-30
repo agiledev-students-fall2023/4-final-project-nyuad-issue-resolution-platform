@@ -4,6 +4,8 @@ import chaiHttp from "chai-http";
 import server from "../app.js";
 
 chai.use(chaiHttp);
+process.env.NODE_ENV = "test";
+
 // Integration tests for the login.js file
 describe("Integration Tests for Login Endpoints", () => {
   // Check student login
