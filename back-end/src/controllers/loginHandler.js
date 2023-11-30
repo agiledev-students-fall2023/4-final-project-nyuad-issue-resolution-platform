@@ -2,21 +2,7 @@ import bcrypt from "bcryptjs";
 import User from "../../models/UserModel.js";
 import jwt from "jsonwebtoken";
 
-// Previous Hardcoded values
-// const student = { username: "s", password: "1" };
-// const admin = { username: "a", password: "1" };
-
 export async function loginStudentHandler(req, res) {
-  // previous implementation
-  // if (
-  //   req.body.username === student.username &&
-  //   req.body.password === student.password
-  // ) {
-  //   res.status(200).json({ authenticated: true });
-  // } else {
-  //   res.status(200).json({ authenticated: false });
-  // }
-
   try {
     const { username, password } = req.body;
     // for case insensitive search
@@ -54,15 +40,6 @@ export async function loginStudentHandler(req, res) {
 }
 
 export async function loginAdminHandler(req, res) {
-  // if (
-  //   req.body.username === admin.username &&
-  //   req.body.password === admin.password
-  // ) {
-  //   res.json({ authenticated: true });
-  // } else {
-  //   res.json({ authenticated: false });
-  // }
-
   try {
     const { username, password } = req.body;
     // for case insensitive search
