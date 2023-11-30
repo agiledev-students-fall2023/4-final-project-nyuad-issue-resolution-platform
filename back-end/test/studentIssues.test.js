@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 
 process.env.NODE_ENV = "test";
 
-// Integration tests for the studentIssuesHandler.js file
+// Integration tests for the studentIssues.js file
 describe("Integration Tests for Student Issue Handler Endpoint", () => {
   describe("GET /api/issues/student/:paramName", () => {
     it("should retrieve all issues for a valid student NetID", async () => {
