@@ -3,7 +3,10 @@ import chai, { assert } from "chai";
 import IssueModel from "../models/issueModel.js";
 import chaiHttp from "chai-http";
 import server from "../app.js";
+
 chai.use(chaiHttp);
+
+process.env.NODE_ENV = "test";
 
 // Integration tests for the studentIssuesHandler.js file
 describe("Integration Tests for Student Issue Handler Endpoint", () => {
