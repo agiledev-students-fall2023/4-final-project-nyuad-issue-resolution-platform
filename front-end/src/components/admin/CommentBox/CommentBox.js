@@ -14,7 +14,7 @@ function CommentBox({ index, setcommentBoxValue, currentDepartment }) {
     const updateBoxData = event.target.elements[0].value;
     setcommentBoxValue(updateBoxData);
       try {
-        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: updateBoxData });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueindex: index, commentbox: updateBoxData });
       } catch (error) {
         console.error('Error during form submission:', error);
       }

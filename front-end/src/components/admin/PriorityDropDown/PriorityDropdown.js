@@ -21,7 +21,7 @@ const PriorityDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes, cu
     // const statusUpdate = `Admin Changed the current status of the issue to ${param}`;
     // setUpdateBoxes([statusUpdate, ...updateBoxes]); // // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issuePriority: param });
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueindex: index, issuePriority: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }

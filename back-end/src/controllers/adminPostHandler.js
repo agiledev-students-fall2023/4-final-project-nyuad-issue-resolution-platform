@@ -1,13 +1,15 @@
 import Issue from '../../models/issueModel.js';
 
 export async function adminPostHandler(req, res) {
+  const { department } = req.params;
+  console.log(department);
   const issueindex = req.body.issueindex;
   const newcomment = req.body.commentbox;
   const currentStatus = req.body.issueStatus;
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
   try {
-    const specificIssue = await Issue.findOne({ index: issueindex });
+    const specificIssue = await Issue.findOne({ index: issueindex  });
     console.log(specificIssue);
     if (!specificIssue) {
       console.error('This specific issue could not found');

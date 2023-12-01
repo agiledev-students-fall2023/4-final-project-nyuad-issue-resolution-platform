@@ -30,7 +30,7 @@ function TagSidebar({ index, name, tags, setUpdateBoxes, updateBoxes, currentDep
     const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
     setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }

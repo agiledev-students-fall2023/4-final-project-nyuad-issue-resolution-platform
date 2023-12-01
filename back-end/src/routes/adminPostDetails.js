@@ -3,6 +3,6 @@ import { adminPostHandler } from "../controllers/adminPostHandler.js";
 
 const router = express.Router();
 
-router.post("/:paramName", adminPostHandler);
+router.post("/:department/:paramName", adminPostHandler);
 
 export default router;
