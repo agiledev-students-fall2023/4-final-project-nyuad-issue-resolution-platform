@@ -81,7 +81,4 @@ describe("Integration Tests for Create Issue Endpoint", () => {
     });
   });
 });
-
-
-
 /* eslint-enable */
