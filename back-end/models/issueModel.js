@@ -29,7 +29,7 @@ const issueSchema = new mongoose.Schema({
     departments: {
         type: [{
             type: String,
-            enum: ['IT', 'Admin', 'Library', 'Facilities', 'Registrar', 'Health', 'Finance', 'GlobalEd', 'ResEd', 'CDC'],
+            enum: ['IT', 'Admin', 'Library', 'Facilities', 'Registrar', 'Health', 'Finance', 'GlobalEd', 'ResEd', 'CDC', 'admin'],
         }],
         required: true,
     },
