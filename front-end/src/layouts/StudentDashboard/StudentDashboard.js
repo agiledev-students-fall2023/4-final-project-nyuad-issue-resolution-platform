@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useContext } from "react";
 import "./StudentDashboard.css";
 import StudentNavbar from "../../components/student/StudentNavbar/StudentNavbar";
 import StudentViewFilter from "../../components/student/StudentViewFilter/StudentViewFilter";
-import DesktopIssueDetails from "../../components/student/StudentIssueOverlay/DesktopIssueDetails";
+import StudentIssueDetails from "../../components/student/StudentIssueOverlay/StudentIssueDetails";
 import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
 import { CreateRequest } from "../../components/student/CreateRequest/CreateRequest.js";
 import { AuthContext } from '../../components/general/AuthContext/AuthContext';
@@ -617,7 +617,7 @@ const StudentDashboard = () => {
             X
           </button>
 
-          <DesktopIssueDetails index={request} />
+          <StudentIssueDetails studentNetID={userNetID} index={request} />
         </div>
       )}
       <SiteWideFooter />

@@ -1,35 +1,29 @@
 import Issue from '../../models/issueModel.js';
 
-// The function retrieves all the issues related to this student
 export async function studentIssueViewDetailsHandler(req, res) {
-  const { paramName } = req.params;
-  const { studentNetID } = req.params;
+  const { paramName } = req.params; // Get the issue index from request params
+  const { studentNetID } = req.params; // Get the studentNetID from request params
 
+  // Check if studentNetID is missing or invalid
   if (!studentNetID) {
     return res.status(400).send("Missing or invalid studentNetID.");
   }
 
+  // Check if paramName (issue index) is missing or invalid
   if (!paramName) {
     return res.status(400).send("Missing or invalid issue index.");
   }
 
   try {
+    // Query the database to find issues that match both studentNetID and index
+    const response = await Issue.find({ studentNetID: studentNetID, index: paramName });
 
-    const response = await Issue.find({ index: paramName });
-
-    // Check if any data is returned for the student
+    // Check if no matching issues are found
     if (!response || response.length === 0) {
-      return res.status(500).send("No issues found for the given studentNetID.");
+      return res.status(500).send("No issues found for the given studentNetID and index.");
     }
-
-    // Check if the specific issue index exists
-    if (response.length === 0) {
-      return res.status(500).send("Issue with the given index not found.");
-    }
-
-    res.json(response); // Send only the data that matches the specific issue index
+    res.json(response);
   } catch (error) {
-    // Log the error and send an appropriate response
     console.error("Error retrieving data:", error.message);
     res.status(500).send("An error occurred while retrieving the data.");
   }

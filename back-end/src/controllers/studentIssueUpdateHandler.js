@@ -2,14 +2,14 @@ import Issue from '../../models/issueModel.js';
 
 // The function updates the issue related to this student
 export async function studentIssueUpdateHandler(req, res) {
-
-    const issueindex = req.body.issueindex;
+    const { paramName } = req.params; // Get the issue index from request params
+    const { studentNetID } = req.params; // Get the studentNetID from request params
     const newcomment = req.body.comments;
     const currentStatus = req.body.currentStatus;
 
   try {
 
-    const specificIssue = await Issue.findOne({ index: issueindex });
+    const specificIssue = await Issue.findOne({ studentNetID:studentNetID, index: paramName });
 
     if (newcomment !== undefined) {
         specificIssue.comments.unshift(newcomment);

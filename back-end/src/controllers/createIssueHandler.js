@@ -1,6 +1,4 @@
-import { publicpath } from "../../app.js";
 import Issue from '../../models/issueModel.js';
-import { promises as fs } from 'fs';
 
 export async function createIssueHandler(req, res) {
     console.log(req.body);
@@ -37,10 +35,9 @@ export async function createIssueHandler(req, res) {
 
     try {
         await newIssue.save();
-        console.log('Issue:', newIssue);
         res.status(200).send('Issue created successfully');
     } catch (error) {
-        console.error('Error creating issue:', error);
-        // res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error creating issue:', error.message);
+        res.status(500).send("An error occurred while saving the data.");
     }
 }
