@@ -54,7 +54,6 @@
   height: 300px;
   background-color: rgb(245, 248, 250);
   border: 1.5px solid rgb(216, 222, 227);
-  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); */
   overflow-y: scroll;
   margin-top: 15px;
   border-radius: 2px;
@@ -117,7 +116,6 @@
   width: fit-content;
   font-size: 13px;
   background-color: rgba(131, 84, 219, 0.212);
-  /* border: 1px solid rgba(131, 84, 219, 0.782); */
   font-weight: bold;
   color: rgb(131, 84, 219);
   margin: 10px 0 0 2px;
@@ -166,7 +164,6 @@
 
   .student-issue-view>h2 {
     margin: 75px 0 20px 30px;
-    /* width: 90%; */
     font-size: 25px;
   }
 
