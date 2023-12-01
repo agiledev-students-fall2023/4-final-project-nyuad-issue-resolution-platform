@@ -9,7 +9,6 @@ import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
 import studentIssueUpdate from "./src/routes/studentIssueUpdate.js";
 import adminIssues from "./src/routes/adminIssues.js";
-import adminIssueViewDetails from "./src/routes/adminIssueViewDetails.js";
 import adminPostDetails from "./src/routes/adminPostDetails.js";
 import createIssue from "./src/routes/createIssue.js";
 /* eslint-disable no-unused-vars */
@@ -92,16 +91,11 @@ app.use("/api/login", login);
 // Student Side Issue Retrieval
 app.use("/api/issues/student", studentIssues);
 
-// Student Side Issue View Details
-// app.use("/api/issues/student/", studentIssueViewDetails);
-
 // Student Side Issue Update
 app.use("/api/actions/student", studentIssueUpdate);
 
 // Admin side issue retrieval
 app.use("/api/issues/admin", adminIssues);
-
-app.use("/api/issues/admin/", adminIssueViewDetails);
 
 app.use("/api/actions/admin/", adminPostDetails);
 

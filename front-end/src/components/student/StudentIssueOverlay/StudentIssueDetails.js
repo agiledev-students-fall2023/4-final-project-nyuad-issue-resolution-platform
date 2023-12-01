@@ -21,7 +21,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                 .post(
                     `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
                     {
-                        issueindex: index,
                         comments: comment
                     }
                 );
@@ -47,7 +46,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
           await axios.post(
             `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
-            issueindex: index,
             currentStatus: "Resolved"
         });
         } catch (error) {
@@ -60,7 +58,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
           await axios.post(
             `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
-            issueindex: index,
             currentStatus: "Open"
         });
         } catch (error) {
@@ -127,14 +124,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
     if (!issue) {
         return <p>Loading issue data...</p>;
     }
-
-    // const issueUpdates = [
-    //     issue.description,
-    //     issue.description,
-    //     issue.description,
-    //     issue.description
-    //     // just replicated issues for styling updates
-    // ];
 
     // Converts a department value to its display name
     const mapDepartmentToDisplayName = (departmentValue) => {
