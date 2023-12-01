@@ -546,7 +546,7 @@ const StudentDashboard = () => {
       <div
         className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}
       >
-        <StudentNavbar studentName={userName} />
+        <StudentNavbar studentName={userNetID} />
 
         <h2 className="h2-student-dashboard">Your Requests</h2>
         <div className="actions">
