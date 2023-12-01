@@ -5,6 +5,7 @@
     transition: box-shadow 0.3s ease;
     margin: 5px;
     width: 95%;
+    scroll-behavior: auto;
 }
   
 .admin-update-box p {

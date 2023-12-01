@@ -14,6 +14,17 @@
 .attachment-bar  h3 {
   margin: 0;
 }
+
+.attachment-bar .fileoverlay_btn{
+  margin-right: 10px;
+  font-size: 12px;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  color: var(--accent);
+  justify-content: baseline;
+  cursor: pointer;
+  background-color: Transparent;
+}
   
 .attachment-bar  .plus-button {
     background-color: #007BFF;
@@ -79,10 +90,8 @@
   font-weight: 600;
   padding-left: 4px;
   position: relative;
-  margin-top: 5px;
   min-height: 95px;
   height: auto;
-  margin-top: 15px;
   overflow-y: auto;
   /* border: 1px solid #ccc; */
 }

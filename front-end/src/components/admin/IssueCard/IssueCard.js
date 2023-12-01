@@ -1,14 +1,15 @@
 import './IssueCard.css';
-import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function IssueCard({ issue }) {
-   const navigate = useNavigate();
-
+   const BASE_URL = 'http://localhost:3000';
    useEffect(() => {
    }, []);
    const onClickIssueCard = async (event) => {
-      navigate('/admin/dashboard/' + (issue.index));
+      const url = `${BASE_URL}/admin/dashboard/` + issue.index;
+      // Open the URL in a new tab
+      window.open(url, '_blank');
+      // navigate('/admin/dashboard/' + (issue.index));
    };
    return (
       <div onClick = {onClickIssueCard} key={issue.index} className="issue-card-admin">

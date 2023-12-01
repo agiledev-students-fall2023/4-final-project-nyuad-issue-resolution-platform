@@ -6,8 +6,7 @@ export async function adminPostHandler(req, res) {
   const currentStatus = req.body.issueStatus;
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
-  const attachments = req.body.attachments;
-  console.log(req.body);
+
   try {
     const specificIssue = await Issue.findOne({ index: issueindex });
     if (!specificIssue) {
@@ -26,8 +25,11 @@ export async function adminPostHandler(req, res) {
     if (departmentTags !== undefined && departmentTags.length !== 0) {
       specificIssue.departments = departmentTags;
     }
-    if (attachments !== undefined) {
-      specificIssue.attachments = attachments;
+    if (req.files !== undefined) {
+      const newfilesattachments = req.files.map(file => file.filename);
+      newfilesattachments.forEach(element => {
+        specificIssue.attachments.push(element);
+     });
     }
     const updatedIssue = await specificIssue.save();
     console.log('Issue updated:', updatedIssue);

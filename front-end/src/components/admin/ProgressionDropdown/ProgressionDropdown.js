@@ -41,11 +41,6 @@ const customStyles = {
   }),
   option: (provided, state) => ({
     ...provided,
-    borderRadius: '5px',
-    width: '95%',
-    'margin-left': '5px',
-    'margin-top': '2px',
-    'margin-bottom': '2px',
     backgroundColor: state.data.color,
     color: state.data.textColor,
     fontWeight: state.data.isBold ? 'bold' : 'normal'
