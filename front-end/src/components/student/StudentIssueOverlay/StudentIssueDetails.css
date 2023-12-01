@@ -150,6 +150,18 @@
   z-index: 10;
 }
 
+.toast-notification {
+  position:relative;
+  top: 15%;
+  /* left: 50%; */
+  transform: translateX(-5%);
+  /* background-color: #ffcc00; */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
 @media only screen and (max-width: 768px) {
 
   .student-issue-view>h2 {
@@ -183,5 +195,22 @@
   padding: 0;
   text-align: -webkit-center;
 }
+
+.toast-notification {
+  position:relative;
+  top: 15%;
+  left: 5%;
+  transform: translateX(-5%);
+  align-self: center;
+  /* background-color: #ffcc00; */
+  /* padding: 10px 20px; */
+  /* padding-left: 50px; */
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
 
 }

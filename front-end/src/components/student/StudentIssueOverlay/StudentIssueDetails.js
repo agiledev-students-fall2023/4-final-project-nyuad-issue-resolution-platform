@@ -2,12 +2,30 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './StudentIssueDetails.css';
 
+const useToast = () => {
+    const [isToastVisible, setIsToastVisible] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
+
+    const showToast = (message) => {
+        setToastMessage(message);
+        setIsToastVisible(true);
+        setTimeout(() => {
+            setIsToastVisible(false);
+        }, 3000); // Toast will disappear after 3 seconds
+    };
+
+    return { isToastVisible, toastMessage, showToast };
+};
+
 const StudentIssueDetails = ({ studentNetID, index }) => {
     const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
     // const [comments, setComments] = useState([]); // Assuming comments is an array
     const [changeOccured, setChangeOccured] = useState(false); // To force a re-render
     const BACKEND_BASE_URL = process.env.REACT_APP_BACKEND_URL;
+    // New state for tracking comment submission
+    const [commentSubmitted, setCommentSubmitted] = useState(false);
+    const { isToastVisible, toastMessage, showToast } = useToast(); // Using the custom hook
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -34,6 +52,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
             }
         setComment('');
         setChangeOccured(!changeOccured);
+        setCommentSubmitted(true); // Set the comment submitted flag
         }
         // else {
         //     console.error('Comment cannot be empty');
@@ -115,10 +134,14 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
     };
 
     const acceptResolution = async () => {
-        await postMarkAsResolved();
-        setChangeOccured(!changeOccured);
-        setIssue({ ...issue, currentStatus: issue.currentStatus });
-        // Since the issue status is already 'Resolved', no need to change it.
+        if (commentSubmitted) { // Check if a comment has been submitted
+            await postMarkAsResolved();
+            setChangeOccured(!changeOccured);
+            setIssue({ ...issue, currentStatus: issue.currentStatus });
+            setCommentSubmitted(false); // Reset the comment submission flag
+        } else {
+            showToast("⚠️ Please submit a comment before accepting the resolution");
+        }
     };
 
     if (!issue) {
@@ -208,6 +231,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
 
                         <div className="add-comment">
                             <h3>Add a Comment</h3>
+
                             <form onSubmit={(e) => submitComment(e)}>
                             <div className='fix-add-button'>
                                 {/* the above div is just for the purpose of styling */}
@@ -244,6 +268,12 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                             </div>
                         )}
                     </div>
+            {/* Toast Notification */}
+            {isToastVisible && (
+                <div className="toast-notification">
+                    {toastMessage}
+                </div>
+            )}
                     <div className="footer-buttons">
                         {issue.currentStatus === 'Resolved' && (
                             <button className="issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
@@ -251,6 +281,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                         {issue.currentStatus === 'Action Required' && (
                             <button className="issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
                         )}
+
                     </div>
                 </div>
             </div>
