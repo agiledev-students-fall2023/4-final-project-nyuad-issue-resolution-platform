@@ -1,4 +1,3 @@
-/* eslint-disable */
 import express from "express";
 import multer from "multer";
 import { adminPostHandler } from "../controllers/adminPostHandler.js";
@@ -17,7 +16,6 @@ const storage = multer.diskStorage({
     }
   });
 const upload = multer({ storage });
-
-router.post("/:paramName",upload.array("uploadedFiles"), adminPostHandler);
+router.post("/:paramName", upload.array("uploadedFiles"), adminPostHandler);
 
 export default router;

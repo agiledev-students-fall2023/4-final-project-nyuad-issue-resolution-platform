@@ -1,9 +1,8 @@
-/* eslint-disable */
 import { useEffect, useState } from 'react';
-import './FileUploadOverlay.css'
-import '../AttachmentBar/AttachmentBar.css'
+import './FileUploadOverlay.css';
+import '../AttachmentBar/AttachmentBar.css';
 
-const FileUploadOverlay = ({index, currentDepartment,isOverlayVisible, setIsOverlayVisible}) => {
+const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOverlayVisible }) => {
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -15,7 +14,6 @@ const FileUploadOverlay = ({index, currentDepartment,isOverlayVisible, setIsOver
       const newSelectedFiles = selectedFiles.filter((_, index) => index !== fileIndex);
       setSelectedFiles(newSelectedFiles);
     };
-  
   const handleFormSubmit = async (e) => {
     const formData = new FormData(e.target);
     e.preventDefault();
@@ -24,7 +22,6 @@ const FileUploadOverlay = ({index, currentDepartment,isOverlayVisible, setIsOver
     }
 
     formData.append('issueindex', index);
-  
     try {
       const response = await fetch(`${BASE_URL}/api/actions/admin/${currentDepartment}`, {
         method: "POST",
@@ -42,7 +39,7 @@ const FileUploadOverlay = ({index, currentDepartment,isOverlayVisible, setIsOver
     } catch (error) {
       console.error("Error during form submission:", error);
     }
-    closeOverlay()
+    closeOverlay();
     window.location.reload();
   };
 
@@ -74,7 +71,6 @@ const FileUploadOverlay = ({index, currentDepartment,isOverlayVisible, setIsOver
                                         <ul className="file-list">
                                             {selectedFiles.length > 0 ? (
                                             selectedFiles.map((file, index) => {
-                                
                                             return <li key={index} onClick={() => handleFileRemove(index)}>{file.name}</li>;
                                             })
                                             ) : (
@@ -90,13 +86,10 @@ const FileUploadOverlay = ({index, currentDepartment,isOverlayVisible, setIsOver
                         </label>
                         </div>
                     </div>
-                       
                   </div>
             )}
         </div>
     );
 };
-
-
 
 export default FileUploadOverlay;

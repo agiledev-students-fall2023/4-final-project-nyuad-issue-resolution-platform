@@ -35,7 +35,6 @@
 .overlay-style .attachment-header{
   display: flex;
   justify-content: space-between;
-
 }
 .overlay-style .attachment-header .file-select-label {
   margin-top: 10px;
@@ -52,6 +51,12 @@
 .overlay-style .submit-button {
   margin-top: 45px;
   margin-left: 150px;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-emphasis-color: var(--primary);
+  border: 1px solid var(--primary);
  }
 
 .attachment-bar .selected-files-and-departments .selected-files{
