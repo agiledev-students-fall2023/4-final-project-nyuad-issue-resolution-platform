@@ -37,7 +37,7 @@ describe("Integration Tests for Student Issue Handler Endpoint", () => {
   });
 
   describe("GET /api/issues/student/:studentNetID/:paramName", () => {
-    it("should retrieve all issues for a valid student NetID and issue index", async () => {
+    it("should retrieve the issue for a valid student NetID and issue index", async () => {
       const studentNetID = "student";
       const paramName = "101";
       const res = await chai
