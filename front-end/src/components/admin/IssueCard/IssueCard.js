@@ -2,15 +2,15 @@ import './IssueCard.css';
 import { useEffect } from 'react';
 
 function IssueCard({ issue }) {
-   const BASE_URL = 'http://localhost:3000';
+   const BASE_URL = process.env.REACT_APP_FRONTEND_URL;
    useEffect(() => {
    }, []);
    const onClickIssueCard = async (event) => {
       const url = `${BASE_URL}/admin/dashboard/` + issue.index;
-      // Open the URL in a new tab
       window.open(url, '_blank');
       // navigate('/admin/dashboard/' + (issue.index));
    };
+
    return (
       <div onClick = {onClickIssueCard} key={issue.index} className="issue-card-admin">
          <h4 className="issue-card-admin-name-id">{issue.studentName} ({issue.studentNetID})</h4>

@@ -37,7 +37,6 @@ const AdminIssueDetails = () => {
   }, []);
 
   const postMarkAsResolved = async (event) => {
-      event.prevenDefault();
       navigate('/admin/dashboard/');
       try {
         await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required" });
