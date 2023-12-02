@@ -6,6 +6,7 @@ export async function adminPostHandler(req, res) {
   const currentStatus = req.body.issueStatus;
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
+  const isProposed = req.body.isProposed;
 
   try {
     const specificIssue = await Issue.findOne({ index: issueindex });
@@ -30,6 +31,9 @@ export async function adminPostHandler(req, res) {
       newfilesattachments.forEach(element => {
         specificIssue.attachments.push(element);
      });
+    }
+    if (isProposed !== undefined) {
+      specificIssue.isProposed = isProposed;
     }
     const updatedIssue = await specificIssue.save();
     console.log('Issue updated:', updatedIssue);

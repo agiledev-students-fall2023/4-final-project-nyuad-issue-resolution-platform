@@ -10,7 +10,6 @@ function IssueCard({ issue }) {
       window.open(url, '_blank');
       // navigate('/admin/dashboard/' + (issue.index));
    };
-
    return (
       <div onClick = {onClickIssueCard} key={issue.index} className="issue-card-admin">
          <h4 className="issue-card-admin-name-id">{issue.studentName} ({issue.studentNetID})</h4>

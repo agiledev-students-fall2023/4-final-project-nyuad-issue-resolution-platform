@@ -39,7 +39,7 @@ const AdminIssueDetails = () => {
   const postMarkAsResolved = async (event) => {
       navigate('/admin/dashboard/');
       try {
-        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required" });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required" , isProposed: true });
       } catch (error) {
         console.error('Error during form submission:', error);
       }
@@ -85,7 +85,7 @@ const AdminIssueDetails = () => {
                     })
                 }
               </div>
-              <CommentBox index={ index } setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
+              <CommentBox index={ index } setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} currentState={specificIssue} />
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
