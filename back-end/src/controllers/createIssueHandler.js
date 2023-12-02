@@ -8,12 +8,18 @@ export async function createIssueHandler(req, res) {
         currentPriority
     } = req.body;
 
-    const issueDateCreated = dateCreated || new Date().toLocaleDateString();
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = currentDate.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+    const issueDateCreated = dateCreated || formattedDate;
     const issueTimeCreated = new Date().toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
-        hour12: false 
-    });
+        hour12: false,
+        timeZone: 'Asia/Dubai'
+    });    
     const attachments = req.files.map(file => file.filename);
     const lastIssue = await Issue.findOne().sort({  index: -1  });
     const newIndex = lastIssue ? lastIssue.index + 1 : 1;
@@ -30,7 +36,8 @@ export async function createIssueHandler(req, res) {
         dateCreated: issueDateCreated,
         timeCreated: issueTimeCreated,
         currentStatus:'Open',
-        currentPriority: 'New'
+        currentPriority: 'New',
+        isProposed: false
     });
 
     try {

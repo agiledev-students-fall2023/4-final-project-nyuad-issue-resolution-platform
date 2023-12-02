@@ -18,6 +18,7 @@ import passport from "./config/passportConfig.js";
 import checkJWT from "./src/middlewares/checkJWT.js";
 import cookieParser from "cookie-parser";
 import checkReferer from "./src/middlewares/checkReferer.js";
+import updatePriorityForOpenIssues from "./src/middlewares/updatePriorityForOpenIssues.js";
 
 // import multer from "multer"; - configure when required
 
@@ -63,8 +64,14 @@ app.use(cookieParser());
 // initialize passport
 app.use(passport.initialize());
 
-// protected routes setup
-// app.use(checkJWT);
+// an interval to run updatePriorityForOpenIssues every hour
+setInterval(() => {
+  try {
+    updatePriorityForOpenIssues();
+  } catch (error) {
+    console.error("Error in scheduled updatePriorityForOpenIssues:", error);
+  }
+}, 30 * 60 * 1000); 
 
 // Logout endpoint to remove token from cookie
 app.get('/api/logout', (req, res) => {
