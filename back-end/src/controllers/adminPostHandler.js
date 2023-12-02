@@ -7,7 +7,6 @@ export async function adminPostHandler(req, res) {
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
   const isProposed = req.body.isProposed;
-
   try {
     const specificIssue = await Issue.findOne({ index: issueindex });
     if (!specificIssue) {
@@ -28,9 +27,13 @@ export async function adminPostHandler(req, res) {
     }
     if (req.files !== undefined) {
       const newfilesattachments = req.files.map(file => file.filename);
-      newfilesattachments.forEach(element => {
-        specificIssue.attachments.push(element);
-     });
+      if (specificIssue.attachments[0] == null) {
+        specificIssue.attachments = newfilesattachments;
+      } else {
+        newfilesattachments.forEach(element => {
+          specificIssue.attachments.push(element);
+       });
+      }
     }
     if (isProposed !== undefined) {
       specificIssue.isProposed = isProposed;

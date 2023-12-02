@@ -64,7 +64,6 @@ const setDefaultValue = () => {
 };
   useEffect(() => {
     setDefaultValue();
-    console.log("lado");
   }, [currentState.currentStatus]);
 
   return (

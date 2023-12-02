@@ -29,7 +29,7 @@ function AttachmentBar({ index, name, tags, fileNames, currentDepartment }) {
           <ul className="file-list">
           {fileNames.length > 0 && fileNames[0] ? (
           fileNames.map((file, index) => {
-              return <li key={index} onClick={() => handleFileRemove(index)}>{file.slice(25)}</li>;
+              return <li key={index} onClick={() => handleFileRemove(index)}>{file?.slice(25)}</li>;
           })
           ) :
            (
