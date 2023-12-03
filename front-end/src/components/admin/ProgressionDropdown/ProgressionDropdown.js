@@ -8,7 +8,8 @@ const ProgressionDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes,
   const options = [
     { value: 'Open', label: 'Not Started', color: '#b82c1c37', textColor: '#b82c1c', isBold: 'true' },
     { value: 'In Progress', label: 'In Progress', color: '#1f6deb37', textColor: '#1f6eeb', isBold: 'true' },
-    { value: 'Action Required', label: 'Awaiting Response', color: '#9d690235', textColor: '#9d6a02', isBold: 'true' }
+    { value: 'Action Required', label: 'Awaiting Response', color: '#9d690235', textColor: '#9d6a02', isBold: 'true' },
+    { value: 'Resolved', label: 'Resolved', color: '#2386373a', textColor: '#238636', isBold: 'true' }
   ];
 
   const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -60,6 +61,9 @@ const setDefaultValue = () => {
       case "Action Required":
         setSelectedOption(options[2]);
         break;
+      case "Resolved":
+      setSelectedOption(options[3]);
+      break;
   }
 };
   useEffect(() => {
@@ -70,6 +74,7 @@ const setDefaultValue = () => {
     <div className="admin-progress-dropdown">
       <Select
         options={options}
+        filterOption={(option) => option.value !== "Resolved"}
         defaultValue={selectedOption}
         value={selectedOption}
         onChange={handleOptionChange}
