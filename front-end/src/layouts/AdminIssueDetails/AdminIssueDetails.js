@@ -26,7 +26,7 @@ const AdminIssueDetails = () => {
   const [progressionDropDownDisabled, setProgressionDropDownDisabled] = useState(false);
   const navigate = useNavigate();
 
-  const { checkAuthentication, userDept } = useContext(AuthContext);
+  const { userName, checkAuthentication, userDept } = useContext(AuthContext);
   const currentDepartment = userDept;
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const AdminIssueDetails = () => {
             <div className="left-bar">
               <h1>{specificIssue.title}</h1>
               {/* Passses the issue fetched from the API */}
-              <PriorityDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes } updateBoxes= {updateBoxes} currentDepartment={currentDepartment}/>
+              {specificIssue.currentPriority !== "" && (<PriorityDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes } updateBoxes= {updateBoxes} currentDepartment={currentDepartment}/>)}
               <div className="issue-history-text">
                 <h2> Issue History </h2>
                 <ProgressionDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} progressionDropDownDisabled={progressionDropDownDisabled}/>
@@ -88,7 +88,7 @@ const AdminIssueDetails = () => {
                     })
                 }
               </div>
-              <CommentBox index={ index } setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} currentState={specificIssue} />
+              <CommentBox index={ index } setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} currentState={specificIssue} currentUser={userName} />
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>

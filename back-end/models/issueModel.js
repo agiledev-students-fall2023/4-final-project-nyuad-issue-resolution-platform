@@ -52,8 +52,7 @@ const issueSchema = new mongoose.Schema({
     },
     currentPriority: {
         type: String,
-        enum: ['New', 'High Priority', 'Reopened'],
-        required: true,
+        enum: ['New', 'High Priority', 'Reopened', ""],
     },
     isProposed: {
         type: Boolean,
