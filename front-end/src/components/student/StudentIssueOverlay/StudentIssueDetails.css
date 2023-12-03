@@ -141,6 +141,15 @@
 
 }
 
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .closeButton {
   position: absolute;
   top: 20px;

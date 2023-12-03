@@ -65,7 +65,21 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
           await axios.post(
             `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
+            currentPriority: "New",
             currentStatus: "Resolved"
+        });
+        } catch (error) {
+          console.error('Error during form submission:', error);
+        }
+    };
+
+    const postMarkAsRejected = async () => {
+        try {
+          await axios.post(
+            `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
+          {
+            currentPriority: "Reopened",
+            currentStatus: "In Progress"
         });
         } catch (error) {
           console.error('Error during form submission:', error);
@@ -77,6 +91,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
           await axios.post(
             `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
+            currentPriority: "Reopened",
             currentStatus: "Open"
         });
         } catch (error) {
@@ -134,13 +149,24 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
     };
 
     const acceptResolution = async () => {
-        if (commentSubmitted) { // Check if a comment has been submitted
+        // if (commentSubmitted) { // Check if a comment has been submitted
             await postMarkAsResolved();
+            setChangeOccured(!changeOccured);
+            setIssue({ ...issue, currentStatus: issue.currentStatus });
+            // setCommentSubmitted(false); // Reset the comment submission flag
+        // } else {
+        //     showToast("⚠️ Please submit a comment before accepting the resolution");
+        // }
+    };
+
+    const rejectResolution = async () => {
+        if (commentSubmitted) { // Check if a comment has been submitted
+            await postMarkAsRejected();
             setChangeOccured(!changeOccured);
             setIssue({ ...issue, currentStatus: issue.currentStatus });
             setCommentSubmitted(false); // Reset the comment submission flag
         } else {
-            showToast("⚠️ Please submit a comment before accepting the resolution");
+            showToast("⚠️ Please submit a comment before rejecting the resolution");
         }
     };
 
@@ -278,10 +304,12 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                         {issue.currentStatus === 'Resolved' && (
                             <button className="issue-buttons" onClick={reopenIssue}>Reopen Issue</button>
                         )}
-                        {issue.currentStatus === 'Action Required' && (
+                        {issue.currentStatus === 'Action Required' && issue.isProposed === true && (
                             <button className="issue-buttons" onClick={acceptResolution}>Accept Resolution</button>
                         )}
-
+                        {issue.currentStatus === 'Action Required' && issue.isProposed === true && (
+                            <button className="issue-buttons" onClick={rejectResolution}>Reject Resolution</button>
+                        )}
                     </div>
                 </div>
             </div>
