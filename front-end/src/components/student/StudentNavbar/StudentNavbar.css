@@ -25,6 +25,17 @@
     height: 60px;
 }
 
+.notification-icon .notification-count {
+    position: relative;
+    bottom: 7px;
+    font: var(--primary-font);
+    font-weight: bold;
+    color: var(--background);
+    right: 24px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Simple black outline */
+
+}
+
 .student-info {
     display: flex;
     align-items: center;
@@ -61,8 +72,35 @@
     z-index: 1000;
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center;
+    max-height: 100%;
 }
 
+.notification-overlay .scrollable-content {
+    width: 100%;      /* Adjust width as needed */
+    max-height: 450px; /* Adjust height to leave space for the button */
+    overflow-y: auto;  /* Enable vertical scrolling */
+}
+
+.notification-overlay .load-more-button{
+    background-color: var(--secondary);
+    border: 1px solid #a8a8a8;
+    font: var(--secondary-font);
+    padding: 7px;
+    border-radius: 5px;
+    align-items: center;
+    margin-top: 10px; 
+
+}
+
+
+
+.notification-overlay .load-more-button:hover {
+    background-color: #a8a8a8; /* Slightly darker shade on hover */
+}
 
 @media (max-width: 768px) {
     .header-student-dashboard {
