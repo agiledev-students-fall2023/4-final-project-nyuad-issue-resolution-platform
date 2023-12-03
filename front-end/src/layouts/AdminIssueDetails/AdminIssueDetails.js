@@ -39,7 +39,7 @@ const AdminIssueDetails = () => {
   const postMarkAsResolved = async (event) => {
       navigate('/admin/dashboard/');
       try {
-        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required", isProposed: true });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueStatus: "Action Required", isProposed: true });
       } catch (error) {
         console.error('Error during form submission:', error);
       }

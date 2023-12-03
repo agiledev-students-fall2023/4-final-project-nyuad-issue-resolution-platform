@@ -20,9 +20,9 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
     for (let i = 0; i < selectedFiles.length - 1; i++) {
       formData.append('uploadedFiles', selectedFiles[i]);
     }
-    formData.append('issueindex', index);
+    // formData.append('issueindex', index);
     try {
-      const response = await fetch(`${BASE_URL}/api/actions/admin/${currentDepartment}`, {
+      const response = await fetch(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, {
         method: "POST",
         body: formData
       });

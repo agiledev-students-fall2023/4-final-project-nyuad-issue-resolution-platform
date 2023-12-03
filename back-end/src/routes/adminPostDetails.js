@@ -16,6 +16,6 @@ const storage = multer.diskStorage({
     }
   });
 const upload = multer({ storage });
-router.post("/:paramName", upload.array("uploadedFiles"), adminPostHandler);
+router.post("/:department/:paramName", upload.array("uploadedFiles"), adminPostHandler);
 
 export default router;

@@ -31,7 +31,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
     const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
     setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: statusUpdate, issueDepartmentTags: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }
@@ -46,7 +46,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
         const statusUpdate = `Admin removed a department tag [${param}]`;
         setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
         try {
-          await axios.post(`${BASE_URL}/api/actions/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });
+          await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });
         } catch (error) {
           console.error('Error during form submission:', error);
         }

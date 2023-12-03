@@ -13,18 +13,17 @@ function CommentBox({ index, setUpdateBoxes, updateBoxes, currentDepartment, cur
     event.preventDefault();
     const updateBoxValue = event.target.elements[0].value;
     if (updateBoxValue.length > 0) {
-      currentState.currentStatus = "In Progress";
       setUpdateBoxes([updateBoxValue, ...updateBoxes]); // Updates the update boxes locally in the parent
-
       if (updateBoxes.length < 1) { // If only first comment is made on this issue , change the progression/status  tag to "InProgress"
+        currentState.currentStatus = "In Progress";
         try {
-          await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: updateBoxValue, issueStatus: "In Progress" });
+          await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: updateBoxValue, issueStatus: "In Progress" });
         } catch (error) {
           console.error('Error during form submission:', error);
         }
       } else {
         try {
-          await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: updateBoxValue });
+          await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: updateBoxValue });
         } catch (error) {
           console.error('Error during form submission:', error);
         }

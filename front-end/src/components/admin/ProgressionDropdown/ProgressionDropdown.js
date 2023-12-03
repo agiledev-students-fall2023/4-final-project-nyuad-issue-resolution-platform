@@ -24,7 +24,7 @@ const postCurrentProgression = async (param) => {
   // const statusUpdate = `Admin Changed the current priority of the issue to ${param}`;
   // setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
   try {
-    await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: param });
+    await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueStatus: param });
   } catch (error) {
     console.error('Error during form submission:', error);
   }
