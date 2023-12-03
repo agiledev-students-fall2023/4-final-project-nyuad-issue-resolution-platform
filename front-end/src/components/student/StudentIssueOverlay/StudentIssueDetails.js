@@ -66,7 +66,8 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
             `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
             currentPriority: "New",
-            currentStatus: "Resolved"
+            currentStatus: "Resolved",
+            isProposed: false
         });
         } catch (error) {
           console.error('Error during form submission:', error);
