@@ -35,8 +35,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
         e.preventDefault(); // Prevent the default form submit action
         if (comment.trim()) {
             try {
-                console.log("Current Status: ", issue.currentStatus === 'Action Required');
-                console.log("Is Proposed: ", issue.isProposed === false);
                 // If the issue is not proposed and the current status is "Action Required", change the status to "In Progress"
                 if (issue.isProposed === false && issue.currentStatus === 'Action Required') {
                     const response = await axios
