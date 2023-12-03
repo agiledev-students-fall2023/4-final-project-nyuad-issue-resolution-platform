@@ -2,7 +2,7 @@
   background-color: var(--background);
   transition: box-shadow 0.3s ease;
   width: 220px;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 30px;
   margin-right: 20px;
 }

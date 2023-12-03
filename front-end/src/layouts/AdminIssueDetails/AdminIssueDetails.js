@@ -1,7 +1,8 @@
 import UpdatesBox from '../../components/admin/UpdateBox/UpdatesBox.js';
 import CommentBox from '../../components/admin/CommentBox/CommentBox.js';
-import TagSidebar from '../../components/admin/TagSideBar/TagSidebar.js';
+import AttachmentBar from '../../components/admin/AttachmentBar/AttachmentBar.js';
 import DepartmentSelection from '../../components/admin/DepartmentSelection/DepartmentSelection.js';
+import '../../components/admin/AttachmentBar/AttachmentBar.css';
 import '../../components/admin/CommentBox/CommentBox.css';
 import '../../components/admin/TagSideBar/TagSidebar.css';
 import '../../components/admin/DepartmentSelection/DepartmentSelection.css';
@@ -19,12 +20,10 @@ const AdminIssueDetails = () => {
   const { index } = useParams();
   const [updateBoxes, setUpdateBoxes] = useState([]);
   const [specificIssue, setSpecificIssue] = useState();
-  // const [currentPriority, setcurrentPriority] = useState('');
-  // const [currentProgression, setcurrentProgression] = useState('');
-  // const [departmentsTags, setDepartmentTags] = useState([]);
-  const [commentBoxValue, setcommentBoxValue] = useState('');
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  const [selectedFilesname, setSelectedFilesname] = useState([]);
+  const [progressionDropDownDisabled, setProgressionDropDownDisabled] = useState(false);
   const navigate = useNavigate();
 
   const { checkAuthentication, userDept } = useContext(AuthContext);
@@ -38,10 +37,9 @@ const AdminIssueDetails = () => {
   }, []);
 
   const postMarkAsResolved = async (event) => {
-      // event.prevenDefault();
       navigate('/admin/dashboard/');
       try {
-        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required" });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueStatus: "Action Required", isProposed: true });
       } catch (error) {
         console.error('Error during form submission:', error);
       }
@@ -55,6 +53,10 @@ const AdminIssueDetails = () => {
           setSpecificIssue(result[0]);
           if (result[0].comments) {
             setUpdateBoxes(result[0].comments);
+            setSelectedFilesname(result[0].attachments);
+          }
+          if (result[0].currentStatus === "Resolved") {
+            setProgressionDropDownDisabled(true);
           }
         }
         setLoading(true);
@@ -63,7 +65,7 @@ const AdminIssueDetails = () => {
       }
     }
     fetchData();
-}, [index, commentBoxValue]);
+}, [index]);
 
   return (
     <div>
@@ -76,25 +78,28 @@ const AdminIssueDetails = () => {
               <PriorityDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes } updateBoxes= {updateBoxes} currentDepartment={currentDepartment}/>
               <div className="issue-history-text">
                 <h2> Issue History </h2>
-                <ProgressionDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment}/>
+                <ProgressionDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} progressionDropDownDisabled={progressionDropDownDisabled}/>
               </div>
               <div className="all-updates">
+              <UpdatesBox name={"Issue Description"}description={specificIssue.description} />
                 {
                     updateBoxes.map((item, index) => {
                       return <UpdatesBox key={index} name={ "Update" } index ={updateBoxes.length - index}description={item} />;
                     })
                 }
-                  <UpdatesBox name={"Issue Details"}description={specificIssue.description} />
               </div>
-              <CommentBox index={ index } setcommentBoxValue={setcommentBoxValue} currentDepartment={currentDepartment} />
+              <CommentBox index={ index } setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} currentState={specificIssue} />
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
-                <TagSidebar index = { index }name="Attachments" tags = {specificIssue.attachments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment}/>
-                <div className="marked-as-solve-btn">
+                <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment}/>
+                {
+                  (specificIssue.currentStatus !== "Resolved" && specificIssue.isProposed === false) &&
+                  <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
-                </div>
+                  </div>
+                }
             </div>
         </div>
       )
