@@ -1,4 +1,3 @@
-/* eslint-disable */
 import UpdatesBox from '../../components/admin/UpdateBox/UpdatesBox.js';
 import CommentBox from '../../components/admin/CommentBox/CommentBox.js';
 import AttachmentBar from '../../components/admin/AttachmentBar/AttachmentBar.js';
@@ -24,6 +23,7 @@ const AdminIssueDetails = () => {
   const [loading, setLoading] = useState(false);
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
   const [selectedFilesname, setSelectedFilesname] = useState([]);
+  const [progressionDropDownDisabled, setProgressionDropDownDisabled] = useState(false);
   const navigate = useNavigate();
 
   const { checkAuthentication, userDept } = useContext(AuthContext);
@@ -39,7 +39,7 @@ const AdminIssueDetails = () => {
   const postMarkAsResolved = async (event) => {
       navigate('/admin/dashboard/');
       try {
-        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required" , isProposed: true });
+        await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: "Action Required", isProposed: true });
       } catch (error) {
         console.error('Error during form submission:', error);
       }
@@ -54,6 +54,9 @@ const AdminIssueDetails = () => {
           if (result[0].comments) {
             setUpdateBoxes(result[0].comments);
             setSelectedFilesname(result[0].attachments);
+          }
+          if (result[0].currentStatus === "Resolved") {
+            setProgressionDropDownDisabled(true);
           }
         }
         setLoading(true);
@@ -75,7 +78,7 @@ const AdminIssueDetails = () => {
               <PriorityDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes } updateBoxes= {updateBoxes} currentDepartment={currentDepartment}/>
               <div className="issue-history-text">
                 <h2> Issue History </h2>
-                <ProgressionDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment}/>
+                <ProgressionDropdown index = { index } currentState={specificIssue} tags = {specificIssue.departments} setUpdateBoxes={ setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} progressionDropDownDisabled={progressionDropDownDisabled}/>
               </div>
               <div className="all-updates">
               <UpdatesBox name={"Issue Description"}description={specificIssue.description} />
@@ -92,8 +95,7 @@ const AdminIssueDetails = () => {
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
                 <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment}/>
                 {
-                  specificIssue.currentStatus != "Resolved" &&
-                  
+                  specificIssue.currentStatus !== "Resolved" &&
                   <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
                   </div>
