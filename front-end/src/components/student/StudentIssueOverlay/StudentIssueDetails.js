@@ -80,7 +80,8 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
             `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
           {
             currentPriority: "Reopened",
-            currentStatus: "In Progress"
+            currentStatus: "In Progress",
+            isProposed: false
         });
         } catch (error) {
           console.error('Error during form submission:', error);
