@@ -37,7 +37,8 @@ export async function createIssueHandler(req, res) {
         timeCreated: issueTimeCreated,
         currentStatus:'Open',
         currentPriority: 'New',
-        isProposed: false
+        isProposed: false,
+        isProposedDate: '',
     });
 
     try {

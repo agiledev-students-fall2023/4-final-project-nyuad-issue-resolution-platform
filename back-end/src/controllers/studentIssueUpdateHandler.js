@@ -26,6 +26,10 @@ export async function studentIssueUpdateHandler(req, res) {
       specificIssue.isProposed = isProposed;
     } 
 
+    if (specificIssue.currentStatus === 'Resolved') {
+      specificIssue.currentPriority = "";
+    }
+
     const updatedIssue = await specificIssue.save();
 
     // Send a response back to the client indicating success
