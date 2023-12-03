@@ -8,6 +8,7 @@ export async function adminPostHandler(req, res) {
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
   const isProposed = req.body.isProposed;
+  
   try {
     const specificIssue = await Issue.findOne({ departments: department, index: paramName });
     if (newcomment !== undefined) {
@@ -35,6 +36,16 @@ export async function adminPostHandler(req, res) {
     if (isProposed !== undefined) {
       specificIssue.isProposed = isProposed;
     }
+    if (specificIssue.isProposed === true) {
+      const currentDate = new Date();
+      const day = String(currentDate.getDate()).padStart(2, '0');
+      const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+      const year = currentDate.getFullYear();
+      const formattedDate = `${day}/${month}/${year}`;
+      const isProposedDate = formattedDate;
+      specificIssue.isProposedDate = isProposedDate;
+    }
+    
     const updatedIssue = await specificIssue.save();
     res.status(200).send("Success");
   } catch (error) {
