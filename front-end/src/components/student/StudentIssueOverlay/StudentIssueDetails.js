@@ -35,14 +35,29 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
         e.preventDefault(); // Prevent the default form submit action
         if (comment.trim()) {
             try {
-                const response = await axios
-                .post(
-                    `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
-                    {
-                        comments: comment
-                    }
-                );
-                console.log('Comment submitted successfully:', response.data);
+                console.log("Current Status: ", issue.currentStatus);
+                console.log("Is Proposed: ", issue.isProposed);
+                // If the issue is not proposed and the current status is "Action Required", change the status to "In Progress"
+                if (issue.isProposed === false && issue.CurrentStatus === 'Action Required') {
+                    const response = await axios
+                    .post(
+                        `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
+                        {
+                            comments: comment,
+                            currentStatus: 'In Progress'
+                        }
+                    );
+                    console.log('Comment submitted successfully:', response.data);
+                 } else {
+                    const response = await axios
+                    .post(
+                        `${BACKEND_BASE_URL}/api/actions/student/${studentNetID}/${index}`,
+                        {
+                            comments: comment
+                        }
+                    );
+                    console.log('Comment submitted successfully:', response.data);
+                }
                 // setChangeOccured(!changeOccured);
                 // You can add more logic here depending on your needs
                 // For example, clear the comment field or update the UI to show the new comment
