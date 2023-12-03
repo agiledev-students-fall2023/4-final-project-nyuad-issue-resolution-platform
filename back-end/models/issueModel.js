@@ -55,6 +55,11 @@ const issueSchema = new mongoose.Schema({
         enum: ['New', 'High Priority', 'Reopened'],
         required: true,
     },
+    isProposed: {
+        type: Boolean,
+        default: false,
+        required: true,
+    },
 });
 
 const IssueModel = mongoose.model('Issue', issueSchema);

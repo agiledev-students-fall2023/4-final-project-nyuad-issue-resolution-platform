@@ -1,0 +1,98 @@
+@import url("../../../assets/styles.css");
+.attachment-bar {
+  background-color: var(--background);
+  border-radius: 8px;
+  width: 250px;
+  margin-bottom: 50px;
+}
+  
+.attachment-bar ul {
+  margin-left: 3px;
+  padding: 4px;
+  
+}
+.attachment-bar  h3 {
+  margin: 0;
+}
+
+.attachment-bar .fileoverlay_btn{
+  margin-right: 10px;
+  font-size: 12px;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  color: var(--accent);
+  justify-content: baseline;
+  cursor: pointer;
+  background-color: Transparent;
+}
+  
+.attachment-bar  .plus-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 70px;
+}
+
+.attachment-bar .plus-button:hover {
+    background-color: #0056b3;
+}
+
+.attachment-bar  .plus-button:focus {
+    outline: none;
+}
+
+.attachment-bar  .tag-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.attachment-bar .tag-close-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.attachment-bar .file-select {
+  display: none;
+}
+
+.attachment-bar .attachment-header{
+  display: flex;
+  justify-content: space-between;
+
+}
+.attachment-bar .file-select-label {
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 3px 7px;
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.attachment-bar .selected-files-and-departments .selected-files{
+  flex: 1;
+}
+
+.attachment-bar .selected-files-and-departments .selected-files .file-list{
+  display: list-item
+}
+
+.attachment-bar .selected-files-and-departments {
+  width: 90%;
+  display: flex;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 4px;
+  position: relative;
+  min-height: 95px;
+  height: auto;
+  overflow-y: auto;
+  /* border: 1px solid #ccc; */
+}
+  
