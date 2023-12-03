@@ -95,7 +95,7 @@ const AdminIssueDetails = () => {
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
                 <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment}/>
                 {
-                  specificIssue.currentStatus !== "Resolved" &&
+                  (specificIssue.currentStatus !== "Resolved" && specificIssue.isProposed === false) &&
                   <div className="marked-as-solve-btn">
                   <button onClick={postMarkAsResolved} type="submit">Mark as Resolved</button>
                   </div>
