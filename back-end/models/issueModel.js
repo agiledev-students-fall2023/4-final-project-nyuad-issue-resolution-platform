@@ -59,6 +59,10 @@ const issueSchema = new mongoose.Schema({
         default: false,
         required: true,
     },
+    isProposedDate: {
+        type: String,
+        default: "",
+    },
 });
 
 const IssueModel = mongoose.model('Issue', issueSchema);

@@ -19,6 +19,7 @@ import checkJWT from "./src/middlewares/checkJWT.js";
 import cookieParser from "cookie-parser";
 import checkReferer from "./src/middlewares/checkReferer.js";
 import updatePriorityForOpenIssues from "./src/middlewares/updatePriorityForOpenIssues.js";
+import updateResolved from "./src/middlewares/updateResolved.js";
 
 // import multer from "multer"; - configure when required
 
@@ -72,6 +73,15 @@ setInterval(() => {
     console.error("Error in scheduled updatePriorityForOpenIssues:", error);
   }
 }, 30 * 60 * 1000); 
+
+// an interval to run updateResolved every hour
+setInterval(() => {
+  try {
+    updateResolved();
+  } catch (error) {
+    console.error("Error in scheduled updateResolved:", error);
+  }
+}, 30 * 60 * 1000);
 
 // Logout endpoint to remove token from cookie
 app.get('/api/logout', (req, res) => {
