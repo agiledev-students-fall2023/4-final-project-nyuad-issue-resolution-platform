@@ -10,6 +10,19 @@
   display: flex;
 }
 
+.admin-issue .left-bar {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+}
+
+.admin-issue .right-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+
 .admin-issue .issue-history-text {
   display: flex;
   align-items: baseline;
@@ -21,17 +34,7 @@
   margin-bottom: 0;
 }
 
-.admin-issue .left-bar {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
 
-.admin-issue .right-bar {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
 
 .admin-issue .marked-as-solve-btn button[type="submit"] {
   background-color: var(--primary);
@@ -43,17 +46,18 @@
   font-size: 16px;
   font-weight: bold;
   position: fixed;
-  bottom: 10px;
-  right: 40px;
+  bottom: 15px;
+  right: 80px;
 }
 
 .admin-issue .all-updates {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 350px;
   border: 0.5px solid gray;
   border-radius: 8px;
   align-items: center;
-  background-color: rgb(242, 242, 242)
+  background-color: rgb(245, 248, 250)
+  
 }
