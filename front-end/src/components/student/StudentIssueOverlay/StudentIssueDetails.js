@@ -157,21 +157,20 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
         }, [index, changeOccured]);
 
     const reopenIssue = async () => {
-        // setIssue({ ...issue, currentStatus: 'Open' });
-        await postReopen();
-        setChangeOccured(!changeOccured);
-        setIssue({ ...issue, currentStatus: issue.currentStatus });
+        if (commentSubmitted) { // Check if a comment has been submitted
+            await postReopen();
+            setChangeOccured(!changeOccured);
+            setIssue({ ...issue, currentStatus: issue.currentStatus });
+            setCommentSubmitted(false); // Reset the comment submission flag
+        } else {
+            showToast("⚠️ Please submit a comment before reopening the issue");
+        }
     };
 
     const acceptResolution = async () => {
-        // if (commentSubmitted) { // Check if a comment has been submitted
             await postMarkAsResolved();
             setChangeOccured(!changeOccured);
             setIssue({ ...issue, currentStatus: issue.currentStatus });
-            // setCommentSubmitted(false); // Reset the comment submission flag
-        // } else {
-        //     showToast("⚠️ Please submit a comment before accepting the resolution");
-        // }
     };
 
     const rejectResolution = async () => {
