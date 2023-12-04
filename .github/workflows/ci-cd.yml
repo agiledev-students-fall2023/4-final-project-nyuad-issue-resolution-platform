@@ -13,6 +13,10 @@ jobs:
       matrix:
         node-version: [18.x] 
 
+    env:
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+    
     steps:
     - uses: actions/checkout@v2
     
