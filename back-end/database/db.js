@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 // import axios from 'axios';
 
 const connectionString = process.env.MONGODB_URI;
-console.log(process.env.MONGODB_URI);
-console.log(process.env.BACKEND_URL);
+// console.log(process.env.RANDOM_TEST);
+// console.log(process.env.MONGODB_URI);
+// console.log(process.env.BACKEND_URL);
 mongoose
   .connect(connectionString)
   .then(() => {
