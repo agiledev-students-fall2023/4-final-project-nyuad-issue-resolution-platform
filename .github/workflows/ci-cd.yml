@@ -16,6 +16,7 @@ jobs:
     env:
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      RANDOM_TEST: ${{ secrets.RANDOM_TEST }}
     
     steps:
     - uses: actions/checkout@v2
