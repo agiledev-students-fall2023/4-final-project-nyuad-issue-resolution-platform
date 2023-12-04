@@ -30,7 +30,7 @@ const StudentDashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // Other state initializations for UI functionalities
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = windowWidth <= 768 ? 15 : 10;
+  const itemsPerPage = windowWidth <= 768 ? 10 : 12;
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
