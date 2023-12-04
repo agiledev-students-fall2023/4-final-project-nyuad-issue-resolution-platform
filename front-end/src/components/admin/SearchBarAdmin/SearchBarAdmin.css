@@ -12,6 +12,7 @@
 
 .search-bar-admin-form {
     width: 100%;
+    position: relative;
 }
 
 .search-bar-admin-form-input {
@@ -21,4 +22,35 @@
     border-radius: 5px;
     font-size: 16px;
     outline: none;
+}
+
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: white;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: -5px;
+    width: 98.5%;
+}
+
+.suggestions-dropdown li {
+    text-align: left;
+    padding: 10px;
+    margin-left: -40px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.suggestions-dropdown li:hover {
+    /* background-color: #f0f0f0; */
+    background-color: #e6e6e6;
 }
