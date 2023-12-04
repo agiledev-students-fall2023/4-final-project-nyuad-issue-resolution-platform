@@ -58,4 +58,4 @@ jobs:
           cd /var/www/webapp/
           git pull origin master
           pm2 restart webapp-backend
-          sudo systemctl restart nginx
+          sudo /usr/sbin/service nginx restart
