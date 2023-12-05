@@ -6,7 +6,7 @@ import notificationIcon from "../../../assets/images/notification-icon.png";
 import { AuthContext } from "../../general/AuthContext/AuthContext";
 import "./StudentNavbar.css";
 
-export default function StudentNavbar({ studentName, studentnetID }) {
+export default function StudentNavbar({ studentName, studentnetID, onIssueSelect }) {
     const [showNotificationOverlay, setShowNotificationOverlay] = useState(false);
     const [notificationData, setNotificationData] = useState(() => {
         const savedNotifications = localStorage.getItem('notifications');
@@ -20,7 +20,13 @@ export default function StudentNavbar({ studentName, studentnetID }) {
 
     const loadMore = (event) => {
         event.stopPropagation();
-        setDisplayedCount(prevCount => prevCount + 2); // Load 5 more items
+        setDisplayedCount(prevCount => prevCount + 2); // load 2 more items
+    };
+
+    const handleIssueClick = (issueIndex) => {
+        if (onIssueSelect) {
+            onIssueSelect(issueIndex); // Call the passed function with the index of the clicked issue
+        }
     };
 
     const fetchNotificationData = async () => {
@@ -56,21 +62,20 @@ export default function StudentNavbar({ studentName, studentnetID }) {
                 <div className="notification-overlay" onClick={() => setShowNotificationOverlay(false)}>
                     <div className="scrollable-content">
                         {actionRequiredIssues.length > 0 ? (
-                        actionRequiredIssues.map((issue, index) => (
-                            <div key={index}>
-                                <p><strong>Action Required: {issue.title}</strong></p>
-                                <p>{issue.description}</p>
-                                <p>{issue.dateCreated}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No action required notifications</p>
-                    )}
+                            actionRequiredIssues.map((issue, index) => (
+                                <button className= "issue-button" key={index} onClick={() => handleIssueClick(issue.index)}>
+                                    <p><strong>Action Required: {issue.title}</strong></p>
+                                    <p>{issue.dateCreated}</p>
+                                </button>
+                            ))
+                        ) : (
+                            <p>No action required notifications</p>
+                        )}
                     </div>
 
                     {displayedCount === actionRequiredIssues.length && (
-                <button className="load-more-button" onClick={loadMore}>Load More</button>
-            )}
+                        <button className="load-more-button" onClick={loadMore}>Load More</button>
+                    )}
                 </div>
             );
         }

@@ -96,6 +96,10 @@
 
 }
 
+.notification-overlay .issue-button{
+    padding: 7px;    
+}
+
 
 
 .notification-overlay .load-more-button:hover {
