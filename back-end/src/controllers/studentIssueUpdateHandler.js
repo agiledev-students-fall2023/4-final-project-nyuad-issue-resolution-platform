@@ -6,6 +6,8 @@ export async function studentIssueUpdateHandler(req, res) {
     const { studentNetID } = req.params; // Get the studentNetID from request params
     const newcomment = req.body.comments;
     const currentStatus = req.body.currentStatus;
+    const currentPriority = req.body.currentPriority;
+    const isProposed = req.body.isProposed;
 
   try {
 
@@ -16,6 +18,16 @@ export async function studentIssueUpdateHandler(req, res) {
     }
     if (currentStatus !== undefined) {
         specificIssue.currentStatus = currentStatus;
+    }
+    if (currentPriority !== undefined) {
+      specificIssue.currentPriority = currentPriority;
+    }
+    if (isProposed !== undefined) {
+      specificIssue.isProposed = isProposed;
+    } 
+
+    if (specificIssue.currentStatus === 'Resolved') {
+      specificIssue.currentPriority = "";
     }
 
     const updatedIssue = await specificIssue.save();

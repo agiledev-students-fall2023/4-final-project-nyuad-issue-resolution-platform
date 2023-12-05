@@ -26,8 +26,8 @@ export async function createIssueHandler(req, res) {
 
     const newIssue = new Issue ({
         index: newIndex,
-        studentNetID: [req.params.studentNetID],
-        studentName: [req.body.studentName],
+        studentNetID: req.params.studentNetID,
+        studentName: req.body.studentName,
         title: req.body.issueTitle,
         description: req.body.issueDesc,
         attachments: attachments,
@@ -37,7 +37,8 @@ export async function createIssueHandler(req, res) {
         timeCreated: issueTimeCreated,
         currentStatus:'Open',
         currentPriority: 'New',
-        isProposed: false
+        isProposed: false,
+        isProposedDate: '',
     });
 
     try {

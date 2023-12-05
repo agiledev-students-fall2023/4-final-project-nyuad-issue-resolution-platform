@@ -5,8 +5,6 @@ import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, currentDepartment }) {
   const [departmentTags, setdepartmentTags] = useState([]);
-  const [inputVisible, setInputVisible] = useState(false);
-  // const [inputValue, setInputValue] = useState('');
 
   const departmentOptions = [
     { value: "", label: "Filter by Department" },
@@ -22,10 +20,6 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
     { value: "CDC", label: "Career Development Center" }
   ];
 
-  const toggleInput = () => {
-    setInputVisible(!inputVisible);
-  };
-
   const handleAddDepartment = (e) => {
       const newValue = e.target.value;
       setdepartmentTags([newValue, ...departmentTags]);
@@ -37,7 +31,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
     const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
     setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
     try {
-      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: param });
+      await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: statusUpdate, issueDepartmentTags: param });
     } catch (error) {
       console.error('Error during form submission:', error);
     }
@@ -52,7 +46,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
         const statusUpdate = `Admin removed a department tag [${param}]`;
         setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
         try {
-          await axios.post(`${BASE_URL}/api/actions/admin/${index}`, { issueindex: index, commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });
+          await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });
         } catch (error) {
           console.error('Error during form submission:', error);
         }
@@ -65,14 +59,10 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
   }, []);
 
   return (
-    <div className="admin-tag-sidebar">
+    <div className="department-selection">
       <div className="tag-sidebar-header">
         <h3>{name}</h3>
-        <button className="plus-button" onClick={toggleInput}>+</button>
-      </div>
-      <ul>
-        <li>
-            {inputVisible && <select
+            <select
             id="department"
             // value={department}
             name="deptTagged"
@@ -80,7 +70,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
             className="department-select"
             required={departmentTags.length <= 0}
           >
-            <option value="">Select Department</option>
+            <option value="">Tag Department</option>
             {/* only render option if not present in departments array */}
             {departmentOptions.map((option) => {
               const { value, label } = option; // complications due to similar names of value and label
@@ -93,9 +83,9 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
               }
               return null;
             })}
-          </select> }
-
-        </li>
+          </select>
+      </div>
+      <ul>
         {departmentTags.filter(item => item != null).map((tag, index) => (
           <li key={index}>
             <div className="round-tag ">

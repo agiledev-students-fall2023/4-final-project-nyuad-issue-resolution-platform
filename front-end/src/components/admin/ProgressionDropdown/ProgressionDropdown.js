@@ -4,7 +4,7 @@ import Select from 'react-select';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
-const ProgressionDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes, currentDepartment }) => {
+const ProgressionDropdown = ({ index, currentState, setUpdateBoxes, updateBoxes, currentDepartment, progressionDropDownDisabled }) => {
   const options = [
     { value: 'Open', label: 'Not Started', color: '#b82c1c37', textColor: '#b82c1c', isBold: 'true' },
     { value: 'In Progress', label: 'In Progress', color: '#1f6deb37', textColor: '#1f6eeb', isBold: 'true' },
@@ -24,14 +24,11 @@ const postCurrentProgression = async (param) => {
   // const statusUpdate = `Admin Changed the current priority of the issue to ${param}`;
   // setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
   try {
-    await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}`, { issueindex: index, issueStatus: param });
+    await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueStatus: param });
   } catch (error) {
     console.error('Error during form submission:', error);
   }
 };
-
-useEffect(() => {
-});
 
 const customStyles = {
   control: (base) => ({
@@ -49,6 +46,7 @@ const customStyles = {
     ...provided,
     color: selectedOption.textColor,
     fontWeight: 'bold'
+
   })
 };
 
@@ -64,22 +62,24 @@ const setDefaultValue = () => {
         setSelectedOption(options[2]);
         break;
       case "Resolved":
-        setSelectedOption(options[3]);
-        break;
+      setSelectedOption(options[3]);
+      break;
   }
 };
   useEffect(() => {
     setDefaultValue();
-  }, []);
+  }, [currentState.currentStatus]);
 
   return (
     <div className="admin-progress-dropdown">
       <Select
         options={options}
+        filterOption={(option) => option.value !== "Resolved"}
         defaultValue={selectedOption}
         value={selectedOption}
         onChange={handleOptionChange}
         styles={customStyles}
+        isDisabled={progressionDropDownDisabled}
       />
     </div>
   );

@@ -7,11 +7,11 @@ const issueSchema = new mongoose.Schema({
         unique: true,
     },
     studentNetID: {
-        type: [String],
+        type: String,
         required: true,
     },
     studentName: {
-        type: [String],
+        type: String,
         required: true,
     },
     title: {
@@ -52,13 +52,16 @@ const issueSchema = new mongoose.Schema({
     },
     currentPriority: {
         type: String,
-        enum: ['New', 'High Priority', 'Reopened'],
-        required: true,
+        enum: ['New', 'High Priority', 'Reopened', ""],
     },
     isProposed: {
         type: Boolean,
         default: false,
         required: true,
+    },
+    isProposedDate: {
+        type: String,
+        default: "",
     },
 });
 

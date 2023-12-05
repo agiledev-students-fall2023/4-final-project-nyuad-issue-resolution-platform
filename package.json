@@ -6,6 +6,8 @@
     "server": "cd back-end && npm run dev",
     "client": "cd front-end && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "lint": "cd front-end && npm run lint",
+    "test": "cd back-end && npm test",
     "install-deps": "npm install && cd back-end && npm install && cd ../front-end && npm install"
   }
 }
