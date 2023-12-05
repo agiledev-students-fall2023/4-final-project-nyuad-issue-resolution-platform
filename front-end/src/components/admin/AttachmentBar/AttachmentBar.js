@@ -1,11 +1,12 @@
 /* eslint-disable */
 import './AttachmentBar.css';
-import { useState, useEffect } from 'react';
+import { useState, useReducer } from 'react';
 import FileUploadOverlay from '../FileUploadOverlay/FileUploadOverlay';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-function AttachmentBar({ index, name, tags, fileNames, currentDepartment }) {
+function AttachmentBar({ index, name, tags, fileNames, currentDepartment,isAdmin,studentNetID}) {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 
   const handleFileRemove = (fileIndex) => {
@@ -23,7 +24,7 @@ function AttachmentBar({ index, name, tags, fileNames, currentDepartment }) {
           <h3>{name}</h3>
           <button className='fileoverlay_btn' onClick={openOverlay}> Upload Files</button>
         </div>
-        <FileUploadOverlay index={index} currentDepartment={currentDepartment} isOverlayVisible={isOverlayVisible} setIsOverlayVisible={setIsOverlayVisible}/>  
+        <FileUploadOverlay index={index} currentDepartment={currentDepartment} isOverlayVisible={isOverlayVisible} setIsOverlayVisible={setIsOverlayVisible} isAdmin={isAdmin} studentNetID={studentNetID}/>  
         <div className="selected-files-and-departments">
           <div className="selected-files">
           <ul className="file-list">

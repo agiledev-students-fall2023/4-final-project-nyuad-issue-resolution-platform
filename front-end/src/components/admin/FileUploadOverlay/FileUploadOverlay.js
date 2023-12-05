@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './FileUploadOverlay.css';
 import '../AttachmentBar/AttachmentBar.css';
 
-const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOverlayVisible }) => {
+const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOverlayVisible, isAdmin, studentNetID }) => {
     const BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -20,26 +20,49 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
     for (let i = 0; i < selectedFiles.length - 1; i++) {
       formData.append('uploadedFiles', selectedFiles[i]);
     }
-    // formData.append('issueindex', index);
-    try {
-      const response = await fetch(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, {
-        method: "POST",
-        body: formData
-      });
-      if (response.ok) {
-        console.log("Submitted success");
-      } else {
-        console.error(
-          "Error during form submission:",
-          response.status,
-          response.statusText
-        );
-      }
-    } catch (error) {
-      console.error("Error during form submission:", error);
+    if (isAdmin) {
+       // formData.append('issueindex', index);
+        try {
+          const response = await fetch(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, {
+            method: "POST",
+            body: formData
+          });
+          if (response.ok) {
+            console.log("Submitted success");
+            closeOverlay();
+            window.location.reload();
+          } else {
+            console.error(
+              "Error during form submission:",
+              response.status,
+              response.statusText
+            );
+          }
+        } catch (error) {
+          console.error("Error during form submission:", error);
+        }
+    } else {
+      console.log("This is a student");
+        try {
+          const response = await fetch(`${BASE_URL}/api/actions/student/${studentNetID}/${index}`, {
+            method: "POST",
+            body: formData
+          });
+          if (response.ok) {
+            console.log("Submitted success");
+            closeOverlay();
+            window.location.reload();
+          } else {
+            console.error(
+              "Error during form submission:",
+              response.status,
+              response.statusText
+            );
+          }
+        } catch (error) {
+          console.error("Error during form submission:", error);
+        }
     }
-    closeOverlay();
-    window.location.reload();
   };
 
     const closeOverlay = () => {

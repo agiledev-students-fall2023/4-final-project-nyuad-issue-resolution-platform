@@ -93,7 +93,7 @@ const AdminIssueDetails = () => {
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
-                <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment}/>
+                <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment} isAdmin={true}/>
                 {
                   (specificIssue.currentStatus !== "Resolved" && specificIssue.isProposed === false) &&
                   <div className="marked-as-solve-btn">
