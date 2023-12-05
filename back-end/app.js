@@ -9,6 +9,7 @@ import login from "./src/routes/login.js";
 import studentIssues from "./src/routes/studentIssues.js";
 import studentIssueUpdate from "./src/routes/studentIssueUpdate.js";
 import adminIssues from "./src/routes/adminIssues.js";
+import downloadFiles from "./src/routes/downloadFiles.js";
 import adminPostDetails from "./src/routes/adminPostDetails.js";
 import createIssue from "./src/routes/createIssue.js";
 /* eslint-disable no-unused-vars */
@@ -45,7 +46,7 @@ app.use(cors(corsOptions));
 
 // serve static files from the public folders
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-export const publicpath = path.join(__dirname, "public");
+export const backendpath = path.join(__dirname);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(checkReferer);
@@ -72,8 +73,7 @@ setInterval(() => {
   } catch (error) {
     console.error("Error in scheduled updatePriorityForOpenIssues:", error);
   }
-}, 30 * 60 * 1000); 
-
+}, 30 * 60 * 1000);
 // an interval to run updateResolved every hour
 setInterval(() => {
   try {
@@ -117,6 +117,8 @@ app.use("/api/issues/admin", adminIssues);
 app.use("/api/actions/admin/", adminPostDetails);
 
 app.use("/api/actions/student", createIssue);
+
+app.use("/download", downloadFiles);
 
 // Temporary route to create users
 // import User from "./models/UserModel.js";

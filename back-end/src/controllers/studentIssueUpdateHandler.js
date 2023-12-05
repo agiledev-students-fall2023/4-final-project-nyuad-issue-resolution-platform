@@ -1,5 +1,6 @@
 import Issue from '../../models/issueModel.js';
 
+
 // The function updates the issue related to this student
 export async function studentIssueUpdateHandler(req, res) {
     const { paramName } = req.params; // Get the issue index from request params

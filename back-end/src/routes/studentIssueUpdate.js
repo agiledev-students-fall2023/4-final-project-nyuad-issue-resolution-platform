@@ -21,5 +21,4 @@ const upload = multer({ storage });
 // New POST route for updating issues
 router.post('/:studentNetID/:paramName', upload.array("uploadedFiles"), studentIssueUpdateHandler);
 
-
 export default router;
