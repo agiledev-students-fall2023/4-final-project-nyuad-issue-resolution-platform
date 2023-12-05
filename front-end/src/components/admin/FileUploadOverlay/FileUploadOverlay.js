@@ -29,8 +29,6 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
           });
           if (response.ok) {
             console.log("Submitted success");
-            closeOverlay();
-            window.location.reload();
           } else {
             console.error(
               "Error during form submission:",
@@ -50,8 +48,6 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
           });
           if (response.ok) {
             console.log("Submitted success");
-            closeOverlay();
-            window.location.reload();
           } else {
             console.error(
               "Error during form submission:",
@@ -63,6 +59,8 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
           console.error("Error during form submission:", error);
         }
     }
+    closeOverlay();
+    window.location.reload();
   };
 
     const closeOverlay = () => {
@@ -70,6 +68,7 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
     };
 
     useEffect(() => {
+
     }, []);
     return (
         <div>

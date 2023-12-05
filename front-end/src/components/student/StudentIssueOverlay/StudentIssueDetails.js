@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './StudentIssueDetails.css';
 import AttachmentBar from '../../admin/AttachmentBar/AttachmentBar';
-
 const useToast = () => {
     const [isToastVisible, setIsToastVisible] = useState(false);
     const [toastMessage, setToastMessage] = useState('');
@@ -27,7 +26,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
     // New state for tracking comment submission
     const [commentSubmitted, setCommentSubmitted] = useState(false);
     const { isToastVisible, toastMessage, showToast } = useToast(); // Using the custom hook
-    const [selectedFilesname, setSelectedFilesname] = useState([]);
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -141,7 +139,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                 // If the request is successful, take the first item from the response data
                 // (assuming the response data is an array) and update the `issue` state with it.
                 setIssue(response.data[0]);
-                setSelectedFilesname(response.data[0].attachments);
                 // Log to the console that the data was fetched successfully.
                 console.log("Fetched Data");
                 // Also log the entire response for debugging purposes.
@@ -245,6 +242,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
             {/* {renderIssueOverlay()} */}
             <h2>{issue.title}</h2>
             <div className="issue-content">
+
                 <div className='leftside-section'>
                     <div className="issue-history-section">
                         <div className='issue-history-and-status'>
@@ -301,7 +299,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                                 {issue.departments.map((dept, index) => <li className='issue-li department-pill' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
                             </ul>
                         </div>
-                        <AttachmentBar index = { index } name="Attachments" tags = {issue.attachments} fileNames={selectedFilesname} currentDepartment={""} isAdmin={false} studentNetID={ studentNetID }/>
+                        <AttachmentBar index = { index } name="Attachments" fileNames={issue.attachments} currentDepartment={""} isAdmin={false} studentNetID={ studentNetID }/>
                     </div>
             {/* Toast Notification */}
             {isToastVisible && (
