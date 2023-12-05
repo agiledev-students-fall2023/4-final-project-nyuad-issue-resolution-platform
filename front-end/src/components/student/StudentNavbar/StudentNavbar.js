@@ -65,7 +65,6 @@ export default function StudentNavbar({ studentName, studentnetID, onIssueSelect
                             actionRequiredIssues.map((issue, index) => (
                                 <button className= "issue-button" key={index} onClick={() => handleIssueClick(issue.index)}>
                                     <p><strong>Action Required: {issue.title}</strong></p>
-                                    <p>{issue.dateCreated}</p>
                                 </button>
                             ))
                         ) : (
