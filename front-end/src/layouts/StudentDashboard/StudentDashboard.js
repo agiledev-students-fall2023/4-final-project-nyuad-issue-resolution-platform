@@ -30,12 +30,20 @@ const StudentDashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // Other state initializations for UI functionalities
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = windowWidth <= 768 ? 15 : 10;
+  const itemsPerPage = windowWidth <= 768 ? 10 : 12;
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("latestFirst");
   const [isCreateRequestVisible, setIsCreateRequestVisible] = useState(false);
+
+  // my additions
+  // end
+
+  const selectIssue = (issueIndex) => {
+    setRequest(issueIndex); // Assuming 'setRequest' updates the state to show issue details
+    setIsIssueOverlayOpen(true); // Open the overlay to show the issue details
+};
 
   // API
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -543,11 +551,8 @@ const StudentDashboard = () => {
 
   return (
     <>
-      <div
-        className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}
-      >
-        <StudentNavbar studentName={userName} />
-
+<div className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}>
+<StudentNavbar studentName= {userName} studentnetID= {userNetID} onIssueSelect={selectIssue}/>
         <h2 className="h2-student-dashboard">Your Requests</h2>
         <div className="actions">
           <div className="search-bar">

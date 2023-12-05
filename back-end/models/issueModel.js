@@ -7,11 +7,11 @@ const issueSchema = new mongoose.Schema({
         unique: true,
     },
     studentNetID: {
-        type: [String],
+        type: String,
         required: true,
     },
     studentName: {
-        type: [String],
+        type: String,
         required: true,
     },
     title: {
