@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import UpdatesBox from '../../components/admin/UpdateBox/UpdatesBox.js';
 import CommentBox from '../../components/admin/CommentBox/CommentBox.js';
 import AttachmentBar from '../../components/admin/AttachmentBar/AttachmentBar.js';
@@ -93,7 +95,7 @@ const AdminIssueDetails = () => {
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
-                <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment} isAdmin={true}/>
+                {/* <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment} isAdmin={true}/> */}
                 {
                   (specificIssue.currentStatus !== "Resolved" && specificIssue.isProposed === false) &&
                   <div className="marked-as-solve-btn">

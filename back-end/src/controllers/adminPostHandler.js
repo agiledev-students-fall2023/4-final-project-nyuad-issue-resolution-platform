@@ -45,7 +45,7 @@ export async function adminPostHandler(req, res) {
       specificIssue.isProposedDate = isProposedDate;
     }
     const updatedIssue = await specificIssue.save();
-    res.status(200).send("Success");
+    res.status(200).send("Success", updatedIssue);
   } catch (error) {
     console.error('Error updating data:', error.message);
     res.status(500).send("An error occurred while updating the data.");

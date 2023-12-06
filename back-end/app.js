@@ -118,7 +118,7 @@ app.use("/api/actions/admin/", adminPostDetails);
 
 app.use("/api/actions/student", createIssue);
 
-app.use("/download", downloadFiles);
+app.use("/download/", downloadFiles);
 
 // Temporary route to create users
 // import User from "./models/UserModel.js";
