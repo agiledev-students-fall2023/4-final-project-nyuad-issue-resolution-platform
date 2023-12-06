@@ -39,7 +39,6 @@ const AdminIssueDetails = () => {
   const gotoAdminDashboard = () => {
     navigate('/admin/dashboard/');
   };
-
   const postMarkAsResolved = async (event) => {
       navigate('/admin/dashboard/');
       try {
