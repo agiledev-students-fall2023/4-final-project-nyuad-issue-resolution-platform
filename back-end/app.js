@@ -72,7 +72,7 @@ setInterval(() => {
   } catch (error) {
     console.error("Error in scheduled updatePriorityForOpenIssues:", error);
   }
-}, 30 * 60 * 1000); 
+}, 30 * 60 * 1000);
 
 // an interval to run updateResolved every hour
 setInterval(() => {
@@ -84,10 +84,10 @@ setInterval(() => {
 }, 30 * 60 * 1000);
 
 // Logout endpoint to remove token from cookie
-app.get('/api/logout', (req, res) => {
-  res.cookie('jwt', '', { maxAge: 0 }); // Clear the cookie
-  console.log('Logged out successfully');
-  res.json({ message: 'Logged out successfully' });
+app.get("/api/logout", (req, res) => {
+  res.cookie("jwt", "", { maxAge: 0 }); // Clear the cookie
+  console.log("Logged out successfully");
+  res.json({ message: "Logged out successfully" });
 });
 
 app.get("/api/check-auth", checkJWT, (req, res) => {
@@ -96,7 +96,9 @@ app.get("/api/check-auth", checkJWT, (req, res) => {
     res.status(200).json({ authenticated: true, user: req.user });
   } else {
     // User is not authenticated
-    res.status(401).json({ authenticated: false, message: "User not authenticated" });
+    res
+      .status(401)
+      .json({ authenticated: false, message: "User not authenticated" });
   }
 });
 
