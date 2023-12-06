@@ -1,5 +1,4 @@
 import Issue from '../../models/issueModel.js';
-
 // The function updates the issue related to this student
 export async function studentIssueUpdateHandler(req, res) {
     const { paramName } = req.params; // Get the issue index from request params
@@ -8,10 +7,8 @@ export async function studentIssueUpdateHandler(req, res) {
     const currentStatus = req.body.currentStatus;
     const currentPriority = req.body.currentPriority;
     const isProposed = req.body.isProposed;
-
   try {
-
-    const specificIssue = await Issue.findOne({ studentNetID:studentNetID, index: paramName });
+    const specificIssue = await Issue.findOne({ studentNetID: studentNetID, index: paramName });
 
     if (newcomment !== undefined) {
         specificIssue.comments.unshift(newcomment);
@@ -24,16 +21,25 @@ export async function studentIssueUpdateHandler(req, res) {
     }
     if (isProposed !== undefined) {
       specificIssue.isProposed = isProposed;
-    } 
-
+    }
     if (specificIssue.currentStatus === 'Resolved') {
       specificIssue.currentPriority = "";
+    }
+    if (req.files !== undefined) {
+      const newfilesattachments = req.files.map(file => file.filename);
+      if (specificIssue.attachments[0] == null) {
+        specificIssue.attachments = newfilesattachments;
+      } else {
+        newfilesattachments.forEach(element => {
+          specificIssue.attachments.push(element);
+       });
+      }
     }
 
     const updatedIssue = await specificIssue.save();
 
     // Send a response back to the client indicating success
-    res.json({ message: 'Issue updated successfully', updatedIssue: updatedIssue });
+    res.json({ message: 'Issue updated successfully', updatedIssue });
   } catch (error) {
     // Log the error and send an appropriate response
     console.error('Error updating data:', error.message);
