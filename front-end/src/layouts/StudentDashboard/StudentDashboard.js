@@ -5,11 +5,12 @@ import StudentViewFilter from "../../components/student/StudentViewFilter/Studen
 import StudentIssueDetails from "../../components/student/StudentIssueOverlay/StudentIssueDetails";
 import SiteWideFooter from "../../components/general/SiteWideFooter/SiteWideFooter";
 import { CreateRequest } from "../../components/student/CreateRequest/CreateRequest.js";
-import { AuthContext } from '../../components/general/AuthContext/AuthContext';
+import { AuthContext } from "../../components/general/AuthContext/AuthContext";
 import axios from "axios";
 
 const StudentDashboard = () => {
   const { checkAuthentication, userName, userNetID } = useContext(AuthContext);
+  const [notifIssues, setNotifIssues] = useState({});
 
   useEffect(() => {
     const checkAuthState = async () => {
@@ -43,7 +44,7 @@ const StudentDashboard = () => {
   const selectIssue = (issueIndex) => {
     setRequest(issueIndex); // Assuming 'setRequest' updates the state to show issue details
     setIsIssueOverlayOpen(true); // Open the overlay to show the issue details
-};
+  };
 
   // API
   const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -214,6 +215,22 @@ const StudentDashboard = () => {
     };
   }, [isCreateRequestVisible]);
 
+  useEffect(() => {
+    console.log("All requests", allRequests);
+    setNotifIssues(
+      allRequests
+        .filter((request) => request.currentStatus === "Action Required")
+        .map((request) => ({
+          index: request.index,
+          title: request.title
+        }))
+    );
+  }, [allRequests]);
+
+  useEffect(() => {
+    console.log("Notif issues", notifIssues);
+  }, [notifIssues]);
+
   const getStatusClass = (status) => {
     switch (status) {
       case "Action Required":
@@ -313,26 +330,34 @@ const StudentDashboard = () => {
               {truncatedDescription}
             </td>
 
-            <td className="departments-cell"
+            <td
+              className="departments-cell"
               onClick={() => {
                 setIsIssueOverlayOpen(true);
                 setRequest(request.index);
-              }}>
+              }}
+            >
               {request.departments.map((department, index) => (
                 <span key={index} className="department-pill">
                   {mapDepartmentToDisplayName(department)}
                 </span>
               ))}
             </td>
-            <td className="date-created-cell"
+            <td
+              className="date-created-cell"
               onClick={() => {
                 setIsIssueOverlayOpen(true);
                 setRequest(request.index);
-              }}>{request.dateCreated}</td>
-            <td onClick={() => {
-              setIsIssueOverlayOpen(true);
-              setRequest(request.index);
-            }}>
+              }}
+            >
+              {request.dateCreated}
+            </td>
+            <td
+              onClick={() => {
+                setIsIssueOverlayOpen(true);
+                setRequest(request.index);
+              }}
+            >
               <span
                 className={`status-box ${getStatusClass(
                   request.currentStatus
@@ -551,8 +576,16 @@ const StudentDashboard = () => {
 
   return (
     <>
-<div className={`requests ${isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""}`}>
-<StudentNavbar studentName= {userName} studentnetID= {userNetID} onIssueSelect={selectIssue}/>
+      <div
+        className={`requests ${
+          isIssueOverlayOpen || isCreateRequestVisible ? "blur-background" : ""
+        }`}
+      >
+        <StudentNavbar
+          studentName={userName}
+          onIssueSelect={selectIssue}
+          notifIssues={notifIssues}
+        />
         <h2 className="h2-student-dashboard">Your Requests</h2>
         <div className="actions">
           <div className="search-bar">
