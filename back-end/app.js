@@ -20,6 +20,7 @@ import cookieParser from "cookie-parser";
 import checkReferer from "./src/middlewares/checkReferer.js";
 import updatePriorityForOpenIssues from "./src/middlewares/updatePriorityForOpenIssues.js";
 import updateResolved from "./src/middlewares/updateResolved.js";
+import downloadFiles from "./src/routes/downloadFiles.js";
 
 // import multer from "multer"; - configure when required
 
@@ -45,7 +46,7 @@ app.use(cors(corsOptions));
 
 // serve static files from the public folders
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-export const publicpath = path.join(__dirname, "public");
+export const backendpath = path.join(__dirname);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(checkReferer);
@@ -119,6 +120,8 @@ app.use("/api/issues/admin", adminIssues);
 app.use("/api/actions/admin/", adminPostDetails);
 
 app.use("/api/actions/student", createIssue);
+
+app.use("/download/", downloadFiles);
 
 // Temporary route to create users
 // import User from "./models/UserModel.js";

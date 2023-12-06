@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './StudentIssueDetails.css';
+import AttachmentBar from '../../general/AttachmentBar/AttachmentBar';
 
 const useToast = () => {
     const [isToastVisible, setIsToastVisible] = useState(false);
@@ -299,14 +300,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                                 {issue.departments.map((dept, index) => <li className='issue-li department-pill' key={index}>{mapDepartmentToDisplayName(dept)}</li>)}
                             </ul>
                         </div>
-                        {issue.attachments[0] != null && (
-                            <div className="attachments">
-                                <h3>Attachments</h3>
-                                <ul className='attachment-box'>
-                                    {issue.attachments.map((attach, index) => <li className='issue-li' key={index}>{attach}</li>)}
-                                </ul>
-                            </div>
-                        )}
+                        <AttachmentBar index = { index } name="Attachments" tags={issue.tags} fileNames={issue.attachments} currentDepartment={""} isAdmin={false} studentNetID={ studentNetID }/>
                     </div>
             {/* Toast Notification */}
             {isToastVisible && (
