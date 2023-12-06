@@ -21,7 +21,12 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
   ];
 
   const handleAddDepartment = (e) => {
-      const newValue = e.target.value;
+      let newValue = e.target.value;
+      // departmentOptions.forEach((item) => {
+      //   if (item.value === e.target.value) {
+      //     newValue = item.label;
+      //   }
+      // });
       setdepartmentTags([newValue, ...departmentTags]);
       postDepartmentTags([newValue, ...departmentTags]);
   };
@@ -89,12 +94,11 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
         {departmentTags.filter(item => item != null).map((tag, index) => (
           <li key={index}>
             <div className="round-tag ">
-                <span>{tag}</span>{
+                <span>{departmentOptions.find(option => option.value === tag).label}</span>{
                    <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
                 }
             </div>
           </li>
-
         ))}
       </ul>
     </div>

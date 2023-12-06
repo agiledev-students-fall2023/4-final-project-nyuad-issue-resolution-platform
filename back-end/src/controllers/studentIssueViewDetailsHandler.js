@@ -8,12 +8,10 @@ export async function studentIssueViewDetailsHandler(req, res) {
   if (!studentNetID) {
     return res.status(400).send("Missing or invalid studentNetID.");
   }
-
   // Check if paramName (issue index) is missing or invalid
   if (!paramName) {
     return res.status(400).send("Missing or invalid issue index.");
   }
-
   try {
     // Query the database to find issues that match both studentNetID and index
     const response = await Issue.find({ studentNetID: studentNetID, index: paramName });
