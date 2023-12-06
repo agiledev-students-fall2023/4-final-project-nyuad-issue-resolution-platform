@@ -1,8 +1,8 @@
 import UpdatesBox from '../../components/admin/UpdateBox/UpdatesBox.js';
 import CommentBox from '../../components/admin/CommentBox/CommentBox.js';
-import AttachmentBar from '../../components/admin/AttachmentBar/AttachmentBar.js';
+import AttachmentBar from '../../components/general/AttachmentBar/AttachmentBar.js';
 import DepartmentSelection from '../../components/admin/DepartmentSelection/DepartmentSelection.js';
-import '../../components/admin/AttachmentBar/AttachmentBar.css';
+import '../../components/general/AttachmentBar/AttachmentBar.css';
 import '../../components/admin/CommentBox/CommentBox.css';
 import '../../components/admin/TagSideBar/TagSidebar.css';
 import '../../components/admin/DepartmentSelection/DepartmentSelection.css';
