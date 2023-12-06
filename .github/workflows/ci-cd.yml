@@ -57,6 +57,7 @@ jobs:
         script: |
           cd /var/www/webapp/
           git pull origin master
+          npm run install-deps
           pm2 restart webapp-backend
           cd front-end && npm run build
           sudo /usr/sbin/service nginx restart
