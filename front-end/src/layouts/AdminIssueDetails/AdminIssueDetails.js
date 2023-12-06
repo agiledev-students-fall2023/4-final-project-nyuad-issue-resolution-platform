@@ -2,9 +2,9 @@
 
 import UpdatesBox from '../../components/admin/UpdateBox/UpdatesBox.js';
 import CommentBox from '../../components/admin/CommentBox/CommentBox.js';
-import AttachmentBar from '../../components/admin/AttachmentBar/AttachmentBar.js';
+import AttachmentBar from '../../components/general/AttachmentBar/AttachmentBar.js';
 import DepartmentSelection from '../../components/admin/DepartmentSelection/DepartmentSelection.js';
-import '../../components/admin/AttachmentBar/AttachmentBar.css';
+import '../../components/general/AttachmentBar/AttachmentBar.css';
 import '../../components/admin/CommentBox/CommentBox.css';
 import '../../components/admin/TagSideBar/TagSidebar.css';
 import '../../components/admin/DepartmentSelection/DepartmentSelection.css';
@@ -95,7 +95,7 @@ const AdminIssueDetails = () => {
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
                 <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
-                {/* <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment} isAdmin={true}/> */}
+                <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment} isAdmin={true}/>
                 {
                   (specificIssue.currentStatus !== "Resolved" && specificIssue.isProposed === false) &&
                   <div className="marked-as-solve-btn">

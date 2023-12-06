@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './StudentIssueDetails.css';
-import AttachmentBar from '../../admin/AttachmentBar/AttachmentBar';
+import AttachmentBar from '../../general/AttachmentBar/AttachmentBar';
 const useToast = () => {
     const [isToastVisible, setIsToastVisible] = useState(false);
     const [toastMessage, setToastMessage] = useState('');

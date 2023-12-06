@@ -15,6 +15,11 @@
   margin: 0;
 }
 
+.attachment-bar .downloadable-files{
+  cursor: pointer;
+
+}
+
 .attachment-bar .fileoverlay_btn{
   margin-right: 10px;
   font-size: 12px;

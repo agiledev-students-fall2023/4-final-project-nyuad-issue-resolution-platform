@@ -1,7 +1,7 @@
 /* eslint-disable */
 import './AttachmentBar.css';
 import { useState, useEffect} from 'react';
-import FileUploadOverlay from '../../general/FileUploadOverlay/FileUploadOverlay.js';
+import FileUploadOverlay from '../FileUploadOverlay/FileUploadOverlay.js';
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
@@ -58,7 +58,7 @@ function AttachmentBar({ index, name, tags, fileNames, currentDepartment,isAdmin
           <ul className="file-list">
           {fileNames.length > 0 && fileNames[0] ? (
           fileNames.map((file, index) => {
-              return <li key={index} onClick={() => downloadFile(index)}>{file?.slice(25)}</li>;
+              return <li className='downloadable-files' key={index} onClick={() => downloadFile(index)}>{file?.slice(25)}</li>;
           })
           ) :
            (

@@ -34,8 +34,6 @@
   margin-bottom: 0;
 }
 
-
-
 .admin-issue .marked-as-solve-btn button[type="submit"] {
   background-color: var(--primary);
   color: #fff;
@@ -59,5 +57,4 @@
   border-radius: 8px;
   align-items: center;
   background-color: rgb(245, 248, 250)
-  
 }

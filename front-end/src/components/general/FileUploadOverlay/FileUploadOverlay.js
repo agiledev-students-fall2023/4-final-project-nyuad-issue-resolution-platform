@@ -20,7 +20,6 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
       formData.append('uploadedFiles', selectedFiles[i]);
     }
     if (isAdmin) {
-       console.log("I am admin  bithces");
        // formData.append('issueindex', index);
         try {
           const response = await fetch(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, {
@@ -58,8 +57,8 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
           console.error("Error during form submission:", error);
         }
     }
-    // closeOverlay();
-    // window.location.reload();
+    closeOverlay();
+    window.location.reload();
   };
 
     const closeOverlay = () => {
