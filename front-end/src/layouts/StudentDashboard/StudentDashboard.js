@@ -634,7 +634,7 @@ const StudentDashboard = () => {
         </div>
       </div>
       {isCreateRequestVisible && (
-        <div ref={overlayRef}>
+        <div className="create-request-overlay" ref={overlayRef}>
           <CreateRequest
             isVisible={isCreateRequestVisible}
             onClose={handleCreateRequest}
