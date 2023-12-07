@@ -12,7 +12,7 @@ export default async function updatePriorityForOpenIssues() {
     const openIssuesToUpdate = await IssueModel.find({
       currentStatus: "Open",
       comments: { $size: 0 },
-      dateCreated: { $lt: thresholdDate.format("DD/MM/YYYY") },
+      dateCreated: { $lt: thresholdDate.format("DD/MM/YYYY") }
     });
 
     // Update the priority of each eligible issue to "High Priority"
@@ -23,6 +23,5 @@ export default async function updatePriorityForOpenIssues() {
   } catch (error) {
     // Handle errors
     console.error("Error updating issue priorities:", error.message);
-    res.status(500).send("An error occurred while updating issue priorities.");
   }
 }

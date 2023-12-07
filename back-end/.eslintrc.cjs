@@ -46,6 +46,8 @@ module.exports = {
 
     "no-console": ["off"],
     "space-before-function-paren": ["off"],
+    "quote-props": ["off"],
+    "no-prototype-builtins": ["off"],
     quotes: ["off"],
     indent: "off"
   }

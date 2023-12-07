@@ -18,7 +18,7 @@ describe("Integration Tests for Create Issue Endpoint", () => {
         studentName: "student",
         issueTitle: "Test Issue",
         issueDesc: "This is a test issue.",
-        deptTagged: "IT",
+        deptTagged: "IT"
       };
 
       const res = await chai
@@ -37,7 +37,7 @@ describe("Integration Tests for Create Issue Endpoint", () => {
       const createdIssue = await IssueModel.findOne({
         studentNetID: studentNetID,
         title: issueData.issueTitle,
-        departments: issueData.deptTagged,
+        departments: issueData.deptTagged
       });
 
       // Extract the created issue's index from the database
@@ -48,15 +48,15 @@ describe("Integration Tests for Create Issue Endpoint", () => {
 
     // Cleanup step to delete the created issue after testing
     after(async () => {
-        if (createdIssueIndex) {
-          // Find and delete the issue by its index
-          try {
-            await IssueModel.deleteOne({ index: createdIssueIndex });
-          } catch (error) {
-            console.error(`Error deleting issue: ${error}`);
-          }
+      if (createdIssueIndex) {
+        // Find and delete the issue by its index
+        try {
+          await IssueModel.deleteOne({ index: createdIssueIndex });
+        } catch (error) {
+          console.error(`Error deleting issue: ${error}`);
         }
-      });
+      }
+    });
 
     it("should handle errors gracefully for missing fields", async () => {
       const studentNetID = "student";
@@ -64,7 +64,7 @@ describe("Integration Tests for Create Issue Endpoint", () => {
         studentName: "student",
         issueTitle: "Test Issue",
         issueDesc: "",
-        deptTagged: "",
+        deptTagged: ""
       };
 
       // Send the request with missing fields
@@ -81,4 +81,5 @@ describe("Integration Tests for Create Issue Endpoint", () => {
     });
   });
 });
+
 /* eslint-enable */
