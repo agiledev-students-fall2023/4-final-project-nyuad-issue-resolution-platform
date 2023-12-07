@@ -1,15 +1,18 @@
 @import url("../../../assets/styles.css");
+
 .department-selection {
   background-color: var(--background);
   border-radius: 8px;
   width: 250px;
   margin-bottom: 50px;
 }
+
 .department-selection .tag-sidebar-header {
   display: flex;
   justify-content: space-between;
 }
-.department-selection .tag-sidebar-header select{
+
+.department-selection .tag-sidebar-header select {
   width: 45%;
   font-size: 12px;
   margin-right: 8px;
@@ -18,12 +21,12 @@
   color: var(--accent);
   cursor: pointer;
 }
-  
+
 .department-selection ul {
   list-style-type: none;
   margin-left: 0;
   padding: 0;
-  
+
 }
 
 .department-selection h3 {
@@ -31,21 +34,21 @@
 }
 
 .department-selection .plus-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 12px;
-    cursor: pointer;
-    margin-left: 70px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 70px;
 }
 
 .department-selection .plus-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .department-selection .plus-button:focus {
-    outline: none;
+  outline: none;
 }
 
 .department-selection .tag-sidebar-header {
@@ -54,9 +57,9 @@
 }
 
 .department-selection .round-tag {
-  width: 80%;
+  width: 85%;
   height: 80%;
-  background-color:#e6dbf9;
+  background-color: #e6dbf9;
   border-radius: 16px;
   padding: 5px 5px;
   color: #845dd0;
@@ -81,8 +84,6 @@
   border-radius: 0 20px 20px 0;
 }
 
-.department-selection  .tag-close-button:hover {
+.department-selection .tag-close-button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-
-  

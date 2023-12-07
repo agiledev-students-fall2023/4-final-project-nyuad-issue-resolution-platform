@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BACKEND_URL;
-function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, currentDepartment }) {
+function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, currentDepartment, currentUser }) {
   const [departmentTags, setdepartmentTags] = useState([]);
 
   const departmentOptions = [
@@ -28,7 +28,11 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
 
   const postDepartmentTags = async (param) => {
     const lastdepartmentString = param[0];
-    const statusUpdate = `Admin added new department tag [${lastdepartmentString}]`;
+    const newDepartmentObject = departmentOptions.find(option => option.value === lastdepartmentString);
+    const newDepartmentLabel = newDepartmentObject ? newDepartmentObject.label : lastdepartmentString;
+    const currentDepartmentObject = departmentOptions.find(option => option.value === currentDepartment);
+    const currentDepartmentLabel = currentDepartmentObject ? currentDepartmentObject.label : currentDepartment;
+    const statusUpdate = `${currentUser} (${currentDepartmentLabel}) added the ${newDepartmentLabel} department`;
     setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
     try {
       await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: statusUpdate, issueDepartmentTags: param });
@@ -41,9 +45,13 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
     return async () => {
       if (departmentTags.length > 1) {
         const modifiedDepartmentTags = departmentTags.filter(item => item !== param);
+        const newDepartmentObject = departmentOptions.find(option => option.value === param);
+        const newDepartmentLabel = newDepartmentObject ? newDepartmentObject.label : param;
         setdepartmentTags(modifiedDepartmentTags);
         setUpdateBoxes(modifiedDepartmentTags);
-        const statusUpdate = `Admin removed a department tag [${param}]`;
+        const currentDepartmentObject = departmentOptions.find(option => option.value === currentDepartment);
+        const currentDepartmentLabel = currentDepartmentObject ? currentDepartmentObject.label : currentDepartment;
+        const statusUpdate = `${currentUser} (${currentDepartmentLabel}) removed the ${newDepartmentLabel} department`;
         setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
         try {
           await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { commentbox: statusUpdate, issueDepartmentTags: modifiedDepartmentTags });

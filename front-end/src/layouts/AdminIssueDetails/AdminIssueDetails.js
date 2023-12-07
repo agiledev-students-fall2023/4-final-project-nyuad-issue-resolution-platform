@@ -95,7 +95,7 @@ const AdminIssueDetails = () => {
             </div>
             <div className="right-bar">
                 <StudentDetails props={specificIssue}/>
-                <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} />
+                <DepartmentSelection index = { index }name="Departments" tags = {specificIssue.departments} setUpdateBoxes={setUpdateBoxes} updateBoxes={updateBoxes} currentDepartment={currentDepartment} currentUser={userName} />
                 <AttachmentBar index = { index } name="Attachments" tags = {specificIssue.attachments} fileNames={selectedFilesname} currentDepartment={currentDepartment} isAdmin={true}/>
                 {
                   (specificIssue.currentStatus !== "Resolved" && specificIssue.isProposed === false) &&

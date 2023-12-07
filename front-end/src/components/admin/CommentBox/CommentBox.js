@@ -43,7 +43,7 @@ function CommentBox({ index, setUpdateBoxes, updateBoxes, currentDepartment, cur
           onChange={handleTextChange}
           value={textAreaValue}
         ></textarea>
-        <button type="submit"><strong> Submit</strong></button>
+        <button type="submit"><strong> Add </strong></button>
       </form>
 
     </div>
