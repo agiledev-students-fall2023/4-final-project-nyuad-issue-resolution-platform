@@ -34,6 +34,17 @@
   margin-bottom: 0;
 }
 
+.admin-issue .admin-close{
+  background-color: var(--primary);
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 25px; /* Adjust as needed */
+  cursor: pointer;
+  font-weight: 1;
+  border-radius: 10px;
+  color:white;
+}
 
 
 .admin-issue .marked-as-solve-btn button[type="submit"] {

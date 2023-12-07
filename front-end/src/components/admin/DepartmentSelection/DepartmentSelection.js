@@ -89,12 +89,11 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
         {departmentTags.filter(item => item != null).map((tag, index) => (
           <li key={index}>
             <div className="round-tag ">
-                <span>{tag}</span>{
+                <span>{departmentOptions.find(option => option.value === tag).label}</span>{
                    <button className="tag-close-button" onClick={handleRemoveDepartments(tag)}>&times;</button>
                 }
             </div>
           </li>
-
         ))}
       </ul>
     </div>

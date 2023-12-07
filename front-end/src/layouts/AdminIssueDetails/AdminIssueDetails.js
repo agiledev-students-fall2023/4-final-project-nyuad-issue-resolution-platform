@@ -36,6 +36,9 @@ const AdminIssueDetails = () => {
     checkAuthState();
   }, []);
 
+  const gotoAdminDashboard = () => {
+    navigate('/admin/dashboard/');
+  };
   const postMarkAsResolved = async (event) => {
       navigate('/admin/dashboard/');
       try {
@@ -101,6 +104,7 @@ const AdminIssueDetails = () => {
                   </div>
                 }
             </div>
+            <button className='admin-close' onClick={gotoAdminDashboard}> X </button>
         </div>
       )
       : (
