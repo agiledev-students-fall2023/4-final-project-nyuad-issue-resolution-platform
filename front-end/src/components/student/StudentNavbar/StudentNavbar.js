@@ -45,7 +45,10 @@ export default function StudentNavbar({
 
   const renderNotificationOverlay = () => {
     return displayNotifOverlay ? (
+      <>
+      <div class="notification-overlay-arrow-up"></div>
       <div className="notification-overlay">
+        
         <div className="scrollable-content">
           {notifIssues.length > 0 ? (
             notifIssues.map((issue, index) => (
@@ -55,7 +58,7 @@ export default function StudentNavbar({
                 onClick={() => handleIssueClick(issue.index)}
               >
                 <p>
-                  <strong>Action Required: {issue.title}</strong>
+                  <span className="action-req-text">Action Required: </span>{issue.title}
                 </p>
               </button>
             ))
@@ -64,6 +67,7 @@ export default function StudentNavbar({
           )}
         </div>
       </div>
+      </>
     ) : null;
   };
 
