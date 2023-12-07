@@ -7,7 +7,7 @@
     "test": "mocha test/**/*.test.js",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "lint": "eslint **/*.js",
+    "lint": "eslint src/**/*.js config/**/*.js models/**/*.js database/**/*.js",
     "coverage": "c8 mocha test/**/*.test.js"
   },
   "keywords": [],
