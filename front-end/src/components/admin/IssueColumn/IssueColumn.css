@@ -6,7 +6,7 @@
     border-radius: 10px;
     overflow-y: auto;
     margin-right: 10px;
-    max-height: calc(100vh - 35vh);
+    max-height: calc(100vh - 28vh);
 }
 
 .issue-column-admin:first-child {
