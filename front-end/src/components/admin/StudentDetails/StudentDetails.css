@@ -19,11 +19,9 @@
 
 .admin-student-details li {
   margin: 10px 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
-  
-  .student-details li strong {
-    font-weight: bold;
-  }
 
-  
+.student-details li strong {
+  font-weight: bold;
+}
