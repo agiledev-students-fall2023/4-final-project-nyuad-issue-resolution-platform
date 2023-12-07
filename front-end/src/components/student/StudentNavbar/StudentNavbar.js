@@ -19,7 +19,7 @@ export default function StudentNavbar({
 
   const handleIssueClick = (issueIndex) => {
     if (onIssueSelect) {
-      onIssueSelect(issueIndex); // Call the passed function with the index of the clicked issue
+      onIssueSelect(issueIndex);
     }
   };
 

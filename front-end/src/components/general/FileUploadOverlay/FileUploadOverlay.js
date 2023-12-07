@@ -39,7 +39,6 @@ const FileUploadOverlay = ({ index, currentDepartment, isOverlayVisible, setIsOv
           console.error("Error during form submission:", error);
         }
     } else {
-      console.log("This is student");
         try {
           const response = await fetch(`${BASE_URL}/api/actions/student/${studentNetID}/${index}`, {
             method: "POST",

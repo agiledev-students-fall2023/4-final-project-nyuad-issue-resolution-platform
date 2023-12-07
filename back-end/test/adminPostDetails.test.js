@@ -102,8 +102,6 @@ describe("Integration Tests for Admin Post Handler Endpoint", () => {
         .request(server)
         .post(`/api/actions/admin/${department}/${paramName}`)
         .send({ commentbox: newComment, issueStatus: newStatus });
-
-      console.log(res.text);
       // Check that the response indicates an error
       assert.equal(res.status, 500);
       assert.equal(res.text, "An error occurred while updating the data.");

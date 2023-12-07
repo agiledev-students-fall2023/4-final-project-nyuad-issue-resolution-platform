@@ -21,8 +21,6 @@ const handleOptionChange = (newselectedOption) => {
 };
 
 const postCurrentProgression = async (param) => {
-  // const statusUpdate = `Admin Changed the current priority of the issue to ${param}`;
-  // setUpdateBoxes([statusUpdate, ...updateBoxes]); // Updates the update boxes locally in the parent
   try {
     await axios.post(`${BASE_URL}/api/actions/admin/${currentDepartment}/${index}`, { issueStatus: param });
   } catch (error) {
@@ -40,7 +38,9 @@ const customStyles = {
     ...provided,
     backgroundColor: state.data.color,
     color: state.data.textColor,
-    fontWeight: state.data.isBold ? 'bold' : 'normal'
+    fontWeight: state.data.isBold ? 'bold' : 'normal',
+    marginTop: state.data.value === 'Open' ? '-4px' : '0px',
+    marginBottom: state.data.value === 'Action Required' ? '-4px' : '0px'
   }),
   singleValue: provided => ({
     ...provided,

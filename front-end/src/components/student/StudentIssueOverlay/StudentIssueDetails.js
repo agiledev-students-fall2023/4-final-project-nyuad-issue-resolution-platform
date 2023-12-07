@@ -57,9 +57,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                     );
                     console.log('Comment submitted successfully:', response.data);
                 }
-                // setChangeOccured(!changeOccured);
-                // You can add more logic here depending on your needs
-                // For example, clear the comment field or update the UI to show the new comment
             } catch (error) {
                 console.error('Error submitting comment:', error.response ? error.response.data : error.message);
                 // Handle the error accordingly
@@ -68,10 +65,6 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
         setChangeOccured(!changeOccured);
         setCommentSubmitted(true); // Set the comment submitted flag
         }
-        // else {
-        //     console.error('Comment cannot be empty');
-        //     // You might want to show a user-friendly error message here
-        // }
     };
 
     const postMarkAsResolved = async () => {
@@ -115,22 +108,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
         }
     };
 
-    // Might change implementation to passing data by props from the previous page
     useEffect(() => {
-        // const apiUrl = "https://hasiburratul.github.io/mock-api/MOCK_DATA.json";
-        // fetch(apiUrl)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         const specificIssue = data[parseInt(index - 1)];
-        //         setIssue(specificIssue);
-        //     })
-        //     .catch(error => {
-        //         console.error("Error fetching the issue data: ", error);
-        //     });
-
-            // let isMounted = true; // flag to check if component is mounted - to prevent memory leaks
-
-            // Define `fetchData` as an asynchronous function.
             const fetchData = async () => {
                 try {
                 // Attempt to make an HTTP GET request using axios.
@@ -149,12 +127,7 @@ const StudentIssueDetails = ({ studentNetID, index }) => {
                 console.error("Error fetching data from API:", error);
                 }
             };
-            // Call `fetchData` to execute the data fetching operation.
             fetchData();
-            // The empty array `[]` as a second argument to useEffect indicates that
-            // this effect should only run once when the component mounts.
-            // The `index` in the dependency array means the effect will re-run
-            // every time the `index` changes.
         }, [index, changeOccured]);
 
     const reopenIssue = async () => {

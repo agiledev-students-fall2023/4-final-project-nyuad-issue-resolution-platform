@@ -8,7 +8,6 @@ export async function downloadFilesHandler(req, res) {
 
     res.download(fileDirectory + filename, function (err) {
       if (err) {
-        console.log(err);
         res.status(err.status).end();
       }
     });
