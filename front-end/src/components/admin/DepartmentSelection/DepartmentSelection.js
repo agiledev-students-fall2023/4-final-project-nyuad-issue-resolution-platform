@@ -21,12 +21,7 @@ function DepartmentSelection({ index, name, tags, setUpdateBoxes, updateBoxes, c
   ];
 
   const handleAddDepartment = (e) => {
-      let newValue = e.target.value;
-      // departmentOptions.forEach((item) => {
-      //   if (item.value === e.target.value) {
-      //     newValue = item.label;
-      //   }
-      // });
+      const newValue = e.target.value;
       setdepartmentTags([newValue, ...departmentTags]);
       postDepartmentTags([newValue, ...departmentTags]);
   };
