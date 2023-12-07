@@ -1,3 +1,8 @@
+[![Node.js CI](https://github.com/agiledev-students-fall2023/4-final-project-nyuad-issue-resolution-platform/.github/workflows/ci-cd.yml/badge.svg)](https://github.com/agiledev-students-fall2023/4-final-project-nyuad-issue-resolution-platform/.github/workflows/ci-cd.yml)
+
+[![Continuous Deployment](https://github.com/agiledev-students-fall2023/4-final-project-nyuad-issue-resolution-platform/.github/workflows/ci-cd.yml/badge.svg)](https://github.com/agiledev-students-fall2023/4-final-project-nyuad-issue-resolution-platform/.github/workflows/ci-cd.yml)
+
+
 # NYUAD Issue Resolution Platform
 
 ## Assigned Roles
