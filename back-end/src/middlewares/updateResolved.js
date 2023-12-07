@@ -17,6 +17,7 @@ export default async function updateResolved() {
 
     // Update the resolve status for each eligible issue to "Resolved"
     for (const issue of openIssuesToUpdate) {
+      issue.comments.unshift("Issue automatically resolved by the system.")
       issue.currentPriority = "";
       issue.currentStatus = "Resolved";
       issue.isProposed = false;

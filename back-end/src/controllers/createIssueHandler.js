@@ -1,7 +1,6 @@
 import Issue from '../../models/issueModel.js';
 
 export async function createIssueHandler(req, res) {
-    console.log(req.body);
     const {
         dateCreated, 
         currentStatus, 

@@ -22,8 +22,6 @@ import updatePriorityForOpenIssues from "./src/middlewares/updatePriorityForOpen
 import updateResolved from "./src/middlewares/updateResolved.js";
 import downloadFiles from "./src/routes/downloadFiles.js";
 
-// import multer from "multer"; - configure when required
-
 const app = express(); // instantiate an Express object
 
 // MIDDLEWARES
@@ -34,15 +32,6 @@ const corsOptions = {
   credentials: true // This allows the server to accept cookies from the client
 };
 app.use(cors(corsOptions));
-
-// Later during deployment:
-// const corsOptions = {
-//     origin: 'http://localhost:3000', // allow only the React frontend to connect
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true, // allow session cookie from browser to pass through
-//     optionsSuccessStatus: 200,
-// };
-// app.use(cors(corsOptions));
 
 // serve static files from the public folders
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
@@ -87,13 +76,11 @@ setInterval(() => {
 // Logout endpoint to remove token from cookie
 app.get("/api/logout", (req, res) => {
   res.cookie("jwt", "", { maxAge: 0 }); // Clear the cookie
-  console.log("Logged out successfully");
   res.json({ message: "Logged out successfully" });
 });
 
 app.get("/api/check-auth", checkJWT, (req, res) => {
   if (req.user) {
-    console.log("User authenticated");
     res.status(200).json({ authenticated: true, user: req.user });
   } else {
     // User is not authenticated

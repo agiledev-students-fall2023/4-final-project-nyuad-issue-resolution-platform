@@ -163,8 +163,6 @@ function AdminDashboard() {
         <>
             <AdminNavbar adminName={departmentLabel} unresolvedIssues={unresolvedIssues} />
             <div className="admin-dashboard">
-
-                {/* <h1 className='admin-dashboard-header'>Issue Board</h1> */}
                 <SearchBarAdmin searchText={searchText} onSearchTextChange={setSearchText} />
                 <div className="issue-columns-admin">
                     {groupedAndOrderedIssues.map(({ status, issues }) => (
