@@ -3,6 +3,7 @@ import './StudentDetails.css';
 const StudentDetails = ({ props }) => {
   const name = props.studentName;
   const netID = props.studentNetID;
+  const date = props.dateCreated;
 
   return (
     <div className="admin-student-details">
@@ -13,6 +14,9 @@ const StudentDetails = ({ props }) => {
         </li>
         <li>
           <strong>Netid:</strong> {netID}
+        </li>
+        <li>
+          <strong>Issue Creation Date:</strong> {date}
         </li>
       </ul>
     </div>
