@@ -159,7 +159,7 @@
 
 .toast-notification {
   position:relative;
-  top: 15%;
+  top: 5%;
   /* left: 50%; */
   transform: translateX(-5%);
   /* background-color: #ffcc00; */
