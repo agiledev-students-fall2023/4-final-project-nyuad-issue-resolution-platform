@@ -1,3 +1,7 @@
+[![CI/CD](https://img.shields.io/github/actions/workflow/status/agiledev-students-fall2023%2F4-final-project-nyuad-issue-resolution-platform/.github%2Fworkflows%2Fci-cd.yml?label=CI/CD)](https://github.com/agiledev-students-fall2023/4-final-project-nyuad-issue-resolution-platform/deployments)
+[![Deployed](https://img.shields.io/badge/Deployed-Live-brightgreen.svg)](http://128.199.12.71/)
+
+
 # NYUAD Issue Resolution Platform
 
 ## Assigned Roles
