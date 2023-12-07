@@ -8,7 +8,6 @@ export async function adminPostHandler(req, res) {
   const currentPriority = req.body.issuePriority;
   const departmentTags = req.body.issueDepartmentTags;
   const isProposed = req.body.isProposed;
-  
   try {
     const specificIssue = await Issue.findOne({ departments: department, index: paramName });
     if (newcomment !== undefined) {
