@@ -31,7 +31,7 @@ const StudentDashboard = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // Other state initializations for UI functionalities
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = windowWidth <= 768 ? 10 : 12;
+  const itemsPerPage = windowWidth <= 768 ? 10 : 9;
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
@@ -634,7 +634,7 @@ const StudentDashboard = () => {
         </div>
       </div>
       {isCreateRequestVisible && (
-        <div ref={overlayRef}>
+        <div className="create-request-overlay" ref={overlayRef}>
           <CreateRequest
             isVisible={isCreateRequestVisible}
             onClose={handleCreateRequest}

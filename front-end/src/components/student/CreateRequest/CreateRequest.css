@@ -1,10 +1,11 @@
+
 .create-request-component-student {
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #67676769;
   position: fixed;
   z-index: 1000;
   width: 550px;
-  height: 600px;
+  height: 650px;
   top: 0;
   left: 0;
   right: 0;
@@ -177,7 +178,7 @@
     position: fixed;
     z-index: 1000;
     /* width: 550px; */
-    height: 600px;
+    height: 700px;
     top: 0;
     left: 0;
     right: 0;

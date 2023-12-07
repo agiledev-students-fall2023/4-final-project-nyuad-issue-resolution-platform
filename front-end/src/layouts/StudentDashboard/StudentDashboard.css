@@ -13,7 +13,6 @@
   flex-direction: column;
   min-height: 100vh;
   transition: filter 0.3s ease;
-  /* Smooth transition for the blur effect */
 }
 
 .h2-student-dashboard {
@@ -83,14 +82,14 @@
 
 .table-student-dashboard th,
 .table-student-dashboard td {
-  padding: 8px 12px;
+  padding: 12px 12px;
   border: 1px solid #ddd;
   text-align: left;
   color: var(--text);
 }
 
 .table-student-dashboard th {
-  background-color: var(--secondary);
+  background-color: rgb(245, 248, 250);
 }
 
 .title-cell,
@@ -119,7 +118,6 @@
   border-radius: 15px;
   font-size: 12px;
   background-color: rgba(131, 84, 219, 0.212);
-  /* border: 1px solid rgba(131, 84, 219, 0.782); */
   font-weight: bold;
   color: rgb(131, 84, 219);
   margin: 2px;
@@ -219,7 +217,6 @@
 
 .issueOverlay {
   position: absolute;
-  /* centering the div */
   right: 0;
   top: 0;
   left: 0;
@@ -228,38 +225,13 @@
 
   width: 95%;
   height: 87%;
-  /* padding: 10px; */
   background-color: var(--background);
   border-radius: 5px;
   z-index: 1001;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   overflow-y: scroll;
 }
-
-/* .createRequestOverlay {
-  background-color: white;
-  border: 1px solid black;
-  position: absolute;
-  z-index: 1002;
-  width: 550px;
-  height: 600px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: auto;
-  border-radius: 3px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-} */
 
 .pagination button:hover {
   background-color: var(--accent);
@@ -276,7 +248,6 @@
 }
 
 @media only screen and (max-width: 768px) {
-
   .h2-student-dashboard,
   .actions {
     padding-left: 1.5%;
@@ -293,6 +264,8 @@
   }
 
   .search-bar {
+    display: flex;
+    justify-content: center;
     width: 100%;
     margin-bottom: 1.5%;
   }
@@ -310,7 +283,7 @@
 
   .table-student-dashboard th,
   .table-student-dashboard td {
-    padding: 1.5%;
+    padding: 3% 1.5%;
     text-align: left;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
@@ -322,8 +295,8 @@
   }
 
   .table-student-dashboard th {
-    background-color: var(--primary);
-    color: white;
+    background-color: rgb(245, 248, 250);
+    color: black;
   }
 
   .title-cell-mobile {
@@ -351,7 +324,6 @@
     margin: auto;
     width: 100%;
     height: 100%;
-    /* padding: 10px; */
     background-color: var(--background);
     border-radius: 5px;
     z-index: 1001;
