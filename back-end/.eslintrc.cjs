@@ -39,14 +39,17 @@ module.exports = {
     "no-useless-call": ["error"],
     "no-use-before-define": ["warn"],
 
-    camelcase: ["warn", { properties: "never" }],
+    camelcase: ["off"],
     "func-call-spacing": ["off"],
     "no-lonely-if": ["off"],
     "array-bracket-spacing": ["warn"],
 
     "no-console": ["off"],
     "space-before-function-paren": ["off"],
+    "quote-props": ["off"],
+    "no-prototype-builtins": ["off"],
     quotes: ["off"],
-    indent: "off"
+    indent: "off",
+    "object-shorthand": ["off"]
   }
 };

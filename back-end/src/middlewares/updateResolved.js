@@ -12,12 +12,12 @@ export default async function updateResolved() {
     const openIssuesToUpdate = await IssueModel.find({
       currentStatus: "Action Required",
       isProposed: true,
-      isProposedDate: { $lt: thresholdDate.format("DD/MM/YYYY") },
+      isProposedDate: { $lt: thresholdDate.format("DD/MM/YYYY") }
     });
 
     // Update the resolve status for each eligible issue to "Resolved"
     for (const issue of openIssuesToUpdate) {
-      issue.comments.unshift("Issue automatically resolved by the system.")
+      issue.comments.unshift("Issue automatically resolved by the system.");
       issue.currentPriority = "";
       issue.currentStatus = "Resolved";
       issue.isProposed = false;
@@ -27,6 +27,5 @@ export default async function updateResolved() {
   } catch (error) {
     // Handle errors
     console.error("Error updating issue resolved status:", error.message);
-    res.status(500).send("An error occurred while updating issue resolved status.");
   }
 }

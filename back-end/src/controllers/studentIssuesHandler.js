@@ -1,4 +1,5 @@
-import IssueModel from '../../models/issueModel.js';
+/* eslint-disable brace-style */
+import IssueModel from "../../models/issueModel.js";
 import User from "../../models/UserModel.js";
 
 export async function issueRetrievalHandler(req, res) {
@@ -10,11 +11,13 @@ export async function issueRetrievalHandler(req, res) {
       netId: paramName
     });
     // If user does not exist, return error
-    if (!user) { res.status(500).send("User does not exist.");}
+    if (!user) {
+      res.status(500).send("User does not exist.");
+    }
     // If user exists, return all issues for that user
     else {
-    const issues = await IssueModel.find({ "studentNetID": paramName });
-    res.json(issues);
+      const issues = await IssueModel.find({ studentNetID: paramName });
+      res.json(issues);
     }
   } catch (error) {
     console.error("Error retrieving data:", error.message);
