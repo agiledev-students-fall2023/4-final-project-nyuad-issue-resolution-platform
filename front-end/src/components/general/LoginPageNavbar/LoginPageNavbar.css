@@ -1,0 +1,72 @@
+#nyuad-logo {
+    cursor: pointer;
+    padding: 0;
+}
+
+#nyuad-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.header-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5%;
+    height: auto;
+    color: white;
+    font-family: var(--primary-font), Arial;
+    margin-bottom: 50px;
+}
+
+.header-login a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-login .seperator {
+    font-size: 30px;
+    font-weight: 300;
+    color: white;
+    margin: 0 8px;
+}
+
+.nav-links li {
+    display: inline-block;
+    transition: scale 0.3s;
+}
+
+.nav-links li a {
+
+    font-weight: 500;
+    color: azure;
+    text-decoration: none;
+
+    padding-left: 30px;
+    transition: color 0.5s;
+}
+
+
+.nav-links li:hover {
+    scale: 1.08;
+    cursor: default;
+}
+
+.nav-links li a:hover {
+    color: cyan;
+}
+
+
+/* Hide the element when the screen width is 768px or below */
+/* Default for tablet size */
+@media (max-width: 768px) {
+
+    .nav-links,
+    .navbar-nyuad-text {
+        display: none;
+    }
+
+    .header-login {
+        justify-content: center;
+    }
+}

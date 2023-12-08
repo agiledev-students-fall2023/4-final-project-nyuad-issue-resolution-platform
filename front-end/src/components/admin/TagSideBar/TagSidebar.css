@@ -1,0 +1,74 @@
+@import url("../../../assets/styles.css");
+.admin-tag-sidebar {
+  background-color: var(--background);
+  border-radius: 8px;
+  width: 200px;
+  margin-bottom: 50px;
+}
+  
+.admin-tag-sidebar ul {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  
+}
+
+.admin-tag-sidebar h3 {
+  margin: 0;
+}
+  
+
+.admin-tag-sidebar .plus-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 70px;
+}
+
+.admin-tag-sidebar .plus-button:hover {
+    background-color: #0056b3;
+}
+
+.admin-tag-sidebar .plus-button:focus {
+    outline: none;
+}
+
+.admin-tag-sidebar .tag-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-tag-sidebar .round-tag {
+  background-color:#e6dbf9;
+  border-radius: 16px;
+  padding: 10px 20px;
+  color: #845dd0;
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.admin-tag-sidebar .tag-close-button {
+  background-color: transparent;
+  border: none;
+  color: #060606;
+  font-size: 23px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  border-radius: 0 20px 20px 0;
+}
+
+.admin-tag-sidebar  .tag-close-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+  

@@ -1,0 +1,128 @@
+@import url("../../assets/styles.css");
+
+
+.login-page {
+    font-family: var(--primary-font), Arial;
+    background-color: var(--primary);
+    padding: 10px;
+    color: var(--text);
+    height: 120vh;
+
+
+}
+
+.login-header {
+    text-align: center;
+    color: #f5f5f5;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.login-box {
+    background-color: var(--background);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 0;
+    padding-bottom: 25px;
+}
+
+.auth-error {
+    color: #D8000C;
+    background-color: #d8000b2c;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 14px;
+    font-family: var(--primary-font);
+    margin: 10px 30px;
+    width: 53%;
+    padding: 10px;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+
+}
+
+.toggle-container button {
+    font-size: 17px;
+    border: 0;
+    padding: 17px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1;
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.toggle-container button.active {
+    background-color: #fff;
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.logo {
+    display: block;
+    margin: 30px;
+    width: 100px;
+    margin-bottom: 30px;
+
+}
+
+.login-box h3 {
+    text-align: left;
+    margin: 30px;
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin: 30px;
+    font-size: 15px;
+    margin-bottom: 10px;
+
+}
+
+.login-form input {
+    display: block;
+    width: 60%;
+    padding: 10px;
+    margin-top: 5px;
+    /* box-sizing: border-box; */
+    border: 1px solid var(--primary);
+    border-radius: 0;
+
+}
+
+.login-form input:focus {
+    outline: 1px solid var(--accent);
+    /* border: 1px solid var(--primary); */
+}
+
+.login-form p {
+    text-align: left;
+    font-size: 14px;
+    margin: 0 30px;
+}
+
+.login-button {
+    display: block;
+    background-color: #fff;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    /* border: none; */
+    cursor: pointer;
+    margin: 20px 0 20px 30px;
+    border-radius: 0;
+}
+
+.login-button:hover {
+    background-color: var(--primary);
+    color: #fff;
+}

@@ -1,0 +1,53 @@
+.admin-comment-box textarea {
+  min-height: 90px;
+  resize: vertical;
+  padding: 10px;
+  font-family: var(--primary-font);
+  border-radius: 3px;
+  border: 1px solid var(--primary);
+  font-size: 17px;
+  width: calc(100% - 20px);
+  padding-right: 50px;
+}
+
+.admin-comment-box button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 10px;
+}
+
+.admin-comments-list {
+  margin-top: 20px;
+}
+
+.admin-comment {
+  background-color: var(--secondary);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-comment-box>h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-comment-box form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.admin-comment-box {
+  position: relative;
+  margin-bottom: 20px;
+}

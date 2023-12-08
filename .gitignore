@@ -113,6 +113,7 @@ typings/
 
 # dotenv environment variables file
 .env
+**/.env
 
 # next.js build output
 .next
@@ -124,3 +125,9 @@ typings/
 ## Jekyll artifacts
 **/.jekyll-cache
 **/_site/
+
+## Test coverage temp files
+back-end/coverage/
+
+#uploads file
+back-end/uploads/

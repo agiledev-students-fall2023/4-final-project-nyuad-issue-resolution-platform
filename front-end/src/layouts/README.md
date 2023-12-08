@@ -1,0 +1,2 @@
+# Layouts is where you store the entire screen views - like the admin v, student dashboard, Login Page
+# Create specific directories for each layout view and then create store its respective .js and .css files

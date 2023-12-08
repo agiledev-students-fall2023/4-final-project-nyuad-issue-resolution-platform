@@ -1,0 +1,63 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x] 
+
+    env:
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      RANDOM_TEST: ${{ secrets.RANDOM_TEST }}
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Install Dependencies
+      run: npm run install-deps
+      
+    - name: Lint
+      run: npm run lint
+      
+    - name: Run Tests
+      run: npm run test
+      
+    - name: Build Frontend
+      run: |
+        cd front-end
+        npm run build
+  
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    environment: production
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Deploy to server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          cd /var/www/webapp/
+          git pull origin master
+          npm run install-deps
+          pm2 restart webapp-backend
+          cd front-end && npm run build
+          sudo /usr/sbin/service nginx restart

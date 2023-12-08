@@ -1,19 +1,73 @@
-# Project Repository
+[![CI/CD](https://img.shields.io/github/actions/workflow/status/agiledev-students-fall2023%2F4-final-project-nyuad-issue-resolution-platform/.github%2Fworkflows%2Fci-cd.yml?label=CI/CD)](https://github.com/agiledev-students-fall2023/4-final-project-nyuad-issue-resolution-platform/deployments)
+[![Deployed](https://img.shields.io/badge/Deployed-Live-brightgreen.svg)](http://128.199.12.71/)
 
-This repository will be used for team projects.
 
-Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
+# NYUAD Issue Resolution Platform
 
-1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
+## Assigned Roles
+We decided to rotate the assignment of the following roles for each sprint.
+### Sprint 1
+* **Product Owner:** Swostik Pati
+* **Scrum Master:** Basil Ahmed
 
-1. Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
+### Sprint 2
+* **Product Owner:** Hasibur Rahman
+* **Scrum Master:** Avinash Gyawali
 
-1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
+### Sprint 3
+* **Product Owner:** Basil Ahmed
+* **Scrum Master:** Nada Elsharkawy
 
-1. See the [Front-End Development instructions](./instructions-1-front-end.md) for the requirements of the initial Front-End Development.
+### Sprint 4
+* **Product Owner:** Avinash Gyawali
+* **Scrum Master:** Swostik Pati
 
-1. See the [Back-End Development instructions](./instructions-2-back-end.md) for the requirements of the initial Back-End Development.
+## About
+### Product Vision Statement
+The NYUAD Issue Resolution Platform is envisioned as a transformative solution that streamlines and revolutionizes the way NYU Abu Dhabi students and administrative departments interact and resolve issues. Our vision is to create a transparent, efficient, and user-friendly web application that serves as a central hub for issue tracking and resolution. The platform will bridge the communication gap between students and departments, offering real-time insights, accountability, and enhanced collaboration.
 
-1. See the [Database Integration instructions](./instructions-3-database.md) for the requirements of integrating a database into the back-end.
+### Product Description
+The NYUAD Issue Resolution Platform is a web-based application designed to facilitate streamlined communication and issue resolution between students and administrative departments at NYU Abu Dhabi. It offers secure login, a student dashboard for issue submission and tracking, department-specific dashboards for administrators, and features such as multi-department tagging, resolution verification, and reopening of issues. Built on the MERN stack, this platform is designed to enhance efficiency and transparency in issue resolution while providing a user-friendly experience for all stakeholders. The site map, wireframe design and the prototype is available in the [UX-DESIGN.md](./UX-DESIGN.md) file.
 
-1. See the [Deployment instructions](./instructions-4-deployment.md) for the requirements of deploying an app.
+### Collaborators
+* [Basil Ahmed](https://github.com/basil-ahmed)
+* [Nada Elsharkawy](https://github.com/nadamels)
+* [Avinash Gyawali](https://github.com/Tauke190)
+* [Swostik Pati](https://github.com/swostikpati) 
+* [Hasibur Rahman](https://github.com/hasiburratul)
+
+The [CONTRIBUTING.md](./CONTRIBUTING.md) file contains information on how to contribute to this project
+
+
+## How to launch the app
+1. Clone this repository to your local machine
+2. Navigate into project direcotry
+3. Install the Dependencies by running 
+```
+npm run install-deps
+```
+This will install the dependencies specified in the `package.json`, `front-end/package.json`, `back-end/package.json` files.
+
+4. Start the Development Servers by running
+```
+npm run dev
+```
+This will start the backend server in the `back-end/` directory using nodemon and the frontend development server in the `front-end/`directory using npm start.
+
+5. You can start the backend only by running
+```
+npm run server
+```
+
+6. You can start the frontend only by running 
+```
+npm run client
+```
+
+More detail instructions for backend and frontend setup can be found in respective folder's README.md files.
+
+### Testing
+Backend testing details can be found in [back-end/test/README.md](back-end/test/README.md) file.
+
+Currently, the project is under development. The team will provide instructions for building the project once it reaches that stage.
+

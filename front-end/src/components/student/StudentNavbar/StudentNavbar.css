@@ -1,0 +1,161 @@
+.header-student-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 10px;
+    margin: 0;
+}
+
+.h1-student-dashboard {
+    text-align: left;
+    margin: 15px;
+    font-size: 17px;
+}
+
+.h1-student-dashboard,
+.student-name,
+.notification-icon {
+    /* font-size: 15px; */
+    color: var(--background);
+}
+
+.notification-icon>img {
+    width: 60px;
+    height: 60px;
+}
+
+.notification-icon .notification-count {
+    position: relative;
+    bottom: 7px;
+    font: var(--primary-font);
+    font-weight: bold;
+    color: var(--background);
+    right: 24px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Simple black outline */
+
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.student-name {
+    margin-right: 10px;
+    font-size: 18px;
+    /* font-weight: bold; */
+}
+
+.notification-icon>img {
+    position: relative;
+    cursor: pointer;
+}
+
+.logout-button {
+    width: 30px;
+    height: 30px;
+    margin-left: 8px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.notification-overlay {
+    position: absolute;
+    top: 100px; 
+    right: 10px; 
+    width: 320px; 
+    background-color: rgb(245, 248, 250); 
+    color: var(--text-primary); /* Assuming you have a text color variable */
+    border: 1px solid #67676769; /* A soft border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Softer shadow for subtlety */
+    z-index: 1000; /* Make sure this is above other elements */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    padding: 15px; /* Padding inside the popup */
+    overflow: auto;
+    max-height: 400px;
+}
+.notification-overlay-arrow-up {
+    position: absolute;
+    right: 90px;
+    top:90px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #67676769;
+  }
+
+.notification-overlay .issue-button {
+    padding: 20px 10px; /* Add padding to buttons */
+    width: 100%; /* Full width buttons */
+    border: 0;
+    border-bottom: 1px solid #d1d1d1; /* Add a grey bottom border */
+    background-color: rgb(245, 248, 250); /* Light grey background */
+    text-align: left; /* Align text to the left */
+    cursor: pointer; /* Cursor pointer to indicate clickable */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.notification-overlay .issue-button:hover {
+    background-color: #dddddd; /* Slightly darker on hover */
+}
+
+.notification-overlay .issue-button p {
+    margin: 0; /* Remove default paragraph margin */
+    color: rgb(81, 81, 255);
+    font-weight: 500;
+    font-size: 15px;
+    
+}
+
+.notification-overlay .action-req-text {
+    font-weight: 500;
+    color: black;
+}
+
+.notification-overlay .load-more-button {
+    background-color: var(--secondary);
+    border: none; /* No border for a more modern look */
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%; /* Full width button */
+    margin-top: 10px; /* Space from the last issue button */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.notification-overlay .load-more-button:hover {
+    background-color: #d1d1d1; /* Slightly darker on hover */
+}
+
+
+@media (max-width: 768px) {
+    .header-student-dashboard {
+        padding-left: 1.5%;
+        padding-right: 1.5%;
+    }
+
+    .header-student-dashboard .h1-student-dashboard {
+        /* display: none; */
+        font-size: 13px;
+    }
+
+    .header-student-dashboard .student-name {
+        display: none;
+    }
+
+    .header-student-dashboard .notification-icon>img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-student-dashboard .logout-button {
+        width: 25px;
+        height: 25px;
+        margin-left: 8px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+}
