@@ -38,6 +38,35 @@ The NYUAD Issue Resolution Platform is a web-based application designed to facil
 
 The [CONTRIBUTING.md](./CONTRIBUTING.md) file contains information on how to contribute to this project
 
+## Features
+
+### Common:
+
+- **Login Page**: Secure access for registered users including both students and administrators to ensure confidentiality and integrity of the issues reported.
+
+### Student Features:
+
+- **Request Creation**: Allows students to submit new issues, detailing the nature, urgency, and any other relevant information.
+- **Request Dashboard**: Enables students to view and manage their submitted issues organized by date for easy tracking. Each issue entry includes:
+    - **Title**: A brief summary of the issue.
+    - **Details View**: Clicking on an issue opens an overlay with detailed information including:
+        - **Issue Description**: Full details of the reported issue.
+        - **Admin Comments**: Responses and comments from the administration side.
+        - **Attachments**: Any relevant files or documents attached to the issue for reference.
+    - This detailed view ensures that students have all necessary information and updates at their fingertips.
+
+### Admin Features:
+
+- **Admin Dashboard**: Provides administrators a comprehensive overview of all reported issues, allowing for effective prioritization and management.
+- **Request Handling**: Admins can respond to issues, post updates, attach files, and directly communicate with the concerned student.
+- **File Attachment**: Admins can attach files or documents relevant to the issue resolution.
+- **Department Management**: Ability to assign issues to specific departments and manage departmental responsibilities.
+
+## Technical Details
+
+- **Database**: MongoDB Atlas, providing a scalable and secure database solution.
+- **Architecture**: Designed with distinct interfaces and functionalities for students and admins to cater to their specific needs.
+
 
 ## How to launch the app
 1. Clone this repository to your local machine
